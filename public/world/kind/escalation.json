@@ -1,0 +1,231 @@
+{
+  "base": {
+    "1": 0.0004926487188865458,
+    "5": 0.002988337956250753,
+    "21": 0.01049763721339425,
+    "63": 0.025720163902466675
+  },
+  "events": [
+    {
+      "anchor": "2026-10-21",
+      "date": "2026-10-22",
+      "h": {
+        "1": -0.012084271330631391,
+        "5": null,
+        "21": null,
+        "63": null
+      },
+      "title": "An al-Qaeda in the Arabian Peninsula attack in Shabwah Governorate kills two soldiers."
+    },
+    {
+      "anchor": "2026-09-22",
+      "date": "2026-09-23",
+      "h": {
+        "1": -0.007548366766584991,
+        "5": -0.012080443049146794,
+        "21": -0.0009620812699900894,
+        "63": null
+      },
+      "title": "Threats and attacks by the Conquering Self-Defense Forces of the Sierra Nevada (ACSN) bring Santa Marta, Magdalena Department, Colombia, to a standstill, closing businesses and public transport...."
+    },
+    {
+      "anchor": "2025-10-17",
+      "date": "2025-10-20",
+      "h": {
+        "1": 0.010672270853256949,
+        "5": 0.01915966216614251,
+        "21": 0.0012605609716138666,
+        "63": 0.01993545962995613
+      },
+      "title": "Gaza: Israel"
+    },
+    {
+      "anchor": "2024-10-11",
+      "date": "2024-10-14",
+      "h": {
+        "1": 0.0077076668832223305,
+        "5": 0.008536523208438895,
+        "21": 0.03204116219242947,
+        "63": 0.004794536248966308
+      },
+      "title": "PLA 'Joint Sword 2024B' drills around Taiwan"
+    },
+    {
+      "anchor": "2024-05-22",
+      "date": "2024-05-23",
+      "h": {
+        "1": -0.0073807894850155265,
+        "5": -0.013478359436903342,
+        "21": 0.02654232002264112,
+        "63": 0.04967587826978548
+      },
+      "title": "PLA 'Joint Sword 2024A' drills around Taiwan"
+    },
+    {
+      "anchor": "2024-01-11",
+      "date": "2024-01-12",
+      "h": {
+        "1": 0.0007509755941104146,
+        "5": 0.012461680019840715,
+        "21": 0.05054131121646188,
+        "63": 0.0717892626833363
+      },
+      "title": "US and UK strikes on Houthi targets in Yemen"
+    },
+    {
+      "anchor": "2023-11-17",
+      "date": "2023-11-19",
+      "h": {
+        "1": 0.007390278097329839,
+        "5": 0.008066015678366734,
+        "21": 0.056346692428418166,
+        "63": 0.10362820349317503
+      },
+      "title": "Houthis seize the Galaxy Leader in the Red Sea"
+    },
+    {
+      "anchor": "2023-04-06",
+      "date": "2023-04-08",
+      "h": {
+        "1": 0.0009963029974375814,
+        "5": 0.00794639661494867,
+        "21": 0.008063321859275607,
+        "63": 0.07417984910577169
+      },
+      "title": "PLA 'Joint Sword' drills encircle Taiwan"
+    },
+    {
+      "anchor": "2022-11-14",
+      "date": "2022-11-15",
+      "h": {
+        "1": 0.008713116550319144,
+        "5": -0.001847257209868003,
+        "21": 0.009620334413892317,
+        "63": 0.04810161037494476
+      },
+      "title": "A missile lands in Przewodow, Poland"
+    },
+    {
+      "anchor": "2022-09-23",
+      "date": "2022-09-26",
+      "h": {
+        "1": -0.010340526208282075,
+        "5": -0.029137059931369835,
+        "21": 0.02818944608715146,
+        "63": 0.03497207398196789
+      },
+      "title": "Nord Stream pipelines ruptured by explosions"
+    },
+    {
+      "anchor": "2022-08-03",
+      "date": "2022-08-04",
+      "h": {
+        "1": -0.0007773401640558397,
+        "5": 0.013253444151605231,
+        "21": -0.04532181060209728,
+        "63": -0.0719753535575739
+      },
+      "title": "PLA live-fire drills around Taiwan after the Pelosi visit"
+    },
+    {
+      "anchor": "1996-03-07",
+      "date": "1996-03-08",
+      "h": {
+        "1": -0.030826931326324303,
+        "5": -0.019551791967469367,
+        "21": -0.014396135283744171,
+        "63": 0.029648901031075203
+      },
+      "title": "China's missile tests off Taiwan's ports ahead of its election"
+    },
+    {
+      "anchor": "1995-07-20",
+      "date": "1995-07-21",
+      "h": {
+        "1": 0.00014455521375156266,
+        "5": 0.021100540411562285,
+        "21": 0.010243241988625362,
+        "63": 0.06124223318950217
+      },
+      "title": "China fires missiles near Taiwan (Third Taiwan Strait Crisis)"
+    }
+  ],
+  "h": {
+    "1": {
+      "best": 0.010672270853256949,
+      "hit": 0.5384615384615384,
+      "median": 0.00014455521375156266,
+      "n": 13,
+      "worst": -0.030826931326324303
+    },
+    "5": {
+      "best": 0.021100540411562285,
+      "hit": 0.5833333333333334,
+      "median": 0.008006206146657702,
+      "n": 12,
+      "worst": -0.029137059931369835
+    },
+    "21": {
+      "best": 0.056346692428418166,
+      "hit": 0.75,
+      "median": 0.00993178820125884,
+      "n": 12,
+      "worst": -0.04532181060209728
+    },
+    "63": {
+      "best": 0.10362820349317503,
+      "hit": 0.9090909090909091,
+      "median": 0.04810161037494476,
+      "n": 11,
+      "worst": -0.0719753535575739
+    }
+  },
+  "kind": "escalation",
+  "label": "Escalation or strike",
+  "n": 13,
+  "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+  "page": "/world/kind/escalation",
+  "spacing": 21,
+  "test": {
+    "h": {
+      "1": {
+        "above": 6,
+        "base_median": 0.0004926487188865458,
+        "event_median": 0.00014455521375156266,
+        "n": 13,
+        "p_value": 1,
+        "share_above": 0.46153846153846156,
+        "spacing": 21
+      },
+      "5": {
+        "above": 7,
+        "base_median": 0.002988337956250753,
+        "event_median": 0.008006206146657702,
+        "n": 12,
+        "p_value": 0.7744140625,
+        "share_above": 0.5833333333333334,
+        "spacing": 21
+      },
+      "21": {
+        "above": 5,
+        "base_median": 0.01049763721339425,
+        "event_median": 0.00993178820125884,
+        "n": 12,
+        "p_value": 0.7744140625,
+        "share_above": 0.4166666666666667,
+        "spacing": 21
+      },
+      "63": {
+        "above": 6,
+        "base_median": 0.025720163902466675,
+        "event_median": 0.04810161037494476,
+        "n": 9,
+        "p_value": 0.5078125,
+        "share_above": 0.6666666666666666,
+        "spacing": 63
+      }
+    },
+    "read": "After 12 escalation or strike events at least 21 sessions apart, the S&P 500 beat its median 21-session move 5 times (42%); on ordinary days that happens half the time, and a split this lopsided or more has a 77% chance by luck alone."
+  },
+  "warmed": "2026-10-24"
+}

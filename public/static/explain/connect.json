@@ -1,0 +1,72 @@
+{
+  "page": "connect",
+  "path": "/connect",
+  "items": {
+    "connect-head": {
+      "title": "Connect your AI",
+      "body": "MCP is the open standard Claude, ChatGPT and most AI agents use to reach outside tools. Connect yours and it searches our library and runs backtests on our data by itself, mid conversation.",
+      "learn": "S2",
+      "tour": "connect:0"
+    },
+    "endpoint-head": {
+      "title": "The address",
+      "body": "The address your AI connects to. The Claude and ChatGPT apps sign in through us, so there is no key to paste. Claude Code and other tools send a key from your account page.",
+      "learn": "S2",
+      "tour": "connect:0"
+    },
+    "claude-head": {
+      "title": "From Claude",
+      "body": "Claude Code takes one command with your key. In Claude Desktop or claude.ai, add a custom connector with this address, leave the OAuth fields empty, then sign in to QuantGPT when Claude asks.",
+      "learn": "S2",
+      "tour": "connect:3"
+    },
+    "chatgpt-head": {
+      "title": "From ChatGPT",
+      "body": "Turn on Developer mode, create a custom connector with this address and OAuth, then sign in to QuantGPT. The connection shows as a key on your account page, where you can revoke it.",
+      "learn": "S2",
+      "tour": "connect:4"
+    },
+    "dialog-head": {
+      "title": "The connector dialog",
+      "body": "A picture of the dialog: paste the address, leave the OAuth fields empty, click Add, then sign in to QuantGPT when asked.",
+      "learn": "S2",
+      "tour": ""
+    },
+    "manifest-head": {
+      "title": "How your AI learns the tools",
+      "body": "When your AI connects, our server tells it what our data holds, how the method works and which tool answers what. There is nothing for you to paste or explain.",
+      "learn": "S2",
+      "tour": ""
+    },
+    "tools-head": {
+      "title": "The tools",
+      "body": "The research tools your AI can call: search the library, list the factors, run a backtest, a market timing rule or a library strategy. More groups of tools switch on when a task needs them.",
+      "learn": "S2",
+      "tour": ""
+    },
+    "prompt-head": {
+      "title": "A first prompt",
+      "body": "Paste this into your connected AI. It finds a value strategy in our library, runs it, tunes it, and shows the numbers on years the rule never saw, including what failed.",
+      "learn": "S4",
+      "tour": ""
+    },
+    "pastepack": {
+      "title": "The setup prompt",
+      "body": "If your AI cannot add connectors, copy this one block into any Claude or ChatGPT chat. It carries what our data holds and how the method works, so the chat can guide you step by step.",
+      "learn": "S2",
+      "tour": "connect:5"
+    },
+    "brokers": {
+      "title": "Your broker",
+      "body": "On QuantGPT Pro: QuantGPT Cloud hosts your own code and sends its orders to your own Alpaca account, under your keys. QuantGPT Cloud supports Alpaca today (paper and live accounts). We never decide a trade.",
+      "learn": "G3",
+      "tour": ""
+    },
+    "plib-head": {
+      "title": "The prompt library",
+      "body": "Questions people ask an AI about markets. Tap one to copy it, swap in your ticker, and paste it to your connected AI. Your AI already knows which QuantGPT tools answer it.",
+      "learn": "S2",
+      "tour": "connect:6"
+    }
+  }
+}

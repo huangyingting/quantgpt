@@ -1,0 +1,71 @@
+{
+  "base": {
+    "1": 0.0004926487188865458,
+    "5": 0.002988337956250753,
+    "21": 0.01049763721339425,
+    "63": 0.025720163902466675
+  },
+  "events": [
+    {
+      "anchor": "2026-10-14",
+      "date": "2026-10-15",
+      "h": {
+        "1": 0.003254348055326872,
+        "5": 0.00495275008731122,
+        "21": null,
+        "63": null
+      },
+      "title": "A court in Hamburg, Germany, sentences a Danish national to eight years and six months in prison and an Afghan national to four years and six months in prison for plotting to assassinate Josef..."
+    }
+  ],
+  "h": {
+    "1": {
+      "best": 0.003254348055326872,
+      "hit": 1,
+      "median": 0.003254348055326872,
+      "n": 1,
+      "worst": 0.003254348055326872
+    },
+    "5": {
+      "best": 0.00495275008731122,
+      "hit": 1,
+      "median": 0.00495275008731122,
+      "n": 1,
+      "worst": 0.00495275008731122
+    },
+    "21": null,
+    "63": null
+  },
+  "kind": "diplomacy",
+  "label": "Diplomacy",
+  "n": 1,
+  "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+  "page": "/world/kind/diplomacy",
+  "spacing": 21,
+  "test": {
+    "h": {
+      "1": {
+        "above": 1,
+        "base_median": 0.0004926487188865458,
+        "event_median": 0.003254348055326872,
+        "n": 1,
+        "p_value": 1,
+        "share_above": 1,
+        "spacing": 21
+      },
+      "5": {
+        "above": 1,
+        "base_median": 0.002988337956250753,
+        "event_median": 0.00495275008731122,
+        "n": 1,
+        "p_value": 1,
+        "share_above": 1,
+        "spacing": 21
+      },
+      "21": null,
+      "63": null
+    },
+    "read": "Not enough past diplomacy events on the tape to test."
+  },
+  "warmed": "2026-10-24"
+}

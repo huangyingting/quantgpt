@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: quantgpt
+      POSTGRES_PASSWORD: quantgpt_prod_password
+      POSTGRES_DB: quantgpt
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  quantgpt:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: "postgresql://quantgpt:quantgpt_prod_password@postgres:5432/quantgpt?schema=public"
+      NEXTAUTH_URL: "http://localhost:3000"
+      NEXTAUTH_SECRET: "${NEXTAUTH_SECRET:-change-me-in-production}"
+    ports:
+      - "3000:3000"
+
+volumes:
+  pgdata:

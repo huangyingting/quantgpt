@@ -1,0 +1,71 @@
+{
+  "base": {
+    "1": 0.0004926487188865458,
+    "5": 0.002988337956250753,
+    "21": 0.01049763721339425,
+    "63": 0.025720163902466675
+  },
+  "events": [
+    {
+      "anchor": "2026-10-02",
+      "date": "2026-10-05",
+      "h": {
+        "1": 0.006633670396382074,
+        "5": 0.011501106054318866,
+        "21": null,
+        "63": null
+      },
+      "title": "In Kosovo, the acting presidency of Albulena Haxhiu becomes de facto due to her having continuously served in the position for more than six months since assuming office on 4 April, violating the..."
+    }
+  ],
+  "h": {
+    "1": {
+      "best": 0.006633670396382074,
+      "hit": 1,
+      "median": 0.006633670396382074,
+      "n": 1,
+      "worst": 0.006633670396382074
+    },
+    "5": {
+      "best": 0.011501106054318866,
+      "hit": 1,
+      "median": 0.011501106054318866,
+      "n": 1,
+      "worst": 0.011501106054318866
+    },
+    "21": null,
+    "63": null
+  },
+  "kind": "election",
+  "label": "Election",
+  "n": 1,
+  "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+  "page": "/world/kind/election",
+  "spacing": 21,
+  "test": {
+    "h": {
+      "1": {
+        "above": 1,
+        "base_median": 0.0004926487188865458,
+        "event_median": 0.006633670396382074,
+        "n": 1,
+        "p_value": 1,
+        "share_above": 1,
+        "spacing": 21
+      },
+      "5": {
+        "above": 1,
+        "base_median": 0.002988337956250753,
+        "event_median": 0.011501106054318866,
+        "n": 1,
+        "p_value": 1,
+        "share_above": 1,
+        "spacing": 21
+      },
+      "21": null,
+      "63": null
+    },
+    "read": "Not enough past election events on the tape to test."
+  },
+  "warmed": "2026-10-24"
+}

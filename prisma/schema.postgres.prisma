@@ -1,0 +1,311 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id                  String               @id @default(cuid())
+  email               String               @unique
+  emailVerified       DateTime?
+  name                String?
+  handle              String?              @unique
+  image               String?
+  avatar              String               @default("tri-amber")
+  passwordHash        String?
+  role                String               @default("MEMBER")
+  plan                String               @default("member")
+  uiMode              String               @default("all")
+  theme               String               @default("night")
+  totpEnabled         Boolean              @default(false)
+  totpSecret          String?
+  rampStepsJson       String               @default("[]")
+  badgesJson          String               @default("[\"founding\"]")
+  tapeJson            String               @default("[\"SPY\",\"QQQ\",\"NVDA\",\"AAPL\",\"MSFT\",\"MU\",\"GLD\",\"WTI\"]")
+  defaultsJson        String               @default("{\"bench\":\"$SPXTR\",\"startYear\":1998,\"splitYear\":2015,\"costBps\":10}")
+  accounts            Account[]
+  sessions            Session[]
+  passwordCredential  PasswordCredential?
+  sentInvitations     AccountInvitation[]  @relation("InvitationSender")
+  acceptedInvitation  AccountInvitation?   @relation("InvitationRecipient")
+  auditLogs           AuditLog[]           @relation("AuditActor")
+  mcpKeys             McpApiKey[]
+  savedStudies        SavedStudy[]
+  portfolios          UserPortfolio[]
+  cloudBots           CloudBot[]
+  universityProgress  UniversityProgress[]
+  forumPosts          ForumPost[]
+  forumReplies        ForumReply[]
+  eventRules          EventRule[]
+  crisisPlays         CrisisPlay[]
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model PasswordCredential {
+  id                String    @id @default(cuid())
+  userId            String    @unique
+  passwordHash      String
+  passwordChangedAt DateTime  @default(now())
+  resetTokenHash    String?   @unique
+  resetExpiresAt    DateTime?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model AccountInvitation {
+  id              String     @id @default(cuid())
+  email           String
+  normalizedEmail String
+  activeForEmail  String?    @unique
+  role            String     @default("MEMBER")
+  tokenHash       String?    @unique
+  status          String     @default("PENDING")
+  invitedById     String?
+  invitedBy       User?      @relation("InvitationSender", fields: [invitedById], references: [id], onDelete: SetNull)
+  acceptedById    String?    @unique
+  acceptedBy      User?      @relation("InvitationRecipient", fields: [acceptedById], references: [id], onDelete: SetNull)
+  expiresAt       DateTime
+  acceptedAt      DateTime?
+  revokedAt       DateTime?
+  auditLogs       AuditLog[]
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  @@index([normalizedEmail, status])
+  @@index([status, expiresAt])
+}
+
+model AuditLog {
+  id           String             @id @default(cuid())
+  action       String
+  actorUserId  String?
+  actor        User?              @relation("AuditActor", fields: [actorUserId], references: [id], onDelete: SetNull)
+  targetEmail  String?
+  invitationId String?
+  invitation   AccountInvitation? @relation(fields: [invitationId], references: [id], onDelete: SetNull)
+  metadataJson String?
+  createdAt    DateTime           @default(now())
+
+  @@index([action])
+  @@index([actorUserId])
+  @@index([createdAt])
+}
+
+model McpApiKey {
+  id             String    @id @default(cuid())
+  userId         String
+  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  label          String
+  keyPrefix      String
+  keyHash        String    @unique
+  categoriesJson String    @default("[\"core\"]")
+  callsToday     Int       @default(0)
+  lastUsedAt     DateTime?
+  revokedAt      DateTime?
+  createdAt      DateTime  @default(now())
+
+  @@index([userId])
+}
+
+model SavedStudy {
+  id               String   @id @default(cuid())
+  userId           String
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name             String
+  strategyId       String?
+  engine           String   @default("factor")
+  criteriaJson     String
+  benchmark        String   @default("$SPXTR")
+  startYear        Int      @default(1998)
+  splitYear        Int      @default(2015)
+  finding          String   @default("DATA VALIDATED")
+  cagr             Float
+  benchCagr        Float
+  sharpe           Float
+  benchSharpe      Float
+  maxDrawdown      Float
+  oosStatus        String   @default("HOLDING UP")
+  sinceSavedReturn Float    @default(3.4)
+  benchSinceSaved  Float    @default(1.8)
+  paperBookEnabled Boolean  @default(false)
+  paperEquity      Float    @default(100000)
+  alertEnabled     Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model UserPortfolio {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name          String   @default("Core Quant Book")
+  holdingsJson  String
+  linkedStudyId String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model CloudBot {
+  id                String   @id @default(cuid())
+  userId            String
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name              String
+  code              String
+  versionHash       String
+  cronSchedule      String   @default("35 9 * * 1-5")
+  mode              String   @default("paper")
+  status            String   @default("paused")
+  alpacaKeyMasked   String?
+  attestedVersion   String?
+  paperWindowChoice String   @default("use_30d_paper")
+  runsJson          String   @default("[]")
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model UniversityProgress {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  chapterId    String
+  lessonPlayed Boolean  @default(false)
+  actionDone   Boolean  @default(false)
+  quizPassed   Boolean  @default(false)
+  quizScore    Int      @default(0)
+  updatedAt    DateTime @updatedAt
+
+  @@unique([userId, chapterId])
+  @@index([userId])
+}
+
+model ForumPost {
+  id               String       @id @default(cuid())
+  userId           String?
+  user             User?        @relation(fields: [userId], references: [id], onDelete: SetNull)
+  authorHandle     String
+  authorRole       String       @default("MEMBER")
+  category         String       @default("studies")
+  title            String
+  body             String
+  studyPayloadJson String?
+  upvotes          Int          @default(1)
+  replies          ForumReply[]
+  createdAt        DateTime     @default(now())
+
+  @@index([category, createdAt])
+}
+
+model ForumReply {
+  id           String    @id @default(cuid())
+  postId       String
+  post         ForumPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  userId       String?
+  user         User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
+  authorHandle String
+  body         String
+  createdAt    DateTime  @default(now())
+
+  @@index([postId])
+}
+
+model TeamBoard {
+  id        String     @id @default(cuid())
+  name      String     @default("Alpha Desk Research")
+  ownerId   String?
+  seatsJson String     @default("[]")
+  filesJson String     @default("[]")
+  cards     TeamCard[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model TeamCard {
+  id          String    @id @default(cuid())
+  boardId     String
+  board       TeamBoard @relation(fields: [boardId], references: [id], onDelete: Cascade)
+  column      String    @default("NOTES")
+  title       String
+  note        String
+  finding     String?
+  cagr        Float?
+  sharpe      Float?
+  maxDrawdown Float?
+  author      String    @default("Operator")
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([boardId, column])
+}
+
+model EventRule {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  eventKind    String
+  action       String   @default("pause_entries")
+  windowDays   Int      @default(5)
+  scope        String   @default("all_signals")
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+
+  @@index([userId])
+}
+
+model CrisisPlay {
+  id          String   @id @default(cuid())
+  userId      String?
+  user        User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  crisisId    String
+  totalReturn Float
+  benchReturn Float
+  maxDrawdown Float
+  decisions   String
+  createdAt   DateTime @default(now())
+}

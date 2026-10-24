@@ -1,0 +1,24 @@
+{
+  "page": "university",
+  "path": "/university",
+  "items": {
+    "uni-head": {
+      "title": "University",
+      "body": "Chapters in the order you use QuantGPT. Each is a lesson of 3 minutes or less, one thing to do in the product and a three-question check. Your progress is saved on your account.",
+      "learn": "S1",
+      "tour": ""
+    },
+    "steps": {
+      "title": "The three steps",
+      "body": "The chapters in the order you use QuantGPT. Chapters marked QuantGPT open on every plan, those marked QuantGPT Pro on QuantGPT Pro and Business. A chapter with a lock still shows what it covers.",
+      "learn": "",
+      "tour": ""
+    },
+    "more": {
+      "title": "Every lesson on one shelf",
+      "body": "The Learn page lists the playable lessons under the same three steps. Every one of them plays without signing in; here, signed in, each chapter adds a thing to do and a check.",
+      "learn": "",
+      "tour": ""
+    }
+  }
+}

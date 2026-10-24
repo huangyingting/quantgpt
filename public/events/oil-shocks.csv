@@ -1,0 +1,51 @@
+# Source: QuantGPT oil shock event study run 2026-09-14 over the QuantGPT MCP (query_warehouse); page https://quantgpt.co/events/oil-shocks; an episode starts when WTI crude rises 25% or more over 42 trading sessions (2 months in the monthly data before 1986); 21 completed episodes 1974 to 2021; S&P 500 price index at monthly closes; gross returns with no dividends and no costs; n = episodes behind each figure; research not investment advice
+table,group,episode,horizon,statistic,value,unit,n,note
+sp500_after_trigger,all completed episodes,,1m,median,0.0,percent,21,
+sp500_after_trigger,all completed episodes,,1m,mean,0.1,percent,21,
+sp500_after_trigger,all completed episodes,,1m,worst,-6.1,percent,21,
+sp500_after_trigger,all completed episodes,,1m,best,8.5,percent,21,
+sp500_after_trigger,all completed episodes,,1m,positive,10,episodes,21,
+sp500_after_trigger,all completed episodes,,3m,median,2.3,percent,21,
+sp500_after_trigger,all completed episodes,,3m,mean,2.2,percent,21,
+sp500_after_trigger,all completed episodes,,3m,worst,-13.7,percent,21,
+sp500_after_trigger,all completed episodes,,3m,best,25.0,percent,21,
+sp500_after_trigger,all completed episodes,,3m,positive,12,episodes,21,
+sp500_after_trigger,all completed episodes,,6m,median,5.1,percent,21,
+sp500_after_trigger,all completed episodes,,6m,mean,4.0,percent,21,
+sp500_after_trigger,all completed episodes,,6m,worst,-28.9,percent,21,
+sp500_after_trigger,all completed episodes,,6m,best,38.8,percent,21,
+sp500_after_trigger,all completed episodes,,6m,positive,13,episodes,21,
+sp500_after_trigger,all completed episodes,,12m,median,14.7,percent,21,
+sp500_after_trigger,all completed episodes,,12m,mean,11.6,percent,21,
+sp500_after_trigger,all completed episodes,,12m,worst,-37.5,percent,21,the 2007 episode
+sp500_after_trigger,all completed episodes,,12m,best,50.2,percent,21,
+sp500_after_trigger,all completed episodes,,12m,positive,16,episodes,21,
+ladder,+25% rung,,12m,median,14.7,percent,21,S&P 500 from the day the rung first broke; the full sample
+ladder,+25% rung,,12m,positive,16,episodes,21,
+ladder,+25% rung,,6m,worst,-28.9,percent,21,
+ladder,+25% rung,,12m,recession_within,6,episodes,21,NBER recession indicator (FRED USREC) within 12 months of the trigger
+ladder,+35% rung,,12m,median,13.3,percent,14,S&P 500 from the day the rung first broke
+ladder,+35% rung,,12m,positive,10,episodes,14,
+ladder,+35% rung,,6m,worst,-28.9,percent,14,
+ladder,+35% rung,,12m,recession_within,4,episodes,14,
+ladder,+50% rung,,12m,median,12.1,percent,7,S&P 500 from the day the rung first broke
+ladder,+50% rung,,12m,positive,5,episodes,7,
+ladder,+50% rung,,6m,worst,-20.9,percent,7,
+ladder,+50% rung,,12m,recession_within,3,episodes,7,
+ladder,+75% rung,,12m,median,22.6,percent,3,S&P 500 from the day the rung first broke
+ladder,+75% rung,,12m,positive,2,episodes,3,
+ladder,+75% rung,,6m,worst,-17.9,percent,3,
+ladder,+75% rung,,12m,recession_within,2,episodes,3,
+ladder,+100% rung,,12m,median,8.9,percent,2,S&P 500 from the day the rung first broke; the two episodes are 1973-74 and 2020
+ladder,+100% rung,,12m,positive,1,episodes,2,
+ladder,+100% rung,,6m,worst,-17.9,percent,2,
+ladder,+100% rung,,12m,recession_within,1,episodes,2,
+reshock_after_second_trigger,second trigger within 15 months (cohort n = 3),2003-01,12m,return,32.2,percent,1,measured from the second trigger
+reshock_after_second_trigger,second trigger within 15 months (cohort n = 3),2011-11,12m,return,13.6,percent,1,measured from the second trigger
+reshock_after_second_trigger,second trigger within 15 months (cohort n = 3),2016-03,12m,return,14.7,percent,1,measured from the second trigger
+named_episode,worst 12 months of the 21,2007,12m,return,-37.5,percent,1,
+episode_2026,in progress (not in the 21),2026-03-03,1m,return,10.4,percent,1,as measured on 2026-09-14
+episode_2026,in progress (not in the 21),2026-03-03,3m,return,14.9,percent,1,as measured on 2026-09-14
+episode_2026,in progress (not in the 21),2026-03-03,6m,return,17.3,percent,1,as measured on 2026-09-14
+episode_2026,in progress (not in the 21),2026-03-03,,wti_peak_42_session_change,84,percent,1,peak on 2026-04-02
+episode_2026,in progress (not in the 21),2026-03-03,,wti_42_session_change,29.3,percent,1,second leg on 2026-09-14; an intraday print on a spliced spot and futures series

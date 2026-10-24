@@ -1,0 +1,42 @@
+{
+  "page": "simulator",
+  "path": "/events/simulator",
+  "items": {
+    "h-sim": {
+      "title": "The crisis simulator",
+      "body": "Replay a past crisis one trading session at a time, on paper. You only see what was known that day, and at each close you choose to hold your book, hedge it or go to cash.",
+      "learn": "S5",
+      "tour": ""
+    },
+    "h-setup": {
+      "title": "A new play",
+      "body": "Pick a crisis from the record and a book: your pins, a paper book, or tickers and weights you type. The hedge is optional: your own tickers, each as a share of the book.",
+      "learn": "",
+      "tour": ""
+    },
+    "p-choose": {
+      "title": "Your choice at the close",
+      "body": "Hold keeps the book, Hedge adds your hedge, and Cash sits out, earning nothing. The choice takes effect at the close, for the next session. Play one session, five, or to the end.",
+      "learn": "",
+      "tour": ""
+    },
+    "p-chart": {
+      "title": "Your path",
+      "body": "Your path against the book as held and the S&P 500, plus the hedged book if you set a hedge. Shaded sessions are the ones you sat in cash or held the hedge.",
+      "learn": "",
+      "tour": ""
+    },
+    "h-sessions": {
+      "title": "The sessions so far",
+      "body": "Each session played, newest first: how many events that day, the S&P 500, the book, what you held, and your result for the day and since the start.",
+      "learn": "",
+      "tour": ""
+    },
+    "h-mine": {
+      "title": "My plays",
+      "body": "Every play you started, with your result beside doing nothing, which is the book held throughout. Open one to carry on, or to read how it ended.",
+      "learn": "",
+      "tour": ""
+    }
+  }
+}

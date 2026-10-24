@@ -1,0 +1,457 @@
+[
+  {
+    "id": "ball-brown-1968",
+    "name": "Earnings News and Prices (PEAD origin)",
+    "type": "event",
+    "kind": "paper",
+    "src": "Ball & Brown (1968), Journal of Accounting Research",
+    "year": 1968,
+    "thesis": "Annual earnings news moves prices in its direction: good-news firms earned positive abnormal returns and bad-news firms negative ones. Most of the move came before the announcement month; a smaller continuation afterwards was the first hint of PEAD.",
+    "criteria": [
+      "Classify each annual report as good or bad news by the sign of unexpected earnings from a naive time-series model",
+      "Track monthly abnormal returns from 11 months before to 6 months after the announcement month"
+    ],
+    "result": "Earnings sign lined up with abnormal returns, but about 85 to 90 percent of the information was priced before the announcement month. Post-announcement drift was a small side finding, later formalized by Bernard and Thomas (1989).",
+    "testable": true,
+    "tags": [
+      "earnings",
+      "PEAD",
+      "drift",
+      "anomaly"
+    ],
+    "fidelity": "wrong",
+    "not_runnable": "The paper's finding is that most of the move came before the earnings report, which no rule can trade without knowing the earnings in advance, so this cannot be run as published."
+  },
+  {
+    "id": "bernard-thomas-1989",
+    "name": "Inspired by Bernard and Thomas: Post-Earnings Drift (SUE)",
+    "type": "event",
+    "kind": "paper",
+    "src": "Bernard & Thomas (1989, 1990), JAR/JAE",
+    "year": 1989,
+    "thesis": "Stocks keep drifting in the direction of a quarterly earnings surprise for about 60 trading days. Bernard and Thomas (1990) trace it to prices acting as if earnings follow a seasonal random walk, ignoring their autocorrelation.",
+    "criteria": [
+      "SUE = (EPS - EPS four quarters ago - drift) / std dev of past forecast errors",
+      "Sort into deciles using the prior quarter's cutoffs; long top decile, short bottom",
+      "Hold 60 trading days after the announcement"
+    ],
+    "result": "Extreme-decile spread of about 4.2% size-adjusted over 60 trading days (about 18% annualized before costs), NYSE/AMEX 1974 to 1986, positive in 41 of 48 quarters and larger in small firms. Later studies report it has weakened, especially in large caps.",
+    "testable": true,
+    "tags": [
+      "earnings",
+      "PEAD",
+      "SUE",
+      "drift"
+    ],
+    "fidelity": "loose",
+    "run_gap": "Enters on the 10-Q filing date, often weeks after the earnings release; the paper's drift sits in the days after the announcement.",
+    "runnable": true
+  },
+  {
+    "id": "frazzini-lamont-2007",
+    "name": "Earnings Announcement Premium",
+    "type": "event",
+    "kind": "paper",
+    "src": "Frazzini & Lamont (2007), NBER",
+    "year": 2007,
+    "thesis": "Stocks tend to earn higher returns in the months they are scheduled to announce earnings. The authors link the premium to attention-driven buying, as volume surges around announcements.",
+    "criteria": [
+      "Each month, predict which stocks will announce from their past announcement timing",
+      "Long expected announcers, short expected non-announcers",
+      "Rebalance monthly"
+    ],
+    "result": "Announcers minus non-announcers earned over 60 bps a month, 7% to 18% a year across specifications, over 1927 to 2004, including in large caps. Later work reports the US premium shrank sharply after the mid-2000s.",
+    "testable": true,
+    "tags": [
+      "earnings",
+      "calendar",
+      "announcement premium",
+      "EARNINGS RUN-UP"
+    ]
+  },
+  {
+    "id": "index-inclusion",
+    "name": "S&P 500 Inclusion Effect",
+    "type": "event",
+    "kind": "paper",
+    "src": "Harris & Gurel (1986); Shleifer (1986)",
+    "year": 1986,
+    "thesis": "Stocks jumped when their addition to the S&P 500 was announced, as index funds had to buy. The two papers disagreed on reversal: Harris and Gurel saw the gain fade within two weeks, Shleifer saw it hold.",
+    "criteria": [
+      "Buy on the addition announcement, exit near the effective date",
+      "Track returns after the effective date to measure any reversal"
+    ],
+    "result": "Announcement gains were about 3% in 1976 to 1983 (2.79% in Shleifer). The effect grew to about 7.4% in the 1990s, then fell below 1% in the 2010s (Greenwood and Sammon), a clear case of decay.",
+    "testable": true,
+    "tags": [
+      "index",
+      "S&P 500",
+      "flows",
+      "event",
+      "decay"
+    ]
+  },
+  {
+    "id": "ikenberry-buybacks-1995",
+    "name": "Buyback Announcement Drift",
+    "type": "event",
+    "kind": "paper",
+    "src": "Ikenberry, Lakonishok & Vermaelen (1995), JFE",
+    "year": 1995,
+    "thesis": "Firms announcing open-market buyback programs kept outperforming for years after the announcement, mostly among value (high book-to-market) stocks, as if the market underreacted to the signal.",
+    "criteria": [
+      "Buy after an open-market repurchase announcement",
+      "Concentrate on high book-to-market announcers",
+      "Hold up to 4 years"
+    ],
+    "result": "12.1% average abnormal buy-and-hold return over four years for 1980 to 1990 announcements, and 45.3% for value stocks. Fu and Huang (2016) find the long-run drift disappeared for 2003 to 2012 announcements.",
+    "testable": true,
+    "tags": [
+      "buybacks",
+      "event",
+      "drift",
+      "value"
+    ],
+    "fidelity": "wrong",
+    "not_runnable": "Our data has no buyback announcements yet, so this cannot be run as published."
+  },
+  {
+    "id": "insider-buying",
+    "name": "Insider Buying Signal",
+    "type": "event",
+    "kind": "paper",
+    "src": "Seyhun (1986, 1998); Cohen, Malloy & Pomorski (2012)",
+    "year": 1986,
+    "thesis": "Insider open-market trades predict returns, but only the non-routine ones. Cohen, Malloy and Pomorski find trades by insiders without a fixed calendar pattern carry nearly all the signal.",
+    "criteria": [
+      "Use open-market purchases (Form 4 code P), counted once the filing is public",
+      "Drop routine traders: insiders who traded in the same calendar month in each of the prior 3 years",
+      "Hold 1 to 12 months"
+    ],
+    "result": "Opportunistic-trade portfolios earned 82 bps a month value-weighted (about 10% a year) in Cohen et al.; routine trades earned about zero. Seyhun (1986) found outsiders copying reported trades earned little after costs.",
+    "testable": true,
+    "tags": [
+      "insiders",
+      "Form 4",
+      "event",
+      "INSIDER BUYING"
+    ],
+    "star": true,
+    "runnable": true
+  },
+  {
+    "id": "greenblatt-spinoffs-1997",
+    "name": "Spinoff Effect",
+    "type": "event",
+    "kind": "book",
+    "src": "Cusatis, Miles & Woolridge (1993); Greenblatt, 'You Can Be a Stock Market Genius' (1997)",
+    "year": 1997,
+    "thesis": "Spun-off companies have beaten the market in the first years after the spin. Greenblatt's explanation: parent shareholders receive stock they did not choose and sell it regardless of price.",
+    "criteria": [
+      "Buy spinoffs after the initial selling, often in the first months after the spin",
+      "Prefer spins where insiders hold equity and the stock is small or neglected",
+      "Hold 2 to 3 years"
+    ],
+    "result": "Cusatis, Miles and Woolridge (146 spinoffs, 1965 to 1988) found positive abnormal returns for up to three years, concentrated in firms that later became takeover targets. Greenblatt cites about 10% a year of outperformance; his reported Gotham record of about 50% a year came from special situations broadly.",
+    "testable": "partial",
+    "tags": [
+      "spinoffs",
+      "special situations",
+      "event",
+      "Greenblatt"
+    ]
+  },
+  {
+    "id": "ipo-lockup",
+    "name": "IPO Lockup Expiration",
+    "type": "event",
+    "kind": "paper",
+    "src": "Field & Hanka (2001), Journal of Finance",
+    "year": 2001,
+    "thesis": "Share prices dip around IPO lockup expiration, when insiders become free to sell. The date is known from the prospectus months ahead.",
+    "criteria": [
+      "Short or avoid IPO stocks in the days around lockup expiry (usually 180 days after the IPO)",
+      "Effect is larger for venture-capital-backed firms"
+    ],
+    "result": "About -1.5% abnormal over three days around expiry and a permanent 40% rise in volume (1,948 lockups); larger for VC-backed firms. A small edge; borrow cost and availability limit the short.",
+    "testable": "partial",
+    "tags": [
+      "IPO",
+      "lockup",
+      "event",
+      "short",
+      "supply"
+    ]
+  },
+  {
+    "id": "womack-revisions-1996",
+    "name": "Analyst Revision Drift",
+    "type": "event",
+    "kind": "paper",
+    "src": "Womack (1996); Gleason & Lee (2003)",
+    "year": 1996,
+    "thesis": "Prices keep moving after analyst news: for months after new sell recommendations, only briefly after buys. Forecast revisions also see delayed price adjustment, more so when the revision is genuinely new information.",
+    "criteria": [
+      "Long stocks just added to buy lists or with fresh upward EPS revisions",
+      "Short or avoid stocks just added to sell lists or with downward revisions",
+      "Favor revisions that move away from consensus; refresh monthly"
+    ],
+    "result": "Womack (about 1989 to 1991) found drift of +2.4% after new buys, short-lived, and -9.1% after new sells over six months. Gleason and Lee found revision drift larger for high-innovation revisions and thinly covered firms.",
+    "testable": true,
+    "tags": [
+      "analysts",
+      "revisions",
+      "drift",
+      "event"
+    ]
+  },
+  {
+    "id": "merger-arb",
+    "name": "Merger Arbitrage Spread",
+    "type": "event",
+    "kind": "paper",
+    "src": "Mitchell & Pulvino (2001), Journal of Finance",
+    "year": 2001,
+    "thesis": "Buying targets after deal announcement earns the deal spread; returns look like selling insurance on deal breaks.",
+    "criteria": [
+      "Long announced target at discount to deal price",
+      "Hedge acquirer in stock deals",
+      "Diversify across many deals"
+    ],
+    "result": "About 4% a year excess return after transaction costs and practical limits (4,750 deals, 1963 to 1998). Returns are uncorrelated with the market in flat or rising markets but fall with it in severe declines, like selling index puts.",
+    "testable": "partial",
+    "tags": [
+      "merger arb",
+      "special situations",
+      "event"
+    ]
+  },
+  {
+    "id": "dividend-initiation-drift-michaely-1995",
+    "name": "Dividend Initiation Drift",
+    "type": "event",
+    "kind": "paper",
+    "src": "Michaely, Thaler & Womack (1995), Journal of Finance",
+    "year": 1995,
+    "thesis": "Firms paying their first cash dividend rose on the news and kept outperforming over the next year, as if the market underreacted to the signal.",
+    "criteria": [
+      "NYSE/AMEX firms announcing their first cash dividend",
+      "Buy after the announcement; hold 12 months",
+      "Measure market-adjusted returns, excluding the announcement month"
+    ],
+    "result": "+3.4% over the three announcement days and +7.5% market-adjusted over the next 12 months. The authors found initiation drift less robust than the drift after omissions.",
+    "testable": true,
+    "tags": [
+      "dividends",
+      "corporate-action",
+      "post-announcement-drift",
+      "us-equities"
+    ]
+  },
+  {
+    "id": "dividend-omission-drift-michaely-1995",
+    "name": "Dividend Omission Drift",
+    "type": "event",
+    "kind": "paper",
+    "src": "Michaely, Thaler & Womack (1995), Journal of Finance",
+    "year": 1995,
+    "thesis": "Firms that omitted a regular cash dividend fell sharply on the news and kept underperforming over the following year; the market underreacted to bad dividend news.",
+    "criteria": [
+      "NYSE/AMEX firms that stop a previously regular cash dividend",
+      "Short or avoid after the announcement; hold 12 months",
+      "Measure market-adjusted returns, excluding the announcement month"
+    ],
+    "result": "-7.0% over the three announcement days and -11.0% market-adjusted over the next 12 months. Omission drift was stronger and more robust than initiation drift.",
+    "testable": true,
+    "tags": [
+      "dividends",
+      "corporate-action",
+      "post-announcement-drift",
+      "short"
+    ]
+  },
+  {
+    "id": "stock-split-drift-ikenberry-1996",
+    "name": "Stock Split Post-Announcement Drift",
+    "type": "event",
+    "kind": "paper",
+    "src": "Ikenberry, Rankine & Stice (1996), Journal of Financial and Quantitative Analysis",
+    "year": 1996,
+    "thesis": "Conventional forward stock splits have historically been followed by unusually strong returns beyond the announcement reaction. A split can be treated as a public corporate-action signal, not as a mechanical value change.",
+    "criteria": [
+      "Two-for-one forward splits (the source sample) by NYSE/AMEX firms",
+      "Exclude reverse splits and splits bundled with mergers or delisting",
+      "Buy after the announcement; hold 1 to 3 years",
+      "Benchmark against size and book-to-market matched firms"
+    ],
+    "result": "Announcement return of 3.38%, then 7.93% excess in the first year and 12.15% over three years (1,275 splits). Byun and Rozeff (2003) found long-run post-split returns small and sensitive to method.",
+    "testable": true,
+    "tags": [
+      "stock-splits",
+      "corporate-action",
+      "anomaly",
+      "post-announcement-drift"
+    ]
+  },
+  {
+    "id": "ipo-long-run-underperformance-ritter-1991",
+    "name": "Long-Run IPO Underperformance",
+    "type": "event",
+    "kind": "paper",
+    "src": "Ritter (1991), Journal of Finance",
+    "year": 1991,
+    "thesis": "Newly public firms in Ritter's sample underperformed comparable seasoned firms over the following years. The effect is a cross-sectional long-horizon pattern rather than an intraday IPO allocation trade.",
+    "criteria": [
+      "Form a universe of U.S. operating-company IPOs after the initial offering begins trading.",
+      "Exclude closed-end funds, REITs, ADRs, and other non-operating issuers under a documented screen.",
+      "Short or underweight an equal-weighted basket after the first trading month for a pre-specified multi-year horizon.",
+      "Measure returns against matched firms or an appropriate multifactor benchmark and include delisted securities."
+    ],
+    "result": "1,526 IPOs from 1975 to 1984 returned 34.5% over three years from the first-day close vs 61.9% for industry and size matched firms. Later studies find the gap depends on period and benchmark and is concentrated in small issuers.",
+    "testable": true,
+    "tags": [
+      "ipo",
+      "new-issues",
+      "long-horizon",
+      "underperformance"
+    ]
+  },
+  {
+    "id": "seo-long-run-underperformance-loughran-ritter-1995",
+    "name": "Seasoned Equity Offering Underperformance",
+    "type": "event",
+    "kind": "paper",
+    "src": "Loughran & Ritter (1995), Journal of Finance",
+    "year": 1995,
+    "thesis": "Firms that sold new shares in seasoned offerings earned low returns for years afterwards, consistent with managers issuing stock when it is overvalued.",
+    "criteria": [
+      "US seasoned common-equity offerings (exclude IPOs, rights issues and non-common securities)",
+      "Short or underweight issuers from the offer date for up to 5 years",
+      "Compare with size-matched nonissuers; check size and book-to-market matching too"
+    ],
+    "result": "SEO firms returned about 7% a year over the five years after issue (1970 to 1990), well below size-matched nonissuers; across issuers, 44% more money was needed to end with the same wealth. Later work finds the gap shrinks with book-to-market matching and vanished for 2003 to 2012 offerings.",
+    "testable": true,
+    "tags": [
+      "seo",
+      "equity-issuance",
+      "new-issues",
+      "underperformance"
+    ]
+  },
+  {
+    "id": "hedge-fund-13d-activism-brav-2008",
+    "name": "Schedule 13D Hedge Fund Activism",
+    "type": "event",
+    "kind": "paper",
+    "src": "Brav, Jiang, Partnoy & Thomas (2008), Journal of Finance",
+    "year": 2008,
+    "thesis": "Schedule 13D filings by activist hedge funds convey a public intervention in the target's governance or strategy. Event returns around these filings were positive in the documented sample.",
+    "criteria": [
+      "Collect initial Schedule 13D filings that identify a hedge-fund activist as the reporting person.",
+      "Retain filings with an explicit activist purpose such as governance, capital allocation, sale, or operational change.",
+      "Buy the target after the first public filing and hold for a fixed short- or medium-term window.",
+      "Exclude duplicate amendments and control for announced takeover bids when measuring standalone event returns."
+    ],
+    "result": "About 7% abnormal return around the announcement (2001 to 2006), with no reversal over the next year; funds got at least partial success in about two-thirds of cases. Part of the move comes before the filing is public.",
+    "testable": true,
+    "tags": [
+      "activism",
+      "13d",
+      "governance",
+      "hedge-funds"
+    ]
+  },
+  {
+    "id": "sp500-deletion-price-pressure-harris-gurel-1986",
+    "name": "S&P 500 Deletion Price Pressure",
+    "type": "event",
+    "kind": "paper",
+    "src": "Harris & Gurel (1986), Journal of Finance",
+    "year": 1986,
+    "thesis": "Deletion from the S&P 500 has been associated with a negative announcement-price effect, consistent in part with index-fund demand and price pressure. This is distinct from the commonly studied inclusion event.",
+    "criteria": [
+      "Use official S&P 500 constituent deletions and their public announcement timestamps.",
+      "Exclude deletions caused by completed mergers, bankruptcies, or other corporate events that eliminate the standalone security.",
+      "Sell or underweight after the deletion announcement through the effective date or another pre-specified short window.",
+      "Separate announcement-day effects from post-effective-date returns and include trading-cost assumptions."
+    ],
+    "result": "Harris and Gurel's headline is on additions; they report deletions fell too, apparently temporarily (deletion size not re-verified here). Chen, Noronha and Singal (2004) find no permanent decline for deletions, and Greenwood and Sammon report the deletion effect near 0.1% in 2010 to 2020.",
+    "testable": true,
+    "tags": [
+      "index-deletion",
+      "sp500",
+      "price-pressure",
+      "passive-investing"
+    ]
+  },
+  {
+    "id": "analyst-coverage-initiation-irvine-2003",
+    "name": "Analyst Coverage Initiation",
+    "type": "event",
+    "kind": "paper",
+    "src": "Irvine (2003), Journal of Corporate Finance",
+    "year": 2003,
+    "thesis": "The market reacts more to an analyst's first recommendation on a stock than to the same kind of recommendation from an analyst who already covers it; new coverage adds attention and liquidity.",
+    "criteria": [
+      "Identify a brokerage analyst's first recorded recommendation for a covered U.S. common stock.",
+      "Exclude later recommendations from the same analyst and recommendation changes for already-covered stocks.",
+      "Buy only initiations with a favorable recommendation under a pre-specified recommendation taxonomy.",
+      "Measure announcement-window and post-event returns with a market or factor-adjusted benchmark."
+    ],
+    "result": "Irvine found an initiation's price impact 1.02% larger than that of a recommendation by an existing analyst; liquidity improved after initiations but did not fully explain the extra return. Post-event drift was not the paper's finding.",
+    "testable": true,
+    "tags": [
+      "analysts",
+      "coverage-initiation",
+      "information",
+      "recommendations"
+    ]
+  },
+  {
+    "id": "special-dividend-announcement-deangelo-2000",
+    "name": "Special Dividend Announcement",
+    "type": "event",
+    "kind": "paper",
+    "src": "DeAngelo, DeAngelo & Skinner (2000), Journal of Financial Economics",
+    "year": 2000,
+    "thesis": "Special cash dividends are discrete distributions outside the regular dividend stream and can reveal a change in the firm's payout policy or cash position. Their information content must be separated from the mechanical ex-dividend price adjustment.",
+    "criteria": [
+      "Identify issuer announcements of a cash dividend explicitly designated special or extraordinary.",
+      "Exclude the ex-dividend date from the event definition and use the announcement date.",
+      "Screen out announcements that are part of a liquidation, merger consideration, or routine regular dividend increase.",
+      "Evaluate announcement-window abnormal returns and, separately, a fixed post-announcement holding return."
+    ],
+    "result": "DeAngelo, DeAngelo and Skinner found specials were once common and paid almost as predictably as regular dividends, then largely disappeared; only very large specials survived, and repurchases did not displace them. It is a payout-policy study, not a tested trading rule.",
+    "testable": "partial",
+    "tags": [
+      "special-dividend",
+      "payout-policy",
+      "corporate-action",
+      "event-study"
+    ]
+  },
+  {
+    "id": "post-bankruptcy-emergence-eberhart-1999",
+    "name": "Post-Bankruptcy Emergence Equities",
+    "type": "event",
+    "kind": "paper",
+    "src": "Eberhart, Altman & Aggarwal (1999), Journal of Finance",
+    "year": 1999,
+    "thesis": "Equity received by firms emerging from Chapter 11 showed strong post-emergence performance in the authors' historical sample. The strategy treats confirmed reorganization emergence as a distinct corporate event with substantial implementation frictions.",
+    "criteria": [
+      "US Chapter 11 firms whose plan takes effect and whose new common stock trades publicly",
+      "Enter after emergence, once the new equity has a market price",
+      "Hold equal weight for about 200 trading days (the paper's window), including delisting proceeds",
+      "Exclude liquidations and cases with no traded successor equity"
+    ],
+    "result": "131 firms emerging from Chapter 11 earned abnormal returns of +24.6% to +138.8% over the first 200 trading days, depending on the benchmark. The sample is small, distressed and illiquid, and the wide range shows how much the benchmark matters.",
+    "testable": true,
+    "tags": [
+      "bankruptcy",
+      "reorganization",
+      "distressed",
+      "post-emergence"
+    ],
+    "star": true
+  }
+]

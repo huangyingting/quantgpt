@@ -1,0 +1,482 @@
+[
+  {
+    "id": "short-interest-anomaly",
+    "name": "High Short Interest Underperformance",
+    "type": "flow",
+    "kind": "paper",
+    "src": "Asquith, Pathak & Ritter (2005), Journal of Financial Economics; Boehmer, Jones & Zhang (2008), Journal of Finance",
+    "year": 2005,
+    "thesis": "Stocks with high short interest have tended to underperform, mainly when shares are scarce to borrow (low institutional ownership). Short sellers as a group trade on information.",
+    "criteria": [
+      "Short interest ratio = shares short / shares outstanding, from exchange reports",
+      "Flag high short interest names with low institutional ownership (APR's constrained stocks)",
+      "Avoid or underweight flagged names; refresh on each report (twice a month since 2007)",
+      "Short sale volume is a flow, not short interest; do not swap one for the other"
+    ],
+    "result": "APR (1988-2002): constrained stocks trailed by 2.15%/month equal-weighted but only 0.39%/month value-weighted, not significant. BJZ (NYSE, 2000-2004): heavily shorted stocks trailed lightly shorted ones by 1.16% over the next 20 trading days. The effect sits in small, hard-to-borrow names.",
+    "testable": true,
+    "tags": [
+      "short interest",
+      "flow",
+      "informed trading",
+      "short"
+    ]
+  },
+  {
+    "id": "short-squeeze",
+    "name": "Short Squeeze Setup",
+    "type": "flow",
+    "kind": "practitioner",
+    "src": "Practitioner heuristic; GameStop case, SEC Staff Report on Equity and Options Market Structure Conditions in Early 2021",
+    "year": 2021,
+    "thesis": "Heavily shorted, hard-to-borrow stocks can spike when shorts cover, but on average high short interest predicts underperformance. A squeeze is a rare tail event, not a base rate.",
+    "criteria": [
+      "Practitioner screen: SI/float above about 20% and days-to-cover above 5 (heuristic, no published test)",
+      "Rising price and volume against the shorts after a catalyst",
+      "High or rising borrow fee and utilization as crowding confirmation",
+      "Size small: most high short interest names keep lagging"
+    ],
+    "result": "GME closed at $347.51 on Jan 27, 2021, about 18x its end-2020 close, with reported short interest above 100% of float. The SEC staff found buying on positive sentiment, not short covering, sustained the rise. We know of no published test showing a squeeze screen beats the market.",
+    "testable": true,
+    "tags": [
+      "short squeeze",
+      "days to cover",
+      "SHORT SQUEEZE",
+      "flow",
+      "retail"
+    ],
+    "star": true
+  },
+  {
+    "id": "finra-short-volume",
+    "name": "Daily Short Volume Signals",
+    "type": "flow",
+    "kind": "industry",
+    "src": "FINRA Reg SHO daily short sale volume files; Wang, Yan & Zheng (2020), Journal of Financial Economics",
+    "year": 2009,
+    "thesis": "FINRA daily short sale volume, as a share of off-exchange volume, measures shorting flow, not short interest. Research finds heavy shorting flow predicts somewhat lower returns.",
+    "criteria": [
+      "Short volume / total volume from FINRA TRF, ADF and ORF reports (off-exchange trades only)",
+      "Compare each name to its own history: the median ratio is about 47% because market makers sell short to fill buys",
+      "Treat heavy shorting flow as negative and light flow as positive",
+      "Not short interest: use exchange short interest for positions"
+    ],
+    "result": "Wang, Yan and Zheng (2020) found disclosed shorting flows still predicted lower returns in 2010-2015, with lightly shorted stocks beating heavily shorted ones. Single-name readings are noisy. In our warehouse from 2019.",
+    "testable": true,
+    "tags": [
+      "short volume",
+      "FINRA",
+      "flow",
+      "public data"
+    ]
+  },
+  {
+    "id": "13f-cloning",
+    "name": "13F Cloning (Coattail Investing)",
+    "type": "flow",
+    "kind": "paper",
+    "src": "Cremers & Petajisto (2009), Review of Financial Studies; Faber (2016), Invest with the House",
+    "year": 2009,
+    "thesis": "13F filings show large managers' long US holdings up to 45 days after quarter end. Copying the top holdings of concentrated, low-turnover managers may keep part of their stock-picking edge at no fee.",
+    "criteria": [
+      "Select managers: concentrated, low-turnover, long-horizon",
+      "Clone top-10 holdings at each 13F release (45-day lag)",
+      "Equal weight, quarterly rebalance"
+    ],
+    "result": "Faber's backtests from 2000 of about 20 hand-picked value managers' clones beat the S&P 500 (a Berkshire clone about 10.5%/yr vs 4.3%, 2000-2014, as reported). Managers were chosen with hindsight. Cremers-Petajisto (mutual funds, 1980-2003) found high Active Share funds beat benchmarks; they did not test cloning.",
+    "testable": "partial",
+    "tags": [
+      "13F",
+      "cloning",
+      "institutional",
+      "coattail"
+    ],
+    "star": true
+  },
+  {
+    "id": "frazzini-lamont-dumb-2008",
+    "name": "Dumb Money (Fund Flows)",
+    "type": "flow",
+    "kind": "paper",
+    "src": "Frazzini & Lamont (2008), JFE",
+    "year": 2008,
+    "thesis": "Money flowing into mutual funds pushes up the stocks those funds hold. Stocks with the most flow-driven buying earned lower returns over the next one to three years.",
+    "criteria": [
+      "Flow-induced ownership: change in fund ownership of each stock caused by fund inflows and outflows",
+      "Use trailing one to three year flows (CRSP fund flows plus fund holdings)",
+      "Long low-flow, short high-flow; hold for long horizons"
+    ],
+    "result": "US stocks, about 1980-2003: high-flow stocks trailed low-flow stocks; three-year flow spreads were about 0.4% to 0.85% per month depending on risk adjustment. Much of the effect overlaps value and share issuance.",
+    "testable": "partial",
+    "tags": [
+      "fund flows",
+      "sentiment",
+      "contrarian",
+      "flow"
+    ]
+  },
+  {
+    "id": "put-call-ratio",
+    "name": "Put/Call Ratio Extremes",
+    "type": "flow",
+    "kind": "practitioner",
+    "src": "Practitioner indicator; Simon & Wiggins (2001), Journal of Futures Markets; Pan & Poteshman (2006), Review of Financial Studies",
+    "year": 2001,
+    "thesis": "Market-wide, very high equity put/call volume has marked fear and very low readings complacency; a contrarian dial at extremes only. For single stocks the evidence runs the other way: heavy put buying has preceded weaker returns.",
+    "criteria": [
+      "Market-level equity put/call, smoothed, vs its own history",
+      "Fade extremes: add equity after fear spikes, trim after very low readings",
+      "Mid-range readings carry no signal",
+      "Do not apply the contrarian reading to single stocks"
+    ],
+    "result": "Simon and Wiggins (2001) found put/call, VIX and TRIN had contrarian power for S&P 500 futures over 10 to 30 days in 1989-1999. For single stocks, Pan and Poteshman (2006) found low put/call names beat high put/call names by over 1% the next week, using non-public signed volume.",
+    "testable": true,
+    "tags": [
+      "options",
+      "sentiment",
+      "put/call",
+      "contrarian"
+    ],
+    "fidelity": "wrong",
+    "not_runnable": "Our data has no market-wide put/call ratio yet, so this cannot be run as published."
+  },
+  {
+    "id": "insider-cluster",
+    "name": "Insider Cluster Buys",
+    "type": "flow",
+    "kind": "paper",
+    "src": "Seyhun (1998), Investment Intelligence from Insider Trading; Alldredge & Blank (2019), Journal of Financial Research",
+    "year": 1998,
+    "thesis": "Several insiders buying on the open market within days of each other is a stronger signal than one insider buying alone.",
+    "criteria": [
+      "Two or more insiders making open-market purchases within a few trading days",
+      "Executives plus directors together weigh more than one group alone",
+      "Signal tends to be stronger in small, less-followed stocks",
+      "Time entries from the Form 4 filing date, not the trade date"
+    ],
+    "result": "Alldredge and Blank (2019) found clustered purchases earned about 2.1% abnormal return the next month vs about 1.2% for solitary purchases. Kang, Kim and Wang reported 3.8% vs 2.0% over 21 trading days (1986-2016). Roughly double, not several times.",
+    "testable": true,
+    "tags": [
+      "insiders",
+      "cluster",
+      "Form 4",
+      "INSIDER BUYING",
+      "flow"
+    ],
+    "runnable": true
+  },
+  {
+    "id": "institutional-herding",
+    "name": "Institutional Herding & Price Pressure",
+    "type": "flow",
+    "kind": "paper",
+    "src": "Wermers (1999); Coval & Stafford (2007) fire sales",
+    "year": 1999,
+    "thesis": "Funds hit by large outflows sell overlapping holdings, pushing prices below value, and the drop later reverses. Separately, stocks that fund herds buy have outperformed those they sell, with no reversal.",
+    "criteria": [
+      "Estimate fund flows and map them to fund holdings",
+      "Fire-sale stocks: heavy selling by funds with extreme outflows",
+      "Buy after the selling pressure and hold for the recovery (quarters, not days)",
+      "Do not fade herd buying: Wermers found it continued"
+    ],
+    "result": "Wermers (1975-1994): stocks herds bought beat stocks they sold by about 4% over six months, mostly in small stocks. Coval and Stafford (1980-2004): fire-sale stocks fell and recovered gradually over more than a year. Overlaps the Coval-Stafford entry.",
+    "testable": "partial",
+    "tags": [
+      "herding",
+      "fire sales",
+      "flows",
+      "institutional"
+    ]
+  },
+  {
+    "id": "xing-zhang-zhao-option-smirk",
+    "name": "Option Volatility-Skew Signal",
+    "type": "volatility",
+    "kind": "paper",
+    "src": "Yuhang Xing, Xiaoyan Zhang & Rui Zhao (2010), What Does the Individual Option Volatility Smirk Tell Us About Future Equity Returns?, Journal of Financial and Quantitative Analysis",
+    "year": 2010,
+    "thesis": "The cross-sectional slope of a stock's option-implied volatility curve can contain adverse information before it is fully reflected in the stock price. A steep put-side smirk is treated as a negative signal.",
+    "criteria": [
+      "Implied vols for options with about 10 to 60 days to expiry (OptionMetrics)",
+      "Smirk = OTM put IV (strike/price 0.80 to 0.95) minus ATM call IV (0.95 to 1.05)",
+      "Sort optionable stocks into quintiles by smirk",
+      "Long the flattest-smirk quintile, short the steepest; weekly formation"
+    ],
+    "result": "US optionable stocks, 1996-2005: the steepest-smirk quintile trailed the flattest by 10.9% per year risk-adjusted, and the gap lasted at least six months. Steep-smirk firms had the worst next-quarter earnings news. Later periods need separate testing.",
+    "testable": true,
+    "tags": [
+      "options",
+      "implied-volatility",
+      "skew",
+      "equities",
+      "cross-sectional"
+    ]
+  },
+  {
+    "id": "johnson-so-option-stock-volume",
+    "name": "Inspired by Johnson and So: Option-to-Stock Volume",
+    "type": "flow",
+    "kind": "paper",
+    "src": "Travis L. Johnson & Eric C. So (2012), The Option to Stock Volume Ratio and Future Returns, Journal of Financial Economics",
+    "year": 2012,
+    "thesis": "Unusually heavy options trading relative to underlying-share trading can reveal negative private information when stock shorting is costly. The signal does not require classifying option trades as buys or sells.",
+    "criteria": [
+      "Weekly O/S = total option contract volume / share volume for each optionable stock",
+      "Sort into deciles by O/S",
+      "Long the lowest-O/S decile, short the highest",
+      "Hold one week, then re-sort"
+    ],
+    "result": "US optionable stocks, about 1996-2010: the lowest O/S decile beat the highest by 0.34% per week (about 19.3% annualized), more where shorting was costly. Weekly turnover is high and the edge is short-lived.",
+    "testable": true,
+    "tags": [
+      "options",
+      "trading-volume",
+      "order-flow",
+      "short-sale-costs",
+      "equities"
+    ],
+    "fidelity": "loose",
+    "run_gap": "Long only, the low option-to-stock volume leg, monthly; the paper's result is a weekly low minus high spread.",
+    "runnable": true
+  },
+  {
+    "id": "cremers-weinbaum-put-call-parity",
+    "name": "Put-Call Implied-Volatility Spread",
+    "type": "volatility",
+    "kind": "paper",
+    "src": "Martijn Cremers & David Weinbaum (2010), Deviations from Put-Call Parity and Stock Return Predictability, Journal of Financial and Quantitative Analysis",
+    "year": 2010,
+    "thesis": "A difference between call and put implied volatilities for otherwise comparable contracts measures a put-call-parity deviation. Relatively expensive calls are treated as favorable information about the underlying stock, and relatively expensive puts as unfavorable information.",
+    "criteria": [
+      "Match calls and puts with the same strike and expiry (OptionMetrics implied vols)",
+      "Volatility spread = open-interest-weighted average of call IV minus put IV",
+      "Sort stocks weekly into quintiles by the spread",
+      "Long the highest-spread quintile, short the lowest, hold one week"
+    ],
+    "result": "US optionable stocks, 1996-2005: stocks with relatively expensive calls beat those with relatively expensive puts by about 50 basis points per week, with both legs contributing. The predictability shrank over the sample period.",
+    "testable": true,
+    "tags": [
+      "options",
+      "put-call-parity",
+      "implied-volatility",
+      "equities",
+      "information"
+    ]
+  },
+  {
+    "id": "drechsler-drechsler-shorting-premium",
+    "name": "Securities-Lending Fee Premium",
+    "type": "flow",
+    "kind": "paper",
+    "src": "Itamar Drechsler & Qingyi (Freda) Song Drechsler (2014), The Shorting Premium and Asset Pricing Anomalies, NBER Working Paper 20282",
+    "year": 2014,
+    "thesis": "Stock-loan fees embed the scarcity and risk faced by short sellers. The paper's cheap-minus-expensive-to-short portfolio goes long low-fee stocks and shorts high-fee stocks, accounting for borrow costs.",
+    "criteria": [
+      "Obtain daily or monthly annualized stock-loan fees from a securities-lending data source and define an explicit treatment for unavailable borrows.",
+      "At each rebalance date, rank borrowable stocks by their current lending fee after applying liquidity and capacity screens.",
+      "Buy the lowest-fee group and short the highest-fee group in equal dollar amounts.",
+      "Deduct actual or conservatively estimated borrow fees, recalls, financing, and trading costs from the short leg."
+    ],
+    "result": "Markit fee data, 2004-2012: the cheap-minus-expensive-to-short portfolio earned about 1.43% per month gross and about 0.91% net of lending fees. Major anomalies were weak in the 80% of stocks with low fees and strong in high-fee stocks. Working paper; numbers vary by version, and the short leg needs institutional borrow access.",
+    "testable": true,
+    "tags": [
+      "securities-lending",
+      "short-selling",
+      "borrow-fees",
+      "equities",
+      "market-frictions"
+    ]
+  },
+  {
+    "id": "boehmer-jones-zhang-retail-imbalance",
+    "name": "Marketable Retail Order Imbalance",
+    "type": "flow",
+    "kind": "paper",
+    "src": "Ekkehart Boehmer, Charles M. Jones, Xiaoyan Zhang & Xinran Zhang (2021), Tracking Retail Investor Activity, The Journal of Finance",
+    "year": 2021,
+    "thesis": "Net marketable retail buying in a stock can contain short-horizon information rather than being only noise. The strategy follows, rather than fades, a consistently measured retail buy-sell imbalance.",
+    "criteria": [
+      "Retail trades: off-exchange (TRF) prints at sub-penny prices; cent fraction above 0.6 = buy, below 0.4 = sell",
+      "Weekly imbalance = (retail buy volume - sell volume) / (buy + sell volume)",
+      "Sort stocks by imbalance; long net-bought, short net-sold, hold one week",
+      "Consider quote-midpoint signing (Barber et al. 2024) to cut misclassification"
+    ],
+    "result": "TAQ, 2010-2015: stocks with net retail buying beat stocks with net selling by about 10 basis points the next week, with some predictability out to 12 weeks. Barber et al. (2024) found the method catches only about 35% of retail trades and mis-signs about 28% of those.",
+    "testable": true,
+    "tags": [
+      "retail",
+      "order-flow",
+      "short-horizon",
+      "equities",
+      "market-microstructure"
+    ]
+  },
+  {
+    "id": "baker-wurgler-sentiment-conditioned-cross-section",
+    "name": "Sentiment-Conditioned Speculative Stock Tilt",
+    "type": "flow",
+    "kind": "paper",
+    "src": "Malcolm Baker & Jeffrey Wurgler (2006), Investor Sentiment and the Cross-Section of Stock Returns, The Journal of Finance",
+    "year": 2006,
+    "thesis": "Broad investor sentiment changes the relative pricing of stocks that are hard to value and hard to arbitrage. High sentiment calls for a defensive tilt away from speculative stocks; low sentiment reverses the expected cross-sectional pattern.",
+    "criteria": [
+      "Construct a beginning-of-period sentiment index from standardized sentiment proxies using a fixed principal-component procedure and, if chosen, pre-specified macro controls.",
+      "Classify stocks with objective speculative characteristics such as small size, young listing age, high return volatility, no dividend, weak profitability, distress, or extreme growth.",
+      "When the sentiment index is high, buy the more mature and easier-to-arbitrage group and short the speculative group; reverse the relative tilt when sentiment is low.",
+      "Rebalance on a fixed monthly or annual schedule and evaluate the conditional long-short return separately in each sentiment state."
+    ],
+    "result": "US stocks, 1963-2001: after high sentiment, small, young, volatile, unprofitable, non-paying and distressed stocks earned relatively low returns; after low sentiment the same spreads turned positive. The index is estimated on the full sample, so it is not real-time.",
+    "testable": true,
+    "tags": [
+      "sentiment",
+      "behavioral",
+      "speculative-stocks",
+      "cross-sectional",
+      "equities"
+    ]
+  },
+  {
+    "id": "fang-peress-media-coverage-premium",
+    "name": "No-Media Coverage Premium",
+    "type": "flow",
+    "kind": "paper",
+    "src": "Lily Fang & Joel Peress (2009), Media Coverage and the Cross-Section of Stock Returns, The Journal of Finance",
+    "year": 2009,
+    "thesis": "Media attention broadens information dissemination and investor recognition. Stocks with little or no coverage are treated as less recognized and expected to have higher subsequent returns in the documented cross-section.",
+    "criteria": [
+      "For every eligible stock, count mentions in a fixed set of mass-media sources over a pre-specified trailing window.",
+      "Assign zero-coverage stocks to a no-media group and form a high-coverage group using a fixed coverage threshold or rank.",
+      "Control or independently sort on size, analyst following, ownership, and liquidity before comparing the groups.",
+      "Buy the no-coverage group and short or underweight the high-coverage group, rebalancing after each coverage measurement period."
+    ],
+    "result": "NYSE and sampled Nasdaq stocks, about 1993-2002: stocks with no coverage in four national newspapers beat highly covered stocks by about 3% per year after risk adjustment, and about 8% to 12% a year among small, low-analyst, retail-held stocks. Newer media sources may change the effect.",
+    "testable": true,
+    "tags": [
+      "media",
+      "attention",
+      "investor-recognition",
+      "equities",
+      "cross-sectional"
+    ]
+  },
+  {
+    "id": "da-engelberg-gao-search-attention",
+    "name": "Search-Volume IPO Attention Reversal",
+    "type": "flow",
+    "kind": "paper",
+    "src": "Zhi Da, Joseph Engelberg & Pengjie Gao (2011), In Search of Attention, The Journal of Finance",
+    "year": 2011,
+    "thesis": "Google search volume measures retail attention directly. A jump in searches pushes a stock up briefly, then it gives back the gain; hot IPOs show the same pattern.",
+    "criteria": [
+      "For each IPO, collect Google search-volume observations for the issuer's unambiguous name or ticker over a pre-specified pre-listing window.",
+      "Compute abnormal search volume relative to the issuer's earlier searches or a fixed market-wide baseline.",
+      "Rank newly listed issuers by abnormal pre-IPO search attention after excluding ambiguous search terms.",
+      "After a pre-specified post-listing date, underweight or short the highest-attention group relative to the lowest-attention group for a fixed horizon, subject to borrow availability."
+    ],
+    "result": "Russell 3000, 2004-2008: a rise in abnormal search volume predicted higher prices over the next two weeks and a reversal within the year. For IPOs, higher search attention went with larger first-day returns and weaker long-run returns. Short sample; Google data is sampled, so pulls differ.",
+    "testable": "partial",
+    "tags": [
+      "google-trends",
+      "attention",
+      "ipo",
+      "sentiment",
+      "reversal"
+    ]
+  },
+  {
+    "id": "lee-shleifer-thaler-closed-end-discount",
+    "name": "Closed-End Fund Discount Sentiment Signal",
+    "type": "flow",
+    "kind": "paper",
+    "src": "Charles M. C. Lee, Andrei Shleifer & Richard H. Thaler (1991), Investor Sentiment and the Closed-End Fund Puzzle, The Journal of Finance",
+    "year": 1991,
+    "thesis": "Closed-end fund discounts move with retail-investor sentiment and with the pricing of other retail-dominated securities. A wide discount is a measurable sentiment state, though it is not automatically an arbitrage because of fund-specific frictions.",
+    "criteria": [
+      "For each eligible closed-end fund, calculate discount to net asset value as one minus market price divided by reported net asset value on a consistent reporting-date basis.",
+      "Exclude funds with stale net asset values, illiquid shares, pending liquidations, or mandates that prevent a meaningful asset hedge.",
+      "Standardize each fund's discount relative to its own trailing history or rank discounts across comparable funds.",
+      "Test whether wide-discount funds subsequently narrow versus narrow-discount funds, using a matched hedge in the fund's investable asset exposure where feasible."
+    ],
+    "result": "US closed-end stock funds, about 1965-1985: discounts moved together and narrowed when small stocks did well, consistent with a shared sentiment factor. The paper did not test a trading rule, and later work disputed the small-stock link. Turning this into a convergence trade is fund-specific.",
+    "testable": "partial",
+    "tags": [
+      "closed-end-funds",
+      "discount-to-nav",
+      "sentiment",
+      "retail",
+      "arbitrage"
+    ]
+  },
+  {
+    "id": "baker-wurgler-equity-share-issuance",
+    "name": "Equity-Issuance Share Market-Timing Signal",
+    "type": "macro",
+    "kind": "paper",
+    "src": "Malcolm Baker & Jeffrey Wurgler (2000), The Equity Share in New Issues and Aggregate Stock Returns, The Journal of Finance",
+    "year": 2000,
+    "thesis": "When firms choose equity over debt unusually often, aggregate issuance may reveal that managers view equity as relatively expensive. A high aggregate equity share is therefore a bearish market-timing signal in the original evidence.",
+    "criteria": [
+      "Each year, sum gross new equity and gross new debt issued by US corporations",
+      "Equity share = equity / (equity + debt)",
+      "Compare to its own trailing history using only past data",
+      "Cut equity exposure when the share is high, add when low; hold one year"
+    ],
+    "result": "US 1928-1997: a high equity share preceded low next-year market returns and beat dividend yield and book-to-market in sample. Butler, Grullon and Weston (2005) argued much of the fit reflects pseudo market timing and a few early years. Annual, slow signal.",
+    "testable": true,
+    "tags": [
+      "equity-issuance",
+      "market-timing",
+      "managerial-timing",
+      "macro",
+      "sentiment"
+    ]
+  },
+  {
+    "id": "miller-disagreement-short-sale-constraints",
+    "name": "Disagreement Under Short-Sale Constraints",
+    "type": "flow",
+    "kind": "paper",
+    "src": "Edward M. Miller (1977), Risk, Uncertainty, and Divergence of Opinion, The Journal of Finance",
+    "year": 1977,
+    "thesis": "When investors disagree and pessimists cannot sell short freely, prices can be set disproportionately by optimists. High disagreement combined with a binding shorting friction is consequently a theoretical overvaluation warning.",
+    "criteria": [
+      "Measure investor disagreement with a pre-specified observable proxy such as analyst-forecast dispersion or dispersion of target prices.",
+      "Measure short-sale friction separately using borrow fees, utilization, institutional ownership, or another fixed and available proxy.",
+      "Identify stocks jointly in the highest disagreement group and highest shorting-friction group.",
+      "Test a long-low-disagreement-and-friction versus short-high-disagreement-and-friction portfolio over a fixed horizon, with borrow costs included."
+    ],
+    "result": "Miller supplied the theory: with short-sale limits, disagreement lifts prices. It is not an empirical trading test. Later, Diether, Malloy and Scherbina (2002) found stocks with high analyst forecast dispersion earned lower returns, mostly in small stocks.",
+    "testable": "partial",
+    "tags": [
+      "disagreement",
+      "short-sale-constraints",
+      "sentiment",
+      "overvaluation",
+      "theory"
+    ]
+  },
+  {
+    "id": "coval-stafford-mutual-fund-fire-sales",
+    "name": "Mutual-Fund Flow Pressure Reversal",
+    "type": "flow",
+    "kind": "paper",
+    "src": "Joshua D. Coval & Erik Stafford (2007), Asset Fire Sales (and Purchases) in Equity Markets, Journal of Financial Economics",
+    "year": 2007,
+    "thesis": "Large mutual-fund redemptions and subscriptions can force sales and purchases of overlapping holdings, creating temporary price pressure. The signal estimates a stock's exposure to funds undergoing extreme flows and trades against the constrained activity.",
+    "criteria": [
+      "Estimate each mutual fund's net capital flow from reported assets and returns using a fixed monthly formula.",
+      "Flag funds in pre-specified extreme outflow and inflow groups, then use disclosed holdings to calculate every stock's ownership exposure to those funds.",
+      "Rank stocks by exposure to expected flow-driven selling or buying, with liquidity and ownership-reporting lags explicitly enforced.",
+      "Buy high outflow-exposure stocks after the forced-selling window and short or underweight high inflow-exposure stocks after the forced-buying window, using a fixed reversal horizon."
+    ],
+    "result": "US mutual funds, 1980-2004: stocks under heavy selling by extreme-outflow funds (bottom 10% of flow pressure) fell and then recovered gradually over more than a year; inflow-driven buying showed the mirror pattern. Holdings arrive with a lag, so timing is hard.",
+    "testable": true,
+    "tags": [
+      "mutual-funds",
+      "fund-flows",
+      "fire-sales",
+      "price-pressure",
+      "liquidity"
+    ]
+  }
+]

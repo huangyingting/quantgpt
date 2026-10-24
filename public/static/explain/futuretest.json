@@ -1,0 +1,66 @@
+{
+  "page": "futuretest",
+  "path": "/futuretest",
+  "items": {
+    "h-ft": {
+      "title": "What a futuretest is",
+      "body": "Your book through every real episode of a kind, day by day, then kept on record as the future arrives. The record of real episodes, not a forecast.",
+      "learn": "G1",
+      "tour": ""
+    },
+    "ft-book-h": {
+      "title": "Your book",
+      "body": "Pins, a paper book, typed weights or a pasted list. Weights add to 100%. Your hedge is yours: we never offer a leg. Nothing here is a trade list.",
+      "learn": "",
+      "tour": ""
+    },
+    "ft-world-h": {
+      "title": "The world",
+      "body": "A scenario on record, a live event at its place, or a what-if anywhere by the geography swap. Climate keeps only the look-alikes that landed in a climate like today's.",
+      "learn": "",
+      "tour": ""
+    },
+    "ft-globe-h": {
+      "title": "The globe",
+      "body": "The world is the input, your book is the output. A comet is one real thing: the event's country reaching a country where your book earns. Turn it, or read it as a list.",
+      "learn": "",
+      "tour": ""
+    },
+    "ft-results-h": {
+      "title": "The cone",
+      "body": "The cone is every episode's path: the median, the band, the worst and the best. Every number carries its n. The bad episodes stay on the page.",
+      "learn": "",
+      "tour": ""
+    },
+    "ft-odds-h": {
+      "title": "The odds",
+      "body": "Open prediction markets that match, the crowd's price and its change on our ledger. Beside the cone, never multiplied with it.",
+      "learn": "",
+      "tour": ""
+    },
+    "ft-funds-h": {
+      "title": "Fund by fund",
+      "body": "The same episodes through a fixed list of funds, in a fixed order. History, not a suggestion; nothing here picks or sizes a trade.",
+      "learn": "",
+      "tour": ""
+    },
+    "ft-watch-h": {
+      "title": "Watch it",
+      "body": "Track it from today or arm it to start when a matching event lands. A rule or an alarm in the same words. The scorecard says how the cone has done.",
+      "learn": "G2",
+      "tour": ""
+    },
+    "ft-rail-h": {
+      "title": "The rail",
+      "body": "The wire, the chokepoints, tension, the odds that moved and what is ahead, for the world you picked. Each source credited; feeds run minutes to a day behind.",
+      "learn": "",
+      "tour": ""
+    },
+    "ft-steps": {
+      "title": "Three steps",
+      "body": "Build a book, pick a world, run it. Then read the future, stress it with your own hedge, and watch it.",
+      "learn": "",
+      "tour": ""
+    }
+  }
+}

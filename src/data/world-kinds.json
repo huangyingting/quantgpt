@@ -1,0 +1,3073 @@
+{
+  "escalation": {
+    "base": {
+      "1": 0.0004926487188865458,
+      "5": 0.002988337956250753,
+      "21": 0.01049763721339425,
+      "63": 0.025720163902466675
+    },
+    "events": [
+      {
+        "anchor": "2026-10-21",
+        "date": "2026-10-22",
+        "h": {
+          "1": -0.012084271330631391,
+          "5": null,
+          "21": null,
+          "63": null
+        },
+        "title": "An al-Qaeda in the Arabian Peninsula attack in Shabwah Governorate kills two soldiers."
+      },
+      {
+        "anchor": "2026-09-22",
+        "date": "2026-09-23",
+        "h": {
+          "1": -0.007548366766584991,
+          "5": -0.012080443049146794,
+          "21": -0.0009620812699900894,
+          "63": null
+        },
+        "title": "Threats and attacks by the Conquering Self-Defense Forces of the Sierra Nevada (ACSN) bring Santa Marta, Magdalena Department, Colombia, to a standstill, closing businesses and public transport...."
+      },
+      {
+        "anchor": "2025-10-17",
+        "date": "2025-10-20",
+        "h": {
+          "1": 0.010672270853256949,
+          "5": 0.01915966216614251,
+          "21": 0.0012605609716138666,
+          "63": 0.01993545962995613
+        },
+        "title": "Gaza: Israel"
+      },
+      {
+        "anchor": "2024-10-11",
+        "date": "2024-10-14",
+        "h": {
+          "1": 0.0077076668832223305,
+          "5": 0.008536523208438895,
+          "21": 0.03204116219242947,
+          "63": 0.004794536248966308
+        },
+        "title": "PLA 'Joint Sword 2024B' drills around Taiwan"
+      },
+      {
+        "anchor": "2024-05-22",
+        "date": "2024-05-23",
+        "h": {
+          "1": -0.0073807894850155265,
+          "5": -0.013478359436903342,
+          "21": 0.02654232002264112,
+          "63": 0.04967587826978548
+        },
+        "title": "PLA 'Joint Sword 2024A' drills around Taiwan"
+      },
+      {
+        "anchor": "2024-01-11",
+        "date": "2024-01-12",
+        "h": {
+          "1": 0.0007509755941104146,
+          "5": 0.012461680019840715,
+          "21": 0.05054131121646188,
+          "63": 0.0717892626833363
+        },
+        "title": "US and UK strikes on Houthi targets in Yemen"
+      },
+      {
+        "anchor": "2023-11-17",
+        "date": "2023-11-19",
+        "h": {
+          "1": 0.007390278097329839,
+          "5": 0.008066015678366734,
+          "21": 0.056346692428418166,
+          "63": 0.10362820349317503
+        },
+        "title": "Houthis seize the Galaxy Leader in the Red Sea"
+      },
+      {
+        "anchor": "2023-04-06",
+        "date": "2023-04-08",
+        "h": {
+          "1": 0.0009963029974375814,
+          "5": 0.00794639661494867,
+          "21": 0.008063321859275607,
+          "63": 0.07417984910577169
+        },
+        "title": "PLA 'Joint Sword' drills encircle Taiwan"
+      },
+      {
+        "anchor": "2022-11-14",
+        "date": "2022-11-15",
+        "h": {
+          "1": 0.008713116550319144,
+          "5": -0.001847257209868003,
+          "21": 0.009620334413892317,
+          "63": 0.04810161037494476
+        },
+        "title": "A missile lands in Przewodow, Poland"
+      },
+      {
+        "anchor": "2022-09-23",
+        "date": "2022-09-26",
+        "h": {
+          "1": -0.010340526208282075,
+          "5": -0.029137059931369835,
+          "21": 0.02818944608715146,
+          "63": 0.03497207398196789
+        },
+        "title": "Nord Stream pipelines ruptured by explosions"
+      },
+      {
+        "anchor": "2022-08-03",
+        "date": "2022-08-04",
+        "h": {
+          "1": -0.0007773401640558397,
+          "5": 0.013253444151605231,
+          "21": -0.04532181060209728,
+          "63": -0.0719753535575739
+        },
+        "title": "PLA live-fire drills around Taiwan after the Pelosi visit"
+      },
+      {
+        "anchor": "1996-03-07",
+        "date": "1996-03-08",
+        "h": {
+          "1": -0.030826931326324303,
+          "5": -0.019551791967469367,
+          "21": -0.014396135283744171,
+          "63": 0.029648901031075203
+        },
+        "title": "China's missile tests off Taiwan's ports ahead of its election"
+      },
+      {
+        "anchor": "1995-07-20",
+        "date": "1995-07-21",
+        "h": {
+          "1": 0.00014455521375156266,
+          "5": 0.021100540411562285,
+          "21": 0.010243241988625362,
+          "63": 0.06124223318950217
+        },
+        "title": "China fires missiles near Taiwan (Third Taiwan Strait Crisis)"
+      }
+    ],
+    "h": {
+      "1": {
+        "best": 0.010672270853256949,
+        "hit": 0.5384615384615384,
+        "median": 0.00014455521375156266,
+        "n": 13,
+        "worst": -0.030826931326324303
+      },
+      "5": {
+        "best": 0.021100540411562285,
+        "hit": 0.5833333333333334,
+        "median": 0.008006206146657702,
+        "n": 12,
+        "worst": -0.029137059931369835
+      },
+      "21": {
+        "best": 0.056346692428418166,
+        "hit": 0.75,
+        "median": 0.00993178820125884,
+        "n": 12,
+        "worst": -0.04532181060209728
+      },
+      "63": {
+        "best": 0.10362820349317503,
+        "hit": 0.9090909090909091,
+        "median": 0.04810161037494476,
+        "n": 11,
+        "worst": -0.0719753535575739
+      }
+    },
+    "kind": "escalation",
+    "label": "Escalation or strike",
+    "n": 13,
+    "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+    "page": "/world/kind/escalation",
+    "spacing": 21,
+    "test": {
+      "h": {
+        "1": {
+          "above": 6,
+          "base_median": 0.0004926487188865458,
+          "event_median": 0.00014455521375156266,
+          "n": 13,
+          "p_value": 1,
+          "share_above": 0.46153846153846156,
+          "spacing": 21
+        },
+        "5": {
+          "above": 7,
+          "base_median": 0.002988337956250753,
+          "event_median": 0.008006206146657702,
+          "n": 12,
+          "p_value": 0.7744140625,
+          "share_above": 0.5833333333333334,
+          "spacing": 21
+        },
+        "21": {
+          "above": 5,
+          "base_median": 0.01049763721339425,
+          "event_median": 0.00993178820125884,
+          "n": 12,
+          "p_value": 0.7744140625,
+          "share_above": 0.4166666666666667,
+          "spacing": 21
+        },
+        "63": {
+          "above": 6,
+          "base_median": 0.025720163902466675,
+          "event_median": 0.04810161037494476,
+          "n": 9,
+          "p_value": 0.5078125,
+          "share_above": 0.6666666666666666,
+          "spacing": 63
+        }
+      },
+      "read": "After 12 escalation or strike events at least 21 sessions apart, the S&P 500 beat its median 21-session move 5 times (42%); on ordinary days that happens half the time, and a split this lopsided or more has a 77% chance by luck alone."
+    },
+    "warmed": "2026-10-24"
+  },
+  "nuclear": {
+    "base": {
+      "1": 0.0004926487188865458,
+      "5": 0.002988337956250753,
+      "21": 0.01049763721339425,
+      "63": 0.025720163902466675
+    },
+    "events": [
+      {
+        "anchor": "2026-10-19",
+        "date": "2026-10-20",
+        "h": {
+          "1": 0.0028397621299232068,
+          "5": null,
+          "21": null,
+          "63": null
+        },
+        "title": "Israel: Iran"
+      },
+      {
+        "anchor": "2026-09-18",
+        "date": "2026-09-20",
+        "h": {
+          "1": 0.014927154475197657,
+          "5": 0.012144324717338728,
+          "21": 0.0052584772849813,
+          "63": null
+        },
+        "title": "Iran: United States"
+      },
+      {
+        "anchor": "2025-10-20",
+        "date": "2025-10-21",
+        "h": {
+          "1": 0.000032696450934288634,
+          "5": 0.020791027919869087,
+          "21": -0.017491876273149742,
+          "63": 0.020859320728694453
+        },
+        "title": "Seoul: Busan"
+      }
+    ],
+    "h": {
+      "1": {
+        "best": 0.014927154475197657,
+        "hit": 1,
+        "median": 0.0028397621299232068,
+        "n": 3,
+        "worst": 0.000032696450934288634
+      },
+      "5": {
+        "best": 0.020791027919869087,
+        "hit": 1,
+        "median": 0.016467676318603908,
+        "n": 2,
+        "worst": 0.012144324717338728
+      },
+      "21": {
+        "best": 0.0052584772849813,
+        "hit": 0.5,
+        "median": -0.006116699494084221,
+        "n": 2,
+        "worst": -0.017491876273149742
+      },
+      "63": {
+        "best": 0.020859320728694453,
+        "hit": 1,
+        "median": 0.020859320728694453,
+        "n": 1,
+        "worst": 0.020859320728694453
+      }
+    },
+    "kind": "nuclear",
+    "label": "Nuclear or missile",
+    "n": 3,
+    "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+    "page": "/world/kind/nuclear",
+    "spacing": 21,
+    "test": {
+      "h": {
+        "1": {
+          "above": 2,
+          "base_median": 0.0004926487188865458,
+          "event_median": 0.0028397621299232068,
+          "n": 3,
+          "p_value": 1,
+          "share_above": 0.6666666666666666,
+          "spacing": 21
+        },
+        "5": {
+          "above": 2,
+          "base_median": 0.002988337956250753,
+          "event_median": 0.016467676318603908,
+          "n": 2,
+          "p_value": 0.5,
+          "share_above": 1,
+          "spacing": 21
+        },
+        "21": {
+          "above": 0,
+          "base_median": 0.01049763721339425,
+          "event_median": -0.006116699494084221,
+          "n": 2,
+          "p_value": 0.5,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "63": {
+          "above": 0,
+          "base_median": 0.025720163902466675,
+          "event_median": 0.020859320728694453,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 0,
+          "spacing": 63
+        }
+      },
+      "read": "After 2 nuclear or missile events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 50% chance by luck alone."
+    },
+    "warmed": "2026-10-24"
+  },
+  "disaster": {
+    "base": {
+      "1": 0.0004926487188865458,
+      "5": 0.002988337956250753,
+      "21": 0.01049763721339425,
+      "63": 0.025720163902466675
+    },
+    "events": [
+      {
+        "anchor": "2026-10-13",
+        "date": "2026-10-14",
+        "h": {
+          "1": -0.011083313805295036,
+          "5": -0.011899425243854456,
+          "21": null,
+          "63": null
+        },
+        "title": "Red notification for tropical cyclone CHAMPI-26. Population affected by Category 1 (120 km/h) wind speeds or higher is 0.181 million ."
+      },
+      {
+        "anchor": "2026-09-11",
+        "date": "2026-09-14",
+        "h": {
+          "1": -0.004832192338804386,
+          "5": -0.0008462841074782235,
+          "21": 0.019623958047367385,
+          "63": null
+        },
+        "title": "Wildfire: Wildfire Hydra, Bosque, Texas"
+      },
+      {
+        "anchor": "2026-07-30",
+        "date": "2026-07-31",
+        "h": {
+          "1": 0.00700361981598796,
+          "5": 0.03661516940421072,
+          "21": 0.03685715572456516,
+          "63": null
+        },
+        "title": "Orange flood alert in China"
+      },
+      {
+        "anchor": "2026-05-20",
+        "date": "2026-05-21",
+        "h": {
+          "1": 0.0017153304306989359,
+          "5": 0.01757839251229898,
+          "21": 0.005357188723725814,
+          "63": 0.028008983675259724
+        },
+        "title": "Drought is on going in Burundi, Democratic Republic of Congo, Kenya, Rwanda, Tanzania, Uganda"
+      },
+      {
+        "anchor": "2026-04-20",
+        "date": "2026-04-21",
+        "h": {
+          "1": -0.006348217959672997,
+          "5": 0.00911080922384877,
+          "21": 0.03438808658445369,
+          "63": 0.05627404311914419
+        },
+        "title": "Drought is on going in The Bahamas, Belize, Costa Rica, Cuba, Dominican Republic, Guatemala, Honduras, Haiti, Mexico, Nicaragua, El Salvador, United States"
+      },
+      {
+        "anchor": "2025-11-20",
+        "date": "2025-11-21",
+        "h": {
+          "1": 0.009823035415319481,
+          "5": 0.04746008253070255,
+          "21": 0.051956407778735336,
+          "63": 0.05372732309888906
+        },
+        "title": "Drought is on going in Madagascar"
+      }
+    ],
+    "h": {
+      "1": {
+        "best": 0.009823035415319481,
+        "hit": 0.5,
+        "median": -0.0015584309540527252,
+        "n": 6,
+        "worst": -0.011083313805295036
+      },
+      "5": {
+        "best": 0.04746008253070255,
+        "hit": 0.6666666666666666,
+        "median": 0.013344600868073875,
+        "n": 6,
+        "worst": -0.011899425243854456
+      },
+      "21": {
+        "best": 0.051956407778735336,
+        "hit": 1,
+        "median": 0.03438808658445369,
+        "n": 5,
+        "worst": 0.005357188723725814
+      },
+      "63": {
+        "best": 0.05627404311914419,
+        "hit": 1,
+        "median": 0.05372732309888906,
+        "n": 3,
+        "worst": 0.028008983675259724
+      }
+    },
+    "kind": "disaster",
+    "label": "Natural disaster",
+    "n": 6,
+    "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+    "page": "/world/kind/disaster",
+    "spacing": 21,
+    "test": {
+      "h": {
+        "1": {
+          "above": 3,
+          "base_median": 0.0004926487188865458,
+          "event_median": -0.0015584309540527252,
+          "n": 6,
+          "p_value": 1,
+          "share_above": 0.5,
+          "spacing": 21
+        },
+        "5": {
+          "above": 4,
+          "base_median": 0.002988337956250753,
+          "event_median": 0.013344600868073875,
+          "n": 6,
+          "p_value": 0.6875,
+          "share_above": 0.6666666666666666,
+          "spacing": 21
+        },
+        "21": {
+          "above": 4,
+          "base_median": 0.01049763721339425,
+          "event_median": 0.03438808658445369,
+          "n": 5,
+          "p_value": 0.375,
+          "share_above": 0.8,
+          "spacing": 21
+        },
+        "63": {
+          "above": 2,
+          "base_median": 0.025720163902466675,
+          "event_median": 0.055000683109016624,
+          "n": 2,
+          "p_value": 0.5,
+          "share_above": 1,
+          "spacing": 63
+        }
+      },
+      "read": "After 5 natural disaster events at least 21 sessions apart, the S&P 500 beat its median 21-session move 4 times (80%); on ordinary days that happens half the time, and a split this lopsided or more has a 38% chance by luck alone."
+    },
+    "warmed": "2026-10-24"
+  },
+  "law": {
+    "base": {
+      "1": 0.0004926487188865458,
+      "5": 0.002988337956250753,
+      "21": 0.01049763721339425,
+      "63": 0.025720163902466675
+    },
+    "events": [
+      {
+        "anchor": "2026-09-23",
+        "date": "2026-09-24",
+        "h": {
+          "1": -0.000246547495496241,
+          "5": -0.007071053137986949,
+          "21": -0.005528087817290528,
+          "63": null
+        },
+        "title": "Philippine president Bongbong Marcos grants an absolute pardon to Mary Jane Veloso, a former overseas worker in Indonesia who was arrested for drug trafficking and sentenced to death in 2010, but..."
+      }
+    ],
+    "h": {
+      "1": {
+        "best": -0.000246547495496241,
+        "hit": 0,
+        "median": -0.000246547495496241,
+        "n": 1,
+        "worst": -0.000246547495496241
+      },
+      "5": {
+        "best": -0.007071053137986949,
+        "hit": 0,
+        "median": -0.007071053137986949,
+        "n": 1,
+        "worst": -0.007071053137986949
+      },
+      "21": {
+        "best": -0.005528087817290528,
+        "hit": 0,
+        "median": -0.005528087817290528,
+        "n": 1,
+        "worst": -0.005528087817290528
+      },
+      "63": null
+    },
+    "kind": "law",
+    "label": "Law and courts",
+    "n": 1,
+    "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+    "page": "/world/kind/law",
+    "spacing": 21,
+    "test": {
+      "h": {
+        "1": {
+          "above": 0,
+          "base_median": 0.0004926487188865458,
+          "event_median": -0.000246547495496241,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "5": {
+          "above": 0,
+          "base_median": 0.002988337956250753,
+          "event_median": -0.007071053137986949,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "21": {
+          "above": 0,
+          "base_median": 0.01049763721339425,
+          "event_median": -0.005528087817290528,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "63": null
+      },
+      "read": "After 1 law and courts events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 100% chance by luck alone."
+    },
+    "warmed": "2026-10-24"
+  },
+  "chokepoint": {
+    "base": {
+      "1": 0.0004926487188865458,
+      "5": 0.002988337956250753,
+      "21": 0.01049763721339425,
+      "63": 0.025720163902466675
+    },
+    "events": [
+      {
+        "anchor": "2026-10-21",
+        "date": "2026-10-22",
+        "h": {
+          "1": -0.012084271330631391,
+          "5": null,
+          "21": null,
+          "63": null
+        },
+        "title": "Russia: Energy Secretary"
+      },
+      {
+        "anchor": "2026-09-22",
+        "date": "2026-09-23",
+        "h": {
+          "1": -0.007548366766584991,
+          "5": -0.012080443049146794,
+          "21": -0.0009620812699900894,
+          "63": null
+        },
+        "title": "An Indian wiper is killed during an attack on the bulk carrier MV Cape Dao near the Strait of Hormuz, with Oman's navy confirming that 27 crew members have been evacuated."
+      },
+      {
+        "anchor": "2025-10-21",
+        "date": "2025-10-22",
+        "h": {
+          "1": -0.005337539220865439,
+          "5": 0.023093088971963605,
+          "21": -0.013835946172817026,
+          "63": 0.026427727945714352
+        },
+        "title": "Bandar Abbas: Iran"
+      },
+      {
+        "anchor": "2023-12-14",
+        "date": "2023-12-15",
+        "h": {
+          "1": -0.0000762494933082003,
+          "5": 0.00576330295010008,
+          "21": 0.004165684665616398,
+          "63": 0.0910828648869324
+        },
+        "title": "Major shipping lines pause Red Sea transits"
+      },
+      {
+        "anchor": "2019-09-13",
+        "date": "2019-09-14",
+        "h": {
+          "1": -0.0031355866640028207,
+          "5": -0.005094059887797542,
+          "21": -0.01371288449700192,
+          "63": 0.05359470555481449
+        },
+        "title": "Drone and missile attack on Saudi Abqaiq and Khurais"
+      },
+      {
+        "anchor": "1973-10-16",
+        "date": "1973-10-17",
+        "h": {
+          "1": -0.001996562445128469,
+          "5": -0.003993124890256938,
+          "21": -0.07024235703488457,
+          "63": -0.13177242899311103
+        },
+        "title": "Arab oil producers announce the oil embargo"
+      }
+    ],
+    "h": {
+      "1": {
+        "best": -0.0000762494933082003,
+        "hit": 0,
+        "median": -0.00423656294243413,
+        "n": 6,
+        "worst": -0.012084271330631391
+      },
+      "5": {
+        "best": 0.023093088971963605,
+        "hit": 0.4,
+        "median": -0.003993124890256938,
+        "n": 5,
+        "worst": -0.012080443049146794
+      },
+      "21": {
+        "best": 0.004165684665616398,
+        "hit": 0.2,
+        "median": -0.01371288449700192,
+        "n": 5,
+        "worst": -0.07024235703488457
+      },
+      "63": {
+        "best": 0.0910828648869324,
+        "hit": 0.75,
+        "median": 0.04001121675026442,
+        "n": 4,
+        "worst": -0.13177242899311103
+      }
+    },
+    "kind": "chokepoint",
+    "label": "Chokepoint restriction",
+    "n": 6,
+    "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+    "page": "/world/kind/chokepoint",
+    "spacing": 21,
+    "test": {
+      "h": {
+        "1": {
+          "above": 0,
+          "base_median": 0.0004926487188865458,
+          "event_median": -0.00423656294243413,
+          "n": 6,
+          "p_value": 0.03125,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "5": {
+          "above": 2,
+          "base_median": 0.002988337956250753,
+          "event_median": -0.003993124890256938,
+          "n": 5,
+          "p_value": 1,
+          "share_above": 0.4,
+          "spacing": 21
+        },
+        "21": {
+          "above": 0,
+          "base_median": 0.01049763721339425,
+          "event_median": -0.01371288449700192,
+          "n": 5,
+          "p_value": 0.0625,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "63": {
+          "above": 3,
+          "base_median": 0.025720163902466675,
+          "event_median": 0.04001121675026442,
+          "n": 4,
+          "p_value": 0.625,
+          "share_above": 0.75,
+          "spacing": 63
+        }
+      },
+      "read": "After 5 chokepoint restriction events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 6% chance by luck alone."
+    },
+    "warmed": "2026-10-24"
+  },
+  "ceasefire": {
+    "base": {
+      "1": 0.0004926487188865458,
+      "5": 0.002988337956250753,
+      "21": 0.01049763721339425,
+      "63": 0.025720163902466675
+    },
+    "events": [
+      {
+        "anchor": "2026-10-02",
+        "date": "2026-10-03",
+        "h": {
+          "1": 0.006633670396382074,
+          "5": 0.011501106054318866,
+          "21": null,
+          "63": null
+        },
+        "title": "Eight people, some of them civilians, are killed and several more are injured in an Israeli airstrike against a residential building in Gaza City, in violation of the ongoing ceasefire."
+      },
+      {
+        "anchor": "2025-10-22",
+        "date": "2025-10-23",
+        "h": {
+          "1": 0.0058273934429324825,
+          "5": 0.028538368240917045,
+          "21": -0.02397828746759112,
+          "63": 0.032273034016354174
+        },
+        "title": "Kakhovka: Russian"
+      }
+    ],
+    "h": {
+      "1": {
+        "best": 0.006633670396382074,
+        "hit": 1,
+        "median": 0.006230531919657278,
+        "n": 2,
+        "worst": 0.0058273934429324825
+      },
+      "5": {
+        "best": 0.028538368240917045,
+        "hit": 1,
+        "median": 0.020019737147617955,
+        "n": 2,
+        "worst": 0.011501106054318866
+      },
+      "21": {
+        "best": -0.02397828746759112,
+        "hit": 0,
+        "median": -0.02397828746759112,
+        "n": 1,
+        "worst": -0.02397828746759112
+      },
+      "63": {
+        "best": 0.032273034016354174,
+        "hit": 1,
+        "median": 0.032273034016354174,
+        "n": 1,
+        "worst": 0.032273034016354174
+      }
+    },
+    "kind": "ceasefire",
+    "label": "Ceasefire or talks",
+    "n": 2,
+    "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+    "page": "/world/kind/ceasefire",
+    "spacing": 21,
+    "test": {
+      "h": {
+        "1": {
+          "above": 2,
+          "base_median": 0.0004926487188865458,
+          "event_median": 0.006230531919657278,
+          "n": 2,
+          "p_value": 0.5,
+          "share_above": 1,
+          "spacing": 21
+        },
+        "5": {
+          "above": 2,
+          "base_median": 0.002988337956250753,
+          "event_median": 0.020019737147617955,
+          "n": 2,
+          "p_value": 0.5,
+          "share_above": 1,
+          "spacing": 21
+        },
+        "21": {
+          "above": 0,
+          "base_median": 0.01049763721339425,
+          "event_median": -0.02397828746759112,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "63": {
+          "above": 1,
+          "base_median": 0.025720163902466675,
+          "event_median": 0.032273034016354174,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 1,
+          "spacing": 63
+        }
+      },
+      "read": "After 1 ceasefire or talks events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 100% chance by luck alone."
+    },
+    "warmed": "2026-10-24"
+  },
+  "sanction": {
+    "base": {
+      "1": 0.0004926487188865458,
+      "5": 0.002988337956250753,
+      "21": 0.01049763721339425,
+      "63": 0.025720163902466675
+    },
+    "events": [
+      {
+        "anchor": "2026-10-09",
+        "date": "2026-10-12",
+        "h": {
+          "1": -0.0005504426356388592,
+          "5": -0.019471205024317317,
+          "21": null,
+          "63": null
+        },
+        "title": "The Council of the European Union approves the 22th package of sanctions against Russia, targeting 1,569 individuals and entities of the country's military and industrial complex."
+      },
+      {
+        "anchor": "2025-04-01",
+        "date": "2025-04-02",
+        "h": {
+          "1": 0.006728194715792668,
+          "5": -0.11544323521281574,
+          "21": -0.005135687716069093,
+          "63": 0.10551086995245629
+        },
+        "title": "US announces reciprocal tariffs on its trading partners"
+      },
+      {
+        "anchor": "2025-01-31",
+        "date": "2025-02-01",
+        "h": {
+          "1": -0.007608597684666707,
+          "5": -0.002406999269663257,
+          "21": -0.04343656800720719,
+          "63": -0.05858093178363444
+        },
+        "title": "US orders tariffs on Canada, Mexico and China"
+      },
+      {
+        "anchor": "2019-07-31",
+        "date": "2019-08-01",
+        "h": {
+          "1": -0.00899879386967306,
+          "5": -0.032344837280534944,
+          "21": -0.018722379992326066,
+          "63": 0.018960673467000477
+        },
+        "title": "US announces 10% tariffs on a further $300B of Chinese goods"
+      },
+      {
+        "anchor": "2019-05-03",
+        "date": "2019-05-05",
+        "h": {
+          "1": -0.004470988428756373,
+          "5": -0.021808500895250327,
+          "21": -0.048332409336793725,
+          "63": -0.004613545526811036
+        },
+        "title": "US says tariffs on Chinese goods rise to 25%"
+      },
+      {
+        "anchor": "2018-07-05",
+        "date": "2018-07-06",
+        "h": {
+          "1": 0.008481281595267509,
+          "5": 0.022538808679155586,
+          "21": 0.0379082098516792,
+          "63": 0.06902696947272124
+        },
+        "title": "First US tariffs on Chinese goods take effect"
+      },
+      {
+        "anchor": "2018-02-28",
+        "date": "2018-03-01",
+        "h": {
+          "1": -0.013324399541987275,
+          "5": 0.004779212526115906,
+          "21": -0.02688449860055664,
+          "63": 0.003751130817909676
+        },
+        "title": "US announces steel and aluminum tariffs"
+      }
+    ],
+    "h": {
+      "1": {
+        "best": 0.008481281595267509,
+        "hit": 0.2857142857142857,
+        "median": -0.004470988428756373,
+        "n": 7,
+        "worst": -0.013324399541987275
+      },
+      "5": {
+        "best": 0.022538808679155586,
+        "hit": 0.2857142857142857,
+        "median": -0.019471205024317317,
+        "n": 7,
+        "worst": -0.11544323521281574
+      },
+      "21": {
+        "best": 0.0379082098516792,
+        "hit": 0.16666666666666666,
+        "median": -0.022803439296441352,
+        "n": 6,
+        "worst": -0.048332409336793725
+      },
+      "63": {
+        "best": 0.10551086995245629,
+        "hit": 0.6666666666666666,
+        "median": 0.011355902142455077,
+        "n": 6,
+        "worst": -0.05858093178363444
+      }
+    },
+    "kind": "sanction",
+    "label": "Sanction",
+    "n": 7,
+    "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+    "page": "/world/kind/sanction",
+    "spacing": 21,
+    "test": {
+      "h": {
+        "1": {
+          "above": 2,
+          "base_median": 0.0004926487188865458,
+          "event_median": -0.004470988428756373,
+          "n": 7,
+          "p_value": 0.453125,
+          "share_above": 0.2857142857142857,
+          "spacing": 21
+        },
+        "5": {
+          "above": 2,
+          "base_median": 0.002988337956250753,
+          "event_median": -0.019471205024317317,
+          "n": 7,
+          "p_value": 0.453125,
+          "share_above": 0.2857142857142857,
+          "spacing": 21
+        },
+        "21": {
+          "above": 1,
+          "base_median": 0.01049763721339425,
+          "event_median": -0.022803439296441352,
+          "n": 6,
+          "p_value": 0.21875,
+          "share_above": 0.16666666666666666,
+          "spacing": 21
+        },
+        "63": {
+          "above": 1,
+          "base_median": 0.025720163902466675,
+          "event_median": -0.00043120735445068004,
+          "n": 4,
+          "p_value": 0.625,
+          "share_above": 0.25,
+          "spacing": 63
+        }
+      },
+      "read": "After 6 sanction events at least 21 sessions apart, the S&P 500 beat its median 21-session move 1 times (17%); on ordinary days that happens half the time, and a split this lopsided or more has a 22% chance by luck alone."
+    },
+    "warmed": "2026-10-24"
+  },
+  "politics": {
+    "base": {
+      "1": 0.0004926487188865458,
+      "5": 0.002988337956250753,
+      "21": 0.01049763721339425,
+      "63": 0.025720163902466675
+    },
+    "events": [
+      {
+        "anchor": "2026-09-25",
+        "date": "2026-09-27",
+        "h": {
+          "1": -0.007712392038996874,
+          "5": -0.002671941817462775,
+          "21": null,
+          "63": null
+        },
+        "title": "Citizens of Switzerland voters reject an initiative that proposed to enshrine a stricter form of Swiss neutrality, which would have prevented Switzerland from imposing economic sanctions and..."
+      }
+    ],
+    "h": {
+      "1": {
+        "best": -0.007712392038996874,
+        "hit": 0,
+        "median": -0.007712392038996874,
+        "n": 1,
+        "worst": -0.007712392038996874
+      },
+      "5": {
+        "best": -0.002671941817462775,
+        "hit": 0,
+        "median": -0.002671941817462775,
+        "n": 1,
+        "worst": -0.002671941817462775
+      },
+      "21": null,
+      "63": null
+    },
+    "kind": "politics",
+    "label": "Politics",
+    "n": 1,
+    "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+    "page": "/world/kind/politics",
+    "spacing": 21,
+    "test": {
+      "h": {
+        "1": {
+          "above": 0,
+          "base_median": 0.0004926487188865458,
+          "event_median": -0.007712392038996874,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "5": {
+          "above": 0,
+          "base_median": 0.002988337956250753,
+          "event_median": -0.002671941817462775,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "21": null,
+        "63": null
+      },
+      "read": "Not enough past politics events on the tape to test."
+    },
+    "warmed": "2026-10-24"
+  },
+  "diplomacy": {
+    "base": {
+      "1": 0.0004926487188865458,
+      "5": 0.002988337956250753,
+      "21": 0.01049763721339425,
+      "63": 0.025720163902466675
+    },
+    "events": [
+      {
+        "anchor": "2026-10-14",
+        "date": "2026-10-15",
+        "h": {
+          "1": 0.003254348055326872,
+          "5": 0.00495275008731122,
+          "21": null,
+          "63": null
+        },
+        "title": "A court in Hamburg, Germany, sentences a Danish national to eight years and six months in prison and an Afghan national to four years and six months in prison for plotting to assassinate Josef..."
+      }
+    ],
+    "h": {
+      "1": {
+        "best": 0.003254348055326872,
+        "hit": 1,
+        "median": 0.003254348055326872,
+        "n": 1,
+        "worst": 0.003254348055326872
+      },
+      "5": {
+        "best": 0.00495275008731122,
+        "hit": 1,
+        "median": 0.00495275008731122,
+        "n": 1,
+        "worst": 0.00495275008731122
+      },
+      "21": null,
+      "63": null
+    },
+    "kind": "diplomacy",
+    "label": "Diplomacy",
+    "n": 1,
+    "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+    "page": "/world/kind/diplomacy",
+    "spacing": 21,
+    "test": {
+      "h": {
+        "1": {
+          "above": 1,
+          "base_median": 0.0004926487188865458,
+          "event_median": 0.003254348055326872,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 1,
+          "spacing": 21
+        },
+        "5": {
+          "above": 1,
+          "base_median": 0.002988337956250753,
+          "event_median": 0.00495275008731122,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 1,
+          "spacing": 21
+        },
+        "21": null,
+        "63": null
+      },
+      "read": "Not enough past diplomacy events on the tape to test."
+    },
+    "warmed": "2026-10-24"
+  },
+  "sports": {
+    "base": {
+      "1": 0.0004926487188865458,
+      "5": 0.002988337956250753,
+      "21": 0.01049763721339425,
+      "63": 0.025720163902466675
+    },
+    "events": [
+      {
+        "anchor": "2026-10-21",
+        "date": "2026-10-22",
+        "h": {
+          "1": -0.012084271330631391,
+          "5": null,
+          "21": null,
+          "63": null
+        },
+        "title": "In women's association football, FIFA announces that the United States will host the inaugural FIFA Women's Club World Cup in 2028."
+      },
+      {
+        "anchor": "2026-09-22",
+        "date": "2026-09-23",
+        "h": {
+          "1": -0.007548366766584991,
+          "5": -0.012080443049146794,
+          "21": -0.0009620812699900894,
+          "63": null
+        },
+        "title": "North Korean weightlifter Ri Song Gum wins gold in the women's 49kg category at the 2026 Asian Games while setting three world records: 94kg in the snatch, 121kg in the clean and jerk, and 215kg..."
+      }
+    ],
+    "h": {
+      "1": {
+        "best": -0.007548366766584991,
+        "hit": 0,
+        "median": -0.00981631904860819,
+        "n": 2,
+        "worst": -0.012084271330631391
+      },
+      "5": {
+        "best": -0.012080443049146794,
+        "hit": 0,
+        "median": -0.012080443049146794,
+        "n": 1,
+        "worst": -0.012080443049146794
+      },
+      "21": {
+        "best": -0.0009620812699900894,
+        "hit": 0,
+        "median": -0.0009620812699900894,
+        "n": 1,
+        "worst": -0.0009620812699900894
+      },
+      "63": null
+    },
+    "kind": "sports",
+    "label": "Sports",
+    "n": 2,
+    "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+    "page": "/world/kind/sports",
+    "spacing": 21,
+    "test": {
+      "h": {
+        "1": {
+          "above": 0,
+          "base_median": 0.0004926487188865458,
+          "event_median": -0.00981631904860819,
+          "n": 2,
+          "p_value": 0.5,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "5": {
+          "above": 0,
+          "base_median": 0.002988337956250753,
+          "event_median": -0.012080443049146794,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "21": {
+          "above": 0,
+          "base_median": 0.01049763721339425,
+          "event_median": -0.0009620812699900894,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "63": null
+      },
+      "read": "After 1 sports events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 100% chance by luck alone."
+    },
+    "warmed": "2026-10-24"
+  },
+  "central_bank": {
+    "base": {
+      "1": 0.0004926487188865458,
+      "5": 0.002988337956250753,
+      "21": 0.01049763721339425,
+      "63": 0.025720163902466675
+    },
+    "events": [
+      {
+        "anchor": "2026-10-14",
+        "date": "2026-10-15",
+        "h": {
+          "1": 0.003254348055326872,
+          "5": 0.00495275008731122,
+          "21": null,
+          "63": null
+        },
+        "title": "The European Central Bank authorizes UniCredit to raise its stake in Commerzbank above 30% without an upper limit, allowing the Italian bank to proceed toward taking control of the German lender."
+      },
+      {
+        "anchor": "2026-09-15",
+        "date": "2026-09-16",
+        "h": {
+          "1": -0.004471543537976519,
+          "5": 0.023585094211189483,
+          "21": 0.017560598819161832,
+          "63": null
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2026-07-28",
+        "date": "2026-07-29",
+        "h": {
+          "1": -0.015161289750108109,
+          "5": 0.04142540811209772,
+          "21": 0.0332383537131673,
+          "63": null
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2026-06-16",
+        "date": "2026-06-17",
+        "h": {
+          "1": -0.012148282108228825,
+          "5": -0.020386465924452257,
+          "21": -0.00714387634078506,
+          "63": 0.005386509803360751
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2026-04-28",
+        "date": "2026-04-29",
+        "h": {
+          "1": -0.0003991720531409948,
+          "5": 0.01686843915656233,
+          "21": 0.05951001425282265,
+          "63": 0.024843125246319042
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2026-03-17",
+        "date": "2026-03-18",
+        "h": {
+          "1": -0.013607567880073446,
+          "5": -0.02378165424799006,
+          "21": 0.048419534129501285,
+          "63": 0.11841119943419454
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2026-01-27",
+        "date": "2026-01-28",
+        "h": {
+          "1": -0.00008172305219089626,
+          "5": -0.008710921705187835,
+          "21": -0.009993441864998398,
+          "63": 0.022955851430009888
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2025-12-09",
+        "date": "2025-12-10",
+        "h": {
+          "1": 0.00674955693920154,
+          "5": -0.005884064401496025,
+          "21": 0.018386059495634433,
+          "63": -0.024543441086975815
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2025-10-28",
+        "date": "2025-10-29",
+        "h": {
+          "1": -0.000043578255173426506,
+          "5": -0.017318565477532966,
+          "21": -0.011359965386819382,
+          "63": 0.011336652791775315
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2025-09-16",
+        "date": "2025-09-17",
+        "h": {
+          "1": -0.0009701681605103207,
+          "5": 0.007592247641723393,
+          "21": 0.009732500537298794,
+          "63": 0.03174778672766787
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2025-07-29",
+        "date": "2025-07-30",
+        "h": {
+          "1": -0.0012494327466496813,
+          "5": -0.011249646580373418,
+          "21": 0.01735088220973169,
+          "63": 0.07915733571151184
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2025-06-17",
+        "date": "2025-06-18",
+        "h": {
+          "1": -0.0003092402101070313,
+          "5": 0.018292672476095007,
+          "21": 0.052496157757722095,
+          "63": 0.10323562871619774
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2025-05-06",
+        "date": "2025-05-07",
+        "h": {
+          "1": 0.00434635623313584,
+          "5": 0.04987410902701672,
+          "21": 0.05928214278000987,
+          "63": 0.1316500321520111
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2025-03-18",
+        "date": "2025-03-19",
+        "h": {
+          "1": 0.010798495567894584,
+          "5": 0.028851211219512507,
+          "21": -0.06037052136809817,
+          "63": 0.06555339919977898
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2025-01-28",
+        "date": "2025-01-29",
+        "h": {
+          "1": -0.004678895760321544,
+          "5": -0.004914598866146536,
+          "21": -0.03397174620674115,
+          "63": -0.08353578800400752
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2024-12-17",
+        "date": "2024-12-18",
+        "h": {
+          "1": -0.02949284635160343,
+          "5": -0.0017469022887913743,
+          "21": -0.00022636212500859454,
+          "63": -0.06330763565042874
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2024-11-06",
+        "date": "2024-11-07",
+        "h": {
+          "1": 0.007431229727488331,
+          "5": 0.009502355082579017,
+          "21": 0.027193268962009576,
+          "63": 0.02317405540163553
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2024-09-17",
+        "date": "2024-09-18",
+        "h": {
+          "1": -0.002896455862498093,
+          "5": 0.017454734211351797,
+          "21": 0.03689540903426636,
+          "63": 0.07800048875092935
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2024-07-30",
+        "date": "2024-07-31",
+        "h": {
+          "1": 0.0157933986591674,
+          "5": -0.03612845140696874,
+          "21": 0.02864746710228805,
+          "63": 0.07120102167906484
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2024-06-11",
+        "date": "2024-06-12",
+        "h": {
+          "1": 0.008503672791998707,
+          "5": 0.020782011971489656,
+          "21": 0.044654138039569746,
+          "63": 0.03326500830482915
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2024-04-30",
+        "date": "2024-05-01",
+        "h": {
+          "1": -0.0034354388154940185,
+          "5": 0.03018657933172908,
+          "21": 0.03967480948731872,
+          "63": 0.0966322130518944
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2024-03-19",
+        "date": "2024-03-20",
+        "h": {
+          "1": 0.008904173912846591,
+          "5": 0.004841221439113141,
+          "21": -0.0323239032102699,
+          "63": 0.059576989036345784
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2024-01-30",
+        "date": "2024-01-31",
+        "h": {
+          "1": -0.016105744611597972,
+          "5": 0.005941105092739818,
+          "21": 0.034781896583091276,
+          "63": 0.022481298715024245
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2023-12-12",
+        "date": "2023-12-13",
+        "h": {
+          "1": 0.013650676351045998,
+          "5": 0.026847108260960928,
+          "21": 0.030176341477417434,
+          "63": 0.10913275272762224
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2023-10-31",
+        "date": "2023-11-01",
+        "h": {
+          "1": 0.010505999486313922,
+          "5": 0.04401261069226314,
+          "21": 0.08917926878197013,
+          "63": 0.16986746385044338
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2023-09-19",
+        "date": "2023-09-20",
+        "h": {
+          "1": -0.0093947947580596,
+          "5": -0.03834885691023504,
+          "21": -0.029107008848273996,
+          "63": 0.06674464164655025
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2023-07-25",
+        "date": "2023-07-26",
+        "h": {
+          "1": -0.00015543889679858758,
+          "5": 0.00202957871782794,
+          "21": -0.028779714860493022,
+          "63": -0.07672096195082445
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2023-06-13",
+        "date": "2023-06-14",
+        "h": {
+          "1": 0.0008194255259321714,
+          "5": -0.000759857358266891,
+          "21": 0.031222213629107376,
+          "63": 0.02252917275573285
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2023-05-02",
+        "date": "2023-05-03",
+        "h": {
+          "1": -0.006998305064656485,
+          "5": -0.00009956263556520906,
+          "21": 0.024623854733373696,
+          "63": 0.09559470895708144
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2023-03-21",
+        "date": "2023-03-22",
+        "h": {
+          "1": -0.01646322377571363,
+          "5": -0.007894359979497168,
+          "21": 0.03170722960258732,
+          "63": 0.09063991925715409
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2023-01-31",
+        "date": "2023-02-01",
+        "h": {
+          "1": 0.010452303944590291,
+          "5": 0.021439410354230803,
+          "21": -0.023365058558174945,
+          "63": 0.010543094598231662
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2022-12-13",
+        "date": "2022-12-14",
+        "h": {
+          "1": -0.006052724634100337,
+          "5": -0.04926543106174097,
+          "21": -0.00511482714978162,
+          "63": -0.014769911432400584
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2022-11-01",
+        "date": "2022-11-02",
+        "h": {
+          "1": -0.02500198485734284,
+          "5": -0.007258626468588658,
+          "21": 0.05717433809281225,
+          "63": 0.0839344570348346
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2022-09-20",
+        "date": "2022-09-21",
+        "h": {
+          "1": -0.017116493600784488,
+          "5": -0.05410883918457321,
+          "21": -0.04169422743188833,
+          "63": -0.00992497794558389
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2022-07-26",
+        "date": "2022-07-27",
+        "h": {
+          "1": 0.026156273782937722,
+          "5": 0.04339141058119722,
+          "21": 0.05603600259292585,
+          "63": -0.031550212161783775
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2022-06-14",
+        "date": "2022-06-15",
+        "h": {
+          "1": 0.014592504858983224,
+          "5": 0.00653461194732774,
+          "21": 0.034180328179567177,
+          "63": 0.05635956567767675
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2022-05-03",
+        "date": "2022-05-04",
+        "h": {
+          "1": 0.02986242108440229,
+          "5": -0.04177482168673774,
+          "21": 0.00032088376815764263,
+          "63": -0.004864125487070381
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2022-03-15",
+        "date": "2022-03-16",
+        "h": {
+          "1": 0.02238376135718223,
+          "5": 0.05845456405396976,
+          "21": 0.04320042229232435,
+          "63": -0.12363082046642315
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2022-01-25",
+        "date": "2022-01-26",
+        "h": {
+          "1": -0.0014966358477518371,
+          "5": 0.04363411383757687,
+          "21": -0.015551652598461585,
+          "63": -0.04160497466378088
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2021-12-14",
+        "date": "2021-12-15",
+        "h": {
+          "1": 0.016348464630746795,
+          "5": 0.0032671219655289185,
+          "21": 0.0053818424431038014,
+          "63": -0.059608248821783505
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2021-11-02",
+        "date": "2021-11-03",
+        "h": {
+          "1": 0.006461279195357994,
+          "5": 0.011791022601085555,
+          "21": -0.011564209304701811,
+          "63": -0.008912360122574126
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2021-09-21",
+        "date": "2021-09-22",
+        "h": {
+          "1": 0.009519611195260236,
+          "5": -0.00035828905370305364,
+          "21": 0.0417988196310104,
+          "63": 0.04910903773204267
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2021-07-27",
+        "date": "2021-07-28",
+        "h": {
+          "1": -0.0001862618826539153,
+          "5": 0.004927897015705174,
+          "21": 0.02152239968316616,
+          "63": 0.03749210966265415
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2021-06-15",
+        "date": "2021-06-16",
+        "h": {
+          "1": -0.005390124612855707,
+          "5": -0.00003529946363212133,
+          "21": 0.026713185304017006,
+          "63": 0.04626299411200341
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2021-04-27",
+        "date": "2021-04-28",
+        "h": {
+          "1": -0.0008455399168898481,
+          "5": -0.00526905488347118,
+          "21": 0.0022141483202970935,
+          "63": 0.05129068461092867
+        },
+        "title": "FOMC decision"
+      },
+      {
+        "anchor": "2021-03-16",
+        "date": "2021-03-17",
+        "h": {
+          "1": 0.00287938213053085,
+          "5": -0.013170265278234727,
+          "21": 0.052416140213390694,
+          "63": 0.07163781493242061
+        },
+        "title": "FOMC decision with projections"
+      },
+      {
+        "anchor": "2021-01-26",
+        "date": "2021-01-27",
+        "h": {
+          "1": -0.025677883699462,
+          "5": -0.006055158141364925,
+          "21": -0.005268059881111453,
+          "63": 0.08756710724551509
+        },
+        "title": "FOMC decision"
+      }
+    ],
+    "h": {
+      "1": {
+        "best": 0.02986242108440229,
+        "hit": 0.425531914893617,
+        "median": -0.0001862618826539153,
+        "n": 47,
+        "worst": -0.02949284635160343
+      },
+      "5": {
+        "best": 0.05845456405396976,
+        "hit": 0.5319148936170213,
+        "median": 0.0032671219655289185,
+        "n": 47,
+        "worst": -0.05410883918457321
+      },
+      "21": {
+        "best": 0.08917926878197013,
+        "hit": 0.6739130434782609,
+        "median": 0.023073127208269928,
+        "n": 46,
+        "worst": -0.06037052136809817
+      },
+      "63": {
+        "best": 0.16986746385044338,
+        "hit": 0.7272727272727273,
+        "median": 0.03537855898374165,
+        "n": 44,
+        "worst": -0.12363082046642315
+      }
+    },
+    "kind": "central_bank",
+    "label": "Central bank",
+    "n": 47,
+    "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+    "page": "/world/kind/central_bank",
+    "spacing": 21,
+    "test": {
+      "h": {
+        "1": {
+          "above": 20,
+          "base_median": 0.0004926487188865458,
+          "event_median": -0.0001862618826539153,
+          "n": 47,
+          "p_value": 0.38169339766321286,
+          "share_above": 0.425531914893617,
+          "spacing": 21
+        },
+        "5": {
+          "above": 24,
+          "base_median": 0.002988337956250753,
+          "event_median": 0.0032671219655289185,
+          "n": 47,
+          "p_value": 1,
+          "share_above": 0.5106382978723404,
+          "spacing": 21
+        },
+        "21": {
+          "above": 27,
+          "base_median": 0.01049763721339425,
+          "event_median": 0.023073127208269928,
+          "n": 46,
+          "p_value": 0.3019956131896606,
+          "share_above": 0.5869565217391305,
+          "spacing": 21
+        },
+        "63": {
+          "above": 10,
+          "base_median": 0.025720163902466675,
+          "event_median": 0.03461994819516101,
+          "n": 18,
+          "p_value": 0.8145294189453125,
+          "share_above": 0.5555555555555556,
+          "spacing": 63
+        }
+      },
+      "read": "After 46 central bank events at least 21 sessions apart, the S&P 500 beat its median 21-session move 27 times (59%); on ordinary days that happens half the time, and a split this lopsided or more has a 30% chance by luck alone."
+    },
+    "warmed": "2026-10-24"
+  },
+  "election": {
+    "base": {
+      "1": 0.0004926487188865458,
+      "5": 0.002988337956250753,
+      "21": 0.01049763721339425,
+      "63": 0.025720163902466675
+    },
+    "events": [
+      {
+        "anchor": "2026-10-02",
+        "date": "2026-10-05",
+        "h": {
+          "1": 0.006633670396382074,
+          "5": 0.011501106054318866,
+          "21": null,
+          "63": null
+        },
+        "title": "In Kosovo, the acting presidency of Albulena Haxhiu becomes de facto due to her having continuously served in the position for more than six months since assuming office on 4 April, violating the..."
+      }
+    ],
+    "h": {
+      "1": {
+        "best": 0.006633670396382074,
+        "hit": 1,
+        "median": 0.006633670396382074,
+        "n": 1,
+        "worst": 0.006633670396382074
+      },
+      "5": {
+        "best": 0.011501106054318866,
+        "hit": 1,
+        "median": 0.011501106054318866,
+        "n": 1,
+        "worst": 0.011501106054318866
+      },
+      "21": null,
+      "63": null
+    },
+    "kind": "election",
+    "label": "Election",
+    "n": 1,
+    "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+    "page": "/world/kind/election",
+    "spacing": 21,
+    "test": {
+      "h": {
+        "1": {
+          "above": 1,
+          "base_median": 0.0004926487188865458,
+          "event_median": 0.006633670396382074,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 1,
+          "spacing": 21
+        },
+        "5": {
+          "above": 1,
+          "base_median": 0.002988337956250753,
+          "event_median": 0.011501106054318866,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 1,
+          "spacing": 21
+        },
+        "21": null,
+        "63": null
+      },
+      "read": "Not enough past election events on the tape to test."
+    },
+    "warmed": "2026-10-24"
+  },
+  "health": {
+    "base": {
+      "1": 0.0004926487188865458,
+      "5": 0.002988337956250753,
+      "21": 0.01049763721339425,
+      "63": 0.025720163902466675
+    },
+    "events": [
+      {
+        "anchor": "2026-10-08",
+        "date": "2026-10-09",
+        "h": {
+          "1": 0.0059469460004828445,
+          "5": -0.0027429256418902703,
+          "21": null,
+          "63": null
+        },
+        "title": "Eight more children in Bangladesh are reported to be killed from measles, bringing the death toll past 1,155."
+      },
+      {
+        "anchor": "2020-03-10",
+        "date": "2020-03-11",
+        "h": {
+          "1": -0.048868445131273974,
+          "5": -0.12248850419808743,
+          "21": -0.045884610491245925,
+          "63": 0.11274254774042247
+        },
+        "title": "WHO declares COVID-19 a pandemic"
+      },
+      {
+        "anchor": "2020-01-22",
+        "date": "2020-01-23",
+        "h": {
+          "1": 0.0011409766124783616,
+          "5": -0.014555610041770195,
+          "21": 0.004816738165123846,
+          "63": -0.15727852529728303
+        },
+        "title": "China locks down Wuhan"
+      },
+      {
+        "anchor": "2009-06-10",
+        "date": "2009-06-11",
+        "h": {
+          "1": 0.006111899148334876,
+          "5": -0.03028270425606394,
+          "21": -0.06390887288609359,
+          "63": 0.10032472794951897
+        },
+        "title": "WHO declares the H1N1 pandemic"
+      },
+      {
+        "anchor": "2003-03-11",
+        "date": "2003-03-12",
+        "h": {
+          "1": 0.0043210845816348264,
+          "5": 0.08207514810399452,
+          "21": 0.08150064485835973,
+          "63": 0.22992775452086867
+        },
+        "title": "WHO issues a global alert on SARS"
+      }
+    ],
+    "h": {
+      "1": {
+        "best": 0.006111899148334876,
+        "hit": 0.8,
+        "median": 0.0043210845816348264,
+        "n": 5,
+        "worst": -0.048868445131273974
+      },
+      "5": {
+        "best": 0.08207514810399452,
+        "hit": 0.2,
+        "median": -0.014555610041770195,
+        "n": 5,
+        "worst": -0.12248850419808743
+      },
+      "21": {
+        "best": 0.08150064485835973,
+        "hit": 0.5,
+        "median": -0.02053393616306104,
+        "n": 4,
+        "worst": -0.06390887288609359
+      },
+      "63": {
+        "best": 0.22992775452086867,
+        "hit": 0.75,
+        "median": 0.10653363784497072,
+        "n": 4,
+        "worst": -0.15727852529728303
+      }
+    },
+    "kind": "health",
+    "label": "Health",
+    "n": 5,
+    "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+    "page": "/world/kind/health",
+    "spacing": 21,
+    "test": {
+      "h": {
+        "1": {
+          "above": 4,
+          "base_median": 0.0004926487188865458,
+          "event_median": 0.0043210845816348264,
+          "n": 5,
+          "p_value": 0.375,
+          "share_above": 0.8,
+          "spacing": 21
+        },
+        "5": {
+          "above": 1,
+          "base_median": 0.002988337956250753,
+          "event_median": -0.014555610041770195,
+          "n": 5,
+          "p_value": 0.375,
+          "share_above": 0.2,
+          "spacing": 21
+        },
+        "21": {
+          "above": 1,
+          "base_median": 0.01049763721339425,
+          "event_median": -0.02053393616306104,
+          "n": 4,
+          "p_value": 0.625,
+          "share_above": 0.25,
+          "spacing": 21
+        },
+        "63": {
+          "above": 2,
+          "base_median": 0.025720163902466675,
+          "event_median": 0.10032472794951897,
+          "n": 3,
+          "p_value": 1,
+          "share_above": 0.6666666666666666,
+          "spacing": 63
+        }
+      },
+      "read": "After 4 health events at least 21 sessions apart, the S&P 500 beat its median 21-session move 1 times (25%); on ordinary days that happens half the time, and a split this lopsided or more has a 62% chance by luck alone."
+    },
+    "warmed": "2026-10-24"
+  },
+  "science": {
+    "base": {
+      "1": 0.0004926487188865458,
+      "5": 0.002988337956250753,
+      "21": 0.01049763721339425,
+      "63": 0.025720163902466675
+    },
+    "events": [
+      {
+        "anchor": "2026-10-21",
+        "date": "2026-10-22",
+        "h": {
+          "1": -0.012084271330631391,
+          "5": null,
+          "21": null,
+          "63": null
+        },
+        "title": "The Finnish Government grants Posiva an operating license for the Onkalo spent nuclear fuel repository in Eurajoki, making it the world's first licensed deep geological disposal facility for spent..."
+      },
+      {
+        "anchor": "2026-09-22",
+        "date": "2026-09-23",
+        "h": {
+          "1": -0.007548366766584991,
+          "5": -0.012080443049146794,
+          "21": -0.0009620812699900894,
+          "63": null
+        },
+        "title": "Croatia joins the U.S.-led Artemis Accords, becoming the 74th country to do so."
+      }
+    ],
+    "h": {
+      "1": {
+        "best": -0.007548366766584991,
+        "hit": 0,
+        "median": -0.00981631904860819,
+        "n": 2,
+        "worst": -0.012084271330631391
+      },
+      "5": {
+        "best": -0.012080443049146794,
+        "hit": 0,
+        "median": -0.012080443049146794,
+        "n": 1,
+        "worst": -0.012080443049146794
+      },
+      "21": {
+        "best": -0.0009620812699900894,
+        "hit": 0,
+        "median": -0.0009620812699900894,
+        "n": 1,
+        "worst": -0.0009620812699900894
+      },
+      "63": null
+    },
+    "kind": "science",
+    "label": "Science and tech",
+    "n": 2,
+    "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+    "page": "/world/kind/science",
+    "spacing": 21,
+    "test": {
+      "h": {
+        "1": {
+          "above": 0,
+          "base_median": 0.0004926487188865458,
+          "event_median": -0.00981631904860819,
+          "n": 2,
+          "p_value": 0.5,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "5": {
+          "above": 0,
+          "base_median": 0.002988337956250753,
+          "event_median": -0.012080443049146794,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "21": {
+          "above": 0,
+          "base_median": 0.01049763721339425,
+          "event_median": -0.0009620812699900894,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "63": null
+      },
+      "read": "After 1 science and tech events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 100% chance by luck alone."
+    },
+    "warmed": "2026-10-24"
+  },
+  "business": {
+    "base": {
+      "1": 0.0004926487188865458,
+      "5": 0.002988337956250753,
+      "21": 0.01049763721339425,
+      "63": 0.025720163902466675
+    },
+    "events": [
+      {
+        "anchor": "2026-09-22",
+        "date": "2026-09-23",
+        "h": {
+          "1": -0.007548366766584991,
+          "5": -0.012080443049146794,
+          "21": -0.0009620812699900894,
+          "63": null
+        },
+        "title": "Iranian airlines suspend services to Azerbaijan, Baghdad, Georgia, Muscat, and Qatar, after new U.S. sanctions target Iran's aviation sector."
+      }
+    ],
+    "h": {
+      "1": {
+        "best": -0.007548366766584991,
+        "hit": 0,
+        "median": -0.007548366766584991,
+        "n": 1,
+        "worst": -0.007548366766584991
+      },
+      "5": {
+        "best": -0.012080443049146794,
+        "hit": 0,
+        "median": -0.012080443049146794,
+        "n": 1,
+        "worst": -0.012080443049146794
+      },
+      "21": {
+        "best": -0.0009620812699900894,
+        "hit": 0,
+        "median": -0.0009620812699900894,
+        "n": 1,
+        "worst": -0.0009620812699900894
+      },
+      "63": null
+    },
+    "kind": "business",
+    "label": "Business",
+    "n": 1,
+    "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+    "page": "/world/kind/business",
+    "spacing": 21,
+    "test": {
+      "h": {
+        "1": {
+          "above": 0,
+          "base_median": 0.0004926487188865458,
+          "event_median": -0.007548366766584991,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "5": {
+          "above": 0,
+          "base_median": 0.002988337956250753,
+          "event_median": -0.012080443049146794,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "21": {
+          "above": 0,
+          "base_median": 0.01049763721339425,
+          "event_median": -0.0009620812699900894,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "63": null
+      },
+      "read": "After 1 business events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 100% chance by luck alone."
+    },
+    "warmed": "2026-10-24"
+  },
+  "war_onset": {
+    "base": {
+      "1": 0.0004926487188865458,
+      "5": 0.002988337956250753,
+      "21": 0.01049763721339425,
+      "63": 0.025720163902466675
+    },
+    "events": [
+      {
+        "anchor": "2026-02-27",
+        "date": "2026-02-28",
+        "h": {
+          "1": 0.0003983547353176853,
+          "5": -0.02018640616595213,
+          "21": -0.07779750149524989,
+          "63": 0.10193231859349838
+        },
+        "title": "US-Iran war (in progress)"
+      },
+      {
+        "anchor": "2025-06-12",
+        "date": "2025-06-13",
+        "h": {
+          "1": -0.011296379879250695,
+          "5": -0.012806715488924203,
+          "21": 0.032835644405013964,
+          "63": 0.08916577522484204
+        },
+        "title": "Israel strikes Iran (12-day war)"
+      },
+      {
+        "anchor": "2024-04-12",
+        "date": "2024-04-13",
+        "h": {
+          "1": -0.01202135494776202,
+          "5": -0.030483637073390857,
+          "21": 0.019129791025112253,
+          "63": 0.09911563648174404
+        },
+        "title": "Iran's first direct strike on Israel"
+      },
+      {
+        "anchor": "2023-10-06",
+        "date": "2023-10-07",
+        "h": {
+          "1": 0.00630385429964031,
+          "5": 0.0044748253815132255,
+          "21": 0.013341065444760325,
+          "63": 0.10561449206510387
+        },
+        "title": "Hamas attack, Gaza war"
+      },
+      {
+        "anchor": "2022-02-23",
+        "date": "2022-02-24",
+        "h": {
+          "1": 0.014956856067329216,
+          "5": 0.03811147534315462,
+          "21": 0.06973379629629628,
+          "63": -0.06721571873890664
+        },
+        "title": "Russia invades Ukraine"
+      },
+      {
+        "anchor": "2020-01-02",
+        "date": "2020-01-03",
+        "h": {
+          "1": -0.007059870562045378,
+          "5": 0.005172077600423375,
+          "21": -0.002741125439649439,
+          "63": -0.22436581592208837
+        },
+        "title": "Soleimani strike"
+      },
+      {
+        "anchor": "2017-04-06",
+        "date": "2017-04-07",
+        "h": {
+          "1": -0.0008271302020167459,
+          "5": -0.012106112509797984,
+          "21": 0.017768852784804556,
+          "63": 0.028712716357926382
+        },
+        "title": "US strikes Syria (Shayrat)"
+      },
+      {
+        "anchor": "2014-02-26",
+        "date": "2014-02-27",
+        "h": {
+          "1": 0.004948082937896281,
+          "5": 0.015527121703998725,
+          "21": 0.0021028012806150187,
+          "63": 0.035021349866769746
+        },
+        "title": "Russia seizes Crimea"
+      },
+      {
+        "anchor": "2011-03-18",
+        "date": "2011-03-19",
+        "h": {
+          "1": 0.01499378865154477,
+          "5": 0.02704823247104793,
+          "21": 0.020278349332955248,
+          "63": -0.006019349175882205
+        },
+        "title": "NATO intervenes in Libya"
+      },
+      {
+        "anchor": "2008-08-07",
+        "date": "2008-08-08",
+        "h": {
+          "1": 0.02389283474318682,
+          "5": 0.02121534240711087,
+          "21": 0.0013586080125187472,
+          "63": -0.24745862396948604
+        },
+        "title": "Russia-Georgia war"
+      },
+      {
+        "anchor": "2003-03-19",
+        "date": "2003-03-20",
+        "h": {
+          "1": 0.002082340545465744,
+          "5": -0.004656652288584362,
+          "21": 0.022379347293536966,
+          "63": 0.15568294121820592
+        },
+        "title": "US invades Iraq"
+      },
+      {
+        "anchor": "2001-09-10",
+        "date": "2001-09-11",
+        "h": {
+          "1": -0.049215605477845537,
+          "5": -0.11600494877815726,
+          "21": -0.0023432171840097604,
+          "63": 0.024566574094020188
+        },
+        "title": "9/11 attacks (Afghanistan follows)"
+      },
+      {
+        "anchor": "1999-03-23",
+        "date": "1999-03-24",
+        "h": {
+          "1": 0.005110329358879895,
+          "5": 0.030590889206786764,
+          "21": 0.07660793595327253,
+          "63": 0.05842457205899998
+        },
+        "title": "NATO bombs Yugoslavia (Kosovo)"
+      },
+      {
+        "anchor": "1998-12-15",
+        "date": "1998-12-16",
+        "h": {
+          "1": -0.000739562433083818,
+          "5": 0.03503520873559185,
+          "21": 0.06916751094358187,
+          "63": 0.13219481659638976
+        },
+        "title": "Desert Fox strikes on Iraq"
+      },
+      {
+        "anchor": "1991-01-16",
+        "date": "1991-01-17",
+        "h": {
+          "1": 0.037321653831241086,
+          "5": 0.04440641879705898,
+          "21": 0.15197515815000373,
+          "63": 0.2349368871955808
+        },
+        "title": "Desert Storm air war begins"
+      },
+      {
+        "anchor": "1990-08-01",
+        "date": "1990-08-02",
+        "h": {
+          "1": -0.011363574910518981,
+          "5": -0.04829540796789333,
+          "21": -0.10353847518030324,
+          "63": -0.14474570501041273
+        },
+        "title": "Iraq invades Kuwait"
+      },
+      {
+        "anchor": "1989-12-19",
+        "date": "1989-12-20",
+        "h": {
+          "1": 0.001109632927332349,
+          "5": 0.018542329796058965,
+          "21": -0.009665355490227956,
+          "63": -0.007942537197253685
+        },
+        "title": "US invades Panama"
+      },
+      {
+        "anchor": "1986-04-14",
+        "date": "1986-04-15",
+        "h": {
+          "1": 0.001896480742402451,
+          "5": 0.03143967781627488,
+          "21": -0.003666533722451293,
+          "63": 0.0034979848083473986
+        },
+        "title": "US bombs Libya"
+      },
+      {
+        "anchor": "1983-10-24",
+        "date": "1983-10-25",
+        "h": {
+          "1": 0.002891714631329645,
+          "5": -0.014699694925347395,
+          "21": 0.005120735084026329,
+          "63": -0.00030124134046050077
+        },
+        "title": "US invades Grenada"
+      },
+      {
+        "anchor": "1982-06-04",
+        "date": "1982-06-06",
+        "h": {
+          "1": 0.00027256253692042876,
+          "5": 0.010446012936082827,
+          "21": -0.025433695299339254,
+          "63": 0.09265151164444263
+        },
+        "title": "Israel invades Lebanon"
+      },
+      {
+        "anchor": "1982-04-01",
+        "date": "1982-04-02",
+        "h": {
+          "1": 0.011688213554387872,
+          "5": 0.02135513037722636,
+          "21": 0.026627988003499636,
+          "63": -0.04464365752862465
+        },
+        "title": "Falklands War"
+      },
+      {
+        "anchor": "1980-09-19",
+        "date": "1980-09-22",
+        "h": {
+          "1": 0.008897438270672131,
+          "5": -0.02243714913639383,
+          "21": 0.025996136250302282,
+          "63": 0.03442937677556812
+        },
+        "title": "Iraq invades Iran"
+      },
+      {
+        "anchor": "1979-12-21",
+        "date": "1979-12-24",
+        "h": {
+          "1": 0.0006506861846047318,
+          "5": 0.003253147276038648,
+          "21": 0.05437314158040718,
+          "63": -0.0772376414299325
+        },
+        "title": "Soviet invasion of Afghanistan"
+      },
+      {
+        "anchor": "1973-10-05",
+        "date": "1973-10-06",
+        "h": {
+          "1": 0.0034593071287298827,
+          "5": 0.014474319429869986,
+          "21": -0.03941740456259335,
+          "63": -0.10723713193379836
+        },
+        "title": "Yom Kippur War (and the embargo)"
+      },
+      {
+        "anchor": "1971-12-02",
+        "date": "1971-12-03",
+        "h": {
+          "1": 0.012729562472038491,
+          "5": 0.01168617267715022,
+          "21": 0.06083057234790168,
+          "63": 0.1197830112227889
+        },
+        "title": "India-Pakistan war"
+      },
+      {
+        "anchor": "1967-06-02",
+        "date": "1967-06-05",
+        "h": {
+          "1": -0.015146459477498264,
+          "5": 0.019712625292559904,
+          "21": 0.012473579854795913,
+          "63": 0.04287780860747614
+        },
+        "title": "Six-Day War"
+      },
+      {
+        "anchor": "1964-08-03",
+        "date": "1964-08-04",
+        "h": {
+          "1": -0.012530131512377585,
+          "5": -0.014698809887989439,
+          "21": -0.009879514395472522,
+          "63": 0.022409645907850217
+        },
+        "title": "Gulf of Tonkin (Vietnam escalation)"
+      },
+      {
+        "anchor": "1962-10-19",
+        "date": "1962-10-22",
+        "h": {
+          "1": -0.011332992739448766,
+          "5": -0.0188882754844113,
+          "21": 0.0874258067460234,
+          "63": 0.1771901827987279
+        },
+        "title": "Cuban Missile Crisis (scare)"
+      },
+      {
+        "anchor": "1956-10-26",
+        "date": "1956-10-29",
+        "h": {
+          "1": 0.002809618907047673,
+          "5": 0.015344695860134205,
+          "21": -0.039766590326003715,
+          "63": -0.02939270795108384
+        },
+        "title": "Suez war (Israel, UK, France vs Egypt)"
+      },
+      {
+        "anchor": "1950-06-23",
+        "date": "1950-06-25",
+        "h": {
+          "1": -0.053813940028333174,
+          "5": -0.07575751838189859,
+          "21": -0.09979100879413305,
+          "63": 0.015674041482542034
+        },
+        "title": "North Korea invades the South"
+      },
+      {
+        "anchor": "1941-12-05",
+        "date": "1941-12-07",
+        "h": {
+          "1": -0.037553587902988794,
+          "5": -0.06330473947499615,
+          "21": -0.03433473232857809,
+          "63": -0.1266093766244185
+        },
+        "title": "Pearl Harbor (US enters WWII)"
+      },
+      {
+        "anchor": "1939-08-31",
+        "date": "1939-09-01",
+        "h": {
+          "1": 0.010733442064713383,
+          "5": 0.13506254329067113,
+          "21": 0.15205722386949505,
+          "63": 0.09838992824411341
+        },
+        "title": "Germany invades Poland (WWII)"
+      },
+      {
+        "anchor": "1937-07-06",
+        "date": "1937-07-07",
+        "h": {
+          "1": 0.007384667029747494,
+          "5": 0.009230745755709036,
+          "21": 0.04738464355468741,
+          "63": -0.1636922983022836
+        },
+        "title": "Japan invades China"
+      },
+      {
+        "anchor": "1936-07-16",
+        "date": "1936-07-17",
+        "h": {
+          "1": 0.0019193686981149316,
+          "5": 0.016634691425345238,
+          "21": 0.015355071616181437,
+          "63": 0.07805503890570176
+        },
+        "title": "Spanish Civil War begins"
+      },
+      {
+        "anchor": "1935-10-02",
+        "date": "1935-10-03",
+        "h": {
+          "1": 0.014414400172383157,
+          "5": 0.03693692192088216,
+          "21": 0.12252248738185822,
+          "63": 0.2081080528428343
+        },
+        "title": "Italy invades Ethiopia"
+      },
+      {
+        "anchor": "1931-09-17",
+        "date": "1931-09-18",
+        "h": {
+          "1": -0.048172751291004956,
+          "5": -0.11295678247393737,
+          "21": -0.1287375577778913,
+          "63": -0.3056478668467876
+        },
+        "title": "Japan invades Manchuria"
+      }
+    ],
+    "h": {
+      "1": {
+        "best": 0.037321653831241086,
+        "hit": 0.6388888888888888,
+        "median": 0.0019079247202586913,
+        "n": 36,
+        "worst": -0.053813940028333174
+      },
+      "5": {
+        "best": 0.13506254329067113,
+        "hit": 0.6111111111111112,
+        "median": 0.009838379345895931,
+        "n": 36,
+        "worst": -0.11600494877815726
+      },
+      "21": {
+        "best": 0.15205722386949505,
+        "hit": 0.6388888888888888,
+        "median": 0.014348068530470881,
+        "n": 36,
+        "worst": -0.1287375577778913
+      },
+      "63": {
+        "best": 0.2349368871955808,
+        "hit": 0.6111111111111112,
+        "median": 0.026639645225973285,
+        "n": 36,
+        "worst": -0.3056478668467876
+      }
+    },
+    "kind": "war_onset",
+    "label": "War onset",
+    "n": 36,
+    "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+    "page": "/world/kind/war_onset",
+    "spacing": 21,
+    "test": {
+      "h": {
+        "1": {
+          "above": 21,
+          "base_median": 0.0004926487188865458,
+          "event_median": 0.0019079247202586913,
+          "n": 36,
+          "p_value": 0.40503224614076316,
+          "share_above": 0.5833333333333334,
+          "spacing": 21
+        },
+        "5": {
+          "above": 22,
+          "base_median": 0.002988337956250753,
+          "event_median": 0.009838379345895931,
+          "n": 36,
+          "p_value": 0.2429849540349096,
+          "share_above": 0.6111111111111112,
+          "spacing": 21
+        },
+        "21": {
+          "above": 20,
+          "base_median": 0.01049763721339425,
+          "event_median": 0.014348068530470881,
+          "n": 36,
+          "p_value": 0.617719317029696,
+          "share_above": 0.5555555555555556,
+          "spacing": 21
+        },
+        "63": {
+          "above": 17,
+          "base_median": 0.025720163902466675,
+          "event_median": 0.024566574094020188,
+          "n": 35,
+          "p_value": 1,
+          "share_above": 0.4857142857142857,
+          "spacing": 63
+        }
+      },
+      "read": "After 36 war onset events at least 21 sessions apart, the S&P 500 beat its median 21-session move 20 times (56%); on ordinary days that happens half the time, and a split this lopsided or more has a 62% chance by luck alone."
+    },
+    "warmed": "2026-10-24"
+  },
+  "other": {
+    "base": {
+      "1": 0.0004926487188865458,
+      "5": 0.002988337956250753,
+      "21": 0.01049763721339425,
+      "63": 0.025720163902466675
+    },
+    "events": [
+      {
+        "anchor": "2026-09-24",
+        "date": "2026-09-25",
+        "h": {
+          "1": 0.005098599586843999,
+          "5": -0.004890842713342836,
+          "21": null,
+          "63": null
+        },
+        "title": "Cities and states across the United States hold commemorations honoring former American country singer Dolly Parton a month after her death."
+      }
+    ],
+    "h": {
+      "1": {
+        "best": 0.005098599586843999,
+        "hit": 1,
+        "median": 0.005098599586843999,
+        "n": 1,
+        "worst": 0.005098599586843999
+      },
+      "5": {
+        "best": -0.004890842713342836,
+        "hit": 0,
+        "median": -0.004890842713342836,
+        "n": 1,
+        "worst": -0.004890842713342836
+      },
+      "21": null,
+      "63": null
+    },
+    "kind": "other",
+    "label": "Other",
+    "n": 1,
+    "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+    "page": "/world/kind/other",
+    "spacing": 21,
+    "test": {
+      "h": {
+        "1": {
+          "above": 1,
+          "base_median": 0.0004926487188865458,
+          "event_median": 0.005098599586843999,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 1,
+          "spacing": 21
+        },
+        "5": {
+          "above": 0,
+          "base_median": 0.002988337956250753,
+          "event_median": -0.004890842713342836,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "21": null,
+        "63": null
+      },
+      "read": "Not enough past other events on the tape to test."
+    },
+    "warmed": "2026-10-24"
+  },
+  "data_release": {
+    "base": {
+      "1": 0.0004926487188865458,
+      "5": 0.002988337956250753,
+      "21": 0.01049763721339425,
+      "63": 0.025720163902466675
+    },
+    "events": [
+      {
+        "anchor": "2026-10-13",
+        "date": "2026-10-14",
+        "h": {
+          "1": -0.011083313805295036,
+          "5": -0.011899425243854456,
+          "21": null,
+          "63": null
+        },
+        "title": "CPI: September 2026"
+      },
+      {
+        "anchor": "2026-09-10",
+        "date": "2026-09-11",
+        "h": {
+          "1": 0.008598836028398171,
+          "5": 0.006067095529001421,
+          "21": 0.028957919582459413,
+          "63": null
+        },
+        "title": "CPI: August 2026"
+      },
+      {
+        "anchor": "2026-08-11",
+        "date": "2026-08-12",
+        "h": {
+          "1": 0.0026267182752088836,
+          "5": -0.004715254362794963,
+          "21": -0.01766258592560699,
+          "63": null
+        },
+        "title": "CPI: July 2026"
+      },
+      {
+        "anchor": "2026-07-13",
+        "date": "2026-07-14",
+        "h": {
+          "1": 0.0037589783811964317,
+          "5": -0.009588396545191169,
+          "21": 0.028323449902205144,
+          "63": 0.03941274798887906
+        },
+        "title": "CPI: June 2026"
+      },
+      {
+        "anchor": "2026-06-09",
+        "date": "2026-06-10",
+        "h": {
+          "1": -0.016199450298948426,
+          "5": 0.016881833708259686,
+          "21": 0.025551533762973255,
+          "63": 0.03380557684996921
+        },
+        "title": "CPI: May 2026"
+      },
+      {
+        "anchor": "2026-05-07",
+        "date": "2026-05-08",
+        "h": {
+          "1": 0.008425703533400997,
+          "5": 0.022369894161615944,
+          "21": 0.009352472358484354,
+          "63": 0.05731552086224778
+        },
+        "title": "Jobs report: April 2026"
+      },
+      {
+        "anchor": "2026-04-02",
+        "date": "2026-04-03",
+        "h": {
+          "1": 0.0044267825126402816,
+          "5": 0.03557819028347975,
+          "21": 0.09389171662272067,
+          "63": 0.14503800769492736
+        },
+        "title": "Jobs report: March 2026"
+      },
+      {
+        "anchor": "2026-02-10",
+        "date": "2026-02-11",
+        "h": {
+          "1": -0.00004895607156218951,
+          "5": -0.008715306165011372,
+          "21": -0.038778062080941145,
+          "63": 0.06614267726546852
+        },
+        "title": "Jobs report: January 2026"
+      },
+      {
+        "anchor": "2025-12-15",
+        "date": "2025-12-16",
+        "h": {
+          "1": -0.0023839179519623555,
+          "5": 0.009092698592256365,
+          "21": 0.018772136125153382,
+          "63": -0.028138970955455367
+        },
+        "title": "Jobs report: November 2025"
+      }
+    ],
+    "h": {
+      "1": {
+        "best": 0.008598836028398171,
+        "hit": 0.5555555555555556,
+        "median": 0.0026267182752088836,
+        "n": 9,
+        "worst": -0.016199450298948426
+      },
+      "5": {
+        "best": 0.03557819028347975,
+        "hit": 0.5555555555555556,
+        "median": 0.006067095529001421,
+        "n": 9,
+        "worst": -0.011899425243854456
+      },
+      "21": {
+        "best": 0.09389171662272067,
+        "hit": 0.75,
+        "median": 0.02216183494406332,
+        "n": 8,
+        "worst": -0.038778062080941145
+      },
+      "63": {
+        "best": 0.14503800769492736,
+        "hit": 0.8333333333333334,
+        "median": 0.04836413442556342,
+        "n": 6,
+        "worst": -0.028138970955455367
+      }
+    },
+    "kind": "data_release",
+    "label": "Data release",
+    "n": 9,
+    "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+    "page": "/world/kind/data_release",
+    "spacing": 21,
+    "test": {
+      "h": {
+        "1": {
+          "above": 5,
+          "base_median": 0.0004926487188865458,
+          "event_median": 0.0026267182752088836,
+          "n": 9,
+          "p_value": 1,
+          "share_above": 0.5555555555555556,
+          "spacing": 21
+        },
+        "5": {
+          "above": 5,
+          "base_median": 0.002988337956250753,
+          "event_median": 0.006067095529001421,
+          "n": 9,
+          "p_value": 1,
+          "share_above": 0.5555555555555556,
+          "spacing": 21
+        },
+        "21": {
+          "above": 5,
+          "base_median": 0.01049763721339425,
+          "event_median": 0.02216183494406332,
+          "n": 8,
+          "p_value": 0.7265625,
+          "share_above": 0.625,
+          "spacing": 21
+        },
+        "63": {
+          "above": 2,
+          "base_median": 0.025720163902466675,
+          "event_median": 0.03941274798887906,
+          "n": 3,
+          "p_value": 1,
+          "share_above": 0.6666666666666666,
+          "spacing": 63
+        }
+      },
+      "read": "After 8 data release events at least 21 sessions apart, the S&P 500 beat its median 21-session move 5 times (62%); on ordinary days that happens half the time, and a split this lopsided or more has a 73% chance by luck alone."
+    },
+    "warmed": "2026-10-24"
+  },
+  "earnings": {
+    "base": {
+      "1": 0.0004926487188865458,
+      "5": 0.002988337956250753,
+      "21": 0.01049763721339425,
+      "63": 0.025720163902466675
+    },
+    "events": [
+      {
+        "anchor": "2026-10-07",
+        "date": "2026-10-08",
+        "h": {
+          "1": -0.004666909708803235,
+          "5": -0.010616831554588257,
+          "21": null,
+          "63": null
+        },
+        "title": "PEP reports before the open, estimate 2.29"
+      }
+    ],
+    "h": {
+      "1": {
+        "best": -0.004666909708803235,
+        "hit": 0,
+        "median": -0.004666909708803235,
+        "n": 1,
+        "worst": -0.004666909708803235
+      },
+      "5": {
+        "best": -0.010616831554588257,
+        "hit": 0,
+        "median": -0.010616831554588257,
+        "n": 1,
+        "worst": -0.010616831554588257
+      },
+      "21": null,
+      "63": null
+    },
+    "kind": "earnings",
+    "label": "Earnings",
+    "n": 1,
+    "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+    "page": "/world/kind/earnings",
+    "spacing": 21,
+    "test": {
+      "h": {
+        "1": {
+          "above": 0,
+          "base_median": 0.0004926487188865458,
+          "event_median": -0.004666909708803235,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "5": {
+          "above": 0,
+          "base_median": 0.002988337956250753,
+          "event_median": -0.010616831554588257,
+          "n": 1,
+          "p_value": 1,
+          "share_above": 0,
+          "spacing": 21
+        },
+        "21": null,
+        "63": null
+      },
+      "read": "Not enough past earnings events on the tape to test."
+    },
+    "warmed": "2026-10-24"
+  }
+}

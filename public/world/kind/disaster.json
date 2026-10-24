@@ -1,0 +1,154 @@
+{
+  "base": {
+    "1": 0.0004926487188865458,
+    "5": 0.002988337956250753,
+    "21": 0.01049763721339425,
+    "63": 0.025720163902466675
+  },
+  "events": [
+    {
+      "anchor": "2026-10-13",
+      "date": "2026-10-14",
+      "h": {
+        "1": -0.011083313805295036,
+        "5": -0.011899425243854456,
+        "21": null,
+        "63": null
+      },
+      "title": "Red notification for tropical cyclone CHAMPI-26. Population affected by Category 1 (120 km/h) wind speeds or higher is 0.181 million ."
+    },
+    {
+      "anchor": "2026-09-11",
+      "date": "2026-09-14",
+      "h": {
+        "1": -0.004832192338804386,
+        "5": -0.0008462841074782235,
+        "21": 0.019623958047367385,
+        "63": null
+      },
+      "title": "Wildfire: Wildfire Hydra, Bosque, Texas"
+    },
+    {
+      "anchor": "2026-07-30",
+      "date": "2026-07-31",
+      "h": {
+        "1": 0.00700361981598796,
+        "5": 0.03661516940421072,
+        "21": 0.03685715572456516,
+        "63": null
+      },
+      "title": "Orange flood alert in China"
+    },
+    {
+      "anchor": "2026-05-20",
+      "date": "2026-05-21",
+      "h": {
+        "1": 0.0017153304306989359,
+        "5": 0.01757839251229898,
+        "21": 0.005357188723725814,
+        "63": 0.028008983675259724
+      },
+      "title": "Drought is on going in Burundi, Democratic Republic of Congo, Kenya, Rwanda, Tanzania, Uganda"
+    },
+    {
+      "anchor": "2026-04-20",
+      "date": "2026-04-21",
+      "h": {
+        "1": -0.006348217959672997,
+        "5": 0.00911080922384877,
+        "21": 0.03438808658445369,
+        "63": 0.05627404311914419
+      },
+      "title": "Drought is on going in The Bahamas, Belize, Costa Rica, Cuba, Dominican Republic, Guatemala, Honduras, Haiti, Mexico, Nicaragua, El Salvador, United States"
+    },
+    {
+      "anchor": "2025-11-20",
+      "date": "2025-11-21",
+      "h": {
+        "1": 0.009823035415319481,
+        "5": 0.04746008253070255,
+        "21": 0.051956407778735336,
+        "63": 0.05372732309888906
+      },
+      "title": "Drought is on going in Madagascar"
+    }
+  ],
+  "h": {
+    "1": {
+      "best": 0.009823035415319481,
+      "hit": 0.5,
+      "median": -0.0015584309540527252,
+      "n": 6,
+      "worst": -0.011083313805295036
+    },
+    "5": {
+      "best": 0.04746008253070255,
+      "hit": 0.6666666666666666,
+      "median": 0.013344600868073875,
+      "n": 6,
+      "worst": -0.011899425243854456
+    },
+    "21": {
+      "best": 0.051956407778735336,
+      "hit": 1,
+      "median": 0.03438808658445369,
+      "n": 5,
+      "worst": 0.005357188723725814
+    },
+    "63": {
+      "best": 0.05627404311914419,
+      "hit": 1,
+      "median": 0.05372732309888906,
+      "n": 3,
+      "worst": 0.028008983675259724
+    }
+  },
+  "kind": "disaster",
+  "label": "Natural disaster",
+  "n": 6,
+  "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+  "page": "/world/kind/disaster",
+  "spacing": 21,
+  "test": {
+    "h": {
+      "1": {
+        "above": 3,
+        "base_median": 0.0004926487188865458,
+        "event_median": -0.0015584309540527252,
+        "n": 6,
+        "p_value": 1,
+        "share_above": 0.5,
+        "spacing": 21
+      },
+      "5": {
+        "above": 4,
+        "base_median": 0.002988337956250753,
+        "event_median": 0.013344600868073875,
+        "n": 6,
+        "p_value": 0.6875,
+        "share_above": 0.6666666666666666,
+        "spacing": 21
+      },
+      "21": {
+        "above": 4,
+        "base_median": 0.01049763721339425,
+        "event_median": 0.03438808658445369,
+        "n": 5,
+        "p_value": 0.375,
+        "share_above": 0.8,
+        "spacing": 21
+      },
+      "63": {
+        "above": 2,
+        "base_median": 0.025720163902466675,
+        "event_median": 0.055000683109016624,
+        "n": 2,
+        "p_value": 0.5,
+        "share_above": 1,
+        "spacing": 63
+      }
+    },
+    "read": "After 5 natural disaster events at least 21 sessions apart, the S&P 500 beat its median 21-session move 4 times (80%); on ordinary days that happens half the time, and a split this lopsided or more has a 38% chance by luck alone."
+  },
+  "warmed": "2026-10-24"
+}

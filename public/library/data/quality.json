@@ -1,0 +1,421 @@
+[
+  {
+    "id": "novy-marx-2013",
+    "name": "Gross Profitability",
+    "type": "quality",
+    "kind": "paper",
+    "src": "Novy-Marx (2013), JFE",
+    "year": 2013,
+    "thesis": "Gross profits / assets predicts returns about as well as book-to-market. Profitable firms earn more despite higher valuations, so the strategy is a growth tilt that hedges value.",
+    "criteria": [
+      "Gross profitability = (revenue - COGS) / total assets, annual data",
+      "Exclude financials; sort each June into quintiles on NYSE breakpoints",
+      "Long top quintile, short bottom, value weighted; pairs well with value"
+    ],
+    "result": "1963-2010: top minus bottom quintile earned 0.31%/month (t = 2.49), FF3 alpha 0.52%/month. It lagged from the mid-1970s to the early 1980s and in the mid-2000s.",
+    "testable": true,
+    "tags": [
+      "quality",
+      "profitability",
+      "factor"
+    ],
+    "fidelity": "close",
+    "run_gap": "Long only, the 20 most profitable names, re-formed monthly; the paper's premium is a quintile long-short spread.",
+    "runnable": true
+  },
+  {
+    "id": "sloan-1996",
+    "name": "Accruals Anomaly",
+    "type": "quality",
+    "kind": "paper",
+    "src": "Sloan (1996), The Accounting Review",
+    "year": 1996,
+    "thesis": "Earnings driven by accruals persist less than earnings backed by cash, but prices act as if investors weight both the same, so high-accrual firms later disappoint.",
+    "criteria": [
+      "Accruals = change in non-cash current assets - change in current liabilities (ex short-term debt and taxes payable) - depreciation, over average assets",
+      "Rank annually into deciles, four months after fiscal year end",
+      "Long lowest-accrual decile, short highest"
+    ],
+    "result": "1962-1991: the hedge earned about 10.4% size-adjusted in year one, positive in 28 of 30 years, smaller after. Later studies (Green, Hand and Soliman 2011) find it largely faded in the 2000s.",
+    "testable": true,
+    "tags": [
+      "quality",
+      "accruals",
+      "earnings quality",
+      "accounting",
+      "short"
+    ],
+    "fidelity": "close",
+    "run_gap": "Accruals are net income minus operating cash flow, not Sloan's balance-sheet accruals; long only, 30 names.",
+    "runnable": true
+  },
+  {
+    "id": "qmj-2019",
+    "name": "Inspired by Asness, Frazzini and Pedersen: Quality Minus Junk",
+    "type": "quality",
+    "kind": "paper",
+    "src": "Asness, Frazzini & Pedersen (2019), Review of Accounting Studies",
+    "year": 2019,
+    "thesis": "Safe, profitable, growing firms trade at only modestly higher prices than junk, so long quality, short junk earned positive risk-adjusted returns.",
+    "criteria": [
+      "Quality score: z-scored profitability, growth and safety (low beta, volatility, leverage, distress risk)",
+      "Payout (low net issuance) is added in some versions",
+      "Long high quality, short junk within size groups, value weighted, monthly"
+    ],
+    "result": "Significant risk-adjusted returns in the US (1957-2016) and across 24 countries. QMJ has negative market beta and tended to do well in sell-offs.",
+    "testable": true,
+    "tags": [
+      "quality",
+      "factor",
+      "defensive",
+      "AQR"
+    ],
+    "fidelity": "loose",
+    "run_gap": "One profitability measure (ROE) and two growth filters; QMJ's safety and payout legs and its junk short are missing.",
+    "runnable": true
+  },
+  {
+    "id": "cooper-asset-growth-2008",
+    "name": "Asset Growth Anomaly",
+    "type": "quality",
+    "kind": "paper",
+    "src": "Cooper, Gulen & Schill (2008), Journal of Finance",
+    "year": 2008,
+    "thesis": "Firms that grow total assets fastest earn lower later returns than slow growers and shrinkers. The authors lean toward investors overextrapolating growth.",
+    "criteria": [
+      "Asset growth = total assets at year t-1 / year t-2 - 1",
+      "Sort each June into deciles; hold one year",
+      "Long lowest-growth decile, short highest"
+    ],
+    "result": "1968-2003: low minus high decile about 8%/yr value weighted, much larger equal weighted, and it held in large caps. Fama-French (2015) built CMA on asset growth.",
+    "testable": true,
+    "tags": [
+      "quality",
+      "investment",
+      "asset growth",
+      "short"
+    ],
+    "fidelity": "close",
+    "run_gap": "Long only, 30 names, with an ROE floor the paper does not have; most of its spread came from the high-growth short side.",
+    "runnable": true
+  },
+  {
+    "id": "altman-1968",
+    "name": "Altman Z-Score",
+    "type": "quality",
+    "kind": "paper",
+    "src": "Altman (1968), Journal of Finance",
+    "year": 1968,
+    "thesis": "Five balance-sheet and income ratios, combined by discriminant analysis, separated manufacturers that went bankrupt from those that did not. It is a distress classifier, not a return strategy.",
+    "criteria": [
+      "Z = 1.2*WC/TA + 1.4*RE/TA + 3.3*EBIT/TA + 0.6*MktCap/TL + 1.0*Sales/TA",
+      "Z < 1.81 distress zone, Z > 2.99 safe zone, gray zone between",
+      "Fit on manufacturers; not meant for financials"
+    ],
+    "result": "Classified 95% of its 66-firm sample correctly one year before failure, 72% two years before. Later work (Dichev 1998) found high-risk firms earned lower returns.",
+    "testable": true,
+    "tags": [
+      "quality",
+      "distress",
+      "bankruptcy",
+      "screen"
+    ]
+  },
+  {
+    "id": "beneish-1999",
+    "name": "Beneish M-Score",
+    "type": "quality",
+    "kind": "paper",
+    "src": "Beneish (1999), Financial Analysts Journal",
+    "year": 1999,
+    "thesis": "Eight ratios flag probable earnings manipulators before the restatement hits.",
+    "criteria": [
+      "M-Score from 8 indices: receivables/sales, gross margin, asset quality, sales growth, depreciation, SG&A, leverage, accruals",
+      "M > -1.78 flags likely manipulation (8-variable model)",
+      "Use as a short screen or a do-not-buy filter"
+    ],
+    "result": "On 74 manipulators (1982-1992) it caught about half before public discovery, while also flagging some firms that had not manipulated their earnings. Cornell students reportedly flagged Enron with it in 1998.",
+    "testable": true,
+    "tags": [
+      "quality",
+      "fraud",
+      "forensic accounting",
+      "short"
+    ]
+  },
+  {
+    "id": "shareholder-yield-2005",
+    "name": "Inspired by Priest and Faber: Shareholder Yield",
+    "type": "quality",
+    "kind": "book",
+    "src": "Priest & McClelland, Free Cash Flow and Shareholder Yield (2007); Faber, Shareholder Yield (2013)",
+    "year": 2007,
+    "thesis": "Dividends plus net buybacks (and, in Priest's version, net debt paydown) measure cash returned to holders better than dividends alone.",
+    "criteria": [
+      "Shareholder yield = (dividends + net buybacks + net debt reduction) / market cap",
+      "Common variant drops debt paydown",
+      "Buy the highest-yield names; rebalance periodically"
+    ],
+    "result": "Practitioner backtests (Faber 2013) favor it over dividend yield. Boudoukh et al. (2007) found net payout yield predicts returns better than dividend yield.",
+    "testable": true,
+    "tags": [
+      "quality",
+      "payout",
+      "buybacks",
+      "yield"
+    ],
+    "fidelity": "loose",
+    "run_gap": "Dividends plus buybacks with no net debt paydown, on all liquid stocks rather than the S&P 500.",
+    "runnable": true
+  },
+  {
+    "id": "roic-persistence",
+    "name": "Inspired by Practitioners: ROIC Persistence and Compounders",
+    "type": "quality",
+    "kind": "practitioner",
+    "src": "Practitioner canon (quality compounders); see Mauboussin on ROIC reversion",
+    "year": 2012,
+    "thesis": "Businesses that earn high returns on invested capital and can reinvest at those returns compound value. The bet is that returns fade more slowly than the price implies; data show ROIC does revert toward the mean.",
+    "criteria": [
+      "ROIC above about 15% for 5+ years",
+      "High reinvestment rate with stable margins",
+      "Low turnover; valuation is not the main screen"
+    ],
+    "result": "A practitioner style, not a published tested strategy. Mauboussin's data show high ROIC tends to fade toward the average, so persistence has to be checked, not assumed.",
+    "testable": true,
+    "tags": [
+      "quality",
+      "ROIC",
+      "compounders",
+      "buy-and-hold"
+    ],
+    "fidelity": "loose",
+    "run_gap": "One year of ROE stands in for multi-year return on invested capital; nothing tests that it persists.",
+    "runnable": true
+  },
+  {
+    "id": "net-operating-assets",
+    "name": "Net Operating Assets (Balance-Sheet Bloat)",
+    "type": "quality",
+    "kind": "paper",
+    "src": "Hirshleifer, Hou, Teoh & Zhang (2004), Journal of Accounting and Economics",
+    "year": 2004,
+    "thesis": "A large stock of operating assets relative to operating liabilities can reflect accounting income accumulated without matching free cash flow. Such balance sheets may embed earnings that are difficult to sustain.",
+    "criteria": [
+      "Classify balance-sheet items as operating assets or operating liabilities and compute net operating assets (NOA).",
+      "Scale NOA by beginning total assets using the most recently public annual statement.",
+      "Rank firms annually; buy the lowest-NOA group and, where shorting is permitted, short the highest-NOA group."
+    ],
+    "result": "1964-2002: lowest minus highest NOA decile earned about 1.24%/month abnormal (equal weighted) in year one, less in years two and three; profitable in 35 of 38 years.",
+    "testable": true,
+    "tags": [
+      "earnings-quality",
+      "balance-sheet",
+      "accruals",
+      "cash-flow"
+    ]
+  },
+  {
+    "id": "abnormal-accruals-xie",
+    "name": "Abnormal Accruals Mispricing",
+    "type": "quality",
+    "kind": "paper",
+    "src": "Xie (2001), The Accounting Review",
+    "year": 2001,
+    "thesis": "The discretionary or abnormal portion of accruals is less dependable than ordinary operating accruals. Investors may overestimate its persistence in reported earnings.",
+    "criteria": [
+      "Estimate normal total accruals with a Jones-style regression using change in revenue and property, plant, and equipment, scaled by lagged assets.",
+      "Use the regression residual as abnormal accruals, estimated within comparable industry-year groups.",
+      "After the filing is public, favor low-abnormal-accrual firms and avoid or short high-abnormal-accrual firms."
+    ],
+    "result": "Using a Jones-model split, Xie finds the market overestimates how long abnormal accruals persist and overprices them; they account for much of the accrual anomaly.",
+    "testable": true,
+    "tags": [
+      "accruals",
+      "earnings-quality",
+      "discretionary-accruals",
+      "mispricing"
+    ]
+  },
+  {
+    "id": "accrual-reliability",
+    "name": "Accrual Reliability",
+    "type": "quality",
+    "kind": "paper",
+    "src": "Richardson, Sloan, Soliman & Tuna (2005), Journal of Accounting and Economics",
+    "year": 2005,
+    "thesis": "Accruals based on more subjective estimates should be less reliable and less persistent than accruals tied more directly to cash. A balance-sheet decomposition can distinguish these components.",
+    "criteria": [
+      "Total accruals = change in working capital + change in net non-current operating assets + change in net financial assets, over average assets",
+      "Rate each part's reliability (current and non-current operating assets low, current operating liabilities high)",
+      "Rank annually on total or low-reliability accruals; favor low accruals after statements are public"
+    ],
+    "result": "The authors find less reliable accrual categories have lower earnings persistence and are not fully anticipated by investors, producing documented mispricing in their sample.",
+    "testable": "partial",
+    "tags": [
+      "accruals",
+      "earnings-persistence",
+      "balance-sheet",
+      "financial-statements"
+    ]
+  },
+  {
+    "id": "external-financing-anomaly",
+    "name": "Inspired by Bradshaw, Richardson and Sloan: External Financing",
+    "type": "fundamental",
+    "kind": "paper",
+    "src": "Bradshaw, Richardson & Sloan (2006), Journal of Accounting and Economics",
+    "year": 2006,
+    "thesis": "Net cash raised from outside investors can signal weak future profitability or overly optimistic valuation. Aggregating debt and equity financing avoids treating one funding channel in isolation.",
+    "criteria": [
+      "Use the cash-flow statement to calculate net cash flow from financing activities, including issuance, repayment, repurchase, and distribution flows.",
+      "Scale net external financing by total assets using information available after the annual report.",
+      "Rank annually; favor net distributors or low-financing firms and avoid or short the highest-financing firms."
+    ],
+    "result": "About 1971-2000: lowest minus highest financing decile earned about 15.5% a year size-adjusted, and heavy issuers drew over-optimistic analyst forecasts. Cohen and Lys (2006) find it weakens once accruals are controlled.",
+    "testable": true,
+    "tags": [
+      "financing",
+      "equity-issuance",
+      "debt",
+      "profitability"
+    ],
+    "fidelity": "loose",
+    "run_gap": "Equity issuance by share count only; the paper's measure adds debt financing and dividends, scaled by assets.",
+    "runnable": true
+  },
+  {
+    "id": "cash-based-operating-profitability",
+    "name": "Cash-Based Operating Profitability",
+    "type": "quality",
+    "kind": "paper",
+    "src": "Ball, Gerakos, Linnainmaa & Nikolaev (2016), Journal of Financial Economics",
+    "year": 2016,
+    "thesis": "Operating profitability is more informative for expected returns when its working-capital accrual component is removed. The cash-based measure combines profitability with information in payment timing and growth.",
+    "criteria": [
+      "Operating profitability = revenue - COGS - SG&A, with R&D added back (not deducted)",
+      "Remove working-capital accruals: changes in receivables, inventory, prepaid expenses, deferred revenue, payables and accrued expenses",
+      "Scale by total assets; favor the highest ranks after statements are public"
+    ],
+    "result": "The paper finds cash-based operating profitability predicts cross-sectional returns better than profitability measures that include accruals and subsumes accruals in its tests.",
+    "testable": true,
+    "tags": [
+      "profitability",
+      "cash-flow",
+      "accruals",
+      "quality"
+    ]
+  },
+  {
+    "id": "mohanram-g-score",
+    "name": "Mohanram G-Score",
+    "type": "growth",
+    "kind": "paper",
+    "src": "Partha S. Mohanram (2005), Review of Accounting Studies",
+    "year": 2005,
+    "thesis": "Growth stocks need a different accounting screen from value stocks. G-Score combines profitability, cash flow, stability, and growth-investment signals tailored to low-book-to-market firms.",
+    "criteria": [
+      "Restrict to the lowest book-to-market quintile",
+      "8 binary signals vs industry median: ROA, cash-flow ROA, cash flow > net income, low ROA and sales-growth variability, high R&D, capex and advertising intensity",
+      "Favor high G-Score (6-8), avoid or short low (0-1), after annual reports"
+    ],
+    "result": "Mohanram reports that high G-Score growth firms outperformed low-score firms in the study, with much of the long-short result coming from the short side.",
+    "testable": "partial",
+    "tags": [
+      "growth",
+      "fundamental-score",
+      "earnings-quality",
+      "research-development"
+    ]
+  },
+  {
+    "id": "dupont-asset-turnover",
+    "name": "DuPont Asset-Turnover Change",
+    "type": "quality",
+    "kind": "paper",
+    "src": "Soliman (2008), The Accounting Review",
+    "year": 2008,
+    "thesis": "The DuPont decomposition separates profitability from the efficiency with which operating assets generate sales. A change in asset turnover contains information about future earnings beyond other accounting signals.",
+    "criteria": [
+      "Compute net operating asset turnover as sales divided by average net operating assets.",
+      "Calculate the year-over-year change in asset turnover and industry-adjust it where peer data permit.",
+      "Favor firms with improving turnover and avoid firms with deteriorating turnover after annual financial information is public."
+    ],
+    "result": "Soliman finds that DuPont components predict future earnings and that incomplete investor and analyst processing is associated with future abnormal returns.",
+    "testable": true,
+    "tags": [
+      "dupont",
+      "asset-turnover",
+      "operating-efficiency",
+      "earnings"
+    ]
+  },
+  {
+    "id": "capital-investment-anomaly",
+    "name": "Capital Investment Growth",
+    "type": "fundamental",
+    "kind": "paper",
+    "src": "Titman, Wei & Xie (2004), Journal of Financial and Quantitative Analysis",
+    "year": 2004,
+    "thesis": "Large expansions of capital investment can precede disappointing shareholder returns, particularly when managers have latitude to overinvest. The signal is based on investment growth rather than a valuation multiple.",
+    "criteria": [
+      "CI = last year's capex/sales divided by its average over the prior 3 years, minus 1",
+      "Rank firms annually after the report is public",
+      "Favor low CI, avoid or short high CI; strongest where cash flow is high and debt low"
+    ],
+    "result": "Titman, Wei, and Xie report negative benchmark-adjusted returns after large investment increases, stronger for firms with more cash and less debt.",
+    "testable": true,
+    "tags": [
+      "capital-expenditure",
+      "investment",
+      "agency",
+      "fundamental"
+    ],
+    "fidelity": "wrong",
+    "not_runnable": "Our data has no capital spending history yet, so this cannot be run as published."
+  },
+  {
+    "id": "conservative-accounting-reserves",
+    "name": "Conservative Accounting Reserve Screen",
+    "type": "quality",
+    "kind": "paper",
+    "src": "Penman & Zhang (2002), The Accounting Review",
+    "year": 2002,
+    "thesis": "Conservative accounting can defer the recognition of investment benefits into hidden reserves. Changes in investment can then temporarily depress or inflate reported earnings, reducing their usefulness for forecasting performance.",
+    "criteria": [
+      "Estimated reserves = LIFO reserve + capitalized R&D + capitalized advertising",
+      "Q-score = change in reserves scaled by net operating assets (industry-adjusted variant)",
+      "Use as a post-filing rank or exclusion screen, not current ROE alone"
+    ],
+    "result": "Penman and Zhang find their diagnostics forecast future return on net operating assets and stock returns, consistent with investors not fully recognizing the interaction of conservatism and investment changes.",
+    "testable": "partial",
+    "tags": [
+      "conservatism",
+      "earnings-quality",
+      "investment",
+      "return-on-assets"
+    ]
+  },
+  {
+    "id": "ohlson-o-score",
+    "name": "Ohlson O-Score Distress Screen",
+    "type": "quality",
+    "kind": "paper",
+    "src": "James A. Ohlson (1980), Journal of Accounting Research",
+    "year": 1980,
+    "thesis": "A logit model using leverage, liquidity, profitability, cash flow, and loss-history variables estimates corporate bankruptcy risk. It is principally a financial-health screen, not a standalone return-premium claim.",
+    "criteria": [
+      "Inputs: log size (GNP-deflated), liabilities/assets, working capital/assets, current liabilities/current assets, net income/assets, funds from operations/liabilities",
+      "Flags: liabilities > assets, net loss in each of the last two years; plus the scaled change in net income",
+      "Rank by O-Score; exclude high predicted-distress firms or treat them as a separate short-risk basket"
+    ],
+    "result": "Fit on 105 bankruptcies and about 2,058 industrial firms (1970-1976), the logit predicts bankruptcy in sample. Re-estimate its coefficients before using it on a modern universe.",
+    "testable": true,
+    "tags": [
+      "distress",
+      "bankruptcy",
+      "leverage",
+      "financial-health"
+    ]
+  }
+]

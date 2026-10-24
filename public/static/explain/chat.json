@@ -1,0 +1,36 @@
+{
+  "page": "chat",
+  "path": "/chat",
+  "items": {
+    "chat-start": {
+      "title": "How Ask AI works",
+      "body": "Ask in plain words: the AI picks the tool, runs it on our data, and the backtest draws under the answer. QuantGPT's AI answers where your plan includes it; Use your own AI takes your own key.",
+      "learn": "S2",
+      "tour": "chat:2"
+    },
+    "chat-arm": {
+      "title": "QuantGPT's AI, or your own",
+      "body": "QuantGPT's AI needs no key where your plan includes it. Or press Use your own AI and paste a key for Claude, ChatGPT, Gemini and more. It stays in this browser and goes only to your provider.",
+      "learn": "S2",
+      "tour": ""
+    },
+    "chat-try": {
+      "title": "Prompts to try",
+      "body": "Research questions members ask. Tap one and it goes straight to the AI. Swap in your own ticker or idea once you see how it answers.",
+      "learn": "S2",
+      "tour": "chat:1"
+    },
+    "chat-plan": {
+      "title": "Your plan",
+      "body": "What your plan opens on the site, and its daily limit for Connect your AI calls. Tap a locked row to see the plan that opens it.",
+      "learn": "",
+      "tour": "chat:4"
+    },
+    "chat-rules": {
+      "title": "The rules",
+      "body": "Our tools report what your rules would have done and which stocks pass them today. They are read only: none can place, change or cancel an order. Returns are gross of costs unless stated.",
+      "learn": "",
+      "tour": "chat:5"
+    }
+  }
+}

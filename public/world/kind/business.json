@@ -1,0 +1,85 @@
+{
+  "base": {
+    "1": 0.0004926487188865458,
+    "5": 0.002988337956250753,
+    "21": 0.01049763721339425,
+    "63": 0.025720163902466675
+  },
+  "events": [
+    {
+      "anchor": "2026-09-22",
+      "date": "2026-09-23",
+      "h": {
+        "1": -0.007548366766584991,
+        "5": -0.012080443049146794,
+        "21": -0.0009620812699900894,
+        "63": null
+      },
+      "title": "Iranian airlines suspend services to Azerbaijan, Baghdad, Georgia, Muscat, and Qatar, after new U.S. sanctions target Iran's aviation sector."
+    }
+  ],
+  "h": {
+    "1": {
+      "best": -0.007548366766584991,
+      "hit": 0,
+      "median": -0.007548366766584991,
+      "n": 1,
+      "worst": -0.007548366766584991
+    },
+    "5": {
+      "best": -0.012080443049146794,
+      "hit": 0,
+      "median": -0.012080443049146794,
+      "n": 1,
+      "worst": -0.012080443049146794
+    },
+    "21": {
+      "best": -0.0009620812699900894,
+      "hit": 0,
+      "median": -0.0009620812699900894,
+      "n": 1,
+      "worst": -0.0009620812699900894
+    },
+    "63": null
+  },
+  "kind": "business",
+  "label": "Business",
+  "n": 1,
+  "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+  "page": "/world/kind/business",
+  "spacing": 21,
+  "test": {
+    "h": {
+      "1": {
+        "above": 0,
+        "base_median": 0.0004926487188865458,
+        "event_median": -0.007548366766584991,
+        "n": 1,
+        "p_value": 1,
+        "share_above": 0,
+        "spacing": 21
+      },
+      "5": {
+        "above": 0,
+        "base_median": 0.002988337956250753,
+        "event_median": -0.012080443049146794,
+        "n": 1,
+        "p_value": 1,
+        "share_above": 0,
+        "spacing": 21
+      },
+      "21": {
+        "above": 0,
+        "base_median": 0.01049763721339425,
+        "event_median": -0.0009620812699900894,
+        "n": 1,
+        "p_value": 1,
+        "share_above": 0,
+        "spacing": 21
+      },
+      "63": null
+    },
+    "read": "After 1 business events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 100% chance by luck alone."
+  },
+  "warmed": "2026-10-24"
+}

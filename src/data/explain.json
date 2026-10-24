@@ -1,0 +1,1196 @@
+{
+  "account": {
+    "page": "account",
+    "path": "/account",
+    "items": {
+      "plan-head": {
+        "title": "Your plan",
+        "body": "Your plan, its status and billing. Manage or cancel opens the billing portal, where you change or cancel. A trial runs on your plan's full daily limits and ends on its own day; cancel before then and you pay nothing.",
+        "learn": "",
+        "tour": "account:0"
+      },
+      "alerts-head": {
+        "title": "Strategy alerts",
+        "body": "Watch a screen. After a backtest, press Watch under the result. Each night after our data updates, the screen runs again, and you get a notice when a name enters or leaves it.",
+        "learn": "",
+        "tour": "account:3"
+      },
+      "identity-head": {
+        "title": "Your identity",
+        "body": "Your handle and avatar, shown on the forum and the leaderboard. Pick an avatar or upload your own image, up to 2 MB, cropped square. Your badges show below.",
+        "learn": "",
+        "tour": ""
+      },
+      "prefs-head": {
+        "title": "Preferences",
+        "body": "Defaults that follow you to any device: the benchmark and start year a new backtest opens with, and up to 30 symbols on the monitor's tape.",
+        "learn": "",
+        "tour": "account:4"
+      },
+      "keys-head": {
+        "title": "Keys for your AI",
+        "body": "Keys your AI uses to connect. Issue one and copy it now: it is shown once. Your plan sets how many can be active. Claude and ChatGPT connections show here too. Revoke a key and its connection stops.",
+        "learn": "S2",
+        "tour": "account:5"
+      },
+      "security-head": {
+        "title": "Password",
+        "body": "Change your password. You need the current one, and the new one must be at least 10 characters and not a well known password.",
+        "learn": "",
+        "tour": ""
+      },
+      "data-head": {
+        "title": "Your data",
+        "body": "Sign out on every device, download everything your account holds as one file, or delete the account. Deleting cancels billing and erases the account; it takes your password and the word DELETE.",
+        "learn": "",
+        "tour": "account:7"
+      },
+      "tfa-head": {
+        "title": "Two factor sign in",
+        "body": "Turn it on and signing in also asks for a 6 digit code from an authenticator app. You get recovery codes once, for the day you lose the app.",
+        "learn": "",
+        "tour": "account:6"
+      },
+      "passkeys-head": {
+        "title": "Passkeys",
+        "body": "Sign in with your device's fingerprint, face or PIN instead of a password. Add one on each device and name it, so you can tell them apart and remove one later.",
+        "learn": "",
+        "tour": "account:6"
+      },
+      "surfaces-head": {
+        "title": "Your pages",
+        "body": "The pages your plan opens, each one a link, and the pages still locked.",
+        "learn": "",
+        "tour": ""
+      }
+    }
+  },
+  "board": {
+    "page": "board",
+    "path": "/board",
+    "items": {
+      "board-head": {
+        "title": "Leaderboard",
+        "body": "Members ranked by the work they do on the desk inside the window, never by returns. A return never enters the score. Everyone sees the top three; QuantGPT Pro opens the whole board.",
+        "learn": "",
+        "tour": ""
+      },
+      "board-period": {
+        "title": "Daily, weekly, monthly",
+        "body": "Daily looks back 1 day, weekly 7 and monthly 30 for forum posts and journal findings.",
+        "learn": "",
+        "tour": ""
+      },
+      "disc": {
+        "title": "How the score works",
+        "body": "Each counted item adds to the score as the formula under the table says. No return, worst fall or profit is part of it.",
+        "learn": "",
+        "tour": ""
+      }
+    }
+  },
+  "chat": {
+    "page": "chat",
+    "path": "/chat",
+    "items": {
+      "chat-start": {
+        "title": "How Ask AI works",
+        "body": "Ask in plain words: the AI picks the tool, runs it on our data, and the backtest draws under the answer. QuantGPT's AI answers where your plan includes it; Use your own AI takes your own key.",
+        "learn": "S2",
+        "tour": "chat:2"
+      },
+      "chat-arm": {
+        "title": "QuantGPT's AI, or your own",
+        "body": "QuantGPT's AI needs no key where your plan includes it. Or press Use your own AI and paste a key for Claude, ChatGPT, Gemini and more. It stays in this browser and goes only to your provider.",
+        "learn": "S2",
+        "tour": ""
+      },
+      "chat-try": {
+        "title": "Prompts to try",
+        "body": "Research questions members ask. Tap one and it goes straight to the AI. Swap in your own ticker or idea once you see how it answers.",
+        "learn": "S2",
+        "tour": "chat:1"
+      },
+      "chat-plan": {
+        "title": "Your plan",
+        "body": "What your plan opens on the site, and its daily limit for Connect your AI calls. Tap a locked row to see the plan that opens it.",
+        "learn": "",
+        "tour": "chat:4"
+      },
+      "chat-rules": {
+        "title": "The rules",
+        "body": "Our tools report what your rules would have done and which stocks pass them today. They are read only: none can place, change or cancel an order. Returns are gross of costs unless stated.",
+        "learn": "",
+        "tour": "chat:5"
+      }
+    }
+  },
+  "connect": {
+    "page": "connect",
+    "path": "/connect",
+    "items": {
+      "connect-head": {
+        "title": "Connect your AI",
+        "body": "MCP is the open standard Claude, ChatGPT and most AI agents use to reach outside tools. Connect yours and it searches our library and runs backtests on our data by itself, mid conversation.",
+        "learn": "S2",
+        "tour": "connect:0"
+      },
+      "endpoint-head": {
+        "title": "The address",
+        "body": "The address your AI connects to. The Claude and ChatGPT apps sign in through us, so there is no key to paste. Claude Code and other tools send a key from your account page.",
+        "learn": "S2",
+        "tour": "connect:0"
+      },
+      "claude-head": {
+        "title": "From Claude",
+        "body": "Claude Code takes one command with your key. In Claude Desktop or claude.ai, add a custom connector with this address, leave the OAuth fields empty, then sign in to QuantGPT when Claude asks.",
+        "learn": "S2",
+        "tour": "connect:3"
+      },
+      "chatgpt-head": {
+        "title": "From ChatGPT",
+        "body": "Turn on Developer mode, create a custom connector with this address and OAuth, then sign in to QuantGPT. The connection shows as a key on your account page, where you can revoke it.",
+        "learn": "S2",
+        "tour": "connect:4"
+      },
+      "dialog-head": {
+        "title": "The connector dialog",
+        "body": "A picture of the dialog: paste the address, leave the OAuth fields empty, click Add, then sign in to QuantGPT when asked.",
+        "learn": "S2",
+        "tour": ""
+      },
+      "manifest-head": {
+        "title": "How your AI learns the tools",
+        "body": "When your AI connects, our server tells it what our data holds, how the method works and which tool answers what. There is nothing for you to paste or explain.",
+        "learn": "S2",
+        "tour": ""
+      },
+      "tools-head": {
+        "title": "The tools",
+        "body": "The research tools your AI can call: search the library, list the factors, run a backtest, a market timing rule or a library strategy. More groups of tools switch on when a task needs them.",
+        "learn": "S2",
+        "tour": ""
+      },
+      "prompt-head": {
+        "title": "A first prompt",
+        "body": "Paste this into your connected AI. It finds a value strategy in our library, runs it, tunes it, and shows the numbers on years the rule never saw, including what failed.",
+        "learn": "S4",
+        "tour": ""
+      },
+      "pastepack": {
+        "title": "The setup prompt",
+        "body": "If your AI cannot add connectors, copy this one block into any Claude or ChatGPT chat. It carries what our data holds and how the method works, so the chat can guide you step by step.",
+        "learn": "S2",
+        "tour": "connect:5"
+      },
+      "brokers": {
+        "title": "Your broker",
+        "body": "On QuantGPT Pro: QuantGPT Cloud hosts your own code and sends its orders to your own Alpaca account, under your keys. QuantGPT Cloud supports Alpaca today (paper and live accounts). We never decide a trade.",
+        "learn": "G3",
+        "tour": ""
+      },
+      "plib-head": {
+        "title": "The prompt library",
+        "body": "Questions people ask an AI about markets. Tap one to copy it, swap in your ticker, and paste it to your connected AI. Your AI already knows which QuantGPT tools answer it.",
+        "learn": "S2",
+        "tour": "connect:6"
+      }
+    }
+  },
+  "events": {
+    "page": "events",
+    "path": "/events",
+    "items": {
+      "h-events": {
+        "title": "World events",
+        "body": "Events from around the world on one map, each set against what the S&P 500 did after it and after every past event of its kind. A reading of the record, not a forecast.",
+        "learn": "S5",
+        "tour": "events:0"
+      },
+      "deskmode": {
+        "title": "Simple or everything",
+        "body": "Simple shows the map, the feed and your pins. Everything shows every part at once. Or open one part at a time: futuretest, event rules, theaters, views and replay, or chains.",
+        "learn": "",
+        "tour": ""
+      },
+      "maphint": {
+        "title": "The map",
+        "body": "Each event is a dot where it happened, colored by its lens: world, politics, markets, nature, science or sports. Click a dot for its record, or click a country to filter the feed.",
+        "learn": "S5",
+        "tour": "events:0"
+      },
+      "viewpill": {
+        "title": "Three views",
+        "body": "Map for reading the whole world, Globe for watching it turn, Continent for one theater or continent. The same events, the same layers, the same records.",
+        "learn": "",
+        "tour": "events:3"
+      },
+      "globelegend": {
+        "title": "Layers are filters",
+        "body": "Tap a color to keep only that lens; tap a layer to hide it; shift and a click, or a long press, keeps only that layer. The feed follows the lens. Density counts events per country, never a score.",
+        "learn": "",
+        "tour": ""
+      },
+      "timebar": {
+        "title": "Live and the last day",
+        "body": "Live asks for new events each minute. Drag the bar to see the day as it landed, or play it. Feeds with a date but no time land at the start of their day. Nothing here is a forecast.",
+        "learn": "",
+        "tour": ""
+      },
+      "globelist": {
+        "title": "The globe as a list",
+        "body": "Everything the view shows, one row per country, the most severe first, for a screen reader or a keyboard. The arrow keys turn the globe and the brackets step through its events.",
+        "learn": "",
+        "tour": ""
+      },
+      "chokeasof": {
+        "title": "Chokepoints",
+        "body": "Seven shipping chokepoints from IMF PortWatch, each with its latest day of ship transits against its 90 day median. PortWatch publishes a few days behind.",
+        "learn": "",
+        "tour": ""
+      },
+      "tensionwin": {
+        "title": "Tension",
+        "body": "Organized violence as the Uppsala Conflict Data Program records it: events and deaths per country over the window you picked.",
+        "learn": "",
+        "tour": ""
+      },
+      "viewby": {
+        "title": "View by",
+        "body": "Group the map by country, region, continent, bloc, sector, industry or market cap, and color it by the events or by how markets moved. Play the window day by day to watch events arrive.",
+        "learn": "",
+        "tour": ""
+      },
+      "tapename": {
+        "title": "The S&P 500 in the window",
+        "body": "The S&P 500 across the window you picked, with a colored mark under it for each event. When it shows, the dashed line is the Geopolitical Risk index of Caldara and Iacoviello.",
+        "learn": "",
+        "tour": ""
+      },
+      "feed": {
+        "title": "The feed",
+        "body": "The window's events. Market since: how the S&P 500, or the event's own stock, moved from the last close before it. My pins: how your pinned names moved. Click a row for its record.",
+        "learn": "S5",
+        "tour": "events:1"
+      },
+      "addtoggle": {
+        "title": "Add an event",
+        "body": "Add an event of your own: a title, a date, a kind and a country. Only you see it, and it gets the same record as the feed's events. Your plan sets how many you can add.",
+        "learn": "",
+        "tour": ""
+      },
+      "dtitle": {
+        "title": "The evidence",
+        "body": "What you opened, in full. For an event: the S&P 500 1, 5, 21 and 63 sessions later, beside the median after past events of its kind and an ordinary session, plus the ripple, your pins and related odds.",
+        "learn": "S5",
+        "tour": "events:1"
+      },
+      "h-theaters": {
+        "title": "Theaters",
+        "body": "Standing situations, such as Russia and Ukraine or the Taiwan Strait, followed day by day: each one's events in the window and how the funds that track it moved.",
+        "learn": "",
+        "tour": ""
+      },
+      "h-pins": {
+        "title": "Your pins",
+        "body": "Pin a stock and the country it depends on, with a quantity if you like. Pins light their country on the map, ride along every event, and alert you when something lands on them.",
+        "learn": "S5",
+        "tour": "events:4"
+      },
+      "h-calls": {
+        "title": "Your calls",
+        "body": "Record your own prediction from an event's record: a ticker, up or down, over 1, 5, 21 or 63 sessions. Once those sessions pass, it is graded right or wrong on the closes.",
+        "learn": "",
+        "tour": ""
+      },
+      "h-chains": {
+        "title": "Your chains",
+        "body": "String related events together from an event's record, then see what the market did between each one.",
+        "learn": "",
+        "tour": ""
+      },
+      "h-futuretest": {
+        "title": "Futuretest",
+        "body": "Runs your book through every past episode of a kind of event, such as a war over Taiwan, and draws the spread of outcomes as a cone. Keep it and it is scored as the real future arrives.",
+        "learn": "",
+        "tour": ""
+      },
+      "h-rules": {
+        "title": "Event rules",
+        "body": "When an event or the odds match your rule: tell me, track paper positions you chose, or raise a signal for your own code. Its backtest starts at the first close after each event. Nothing places an order.",
+        "learn": "G2",
+        "tour": "events:6"
+      }
+    }
+  },
+  "forum": {
+    "page": "forum",
+    "path": "/forum",
+    "items": {
+      "floor-head": {
+        "title": "Rooms and threads",
+        "body": "Pick a room to read its threads, or start one with a title and details. Post real numbers only. One room belongs to QuantGPT Pro: everyone sees its titles, and its posts open on QuantGPT Pro.",
+        "learn": "",
+        "tour": "forum:1"
+      },
+      "card-head": {
+        "title": "Your forum card",
+        "body": "Your handle and avatar, shown on every post, and every badge on offer. Lit badges are yours, and each one says how it is earned. Pick a handle before your first post.",
+        "learn": "",
+        "tour": "forum:0"
+      },
+      "mail-head": {
+        "title": "Messages",
+        "body": "Private messages between members, handle to handle. Type an @handle and a message to start a conversation.",
+        "learn": "",
+        "tour": "forum:7"
+      },
+      "alerts-head": {
+        "title": "Alerts",
+        "body": "Replies in your threads and new posts from members you follow. Mark all read clears the count.",
+        "learn": "",
+        "tour": "forum:7"
+      },
+      "thread-head": {
+        "title": "The thread",
+        "body": "One thread and its replies. Reply at the bottom. Bold, italic, code, quotes and lists work, and a chart pack image link on its own line shows the chart.",
+        "learn": "",
+        "tour": ""
+      }
+    }
+  },
+  "futuretest": {
+    "page": "futuretest",
+    "path": "/futuretest",
+    "items": {
+      "h-ft": {
+        "title": "What a futuretest is",
+        "body": "Your book through every real episode of a kind, day by day, then kept on record as the future arrives. The record of real episodes, not a forecast.",
+        "learn": "G1",
+        "tour": ""
+      },
+      "ft-book-h": {
+        "title": "Your book",
+        "body": "Pins, a paper book, typed weights or a pasted list. Weights add to 100%. Your hedge is yours: we never offer a leg. Nothing here is a trade list.",
+        "learn": "",
+        "tour": ""
+      },
+      "ft-world-h": {
+        "title": "The world",
+        "body": "A scenario on record, a live event at its place, or a what-if anywhere by the geography swap. Climate keeps only the look-alikes that landed in a climate like today's.",
+        "learn": "",
+        "tour": ""
+      },
+      "ft-globe-h": {
+        "title": "The globe",
+        "body": "The world is the input, your book is the output. A comet is one real thing: the event's country reaching a country where your book earns. Turn it, or read it as a list.",
+        "learn": "",
+        "tour": ""
+      },
+      "ft-results-h": {
+        "title": "The cone",
+        "body": "The cone is every episode's path: the median, the band, the worst and the best. Every number carries its n. The bad episodes stay on the page.",
+        "learn": "",
+        "tour": ""
+      },
+      "ft-odds-h": {
+        "title": "The odds",
+        "body": "Open prediction markets that match, the crowd's price and its change on our ledger. Beside the cone, never multiplied with it.",
+        "learn": "",
+        "tour": ""
+      },
+      "ft-funds-h": {
+        "title": "Fund by fund",
+        "body": "The same episodes through a fixed list of funds, in a fixed order. History, not a suggestion; nothing here picks or sizes a trade.",
+        "learn": "",
+        "tour": ""
+      },
+      "ft-watch-h": {
+        "title": "Watch it",
+        "body": "Track it from today or arm it to start when a matching event lands. A rule or an alarm in the same words. The scorecard says how the cone has done.",
+        "learn": "G2",
+        "tour": ""
+      },
+      "ft-rail-h": {
+        "title": "The rail",
+        "body": "The wire, the chokepoints, tension, the odds that moved and what is ahead, for the world you picked. Each source credited; feeds run minutes to a day behind.",
+        "learn": "",
+        "tour": ""
+      },
+      "ft-steps": {
+        "title": "Three steps",
+        "body": "Build a book, pick a world, run it. Then read the future, stress it with your own hedge, and watch it.",
+        "learn": "",
+        "tour": ""
+      }
+    }
+  },
+  "grade": {
+    "page": "grade",
+    "path": "/grade",
+    "items": {
+      "grade-title": {
+        "title": "Stock grader",
+        "body": "Six dimensions graded against every US stock over $2B: momentum, value, quality, growth, earnings and flows. The composite weights growth, quality and momentum most. Evidence, not advice.",
+        "learn": "",
+        "tour": ""
+      },
+      "mode-many": {
+        "title": "Several tickers",
+        "body": "Paste up to 25 tickers, separated by commas, spaces or new lines. You get one table: the composite and the six letters for each name, best composite first. Click a ticker for its full card.",
+        "learn": "",
+        "tour": ""
+      },
+      "drivers-h": {
+        "title": "What drives each grade",
+        "body": "Every input behind a dimension: its value, its percentile against the $2B+ universe where the formula reads one, the 0 to 100 score it feeds in, and its weight inside the dimension.",
+        "learn": "",
+        "tour": ""
+      },
+      "peers-h": {
+        "title": "Against its peers",
+        "body": "The stock next to the medians of its GICS sub-industry, industry group and sector, names over $2B, and its rank on the leaderboard composite inside each group.",
+        "learn": "",
+        "tour": ""
+      },
+      "halal": {
+        "title": "The halal screen",
+        "body": "Five tests from AAOIFI Shariah Standard 21, on quarterly filings and the month-end market cap. The same numbers drive the halal filter in backtests. It approximates the standard; it is not a fatwa or a ruling.",
+        "learn": "",
+        "tour": ""
+      },
+      "method": {
+        "title": "What the screen cannot see",
+        "body": "Business is judged by today's industry class, not revenue share, so a hotel with bars can pass. Many companies do not report interest income, and that test then shows as not run, never as passed.",
+        "learn": "",
+        "tour": ""
+      }
+    }
+  },
+  "halal": {
+    "page": "halal",
+    "path": "/halal",
+    "items": {
+      "halal-title": {
+        "title": "The halal screen",
+        "body": "Five tests from AAOIFI Shariah Standard 21, on the filings known at the time. The same numbers drive the halal filter in backtests. It approximates the standard; it is not a fatwa or a ruling.",
+        "learn": "",
+        "tour": ""
+      },
+      "asof": {
+        "title": "As of",
+        "body": "Leave it blank for the latest month, or type a past date to see the screen as it stood then, using only the filings made by that date.",
+        "learn": "",
+        "tour": ""
+      },
+      "t-verdict": {
+        "title": "Pass, fail or unknown",
+        "body": "Pass when every test that ran passes and the business, debt and cash tests all ran. Fail when any test fails. Unknown when one of those three could not run.",
+        "learn": "",
+        "tour": ""
+      },
+      "tests": {
+        "title": "The five tests",
+        "body": "Business: not conventional finance, insurance, alcohol, tobacco or gambling. Debt and cash each below 30% of market cap. Cash, short-term investments and receivables at most 70% of total assets. Interest income below 5% of revenue.",
+        "learn": "",
+        "tour": ""
+      },
+      "inputs": {
+        "title": "The inputs",
+        "body": "The numbers behind each test: debt, cash, receivables, total assets, interest income and revenue from the latest quarterly filing made by that month, and the market cap at the month end.",
+        "learn": "",
+        "tour": ""
+      },
+      "strip": {
+        "title": "Ten years, month by month",
+        "body": "One square per month for the last ten years: green passed, red failed, grey unknown. A company can move in and out as its debt, cash and market cap change.",
+        "learn": "",
+        "tour": ""
+      },
+      "method": {
+        "title": "What it cannot see",
+        "body": "Business is judged by today's industry class, not revenue share, so a hotel with bars can pass. Many companies do not report interest income, and that test then shows as not run, never as passed.",
+        "learn": "",
+        "tour": ""
+      }
+    }
+  },
+  "join": {
+    "page": "join",
+    "path": "/join",
+    "items": {
+      "perks-quantgpt": {
+        "title": "What QuantGPT includes",
+        "body": "Backtests on our data, 200 a day, and Connect your AI: MCP, the open standard Claude and ChatGPT use to reach outside tools, 500 calls a day on 3 keys. Plus Ask AI, the library, your journal and the monitor.",
+        "learn": "S2",
+        "tour": ""
+      },
+      "perks-pro": {
+        "title": "What QuantGPT Pro adds",
+        "body": "Everything in QuantGPT, plus 1,500 AI calls a day on 5 keys, prediction markets, the QuantGPT Pro rooms on the forum, browsing the strategy exchange, the full portfolio review and the Excel model.",
+        "learn": "",
+        "tour": ""
+      },
+      "trial-line": {
+        "title": "The 3 day trial",
+        "body": "QuantGPT and QuantGPT Pro start with 3 days free, card up front, on the plan's full daily limits. Cancel within the 3 days and you pay nothing.",
+        "learn": "",
+        "tour": ""
+      }
+    }
+  },
+  "journal": {
+    "page": "journal",
+    "path": "/journal",
+    "items": {
+      "jtitle": {
+        "title": "Your findings journal",
+        "body": "Every backtest you finish is kept here with its verdict and the last date its data reached. This page shows what each one did after that date, on data it never saw.",
+        "learn": "S4",
+        "tour": ""
+      },
+      "grade": {
+        "title": "Graded when you open it",
+        "body": "Opening the journal runs each finding again on data that arrived after its last date, the one test a backtest cannot fake. Each is marked HOLDING or FADING, or TOO EARLY with fewer than three new periods.",
+        "learn": "S4",
+        "tour": "journal:2"
+      },
+      "tiles": {
+        "title": "Your record",
+        "body": "Findings saved; of those with an outcome, how many still read HOLDING; of those graded, how many beat their benchmark; and the best and worst gap to the benchmark, in points.",
+        "learn": "S4",
+        "tour": "journal:0"
+      },
+      "tbl": {
+        "title": "What happened next",
+        "body": "One row per finding, sortable by any column. Since then puts the finding's return after its last date next to the benchmark's over the same time, and sorts by the gap between them.",
+        "learn": "S4",
+        "tour": "journal:1"
+      },
+      "jh-since": {
+        "title": "Since then",
+        "body": "How far the finding's return beat or trailed the benchmark's over the periods after its last date, shown once three new periods are in.",
+        "learn": "",
+        "tour": ""
+      },
+      "jh-cagr": {
+        "title": "CAGR then",
+        "body": "The yearly growth rate the backtest compounded over its original test period, beside the benchmark's over the same years.",
+        "learn": "",
+        "tour": ""
+      },
+      "jh-sharpe": {
+        "title": "Sharpe",
+        "body": "Return for the risk taken over the original test period: the average yearly return divided by the yearly volatility of returns, with no cash rate subtracted.",
+        "learn": "",
+        "tour": ""
+      },
+      "jh-psr": {
+        "title": "PSR: probabilistic Sharpe ratio",
+        "body": "The probability, from 0 to 1, that the true Sharpe ratio is above zero, given how many periods the test ran and how lopsided and fat tailed its returns were.",
+        "learn": "",
+        "tour": ""
+      },
+      "jh-periods": {
+        "title": "New periods",
+        "body": "How many rebalance periods of data have arrived since the finding's last date; under three, the outcome reads TOO EARLY.",
+        "learn": "",
+        "tour": ""
+      },
+      "paper": {
+        "title": "Paper books",
+        "body": "Follow on paper on a backtest result lands here: your rules followed on paper and marked every night. No broker and no order. It shows what following the rules would have done, not what an account did.",
+        "learn": "",
+        "tour": "journal:3"
+      }
+    }
+  },
+  "learn": {
+    "page": "learn",
+    "path": "/learn",
+    "items": {
+      "learn-head": {
+        "title": "Lessons",
+        "body": "Short lessons you play in the browser, on real market data, in three steps. Every number is computed and the losing years stay in. No sign in needed; signed in, University keeps your place and adds a check.",
+        "learn": "S1",
+        "tour": ""
+      },
+      "step-1": {
+        "title": "Step 1: backtest and arm",
+        "body": "Arm your AI with our data, read your first rule on the S&P 500 since 2000, then drive the backtester and read the scoreboard.",
+        "learn": "S1",
+        "tour": ""
+      },
+      "step-2": {
+        "title": "Step 2: connect and deploy",
+        "body": "Your own code at your own broker, with a 30-day paper window if you want it. University teaches it to members: QuantGPT in your own code, and QuantGPT Cloud on QuantGPT Pro.",
+        "learn": "G5",
+        "tour": ""
+      },
+      "step-3": {
+        "title": "Step 3: futuretest and simulate",
+        "body": "One war onset set against every one on record, then an event rule: its backtest from the next close, and the signal your AI can read.",
+        "learn": "S5",
+        "tour": ""
+      },
+      "step-bonus": {
+        "title": "Lesson 7: team and the model",
+        "body": "Pin a backtest where three seats read the same numbers, then see how filed statements become a discounted cash flow and a spreadsheet. The model is drawn as a schematic with no figures.",
+        "learn": "",
+        "tour": ""
+      }
+    }
+  },
+  "model": {
+    "page": "model",
+    "path": "/model",
+    "items": {
+      "model-head": {
+        "title": "Valuation",
+        "body": "From the filed statements, free cash flow grows at your rate for five years, fades to the terminal rate by year ten, is discounted and closes with a Gordon terminal value. Arithmetic on your inputs, not a price target.",
+        "learn": "",
+        "tour": "model:0"
+      },
+      "growth-label": {
+        "title": "Growth, years 1 to 5",
+        "body": "How fast free cash flow grows each year for the first five years. Leave it blank to use the company's own history. After year five it fades to terminal growth by year ten. Type 0.12 for 12%.",
+        "learn": "",
+        "tour": "model:1"
+      },
+      "discount-label": {
+        "title": "Discount rate",
+        "body": "The yearly return you ask for holding this company, as a decimal: 0.09 is 9%. A higher rate means a lower value. It and terminal growth move the answer most; the sensitivity grid shows how far.",
+        "learn": "",
+        "tour": "model:2"
+      },
+      "terminal-label": {
+        "title": "Terminal growth",
+        "body": "The rate the model assumes cash grows forever after year ten, as a decimal: 0.025 is 2.5%. It must stay below the discount rate. Small changes here move the value a lot.",
+        "learn": "",
+        "tour": ""
+      },
+      "netdebt-label": {
+        "title": "Net debt",
+        "body": "Debt minus cash, taken off the business's value to leave what belongs to shareholders. Leave it blank for zero, or tick the box to use the latest SEC filing. The result shows the filing's figure either way.",
+        "learn": "",
+        "tour": ""
+      },
+      "scen-head": {
+        "title": "Three scenarios",
+        "body": "Value per share in a bear, base and bull case. Base growth is your rate, or the company's five year cash flow growth; bear and bull sit five points either side. Below: the growth today's price implies.",
+        "learn": "",
+        "tour": "model:3"
+      },
+      "sens-head": {
+        "title": "Sensitivity grid",
+        "body": "Value per share for each pair of discount rate (down the side) and terminal growth (across the top), at base growth. It shows how much the answer depends on those two guesses.",
+        "learn": "",
+        "tour": ""
+      },
+      "sched-head": {
+        "title": "The schedule",
+        "body": "The base case year by year: growth, free cash flow and what each year is worth today. Then the terminal value, the business value, and the value left for shareholders after net debt.",
+        "learn": "",
+        "tour": ""
+      },
+      "stmts-head": {
+        "title": "The statements",
+        "body": "The company's complete calendar years as filed with the SEC, the numbers the model starts from. Under the table: the net debt this model used, and links to the filings by quarter.",
+        "learn": "",
+        "tour": ""
+      }
+    }
+  },
+  "monitor": {
+    "page": "monitor",
+    "path": "/monitor",
+    "items": {
+      "ws-title": {
+        "title": "Your board",
+        "body": "Panels on a free canvas: quotes, charts, sector heat, news and more. Drag a title to move a panel and a corner to resize it. Your connected AI can queue a board for you to open.",
+        "learn": "S2",
+        "tour": "monitor:0"
+      },
+      "ws-sel": {
+        "title": "Your boards",
+        "body": "Load a board: your own, a ready made one such as the run room or the sports slate, or one you saved. Save keeps this layout, Save as keeps a copy under a new name.",
+        "learn": "",
+        "tour": "monitor:2"
+      },
+      "ws-add": {
+        "title": "Add or remove panels",
+        "body": "Under Edit layout. Opens the panel list: add a panel, jump to one, or close one. On a phone the board is one column, and you add, reorder or remove panels here.",
+        "learn": "",
+        "tour": "monitor:1"
+      },
+      "ws-share": {
+        "title": "Share a board",
+        "body": "Under Edit layout. Publishes a saved board and copies its link for anyone signed in. Everything on it goes too: panels, symbols, watchlists and notes, so clear anything private.",
+        "learn": "",
+        "tour": "monitor:1"
+      },
+      "ws-gallery": {
+        "title": "The gallery",
+        "body": "Boards other members have shared. Open one to look around, or save a copy and make it your own.",
+        "learn": "",
+        "tour": "monitor:1"
+      },
+      "tune-title": {
+        "title": "Chart settings",
+        "body": "One set of settings for every chart on the board: the chart type, indicators such as moving averages, and display options such as extended hours or a log price scale. Kept in this browser.",
+        "learn": "",
+        "tour": ""
+      }
+    }
+  },
+  "pm": {
+    "page": "pm",
+    "path": "/pm",
+    "items": {
+      "h-pm": {
+        "title": "Prediction markets",
+        "body": "Every open market on Polymarket and Kalshi, beside the record of markets like it: how often markets at this price, this far from closing, in this category actually resolved yes.",
+        "learn": "",
+        "tour": "pm:0"
+      },
+      "run": {
+        "title": "Read the board",
+        "body": "Pick a venue, a category and a minimum volume, then read the board. Open markets are kept for fifteen minutes; Refresh fetches both venues again.",
+        "learn": "",
+        "tour": "pm:2"
+      },
+      "minn": {
+        "title": "Resolved markets behind a read",
+        "body": "How many past markets like this one must have resolved before the board gives a read. A higher number means fewer reads. Too few in the category, and it reads every category instead, marked all.",
+        "learn": "",
+        "tour": "pm:1"
+      },
+      "t-gap": {
+        "title": "Largest gap",
+        "body": "The biggest difference on the board between a market's price and how often markets like it resolved yes. A gap is the crowd's past habit, not a forecast for this market.",
+        "learn": "",
+        "tour": "pm:3"
+      },
+      "tbl": {
+        "title": "The board",
+        "body": "Price: the crowd's price for yes. Resolved yes, like it: how often past markets in that price band resolved yes, out of N. Average return: what buying yes at those prices returned, before fees and spread.",
+        "learn": "",
+        "tour": "pm:3"
+      }
+    }
+  },
+  "portfolio": {
+    "page": "portfolio",
+    "path": "/portfolio",
+    "items": {
+      "eq-head": {
+        "title": "Your account against SPY",
+        "body": "Your Alpaca account over the past year, time weighted so deposits and withdrawals do not count as gains, beside SPY over the same days. Read from Alpaca, read only.",
+        "learn": "",
+        "tour": ""
+      },
+      "act-head": {
+        "title": "Every account event",
+        "body": "Everything that happened on the account, newest first: trades, cash moves, dividends and interest. The buttons above the table filter by type. Read from Alpaca's own records.",
+        "learn": "",
+        "tour": ""
+      },
+      "gl-head": {
+        "title": "Realized gain or loss",
+        "body": "Closed positions matched first in, first out, by trade date and before fees: the total, this year, lots closed, lots that gained and the average. For taxes, your broker's 1099 is the record.",
+        "learn": "",
+        "tour": ""
+      },
+      "alloc-head": {
+        "title": "Allocation",
+        "body": "What the account holds now, by asset class and then name by name: shares, average entry, market value, gain or loss not yet taken, and each one's weight.",
+        "learn": "",
+        "tour": ""
+      },
+      "stmt-head": {
+        "title": "Monthly statements",
+        "body": "One month on the account, its activity and holdings, read from your broker. Pick the month, then print it or save it as a PDF. It is a summary, not an official brokerage statement.",
+        "learn": "",
+        "tour": ""
+      }
+    }
+  },
+  "review": {
+    "page": "review",
+    "path": "/review",
+    "items": {
+      "review-head": {
+        "title": "Portfolio checkup",
+        "body": "Paste what you hold. The checkup grades each name, measures how concentrated the book is and how its names move together, and compares its history with the S&P 500. It describes your book and never recommends a trade.",
+        "learn": "G4",
+        "tour": "review:0"
+      },
+      "holdings-label": {
+        "title": "Your holdings",
+        "body": "One name per line: the symbol and the number of shares, or the symbol and a weight, like NVDA 25%. Up to 60 names. This browser keeps your list for next time.",
+        "learn": "G4",
+        "tour": "review:0"
+      },
+      "criteria-label": {
+        "title": "Check against your rules",
+        "body": "Pick one of your saved backtests and each holding shows PASS or FAIL against that backtest's filters. Leave it on none to skip the check.",
+        "learn": "G4",
+        "tour": "review:1"
+      },
+      "findings-head": {
+        "title": "Findings",
+        "body": "Plain sentences on what stands out, each built on a number: one name or sector holding a large share, names that move together, a deeper worst fall than the market, weak grades. They describe the book; you decide.",
+        "learn": "G4",
+        "tour": "review:4"
+      },
+      "holdings-table-head": {
+        "title": "The holdings, name by name",
+        "body": "Each name's weight and grade, its momentum over the past year, distance from its 52 week high, valuation, quality, trading volume and position against its 200 day average. The grade scores six measures, most against U.S. stocks over $2 billion.",
+        "learn": "G4",
+        "tour": ""
+      },
+      "sectors-head": {
+        "title": "By sector",
+        "body": "How much of the book sits in each sector, by weight. Many names can still be one sector bet: the findings flag it when the largest sector reaches 40% of the book.",
+        "learn": "G4",
+        "tour": ""
+      },
+      "history-head": {
+        "title": "The book's history",
+        "body": "Today's weights rebuilt month by month over your window, beside the S&P 500 over the same months. Gross of costs, and it holds only names you own today, so no failed companies drag it down.",
+        "learn": "G4",
+        "tour": "review:5"
+      },
+      "loadings-head": {
+        "title": "Factor loadings",
+        "body": "How much the book's monthly returns lean on the market, company size, value, momentum and quality. A market loading of 1 moves one for one with the index. It needs two years of history.",
+        "learn": "G4",
+        "tour": ""
+      },
+      "charts-head": {
+        "title": "Charts",
+        "body": "The review drawn as pictures you can save or share. The buttons below download every number as a CSV or JSON file.",
+        "learn": "G4",
+        "tour": ""
+      }
+    }
+  },
+  "runner": {
+    "page": "runner",
+    "path": "/runner",
+    "items": {
+      "rn-bots": {
+        "title": "Your bots",
+        "body": "On QuantGPT Pro: each bot is your own code, compiled from a backtest in your journal or started blank. QuantGPT Cloud runs what you save, on your schedule, at your own Alpaca account.",
+        "learn": "G3",
+        "tour": ""
+      },
+      "rn-code": {
+        "title": "Your code",
+        "body": "The file QuantGPT Cloud runs on QuantGPT Pro, exactly as saved here and nothing else. Each save gets a version code, so you can tell which version ran.",
+        "learn": "G3",
+        "tour": ""
+      },
+      "rn-sched": {
+        "title": "The schedule",
+        "body": "Five fields of New York time: minute, hour, day of the month, month, weekday. The panel reads it back in words with the next five wake times.",
+        "learn": "",
+        "tour": ""
+      },
+      "rn-keys": {
+        "title": "Alpaca keys",
+        "body": "QuantGPT Cloud supports Alpaca today (paper and live accounts). Your Alpaca dashboard makes a Key ID and a Secret Key, and shows the secret once. Each account has its own keys, and a bot runs only on matching keys.",
+        "learn": "G3",
+        "tour": ""
+      },
+      "rn-acct": {
+        "title": "Your Alpaca account",
+        "body": "Your own Alpaca keys, paper or live, sealed in this browser before they leave the page, so our web server never sees the secret. You can revoke them at Alpaca any time.",
+        "learn": "",
+        "tour": ""
+      },
+      "rn-runs": {
+        "title": "Runs",
+        "body": "Each run: when it started, what started it, paper or live, its exit code, how many seconds it took and how many screens it read. Click one for its output.",
+        "learn": "",
+        "tour": ""
+      }
+    }
+  },
+  "simulator": {
+    "page": "simulator",
+    "path": "/events/simulator",
+    "items": {
+      "h-sim": {
+        "title": "The crisis simulator",
+        "body": "Replay a past crisis one trading session at a time, on paper. You only see what was known that day, and at each close you choose to hold your book, hedge it or go to cash.",
+        "learn": "S5",
+        "tour": ""
+      },
+      "h-setup": {
+        "title": "A new play",
+        "body": "Pick a crisis from the record and a book: your pins, a paper book, or tickers and weights you type. The hedge is optional: your own tickers, each as a share of the book.",
+        "learn": "",
+        "tour": ""
+      },
+      "p-choose": {
+        "title": "Your choice at the close",
+        "body": "Hold keeps the book, Hedge adds your hedge, and Cash sits out, earning nothing. The choice takes effect at the close, for the next session. Play one session, five, or to the end.",
+        "learn": "",
+        "tour": ""
+      },
+      "p-chart": {
+        "title": "Your path",
+        "body": "Your path against the book as held and the S&P 500, plus the hedged book if you set a hedge. Shaded sessions are the ones you sat in cash or held the hedge.",
+        "learn": "",
+        "tour": ""
+      },
+      "h-sessions": {
+        "title": "The sessions so far",
+        "body": "Each session played, newest first: how many events that day, the S&P 500, the book, what you held, and your result for the day and since the start.",
+        "learn": "",
+        "tour": ""
+      },
+      "h-mine": {
+        "title": "My plays",
+        "body": "Every play you started, with your result beside doing nothing, which is the book held throughout. Open one to carry on, or to read how it ended.",
+        "learn": "",
+        "tour": ""
+      }
+    }
+  },
+  "team": {
+    "page": "team",
+    "path": "/team",
+    "items": {
+      "team-name": {
+        "title": "Team",
+        "body": "A board your team shares, three seats. Notes move from an idea, to a running backtest, to a data-validated finding. Everyone seated sees the same notes and files, never each other's keys or accounts.",
+        "learn": "",
+        "tour": ""
+      },
+      "no-board-head": {
+        "title": "Open your board",
+        "body": "Name the board and open it, then offer up to two more seats from the seats panel. Team boards come with Business, or with a seat a Business owner gives you.",
+        "learn": "",
+        "tour": ""
+      },
+      "data-head": {
+        "title": "Shared files",
+        "body": "Files your team shares: CSV, TSV, text, Markdown or JSON, up to 5 MB each. Everyone seated can download them, stored exactly as uploaded.",
+        "learn": "",
+        "tour": ""
+      },
+      "seats-head": {
+        "title": "Seats",
+        "body": "Offer a seat to an existing QuantGPT account by its email; it joins once that account accepts. Three seats in all, yours included. Seated members share this board's notes and files, nothing else.",
+        "learn": "",
+        "tour": ""
+      }
+    }
+  },
+  "technicals": {
+    "page": "technicals",
+    "path": "/technicals",
+    "items": {
+      "tc-h1": {
+        "title": "Technicals",
+        "body": "One stock's chart, its indicators and the signals in the window, from our daily prices adjusted for splits and dividends. The same numbers the technicals tool gives your AI. Descriptions of past prices, not advice.",
+        "learn": "",
+        "tour": "technicals:0"
+      },
+      "tc-sig-h": {
+        "title": "Signals",
+        "body": "What the price did in the window, newest first: breakouts on heavy volume, moving average crosses, RSI and MACD crossings, the squeeze starting and ending, and new 52-week highs and lows.",
+        "learn": "",
+        "tour": "technicals:5"
+      },
+      "tc-now-h": {
+        "title": "Now",
+        "body": "The latest value of each indicator on the last close, with the usual reference lines named: 30 and 70 for RSI, 20 and 80 for the stochastic and the money flow index, 25 for ADX.",
+        "learn": "",
+        "tour": "technicals:6"
+      },
+      "tc-ai-h": {
+        "title": "Ask your AI about this chart",
+        "body": "Copies a prompt with this chart's latest values and signals. Paste it into the AI you use; connected to QuantGPT, it can check every number with the technicals tool.",
+        "learn": "",
+        "tour": "technicals:7"
+      }
+    }
+  },
+  "terminal": {
+    "page": "terminal",
+    "path": "/",
+    "items": {
+      "study": {
+        "title": "Pick a backtest",
+        "body": "Start from a strategy in the library, or pick custom criteria and build your own rules under Settings and criteria.",
+        "learn": "S3",
+        "tour": "terminal:0"
+      },
+      "benchmark": {
+        "title": "The yardstick",
+        "body": "What your rules are measured against: the index you could have simply held instead. It is the second line on the chart.",
+        "learn": "S3",
+        "tour": "terminal:1"
+      },
+      "start_year": {
+        "title": "Start year",
+        "body": "The first year of the test. Tests start no earlier than 1990, an engine floor. Fundamentals are thin before about 1998, so the result names its first invested period. A longer test covers more crashes and losing years.",
+        "learn": "S3",
+        "tour": ""
+      },
+      "split_year": {
+        "title": "Tested on years it never saw",
+        "body": "Years before this one are where the rules get shaped. From this year on is data they never saw. A finding has to hold up there too, not only in the years it was fitted to.",
+        "learn": "S4",
+        "tour": "terminal:5"
+      },
+      "mode": {
+        "title": "Monthly or daily",
+        "body": "Monthly builds a basket of stocks from your criteria at each month end. Daily reads every bar of one ticker for one part of the trading day, so its runs take longer.",
+        "learn": "S3",
+        "tour": ""
+      },
+      "d_ticker": {
+        "title": "Ticker",
+        "body": "The one stock or fund the daily engine tests. Its own buy and hold is the benchmark.",
+        "learn": "S3",
+        "tour": ""
+      },
+      "d_rule": {
+        "title": "Session leg",
+        "body": "Which part of the day you hold: overnight (close to next open), intraday (open to close), or buy and hold. These legs trade every day, and the results leave out costs, which would weigh heavily.",
+        "learn": "S3",
+        "tour": ""
+      },
+      "rank_by": {
+        "title": "Rank by",
+        "body": "After your filters, the factor that puts the stocks that are left in order. The top of that list becomes the basket.",
+        "learn": "S3",
+        "tour": ""
+      },
+      "rank_dir": {
+        "title": "Direction",
+        "body": "Highest first holds the stocks at the top of the ranking. Lowest first holds the ones at the bottom.",
+        "learn": "S3",
+        "tour": ""
+      },
+      "top_n": {
+        "title": "Hold top",
+        "body": "How many stocks the basket holds each period, in equal weights. Fewer names means each one counts for more.",
+        "learn": "S3",
+        "tour": ""
+      },
+      "rebalance": {
+        "title": "Rebalance",
+        "body": "How often the basket is rebuilt. It forms at the close and is held to the next rebuild. Weekly runs from 1995 and daily from 2016. More often means more trading, and more costs.",
+        "learn": "S3",
+        "tour": ""
+      },
+      "btoggle": {
+        "title": "Settings and criteria",
+        "body": "The test settings (start year, the years it never saw, the engine) and your criteria: every factor in our data. Filter the stocks, rank what is left, hold the top names and rebuild the basket on your schedule.",
+        "learn": "S3",
+        "tour": "terminal:5"
+      },
+      "title": {
+        "title": "The backtest",
+        "body": "Your rules run on the database's history and the curve draws as it computes. Amber is your strategy, the other line is the benchmark, and the dashed line marks where the unseen years begin.",
+        "learn": "S3",
+        "tour": "terminal:4"
+      },
+      "v-word": {
+        "title": "What the verdict means",
+        "body": "DATA VALIDATED beat its benchmark on both growth and risk-adjusted return, and did not fall behind on the unseen years. TRADE-OFF beat it on one, or on both but then fell behind. NO EDGE beat it on neither.",
+        "learn": "S4",
+        "tour": "terminal:6"
+      },
+      "an-panel": {
+        "title": "Four more lenses",
+        "body": "Three tabs reread this run: Costs takes out trading costs at its real turnover, Monte Carlo reshuffles its real monthly returns, Factor lens shows which known factors explain it. The fourth, Optimizer, maps risk and return for your own tickers.",
+        "learn": "S4",
+        "tour": ""
+      },
+      "funnel-panel": {
+        "title": "The funnel",
+        "body": "How many stocks are left after each of your criteria in an average month, in real counts. It shows which rule does most of the cutting.",
+        "learn": "S3",
+        "tour": ""
+      },
+      "tape-drawer": {
+        "title": "Run log",
+        "body": "A line for each step of the run as it happens, and any error. When your account has an allowance, what is left shows under Run backtest.",
+        "learn": "",
+        "tour": ""
+      },
+      "tray-test": {
+        "title": "Pressure test it",
+        "body": "The skeptic pass runs eleven checks that try to break this finding, four of them running it again with one thing changed. It takes about five seconds.",
+        "learn": "S4",
+        "tour": ""
+      },
+      "tray-work": {
+        "title": "Put it to work",
+        "body": "Today's screen shows which stocks pass your rules today. Watch alerts you when that list changes. Follow on paper tracks your rules from today with $100,000 on paper, marked nightly. No broker, no order.",
+        "learn": "",
+        "tour": ""
+      },
+      "tray-keep": {
+        "title": "Keep it or share it",
+        "body": "Save keeps these rules on your shelf under a name; search for that name to open them again. Share makes a public link that recomputes the result for anyone who opens it.",
+        "learn": "",
+        "tour": ""
+      }
+    }
+  },
+  "university": {
+    "page": "university",
+    "path": "/university",
+    "items": {
+      "uni-head": {
+        "title": "University",
+        "body": "Chapters in the order you use QuantGPT. Each is a lesson of 3 minutes or less, one thing to do in the product and a three-question check. Your progress is saved on your account.",
+        "learn": "S1",
+        "tour": ""
+      },
+      "steps": {
+        "title": "The three steps",
+        "body": "The chapters in the order you use QuantGPT. Chapters marked QuantGPT open on every plan, those marked QuantGPT Pro on QuantGPT Pro and Business. A chapter with a lock still shows what it covers.",
+        "learn": "",
+        "tour": ""
+      },
+      "more": {
+        "title": "Every lesson on one shelf",
+        "body": "The Learn page lists the playable lessons under the same three steps. Every one of them plays without signing in; here, signed in, each chapter adds a thing to do and a check.",
+        "learn": "",
+        "tour": ""
+      }
+    }
+  },
+  "whats-new": {
+    "page": "whats-new",
+    "path": "/whats-new",
+    "items": {
+      "wn-h1": {
+        "title": "What's new",
+        "body": "Every release we ship that your plan opens, newest first. A release you have not seen yet carries a New tag; opening this page marks it seen.",
+        "learn": "",
+        "tour": ""
+      },
+      "wn-rel-h": {
+        "title": "Every release",
+        "body": "Each release says what it does, where to try it and, when it has one, a prompt for your AI. A new one also shows once as a card the first time you open the terminal after it goes live.",
+        "learn": "",
+        "tour": ""
+      },
+      "wn-ai-h": {
+        "title": "Ask your AI what's new",
+        "body": "Your connected AI can call whats_new for the releases since it last asked, or since a date, and mention the ones that bear on what you are doing.",
+        "learn": "",
+        "tour": ""
+      }
+    }
+  }
+}

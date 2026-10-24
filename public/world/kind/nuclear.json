@@ -1,0 +1,121 @@
+{
+  "base": {
+    "1": 0.0004926487188865458,
+    "5": 0.002988337956250753,
+    "21": 0.01049763721339425,
+    "63": 0.025720163902466675
+  },
+  "events": [
+    {
+      "anchor": "2026-10-19",
+      "date": "2026-10-20",
+      "h": {
+        "1": 0.0028397621299232068,
+        "5": null,
+        "21": null,
+        "63": null
+      },
+      "title": "Israel: Iran"
+    },
+    {
+      "anchor": "2026-09-18",
+      "date": "2026-09-20",
+      "h": {
+        "1": 0.014927154475197657,
+        "5": 0.012144324717338728,
+        "21": 0.0052584772849813,
+        "63": null
+      },
+      "title": "Iran: United States"
+    },
+    {
+      "anchor": "2025-10-20",
+      "date": "2025-10-21",
+      "h": {
+        "1": 0.000032696450934288634,
+        "5": 0.020791027919869087,
+        "21": -0.017491876273149742,
+        "63": 0.020859320728694453
+      },
+      "title": "Seoul: Busan"
+    }
+  ],
+  "h": {
+    "1": {
+      "best": 0.014927154475197657,
+      "hit": 1,
+      "median": 0.0028397621299232068,
+      "n": 3,
+      "worst": 0.000032696450934288634
+    },
+    "5": {
+      "best": 0.020791027919869087,
+      "hit": 1,
+      "median": 0.016467676318603908,
+      "n": 2,
+      "worst": 0.012144324717338728
+    },
+    "21": {
+      "best": 0.0052584772849813,
+      "hit": 0.5,
+      "median": -0.006116699494084221,
+      "n": 2,
+      "worst": -0.017491876273149742
+    },
+    "63": {
+      "best": 0.020859320728694453,
+      "hit": 1,
+      "median": 0.020859320728694453,
+      "n": 1,
+      "worst": 0.020859320728694453
+    }
+  },
+  "kind": "nuclear",
+  "label": "Nuclear or missile",
+  "n": 3,
+  "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+  "page": "/world/kind/nuclear",
+  "spacing": 21,
+  "test": {
+    "h": {
+      "1": {
+        "above": 2,
+        "base_median": 0.0004926487188865458,
+        "event_median": 0.0028397621299232068,
+        "n": 3,
+        "p_value": 1,
+        "share_above": 0.6666666666666666,
+        "spacing": 21
+      },
+      "5": {
+        "above": 2,
+        "base_median": 0.002988337956250753,
+        "event_median": 0.016467676318603908,
+        "n": 2,
+        "p_value": 0.5,
+        "share_above": 1,
+        "spacing": 21
+      },
+      "21": {
+        "above": 0,
+        "base_median": 0.01049763721339425,
+        "event_median": -0.006116699494084221,
+        "n": 2,
+        "p_value": 0.5,
+        "share_above": 0,
+        "spacing": 21
+      },
+      "63": {
+        "above": 0,
+        "base_median": 0.025720163902466675,
+        "event_median": 0.020859320728694453,
+        "n": 1,
+        "p_value": 1,
+        "share_above": 0,
+        "spacing": 63
+      }
+    },
+    "read": "After 2 nuclear or missile events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 50% chance by luck alone."
+  },
+  "warmed": "2026-10-24"
+}

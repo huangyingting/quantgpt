@@ -1,0 +1,30 @@
+{
+  "page": "technicals",
+  "path": "/technicals",
+  "items": {
+    "tc-h1": {
+      "title": "Technicals",
+      "body": "One stock's chart, its indicators and the signals in the window, from our daily prices adjusted for splits and dividends. The same numbers the technicals tool gives your AI. Descriptions of past prices, not advice.",
+      "learn": "",
+      "tour": "technicals:0"
+    },
+    "tc-sig-h": {
+      "title": "Signals",
+      "body": "What the price did in the window, newest first: breakouts on heavy volume, moving average crosses, RSI and MACD crossings, the squeeze starting and ending, and new 52-week highs and lows.",
+      "learn": "",
+      "tour": "technicals:5"
+    },
+    "tc-now-h": {
+      "title": "Now",
+      "body": "The latest value of each indicator on the last close, with the usual reference lines named: 30 and 70 for RSI, 20 and 80 for the stochastic and the money flow index, 25 for ADX.",
+      "learn": "",
+      "tour": "technicals:6"
+    },
+    "tc-ai-h": {
+      "title": "Ask your AI about this chart",
+      "body": "Copies a prompt with this chart's latest values and signals. Paste it into the AI you use; connected to QuantGPT, it can check every number with the technicals tool.",
+      "learn": "",
+      "tour": "technicals:7"
+    }
+  }
+}

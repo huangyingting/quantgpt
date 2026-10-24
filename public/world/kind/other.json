@@ -1,0 +1,71 @@
+{
+  "base": {
+    "1": 0.0004926487188865458,
+    "5": 0.002988337956250753,
+    "21": 0.01049763721339425,
+    "63": 0.025720163902466675
+  },
+  "events": [
+    {
+      "anchor": "2026-09-24",
+      "date": "2026-09-25",
+      "h": {
+        "1": 0.005098599586843999,
+        "5": -0.004890842713342836,
+        "21": null,
+        "63": null
+      },
+      "title": "Cities and states across the United States hold commemorations honoring former American country singer Dolly Parton a month after her death."
+    }
+  ],
+  "h": {
+    "1": {
+      "best": 0.005098599586843999,
+      "hit": 1,
+      "median": 0.005098599586843999,
+      "n": 1,
+      "worst": 0.005098599586843999
+    },
+    "5": {
+      "best": -0.004890842713342836,
+      "hit": 0,
+      "median": -0.004890842713342836,
+      "n": 1,
+      "worst": -0.004890842713342836
+    },
+    "21": null,
+    "63": null
+  },
+  "kind": "other",
+  "label": "Other",
+  "n": 1,
+  "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+  "page": "/world/kind/other",
+  "spacing": 21,
+  "test": {
+    "h": {
+      "1": {
+        "above": 1,
+        "base_median": 0.0004926487188865458,
+        "event_median": 0.005098599586843999,
+        "n": 1,
+        "p_value": 1,
+        "share_above": 1,
+        "spacing": 21
+      },
+      "5": {
+        "above": 0,
+        "base_median": 0.002988337956250753,
+        "event_median": -0.004890842713342836,
+        "n": 1,
+        "p_value": 1,
+        "share_above": 0,
+        "spacing": 21
+      },
+      "21": null,
+      "63": null
+    },
+    "read": "Not enough past other events on the tape to test."
+  },
+  "warmed": "2026-10-24"
+}

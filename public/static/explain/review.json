@@ -1,0 +1,60 @@
+{
+  "page": "review",
+  "path": "/review",
+  "items": {
+    "review-head": {
+      "title": "Portfolio checkup",
+      "body": "Paste what you hold. The checkup grades each name, measures how concentrated the book is and how its names move together, and compares its history with the S&P 500. It describes your book and never recommends a trade.",
+      "learn": "G4",
+      "tour": "review:0"
+    },
+    "holdings-label": {
+      "title": "Your holdings",
+      "body": "One name per line: the symbol and the number of shares, or the symbol and a weight, like NVDA 25%. Up to 60 names. This browser keeps your list for next time.",
+      "learn": "G4",
+      "tour": "review:0"
+    },
+    "criteria-label": {
+      "title": "Check against your rules",
+      "body": "Pick one of your saved backtests and each holding shows PASS or FAIL against that backtest's filters. Leave it on none to skip the check.",
+      "learn": "G4",
+      "tour": "review:1"
+    },
+    "findings-head": {
+      "title": "Findings",
+      "body": "Plain sentences on what stands out, each built on a number: one name or sector holding a large share, names that move together, a deeper worst fall than the market, weak grades. They describe the book; you decide.",
+      "learn": "G4",
+      "tour": "review:4"
+    },
+    "holdings-table-head": {
+      "title": "The holdings, name by name",
+      "body": "Each name's weight and grade, its momentum over the past year, distance from its 52 week high, valuation, quality, trading volume and position against its 200 day average. The grade scores six measures, most against U.S. stocks over $2 billion.",
+      "learn": "G4",
+      "tour": ""
+    },
+    "sectors-head": {
+      "title": "By sector",
+      "body": "How much of the book sits in each sector, by weight. Many names can still be one sector bet: the findings flag it when the largest sector reaches 40% of the book.",
+      "learn": "G4",
+      "tour": ""
+    },
+    "history-head": {
+      "title": "The book's history",
+      "body": "Today's weights rebuilt month by month over your window, beside the S&P 500 over the same months. Gross of costs, and it holds only names you own today, so no failed companies drag it down.",
+      "learn": "G4",
+      "tour": "review:5"
+    },
+    "loadings-head": {
+      "title": "Factor loadings",
+      "body": "How much the book's monthly returns lean on the market, company size, value, momentum and quality. A market loading of 1 moves one for one with the index. It needs two years of history.",
+      "learn": "G4",
+      "tour": ""
+    },
+    "charts-head": {
+      "title": "Charts",
+      "body": "The review drawn as pictures you can save or share. The buttons below download every number as a CSV or JSON file.",
+      "learn": "G4",
+      "tour": ""
+    }
+  }
+}

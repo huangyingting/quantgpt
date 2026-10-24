@@ -1,0 +1,36 @@
+{
+  "page": "forum",
+  "path": "/forum",
+  "items": {
+    "floor-head": {
+      "title": "Rooms and threads",
+      "body": "Pick a room to read its threads, or start one with a title and details. Post real numbers only. One room belongs to QuantGPT Pro: everyone sees its titles, and its posts open on QuantGPT Pro.",
+      "learn": "",
+      "tour": "forum:1"
+    },
+    "card-head": {
+      "title": "Your forum card",
+      "body": "Your handle and avatar, shown on every post, and every badge on offer. Lit badges are yours, and each one says how it is earned. Pick a handle before your first post.",
+      "learn": "",
+      "tour": "forum:0"
+    },
+    "mail-head": {
+      "title": "Messages",
+      "body": "Private messages between members, handle to handle. Type an @handle and a message to start a conversation.",
+      "learn": "",
+      "tour": "forum:7"
+    },
+    "alerts-head": {
+      "title": "Alerts",
+      "body": "Replies in your threads and new posts from members you follow. Mark all read clears the count.",
+      "learn": "",
+      "tour": "forum:7"
+    },
+    "thread-head": {
+      "title": "The thread",
+      "body": "One thread and its replies. Reply at the bottom. Bold, italic, code, quotes and lists work, and a chart pack image link on its own line shows the chart.",
+      "learn": "",
+      "tour": ""
+    }
+  }
+}

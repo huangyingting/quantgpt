@@ -1,0 +1,42 @@
+{
+  "page": "grade",
+  "path": "/grade",
+  "items": {
+    "grade-title": {
+      "title": "Stock grader",
+      "body": "Six dimensions graded against every US stock over $2B: momentum, value, quality, growth, earnings and flows. The composite weights growth, quality and momentum most. Evidence, not advice.",
+      "learn": "",
+      "tour": ""
+    },
+    "mode-many": {
+      "title": "Several tickers",
+      "body": "Paste up to 25 tickers, separated by commas, spaces or new lines. You get one table: the composite and the six letters for each name, best composite first. Click a ticker for its full card.",
+      "learn": "",
+      "tour": ""
+    },
+    "drivers-h": {
+      "title": "What drives each grade",
+      "body": "Every input behind a dimension: its value, its percentile against the $2B+ universe where the formula reads one, the 0 to 100 score it feeds in, and its weight inside the dimension.",
+      "learn": "",
+      "tour": ""
+    },
+    "peers-h": {
+      "title": "Against its peers",
+      "body": "The stock next to the medians of its GICS sub-industry, industry group and sector, names over $2B, and its rank on the leaderboard composite inside each group.",
+      "learn": "",
+      "tour": ""
+    },
+    "halal": {
+      "title": "The halal screen",
+      "body": "Five tests from AAOIFI Shariah Standard 21, on quarterly filings and the month-end market cap. The same numbers drive the halal filter in backtests. It approximates the standard; it is not a fatwa or a ruling.",
+      "learn": "",
+      "tour": ""
+    },
+    "method": {
+      "title": "What the screen cannot see",
+      "body": "Business is judged by today's industry class, not revenue share, so a hotel with bars can pass. Many companies do not report interest income, and that test then shows as not run, never as passed.",
+      "learn": "",
+      "tour": ""
+    }
+  }
+}

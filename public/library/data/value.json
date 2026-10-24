@@ -1,0 +1,492 @@
+[
+  {
+    "id": "graham-netnet-1934",
+    "name": "Graham Net-Nets (NCAV)",
+    "type": "value",
+    "kind": "book",
+    "src": "Benjamin Graham and David Dodd, 'Security Analysis' (1934); Graham, 'The Intelligent Investor' (1949)",
+    "year": 1934,
+    "thesis": "Buy companies below liquidation value: price under two-thirds of net current asset value is a statistical bargain basket.",
+    "criteria": [
+      "NCAV = current assets - total liabilities (and preferred stock)",
+      "Buy at price < 2/3 x NCAV per share",
+      "Diversify widely; Oppenheimer's test re-formed the basket each year-end and held one year"
+    ],
+    "result": "Oppenheimer (1986): baskets bought each year-end 1970 to 1982 and held one year returned a mean 29.4%/yr vs 11.5% for the NYSE-AMEX index. Qualifiers are mostly tiny, illiquid stocks; few US names qualify today.",
+    "testable": true,
+    "tags": [
+      "deep value",
+      "Graham",
+      "net-nets",
+      "liquidation"
+    ]
+  },
+  {
+    "id": "graham-defensive-1949",
+    "name": "Inspired by Graham: Defensive Investor Screen",
+    "type": "value",
+    "kind": "book",
+    "src": "Benjamin Graham, 'The Intelligent Investor' (1949; criteria from the 4th rev. ed., 1973, ch. 14)",
+    "year": 1973,
+    "thesis": "A mechanical quality-value checklist protects the amateur: size, financial strength, earnings stability, dividends, and a sane price.",
+    "criteria": [
+      "Size: at least $100M annual sales for an industrial (1973 dollars)",
+      "Current ratio at least 2; long-term debt no more than net current assets",
+      "Some earnings each of past 10 years; EPS up at least one-third over 10 years (3-year averages)",
+      "Dividends paid each of past 20 years",
+      "Price at most 15x average 3-year earnings and 1.5x book, or P/E x P/B at most 22.5"
+    ],
+    "result": "Graham offered the screen as a safety standard and published no backtest. Tests of the exact seven rules are scarce, and results depend on how the size, 10-year and 20-year history tests are adapted.",
+    "testable": true,
+    "tags": [
+      "value",
+      "quality",
+      "Graham",
+      "screen",
+      "retail"
+    ],
+    "fidelity": "loose",
+    "run_gap": "Applies 2 of Graham's 7 tests (the P/E and P/B caps); size, balance sheet, earnings and dividend record are not tested.",
+    "runnable": true
+  },
+  {
+    "id": "fama-french-1992",
+    "name": "Inspired by Fama and French: Value Factor (HML)",
+    "type": "value",
+    "kind": "paper",
+    "src": "Fama & French (1992, 1993), JF/JFE",
+    "year": 1992,
+    "thesis": "High book-to-market stocks earn a premium over low book-to-market stocks not explained by beta.",
+    "criteria": [
+      "Book equity (prior fiscal year) / market equity (December)",
+      "Each June: 2 size groups (NYSE median) x 3 B/M groups (NYSE 30th/70th pct)",
+      "HML = value-weighted high-B/M minus low-B/M, averaged across size; hold 12 months"
+    ],
+    "result": "HML averaged 0.40% per month (about 4.8%/yr, t = 2.91) from July 1963 to December 1991. Value then had a long drawdown from about 2007 to 2020, with a partial recovery since.",
+    "testable": true,
+    "tags": [
+      "value",
+      "factor",
+      "HML",
+      "book-to-market"
+    ],
+    "fidelity": "loose",
+    "run_gap": "Long only, the 30 highest book-to-market names; HML is a long-short factor across the top and bottom 30%.",
+    "runnable": true
+  },
+  {
+    "id": "greenblatt-magic-2005",
+    "name": "Inspired by Greenblatt: Magic Formula",
+    "type": "value",
+    "kind": "book",
+    "src": "Joel Greenblatt, 'The Little Book That Beats the Market' (2005)",
+    "year": 2005,
+    "thesis": "Rank the market on cheapness (earnings yield) plus quality (return on capital); buy the best combined ranks mechanically.",
+    "criteria": [
+      "Earnings yield = EBIT / EV; return on capital = EBIT / (net working capital + net fixed assets)",
+      "Exclude utilities, financials and foreign stocks; apply a market-cap floor",
+      "Sum the two ranks; buy the top 20-30 in batches; hold each about one year"
+    ],
+    "result": "Book backtest: 30.8%/yr vs 12.4% for the S&P 500, 1988-2004, on the largest 3,500 US stocks. Independent tests (e.g. Gray and Carlisle, 2012) find it beat the market by less, with EBIT/EV alone doing better and multi-year droughts.",
+    "testable": true,
+    "tags": [
+      "value",
+      "quality",
+      "screen",
+      "Greenblatt",
+      "retail"
+    ],
+    "star": true,
+    "fidelity": "loose",
+    "run_gap": "Ranks on earnings yield (net income over market cap) with an ROE floor; Greenblatt sums ranks of EBIT/EV and return on capital.",
+    "curated": "checked",
+    "runnable": true
+  },
+  {
+    "id": "piotroski-2000",
+    "name": "Piotroski F-Score",
+    "type": "value",
+    "kind": "paper",
+    "src": "Piotroski (2000), Journal of Accounting Research",
+    "year": 2000,
+    "thesis": "Within cheap (high B/M) stocks, nine simple accounting signals separate the recovering from the dying.",
+    "criteria": [
+      "Universe: highest book-to-market quintile",
+      "Score 0-9: ROA>0, CFO>0, rising ROA, CFO>ROA, lower leverage, higher current ratio, no equity issue, higher gross margin, higher asset turnover",
+      "Buy F-Score 8-9; F-Score 0-1 is the avoid or short group"
+    ],
+    "result": "1976-1996: high F-Score (8-9) value stocks beat the average high-B/M stock by at least 7.5%/yr; long high minus short low (0-1) earned 23%/yr. Gains concentrate in small, thinly traded names with no analyst coverage.",
+    "testable": true,
+    "tags": [
+      "value",
+      "quality",
+      "accounting",
+      "F-score",
+      "screen"
+    ],
+    "fidelity": "close",
+    "run_gap": "Liquid stocks only, 8 of the 9 signals, re-formed monthly; the paper found the effect in small, thinly traded firms held a year.",
+    "runnable": true
+  },
+  {
+    "id": "lsv-1994",
+    "name": "Inspired by Lakonishok, Shleifer and Vishny: Contrarian Value",
+    "type": "value",
+    "kind": "paper",
+    "src": "Lakonishok, Shleifer & Vishny (1994), Journal of Finance",
+    "year": 1994,
+    "thesis": "Value works because investors extrapolate past growth too far: low-priced, slow-growth stocks beat glamour stocks, and the gap is not explained by higher risk.",
+    "criteria": [
+      "Sort NYSE/AMEX stocks each April on C/P, E/P or B/M and on 5-year sales growth",
+      "Value = high C/P and low growth; glamour = the reverse",
+      "Equal weight, buy and hold 5 years"
+    ],
+    "result": "Value beat glamour by about 10 to 11%/yr over the 5 years after formation in their 1968-1990 sample, and did not do worse in down markets or recessions.",
+    "testable": true,
+    "tags": [
+      "value",
+      "behavioral",
+      "contrarian",
+      "glamour"
+    ],
+    "fidelity": "loose",
+    "run_gap": "Mixes P/B, one quarter's sales growth and E/P in 30 names; the paper crosses one value ratio with 5-year sales growth.",
+    "runnable": true
+  },
+  {
+    "id": "carlisle-acquirers-2014",
+    "name": "Inspired by Carlisle: The Acquirer's Multiple",
+    "type": "value",
+    "kind": "book",
+    "src": "Tobias Carlisle, 'Deep Value' (2014) and 'The Acquirer's Multiple' (2017)",
+    "year": 2014,
+    "thesis": "Carlisle argues cheapness alone (EV / operating earnings) beats the Magic Formula because high returns on capital tend to mean-revert, so the quality rank adds little.",
+    "criteria": [
+      "Acquirer's Multiple = enterprise value / operating earnings (EBIT)",
+      "Buy the 30 lowest multiples above a market-cap floor, equal weight",
+      "Rebalance annually; expect ugly holdings"
+    ],
+    "result": "In a study Carlisle commissioned (1973-2017, 30 stocks), it beat the Magic Formula by about 0.3 to 2.4 points a year depending on the cap floor, and both beat the S&P 500. Author-run tests; long losing stretches occur.",
+    "testable": true,
+    "tags": [
+      "deep value",
+      "EV/EBIT",
+      "mean reversion",
+      "screen"
+    ],
+    "fidelity": "loose",
+    "run_gap": "Ranks on net income over market cap, not enterprise value over operating earnings, and keeps financials.",
+    "runnable": true
+  },
+  {
+    "id": "oshaughnessy-1996",
+    "name": "Inspired by O'Shaughnessy: What Works on Wall Street",
+    "type": "value",
+    "kind": "book",
+    "src": "James O'Shaughnessy, 'What Works on Wall Street' (1996, 4th ed. 2011)",
+    "year": 2011,
+    "thesis": "Decades of factor tests distilled: combined value composites (P/S, P/E, EV/EBITDA, P/CF, yield) beat any single ratio.",
+    "criteria": [
+      "Value Composite: average rank on P/B, P/E, P/S, EBITDA/EV, P/CF and shareholder yield",
+      "Take the cheapest 10% of All Stocks by the composite",
+      "Buy the 25 with the best 6-month price gain; equal weight; rebalance annually"
+    ],
+    "result": "Trending Value compounded about 21%/yr from 1964 to 2009 in the 4th edition's backtest (before costs), well ahead of the All Stocks universe, with deep drawdowns along the way.",
+    "testable": true,
+    "tags": [
+      "value",
+      "composite",
+      "momentum",
+      "screen",
+      "retail"
+    ],
+    "fidelity": "loose",
+    "run_gap": "Loose value caps, then a momentum rank: closer to momentum with a value floor than his six-ratio composite.",
+    "runnable": true
+  },
+  {
+    "id": "shiller-cape-1988",
+    "name": "CAPE / Shiller P/E Timing",
+    "type": "value",
+    "kind": "paper",
+    "src": "Campbell & Shiller (1988, 1998)",
+    "year": 1988,
+    "thesis": "The cyclically-adjusted P/E (10-year real earnings) forecasts 10-year index returns - valuation matters at decade horizons.",
+    "criteria": [
+      "CAPE (P/E10) = real S&P price / 10-year average real earnings",
+      "Used as a 10-year return forecast; the papers give no trading rule",
+      "An allocation tilt (less equity in top CAPE deciles) is our extension"
+    ],
+    "result": "Campbell and Shiller (1998) found P/E10 forecast 10-year real price changes in US data back to 1871, but not earnings growth; power at 1-year horizons is weak. CAPE stayed above its long-run mean for most of 1990-2020, so timing rules were often under-invested.",
+    "testable": true,
+    "tags": [
+      "valuation",
+      "market timing",
+      "CAPE",
+      "allocation"
+    ]
+  },
+  {
+    "id": "schloss-approach",
+    "name": "Inspired by Schloss: Cheap-Asset Basket",
+    "type": "value",
+    "kind": "practitioner",
+    "src": "Walter Schloss letters & interviews; Buffett's 'Superinvestors' (1984)",
+    "year": 1955,
+    "thesis": "Buy many statistically cheap stocks trading below book value and near multi-year lows, with little debt; rely on the balance sheet, not the story.",
+    "criteria": [
+      "Price near multi-year low and below book (tangible book preferred)",
+      "Little or no debt, long operating history",
+      "Wide diversification (often about 100 names), about 4-year average hold"
+    ],
+    "result": "Buffett (1984): 16.1%/yr to limited partners vs 8.4% for the S&P, 1956-1984 (21.3%/yr before Schloss's share). Commonly cited 47-year record: about 15.3%/yr net vs about 10% for the S&P. A discretionary record, not a tested rule.",
+    "testable": true,
+    "tags": [
+      "deep value",
+      "price-to-book",
+      "diversification",
+      "legend"
+    ],
+    "fidelity": "loose",
+    "run_gap": "Schloss used judgment, not a rule; this is a cheap-asset screen in his spirit, with no debt test.",
+    "runnable": true
+  },
+  {
+    "id": "basu-low-pe-1977",
+    "name": "Low Price-Earnings Portfolios",
+    "type": "value",
+    "kind": "paper",
+    "src": "Sanjay Basu (1977), Journal of Finance",
+    "year": 1977,
+    "thesis": "Rank stocks by price relative to reported earnings and favor the lowest P/E group. This is a direct earnings-yield value screen rather than a forecast of earnings growth.",
+    "criteria": [
+      "NYSE industrials with December fiscal years; P/E = year-end price / annual EPS",
+      "Sort into P/E quintiles each April 1 (3-month reporting lag)",
+      "Buy the lowest-P/E quintile, hold 12 months, re-form yearly"
+    ],
+    "result": "April 1957 to March 1971: low-P/E portfolios earned higher raw and risk-adjusted returns than high-P/E portfolios, with returns falling roughly in order of P/E.",
+    "testable": true,
+    "tags": [
+      "value",
+      "earnings-yield",
+      "low-pe",
+      "cross-section"
+    ],
+    "fidelity": "close",
+    "run_gap": "The 30 lowest P/E names re-formed monthly, against Basu's yearly quintiles of NYSE industrials.",
+    "runnable": true
+  },
+  {
+    "id": "stattman-book-to-market-1980",
+    "name": "High Book-to-Market Stocks",
+    "type": "value",
+    "kind": "paper",
+    "src": "Dennis Stattman (1980), The Chicago MBA: A Journal of Selected Papers",
+    "year": 1980,
+    "thesis": "Use book equity relative to market capitalization to identify stocks priced cheaply relative to accounting net worth. Hold the higher book-to-market stocks rather than the lower book-to-market stocks.",
+    "criteria": [
+      "Obtain book equity from the latest available financial statements.",
+      "Divide book equity by market capitalization for each eligible stock.",
+      "Form a portfolio from the highest book-to-market group and rebalance after accounting data update."
+    ],
+    "result": "Stattman reported that US stocks with higher book-to-market earned higher average returns; Fama and French (1992) cite it with Rosenberg, Reid and Lanstein (1985) as early evidence of the value effect.",
+    "testable": true,
+    "tags": [
+      "value",
+      "book-to-market",
+      "equity",
+      "cross-section"
+    ],
+    "fidelity": "close",
+    "run_gap": "A generic high book-to-market book; the source's own portfolio rules could not be checked.",
+    "runnable": true
+  },
+  {
+    "id": "dreman-contrarian-low-pe-1980",
+    "name": "Inspired by Dreman: Contrarian Low-P/E",
+    "type": "value",
+    "kind": "book",
+    "src": "David N. Dreman, 'Contrarian Investment Strategy' (1979)",
+    "year": 1979,
+    "thesis": "Buy companies that the market values at depressed multiples, especially low P/E, while avoiding a fashionable consensus-growth approach. The approach is explicitly contrarian and emphasizes diversification.",
+    "criteria": [
+      "Buy from the low-P/E group of medium and large companies",
+      "Require a sound balance sheet (low debt, adequate liquidity)",
+      "Diversify across many stocks and industries; sell as the P/E nears the market's"
+    ],
+    "result": "Dreman compiled evidence that unpopular low-P/E stocks beat glamour stocks over the periods he studied; he stresses that single holdings can be volatile. No single backtest figure is given here.",
+    "testable": "partial",
+    "tags": [
+      "value",
+      "contrarian",
+      "low-pe",
+      "diversification"
+    ],
+    "fidelity": "loose",
+    "run_gap": "The 30 lowest P/E re-formed monthly, with no size or financial-strength test; Dreman held for years.",
+    "runnable": true
+  },
+  {
+    "id": "dogs-of-the-dow-ohiggins-1991",
+    "name": "Dogs of the Dow",
+    "type": "value",
+    "kind": "book",
+    "src": "Michael B. O'Higgins and John Downes, Beating the Dow (1991)",
+    "year": 1991,
+    "thesis": "Among the Dow Jones Industrial Average constituents, high dividend yield is used as a simple proxy for temporarily depressed prices. Hold the ten highest-yielding Dow stocks for a year.",
+    "criteria": [
+      "At each year-end, list the current Dow Jones Industrial Average constituents.",
+      "Rank them by indicated annual dividend divided by share price.",
+      "Buy the ten highest-yielding names in equal weights and rebalance annually."
+    ],
+    "result": "The book reported the Dow 10 beat the Dow in its 1973-1991 tests. McQueen, Shields and Thorley (1997): 1946-1995 mean 16.77%/yr vs 13.71% for the Dow 30, with higher volatility; after risk, costs and taxes the edge was not significant.",
+    "testable": true,
+    "tags": [
+      "value",
+      "dividend-yield",
+      "dow",
+      "annual-rebalance"
+    ],
+    "star": true
+  },
+  {
+    "id": "fama-french-international-value-1998",
+    "name": "International Book-to-Market Value",
+    "type": "value",
+    "kind": "paper",
+    "src": "Eugene F. Fama and Kenneth R. French (1998), Journal of Finance",
+    "year": 1998,
+    "thesis": "Apply value sorting outside the United States using book-to-market, earnings-to-price, cash-flow-to-price, and dividend yield. Compare high-value portfolios with low-value portfolios within international markets.",
+    "criteria": [
+      "13 major markets, MSCI data, 1975-1995",
+      "Within each country: value = top 30% by B/M (also E/P, C/P, D/P), growth = bottom 30%",
+      "Compare value minus growth, re-formed yearly"
+    ],
+    "result": "Global high-minus-low B/M returns averaged 7.68%/yr in 1975-1995, and value beat growth in 12 of 13 major markets; a value premium also appeared in emerging markets. Premiums vary widely by country and period.",
+    "testable": true,
+    "tags": [
+      "value",
+      "international",
+      "book-to-market",
+      "multi-factor"
+    ]
+  },
+  {
+    "id": "chan-lakonishok-sougiannis-rd-value-2001",
+    "name": "High R&D-to-Market-Value Stocks",
+    "type": "fundamental",
+    "kind": "paper",
+    "src": "Louis K. C. Chan, Josef Lakonishok, and Theodore Sougiannis (2001), Journal of Finance",
+    "year": 2001,
+    "thesis": "R&D is expensed, so R&D-heavy firms look worse on earnings and book value than their economics. The market appears too pessimistic about beaten-down R&D-intensive stocks.",
+    "criteria": [
+      "Measure R&D intensity as R&D expense / market value of equity",
+      "Rank stocks on R&D-to-market; high values tend to follow poor past returns",
+      "Buy the highest group; firms with R&D earn no premium on average"
+    ],
+    "result": "Firms with R&D earned about the same average returns as firms without; firms with high R&D relative to market value earned large excess returns; R&D intensity went with higher return volatility.",
+    "testable": "partial",
+    "tags": [
+      "value",
+      "research-development",
+      "intangibles",
+      "accounting"
+    ]
+  },
+  {
+    "id": "loughran-wellman-enterprise-multiple-2011",
+    "name": "Low Enterprise Multiple",
+    "type": "value",
+    "kind": "paper",
+    "src": "Tim Loughran and Jay W. Wellman (2011), Journal of Financial and Quantitative Analysis",
+    "year": 2011,
+    "thesis": "Value companies using enterprise value relative to EBITDA, which incorporates debt and cash as well as equity price. Favor the lower enterprise-multiple firms.",
+    "criteria": [
+      "EV = equity market value + debt + preferred stock - cash",
+      "Divide by trailing EBITDA (positive values)",
+      "Rank on EV/EBITDA; hold the lowest-multiple group, rebalance periodically"
+    ],
+    "result": "An enterprise-multiple factor built Fama-French style earned a 5.28%/yr premium, July 1963 to December 2009; low-EM firms had higher later returns.",
+    "testable": true,
+    "tags": [
+      "value",
+      "ev-ebitda",
+      "enterprise-value",
+      "cross-section"
+    ],
+    "fidelity": "wrong",
+    "not_runnable": "Our data has no enterprise value yet, so this cannot be run as published."
+  },
+  {
+    "id": "novy-marx-profitable-value-2013",
+    "name": "Inspired by Novy-Marx: Profitable Value",
+    "type": "value",
+    "kind": "paper",
+    "src": "Robert Novy-Marx (2013), Journal of Financial Economics",
+    "year": 2013,
+    "thesis": "Combine a conventional value screen with gross profitability, because profitable firms can be attractive even when their book-to-market alone does not identify them. The combination avoids treating all cheap firms as equivalent.",
+    "criteria": [
+      "Calculate book-to-market using accounting book equity and market capitalization.",
+      "Calculate gross profitability as gross profits divided by total assets.",
+      "Select stocks that are relatively high in book-to-market and gross profitability, then rebalance on a stated schedule."
+    ],
+    "result": "Gross profits-to-assets predicted returns about as well as book-to-market, and profitable firms outperformed despite higher valuations. Controlling for profitability sharply improved value strategies, especially among the largest, most liquid stocks.",
+    "testable": true,
+    "tags": [
+      "value",
+      "profitability",
+      "quality-value",
+      "book-to-market"
+    ],
+    "fidelity": "loose",
+    "run_gap": "An ROE floor, then a P/B rank; the paper ranks gross profits over assets plus book-to-market, long-short.",
+    "runnable": true
+  },
+  {
+    "id": "peters-taylor-intangible-value-2017",
+    "name": "Intangible-Adjusted Book-to-Market",
+    "type": "fundamental",
+    "kind": "paper",
+    "src": "Peters and Taylor (2017), JFE (intangible capital measure); return test: Eisfeldt, Kim and Papanikolaou (2022), Critical Finance Review",
+    "year": 2017,
+    "thesis": "Add estimated intangible capital (capitalized R&D and part of SG&A) to book equity, since accounting book value omits it; rank on the adjusted book-to-market.",
+    "criteria": [
+      "Knowledge capital: accumulate past R&D, net of depreciation",
+      "Organization capital: treat part of SG&A as investment (Peters-Taylor use 30%), depreciate yearly",
+      "Add both to book equity and rank on adjusted book-to-market"
+    ],
+    "result": "Peters and Taylor did not test returns: adding intangibles to q gives a stronger investment-q relation. Eisfeldt, Kim and Papanikolaou (2022) found an intangible-adjusted value factor earned substantially higher returns than standard HML, including in recent decades.",
+    "testable": "partial",
+    "tags": [
+      "value",
+      "intangibles",
+      "book-to-market",
+      "accounting"
+    ]
+  },
+  {
+    "id": "gray-carlisle-quantitative-value-2012",
+    "name": "Inspired by Gray and Carlisle: Quantitative Value",
+    "type": "value",
+    "kind": "book",
+    "src": "Wesley R. Gray and Tobias E. Carlisle, Quantitative Value (2012)",
+    "year": 2012,
+    "thesis": "Screen out likely manipulators and distressed firms, buy the cheapest stocks on EBIT / enterprise value, then keep the highest quality. The book tests many value ratios and picks EBIT/EV as the best single measure.",
+    "criteria": [
+      "Drop firms flagged for earnings manipulation (accruals, M-score) or high distress risk",
+      "Take the cheapest decile by EBIT / total enterprise value",
+      "Keep the highest-quality names (franchise power + financial strength); equal weight, rebalance yearly"
+    ],
+    "result": "Book backtest 1974-2011: 17.68%/yr vs 10.46% for the S&P 500, about 3.7 points a year ahead of the Magic Formula. Author-run and before costs.",
+    "testable": "partial",
+    "tags": [
+      "value",
+      "composite",
+      "quality-filter",
+      "systematic"
+    ],
+    "fidelity": "loose",
+    "run_gap": "Free cash flow over market cap instead of EBIT over enterprise value, and the quality step runs before the value step.",
+    "runnable": true
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "page": "pm",
+  "path": "/pm",
+  "items": {
+    "h-pm": {
+      "title": "Prediction markets",
+      "body": "Every open market on Polymarket and Kalshi, beside the record of markets like it: how often markets at this price, this far from closing, in this category actually resolved yes.",
+      "learn": "",
+      "tour": "pm:0"
+    },
+    "run": {
+      "title": "Read the board",
+      "body": "Pick a venue, a category and a minimum volume, then read the board. Open markets are kept for fifteen minutes; Refresh fetches both venues again.",
+      "learn": "",
+      "tour": "pm:2"
+    },
+    "minn": {
+      "title": "Resolved markets behind a read",
+      "body": "How many past markets like this one must have resolved before the board gives a read. A higher number means fewer reads. Too few in the category, and it reads every category instead, marked all.",
+      "learn": "",
+      "tour": "pm:1"
+    },
+    "t-gap": {
+      "title": "Largest gap",
+      "body": "The biggest difference on the board between a market's price and how often markets like it resolved yes. A gap is the crowd's past habit, not a forecast for this market.",
+      "learn": "",
+      "tour": "pm:3"
+    },
+    "tbl": {
+      "title": "The board",
+      "body": "Price: the crowd's price for yes. Resolved yes, like it: how often past markets in that price band resolved yes, out of N. Average return: what buying yes at those prices returned, before fees and spread.",
+      "learn": "",
+      "tour": "pm:3"
+    }
+  }
+}

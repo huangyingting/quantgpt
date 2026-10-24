@@ -1,0 +1,71 @@
+{
+  "base": {
+    "1": 0.0004926487188865458,
+    "5": 0.002988337956250753,
+    "21": 0.01049763721339425,
+    "63": 0.025720163902466675
+  },
+  "events": [
+    {
+      "anchor": "2026-10-07",
+      "date": "2026-10-08",
+      "h": {
+        "1": -0.004666909708803235,
+        "5": -0.010616831554588257,
+        "21": null,
+        "63": null
+      },
+      "title": "PEP reports before the open, estimate 2.29"
+    }
+  ],
+  "h": {
+    "1": {
+      "best": -0.004666909708803235,
+      "hit": 0,
+      "median": -0.004666909708803235,
+      "n": 1,
+      "worst": -0.004666909708803235
+    },
+    "5": {
+      "best": -0.010616831554588257,
+      "hit": 0,
+      "median": -0.010616831554588257,
+      "n": 1,
+      "worst": -0.010616831554588257
+    },
+    "21": null,
+    "63": null
+  },
+  "kind": "earnings",
+  "label": "Earnings",
+  "n": 1,
+  "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+  "page": "/world/kind/earnings",
+  "spacing": 21,
+  "test": {
+    "h": {
+      "1": {
+        "above": 0,
+        "base_median": 0.0004926487188865458,
+        "event_median": -0.004666909708803235,
+        "n": 1,
+        "p_value": 1,
+        "share_above": 0,
+        "spacing": 21
+      },
+      "5": {
+        "above": 0,
+        "base_median": 0.002988337956250753,
+        "event_median": -0.010616831554588257,
+        "n": 1,
+        "p_value": 1,
+        "share_above": 0,
+        "spacing": 21
+      },
+      "21": null,
+      "63": null
+    },
+    "read": "Not enough past earnings events on the tape to test."
+  },
+  "warmed": "2026-10-24"
+}

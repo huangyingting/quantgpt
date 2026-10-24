@@ -1,0 +1,66 @@
+{
+  "page": "account",
+  "path": "/account",
+  "items": {
+    "plan-head": {
+      "title": "Your plan",
+      "body": "Your plan, its status and billing. Manage or cancel opens the billing portal, where you change or cancel. A trial runs on your plan's full daily limits and ends on its own day; cancel before then and you pay nothing.",
+      "learn": "",
+      "tour": "account:0"
+    },
+    "alerts-head": {
+      "title": "Strategy alerts",
+      "body": "Watch a screen. After a backtest, press Watch under the result. Each night after our data updates, the screen runs again, and you get a notice when a name enters or leaves it.",
+      "learn": "",
+      "tour": "account:3"
+    },
+    "identity-head": {
+      "title": "Your identity",
+      "body": "Your handle and avatar, shown on the forum and the leaderboard. Pick an avatar or upload your own image, up to 2 MB, cropped square. Your badges show below.",
+      "learn": "",
+      "tour": ""
+    },
+    "prefs-head": {
+      "title": "Preferences",
+      "body": "Defaults that follow you to any device: the benchmark and start year a new backtest opens with, and up to 30 symbols on the monitor's tape.",
+      "learn": "",
+      "tour": "account:4"
+    },
+    "keys-head": {
+      "title": "Keys for your AI",
+      "body": "Keys your AI uses to connect. Issue one and copy it now: it is shown once. Your plan sets how many can be active. Claude and ChatGPT connections show here too. Revoke a key and its connection stops.",
+      "learn": "S2",
+      "tour": "account:5"
+    },
+    "security-head": {
+      "title": "Password",
+      "body": "Change your password. You need the current one, and the new one must be at least 10 characters and not a well known password.",
+      "learn": "",
+      "tour": ""
+    },
+    "data-head": {
+      "title": "Your data",
+      "body": "Sign out on every device, download everything your account holds as one file, or delete the account. Deleting cancels billing and erases the account; it takes your password and the word DELETE.",
+      "learn": "",
+      "tour": "account:7"
+    },
+    "tfa-head": {
+      "title": "Two factor sign in",
+      "body": "Turn it on and signing in also asks for a 6 digit code from an authenticator app. You get recovery codes once, for the day you lose the app.",
+      "learn": "",
+      "tour": "account:6"
+    },
+    "passkeys-head": {
+      "title": "Passkeys",
+      "body": "Sign in with your device's fingerprint, face or PIN instead of a password. Add one on each device and name it, so you can tell them apart and remove one later.",
+      "learn": "",
+      "tour": "account:6"
+    },
+    "surfaces-head": {
+      "title": "Your pages",
+      "body": "The pages your plan opens, each one a link, and the pages still locked.",
+      "learn": "",
+      "tour": ""
+    }
+  }
+}

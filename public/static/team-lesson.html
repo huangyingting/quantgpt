@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script nonce="SGGn9x6T7QYnkNT7fmgENQ">try{var t=document.cookie.match(/(?:^|;\s*)qg_theme=(day|system)(?:;|$)/);if(t)document.documentElement.setAttribute("data-theme",t[1])}catch(e){}</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QuantGPT &middot; Lesson 7: Team and the Model</title>
+<style>
+  /* theme modes: this page's own colours with no desk.css token. Night
+     keeps its values; Day and System-light turn them over. */
+  :root{--pg-on-up:#0A1A10;--pg-amber-edge:#3d2f14}
+  :root[data-theme="day"]{--pg-on-up:#FFFFFF;--pg-amber-edge:#D2AE6E}
+  @media (prefers-color-scheme: light){:root[data-theme="system"]{--pg-on-up:#FFFFFF;--pg-amber-edge:#D2AE6E}}
+:root{--mono:Consolas,Cascadia Mono Web,Menlo,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:"Segoe UI",Selawik,system-ui,sans-serif;
+     overflow:hidden;user-select:none}
+#stage{position:relative;width:100%;height:100%;max-width:1240px;margin:0 auto;
+       display:flex;flex-direction:column;align-items:center;justify-content:center}
+.kicker{font-family:var(--sans);font-size:.78rem;letter-spacing:0;color:var(--faint);
+        position:absolute;top:24px;left:50%;transform:translateX(-50%);white-space:nowrap}
+.kicker b{color:var(--amber);font-weight:400}
+#skip{position:absolute;top:20px;right:24px;font-family:var(--sans);font-size:.85rem;min-height:44px;
+      letter-spacing:0;color:var(--faint);background:none;border:1px solid var(--line);
+      border-radius:6px;padding:.45rem .8rem;cursor:pointer;z-index:60}
+#skip:hover{color:var(--ink)}
+#headline{font-family:var(--cond);font-weight:700;
+          font-size:clamp(1.2rem,2.8vw,1.9rem);letter-spacing:-.01em;text-align:center;
+          min-height:1.4em;padding:0 1rem;transition:opacity .5s;z-index:5;margin-top:2.2rem}
+#scene{position:relative;width:min(96vw,1200px);height:min(64vh,560px);margin:.8rem 0 0;
+       display:flex;align-items:stretch;justify-content:center;gap:.6rem}
+/* each rail holds its bubble ABOVE its character: nothing ever sits on the panel */
+.rail{position:relative;width:210px;flex:0 0 210px;height:100%;display:flex;
+      flex-direction:column;justify-content:flex-end;align-items:center}
+.rail img{height:min(34vh,290px);width:auto;display:block}
+.pop{animation:pop .45s ease}
+@keyframes pop{40%{transform:scale(1.08)}}
+#tb{flex:1;height:100%;background:var(--surface);border:1px solid var(--line);
+    border-radius:14px;padding:1rem 1.2rem;display:flex;flex-direction:column;gap:.7rem;
+    overflow:hidden;position:relative;min-width:0}
+.bthead{font-family:var(--sans);font-size:.8rem;font-weight:600;letter-spacing:0;color:var(--amber);
+        display:flex;justify-content:space-between;gap:.8rem;flex-wrap:wrap}
+.bthead .sch{color:var(--faint);letter-spacing:0;font-weight:400}
+.view{display:none;flex:1;flex-direction:column;gap:.7rem;min-height:0}
+.view.on{display:flex}
+
+/* ---- the team board: seats, three columns, the file shelf ---- */
+.seats{display:flex;gap:.5rem;flex-wrap:wrap}
+.seat{display:flex;flex-direction:column;gap:.1rem;background:var(--bg);border:1px solid var(--line);
+      border-radius:9px;padding:.4rem .7rem;min-width:110px;font-family:var(--mono);
+      opacity:.35;transition:opacity .4s,border-color .4s}
+.seat.lit{opacity:1;border-color:var(--amber)}
+.seat i{font-style:normal;font-size:.78rem;font-weight:700;letter-spacing:.08em}
+.seat em{font-style:normal;font-size:.5rem;letter-spacing:.14em;color:var(--faint)}
+.cols{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;min-height:0}
+.col{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:.55rem;
+     display:flex;flex-direction:column;gap:.5rem;min-height:0;overflow:hidden}
+.col .ch{font-family:var(--mono);font-size:.55rem;letter-spacing:.18em;color:var(--faint)}
+.col .empty{font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;color:var(--faint);
+            border:1px dashed var(--line);border-radius:8px;padding:.7rem .5rem;text-align:center;line-height:1.6}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.55rem .6rem;
+      font-size:.74rem;line-height:1.45;animation:cardIn .45s ease}
+@keyframes cardIn{from{opacity:0;transform:translateY(8px)}}
+.card.pin{border-color:var(--pg-amber-edge)}
+.card .ct{font-family:var(--mono);font-size:.52rem;letter-spacing:.14em;color:var(--amber)}
+.card .cn{font-family:var(--mono);font-size:.56rem;letter-spacing:.06em;color:var(--muted);margin:.2rem 0 .35rem}
+.card .by{font-family:var(--mono);font-size:.5rem;letter-spacing:.14em;color:var(--faint);margin-top:.35rem}
+.card p{color:var(--muted)}
+.mini{border-collapse:collapse;font-family:var(--mono);font-size:.64rem;width:100%}
+.mini th{font-size:.48rem;letter-spacing:.12em;color:var(--faint);text-align:right;font-weight:400;padding:.1rem .25rem}
+.mini td{text-align:right;padding:.12rem .25rem;border-top:1px solid var(--line);white-space:nowrap}
+.mini td:first-child,.mini th:first-child{text-align:left}
+.mini tr.r td{color:var(--amber)}
+.files{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;color:var(--faint);
+       border:1px solid var(--line);border-radius:8px;padding:.5rem .7rem;transition:border-color .4s,color .4s}
+.files.lit{border-color:var(--amber);color:var(--ink)}
+
+/* ---- the model: a schematic cash-flow ladder, no figures ---- */
+.dcf{flex:1;display:flex;align-items:flex-end;gap:.4rem;min-height:0;padding:.4rem .2rem 0;
+     border-bottom:1px solid var(--line)}
+.yr{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;position:relative}
+.yr .o{width:100%;height:0;border:1px solid var(--amber);border-bottom:0;border-radius:3px 3px 0 0;
+       position:relative;transition:height .6s ease}
+.yr.fade .o{border-color:var(--cyan)}
+.yr .pv{position:absolute;left:0;right:0;bottom:0;height:100%;background:rgba(var(--amber-rgb),.55);transition:height .7s ease}
+.yr.fade .pv{background:rgba(var(--cyan-rgb),.5)}
+.yr.tv{flex:2.4;margin-left:.6rem}
+.yr.tv .o{border-color:var(--up);border-style:dashed}
+.yr.tv .pv{background:rgba(var(--up-rgb),.42)}
+.axis{display:grid;grid-template-columns:5fr 5fr 2.6fr;gap:.4rem;font-family:var(--mono);font-size:.52rem;
+      letter-spacing:.12em;color:var(--faint);text-align:center}
+.axis span:nth-child(1){color:var(--amber)}.axis span:nth-child(2){color:var(--cyan)}.axis span:nth-child(3){color:var(--up)}
+.today{display:flex;align-items:center;gap:.5rem .7rem;justify-content:center;flex-wrap:wrap;opacity:.25;transition:opacity .5s}
+.today.lit{opacity:1}
+.box{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;border:1px solid var(--line);border-radius:8px;
+     padding:.55rem .8rem;color:var(--muted);background:var(--bg);text-align:center;line-height:1.5}
+.box.amber{border-color:var(--amber);color:var(--amber)}
+.arrow{font-family:var(--mono);font-size:.56rem;letter-spacing:.14em;color:var(--faint);white-space:nowrap}
+
+/* ---- backwards, and the grid ---- */
+.rev{display:flex;align-items:center;gap:.7rem;justify-content:center;flex-wrap:wrap}
+.gwrap{flex:1;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto 1fr auto;gap:.35rem .6rem;min-height:0}
+.gx,.gy{font-family:var(--mono);font-size:.52rem;letter-spacing:.12em;color:var(--faint);display:flex;
+         justify-content:space-between;gap:.4rem}
+.gx{grid-column:2}
+.gy{grid-row:2;flex-direction:column;align-items:center;text-align:center;min-width:4.6rem}
+.gx b,.gy b{font-weight:400;color:var(--muted)}
+.sgrid{grid-row:2;grid-column:2;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(5,1fr);gap:4px;min-height:0}
+.sgrid i{display:block;border-radius:3px;background:var(--line);transition:background .5s ease}
+.gnote{grid-row:3;grid-column:2;font-family:var(--mono);font-size:.52rem;letter-spacing:.1em;color:var(--faint);text-align:center;line-height:1.6}
+
+/* ---- the spreadsheet ---- */
+.tabs{display:flex;gap:.3rem;font-family:var(--mono);font-size:.56rem;letter-spacing:.1em}
+.tabs span{border:1px solid var(--line);border-bottom:0;border-radius:6px 6px 0 0;padding:.3rem .6rem;color:var(--faint)}
+.tabs span.on{color:var(--amber);border-color:var(--amber)}
+.sheet{flex:1;overflow:auto;border:1px solid var(--line);border-radius:0 8px 8px 8px;min-height:0}
+.sheet table{border-collapse:collapse;width:100%;min-width:620px;table-layout:fixed;font-family:var(--mono);font-size:.62rem}
+.sheet th{background:var(--bg);color:var(--faint);font-weight:400;font-size:.52rem;letter-spacing:.1em;
+          padding:.3rem .4rem;border-bottom:1px solid var(--line);border-right:1px solid var(--line);text-align:left}
+.sheet td{padding:.32rem .4rem;border-bottom:1px solid var(--line);border-right:1px solid var(--line);
+          white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted)}
+.sheet td.n{color:var(--faint);background:var(--bg);width:2.2rem;text-align:center}
+.sheet td.l{color:var(--ink)}
+.sheet td.f{color:var(--up)}
+.sheet tr.hot td.f{background:rgba(var(--up-rgb),.08)}
+.sheet col.c0{width:2.2rem}.sheet col.ca{width:21%}.sheet col.cb{width:22%}
+
+.bubble{position:absolute;top:0;left:0;right:0;background:var(--bg);border:1px solid var(--line);
+        border-radius:12px;padding:.6rem .75rem;font-size:.8rem;line-height:1.5;opacity:0;
+        transform:translateY(8px);transition:opacity .4s,transform .4s;z-index:20}
+.bubble.show{opacity:1;transform:none}
+#next{margin-top:.7rem;transition:opacity .3s}
+#next.hide{opacity:0;pointer-events:none}
+#final{display:none;gap:.8rem;margin-top:.7rem;flex-wrap:wrap;justify-content:center}
+#final a{font-family:var(--sans);font-size:.85rem;font-weight:600;letter-spacing:0;text-decoration:none;
+         display:inline-flex;align-items:center;min-height:44px;
+         padding:.8rem 1.3rem;border-radius:8px}
+#final a.pri{background:var(--up);color:var(--pg-on-up);font-weight:700}
+#final a.sec{color:var(--amber);border:1px solid var(--amber)}
+#foot{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);width:min(96vw,1100px);
+      font-family:var(--sans);font-size:.72rem;letter-spacing:0;color:var(--faint);
+      text-align:center;line-height:1.6}
+/* phones: the rails move under the panel as a row, bubbles above each character */
+@media (max-width:820px){
+  #scene{flex-wrap:wrap;height:auto;gap:.5rem}
+  #tb{flex:0 0 100%;order:-1;height:auto;min-height:340px}
+  .rail{display:flex!important;flex:1 1 45%;width:auto;height:auto;justify-content:flex-end;min-height:0}
+  .rail img{height:min(22vh,150px)}
+  .bubble{position:static;margin-bottom:.35rem;font-size:.74rem;padding:.45rem .55rem}
+  .kicker{font-size:.7rem;letter-spacing:0;left:12px;transform:none;max-width:calc(100vw - 120px);overflow:hidden;text-overflow:ellipsis}
+  #headline{font-size:clamp(1rem,5vw,1.4rem);margin-top:4.4rem}
+  .cols{grid-template-columns:1fr;gap:.35rem}.col{padding:.4rem;min-height:3.2rem}.seat{min-width:84px}
+  .dcf{min-height:190px}.gwrap{min-height:230px}.sheet{min-height:220px}
+  .card{font-size:.66rem}.mini{font-size:.56rem}
+  #foot{white-space:normal;text-align:center;width:92%;font-size:.72rem;max-width:none;position:static;left:auto;transform:none;margin:.6rem auto 0}
+  #stage{justify-content:flex-start;padding-bottom:1rem;overflow-y:auto}
+  body{overflow:auto}
+}
+</style>
+<link rel="stylesheet" href="/static/desk.css?v=ux1">
+</head>
+<body>
+<div id="stage">
+  <div class="kicker"><b>QUANTGPT</b> &middot; Lesson 7: Team and the model</div>
+  <button id="skip" type="button">Skip</button>
+  <div id="headline"></div>
+  <div id="scene">
+    <div class="rail">
+      <div id="b-op" class="bubble"></div>
+      <img id="op-img" src="/static/game-art/l2-op-pondering.webp" alt="You">
+    </div>
+    <div id="tb">
+      <div class="view on" id="v-board">
+        <div class="bthead"><span>The team board: one board per subscription</span></div>
+        <div class="seats">
+          <span class="seat" id="seat-1"><i>YOU</i><em>OWNER</em></span>
+          <span class="seat" id="seat-2"><i>SEAT 2</i><em>INVITED BY EMAIL</em></span>
+          <span class="seat" id="seat-3"><i>SEAT 3</i><em>INVITED BY EMAIL</em></span>
+        </div>
+        <div class="cols">
+          <div class="col" id="col-notes"><div class="ch">NOTES</div></div>
+          <div class="col" id="col-running"><div class="ch">RUNNING</div></div>
+          <div class="col" id="col-confirmed"><div class="ch">DATA VALIDATED</div>
+            <div class="empty">EMPTY UNTIL A FINDING EARNS IT</div></div>
+        </div>
+        <div class="files" id="files">UPLOADED DATA &middot; CSV, TSV, TXT, MD, JSON &middot; YOUR TEAM ONLY</div>
+      </div>
+
+      <div class="view" id="v-model">
+        <div class="bthead"><span>The model: what the price assumes</span><span class="sch">Schematic, no figures</span></div>
+        <div class="dcf" id="dcf"></div>
+        <div class="axis"><span>Years 1 to 5: your growth</span><span>Years 6 to 10: fade to terminal</span><span>Terminal value</span></div>
+        <div class="today" id="today">
+          <span class="box">EVERY YEAR'S CASH, DISCOUNTED</span><span class="arrow">ADD &#9656;</span>
+          <span class="box">LESS NET DEBT</span><span class="arrow">DIVIDE BY SHARES &#9656;</span>
+          <span class="box amber">VALUE PER SHARE</span>
+        </div>
+      </div>
+
+      <div class="view" id="v-rev">
+        <div class="bthead"><span>Run it backwards, then the grid</span><span class="sch">Schematic, no figures</span></div>
+        <div class="rev">
+          <span class="box">TODAY'S PRICE</span><span class="arrow">SOLVE FOR GROWTH &#9656;</span>
+          <span class="box amber">THE GROWTH THE PRICE IMPLIES</span>
+        </div>
+        <div class="gwrap">
+          <div class="gx"><span>LOWER</span><b>TERMINAL GROWTH, ACROSS</b><span>HIGHER</span></div>
+          <div class="gy"><span>LOWER</span><b>DISCOUNT<br>RATE,<br>DOWN</b><span>HIGHER</span></div>
+          <div class="sgrid" id="sgrid"></div>
+          <div class="gnote">BRIGHTER = MORE VALUE PER SHARE. SHADING SHOWS DIRECTION ONLY; THE REAL GRID PRINTS A VALUE IN EVERY CELL.</div>
+        </div>
+      </div>
+
+      <div class="view" id="v-xlsx">
+        <div class="bthead"><span>The Excel model: live formulas</span><span class="sch">The formulas the file writes</span></div>
+        <div class="tabs"><span>Inputs</span><span class="on">DCF</span><span>History</span><span>Sensitivity</span></div>
+        <div class="sheet">
+          <table>
+            <colgroup><col class="c0"><col class="ca"><col class="cb"><col><col><col></colgroup>
+            <tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th></tr>
+            <tr><td class="n">1</td><td class="l">Year</td><td class="l">Growth</td><td class="l">Free cash flow</td><td class="l">Discount factor</td><td class="l">Present value</td></tr>
+            <tr class="hot"><td class="n">2</td><td>1</td><td class="f">=IF(A2&lt;=Inputs!$B$8,Inputs!$B$5,Inputs!$B$5+(Inputs!$B$6-Inputs!$B$5)*(A2-Inputs!$B$8)/(Inputs!$B$9-Inputs!$B$8))</td><td class="f">=Inputs!$B$4*(1+B2)</td><td class="f">=1/(1+Inputs!$B$7)^A2</td><td class="f">=C2*D2</td></tr>
+            <tr class="hot"><td class="n">3</td><td>2</td><td class="f">=IF(A3&lt;=Inputs!$B$8,Inputs!$B$5,Inputs!$B$5+(Inputs!$B$6-Inputs!$B$5)*(A3-Inputs!$B$8)/(Inputs!$B$9-Inputs!$B$8))</td><td class="f">=C2*(1+B3)</td><td class="f">=1/(1+Inputs!$B$7)^A3</td><td class="f">=C3*D3</td></tr>
+            <tr><td class="n">&middot;&middot;&middot;</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr class="hot"><td class="n">14</td><td class="l">Terminal value at year N</td><td class="f" colspan="4">=C11*(1+Inputs!$B$6)/(Inputs!$B$7-Inputs!$B$6)</td></tr>
+            <tr class="hot"><td class="n">15</td><td class="l">PV of terminal value</td><td class="f" colspan="4">=B14/(1+Inputs!$B$7)^Inputs!$B$9</td></tr>
+            <tr class="hot"><td class="n">18</td><td class="l">Value per share</td><td class="f" colspan="4">=IF(Inputs!$B$11&gt;0,B17/Inputs!$B$11,"")</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="rail">
+      <div id="b-bot" class="bubble"></div>
+      <img id="bot-img" src="/static/game-art/l2-bot-presenting.webp" alt="Your robot">
+    </div>
+  </div>
+  <button class="qg-btn" id="next" type="button" aria-label="Continue the lesson"></button>
+  <div id="final">
+    <a class="pri" href="/team">Open the team board &#9656;</a>
+    <a class="sec" href="/model">Open the model &#9656;</a>
+    <a class="sec" href="/learn">&#9666; Every lesson</a>
+  </div>
+  <div id="foot">The model scenes are schematic, no figures &middot; Not investment advice</div>
+</div>
+
+<script nonce="SGGn9x6T7QYnkNT7fmgENQ">
+(function(){
+"use strict";
+var $=function(id){return document.getElementById(id)};
+var D=null,state=0;
+
+function say(id,html){var b=$(id);b.innerHTML=html;b.classList.add("show");}
+function clearSay(){$("b-op").classList.remove("show");$("b-bot").classList.remove("show");}
+function head(t){$("headline").textContent=t;}
+function img(id,name){var el=$(id);el.src="/static/game-art/"+name+".webp";
+  el.classList.remove("pop");void el.offsetWidth;el.classList.add("pop");}
+function next(t){$("next").textContent=t;$("next").classList.remove("hide");}
+function hideNext(){$("next").classList.add("hide");}
+/* a beat's own timers: each one runs only while its beat is still the one
+   on screen, so a SKIP or a fast NEXT never has an old beat write over the next */
+function later(fn,ms){var s=state;setTimeout(function(){if(state===s)fn();},ms);}
+function view(id){["v-board","v-model","v-rev","v-xlsx"].forEach(function(v){$(v).classList.toggle("on",v===id)});}
+function q(s){return "&ldquo;"+s+"&rdquo;";}
+function pct(v){return (v>0?"+":"")+v+"%";}
+var GO=" "+String.fromCharCode(9656);
+
+/* ---------- the pinned study: every figure is Lesson 2's data pack ---------- */
+function studyCard(){
+  var c=document.createElement("div");c.className="card pin";c.id="card-study";
+  var h="<div class='ct'>PINNED BACKTEST &middot; LESSON 2'S RULE</div>";
+  if(D){var s=D.spx.stats;
+    h+="<div class='cn'>S&amp;P 500 &middot; "+s.first+" TO "+s.last+"</div>"+
+      "<table class='mini'><tr><th></th><th>CAGR</th><th>SHARPE</th><th>WORST</th></tr>"+
+      "<tr class='r'><td>THE RULE</td><td>"+pct(s.timed_cagr)+"</td><td>"+s.timed_sharpe.toFixed(2)+"</td><td>"+s.timed_maxdd+"%</td></tr>"+
+      "<tr><td>BUY &amp; HOLD</td><td>"+pct(s.bh_cagr)+"</td><td>"+s.bh_sharpe.toFixed(2)+"</td><td>"+s.bh_maxdd+"%</td></tr></table>";
+  } else {
+    h+="<div class='cn'>S&amp;P 500 &middot; OWN IT ABOVE THE 200-DAY, T-BILLS BELOW</div>";
+  }
+  c.innerHTML=h+"<div class='by'>PINNED BY YOU</div>";
+  return c;
+}
+function noteCard(){
+  var c=document.createElement("div");c.className="card";c.id="card-note";
+  var line=D?"Costs next: it switched "+D.spx.stats.crosses+" times since "+D.spx.stats.first.slice(0,4)+
+    ". Run the cost model before anyone gets excited.":
+    "Costs next: it switches at every cross. Run the cost model before anyone gets excited.";
+  c.innerHTML="<div class='ct'>NOTE &middot; SEAT 2</div><p>"+line+"</p>";
+  return c;
+}
+function light(ids,gap){ids.forEach(function(id,i){setTimeout(function(){$(id).classList.add("lit")},gap*i);});}
+
+/* ---------- the model: a schematic ladder. The shape parameters below draw
+   bars; they are never printed, and the panel says SCHEMATIC, NO FIGURES ---------- */
+var SHAPE={g:0.14,gT:0.03,r:0.10,years:10,fade:5};
+function ladder(){
+  var cash=[],c=1,i;
+  for(i=1;i<=SHAPE.years;i++){
+    var g=i<=SHAPE.fade?SHAPE.g:SHAPE.g+(SHAPE.gT-SHAPE.g)*(i-SHAPE.fade)/(SHAPE.years-SHAPE.fade);
+    c*=1+g;cash.push(c);
+  }
+  var tv=c*(1+SHAPE.gT)/(SHAPE.r-SHAPE.gT);
+  return {cash:cash,tv:tv};
+}
+function buildDcf(){
+  var box=$("dcf");if(box.childNodes.length)return;
+  for(var i=0;i<=SHAPE.years;i++){
+    var y=document.createElement("div");
+    y.className="yr"+(i===SHAPE.years?" tv":(i>=SHAPE.fade?" fade":""));
+    y.innerHTML="<div class='o'><div class='pv'></div></div>";
+    box.appendChild(y);
+  }
+}
+function growDcf(){
+  var L=ladder(),top=L.cash[L.cash.length-1],ys=$("dcf").children;
+  for(var i=0;i<SHAPE.years;i++){(function(el,h,d){setTimeout(function(){el.style.height=h+"%"},d)})(
+    ys[i].firstChild,58*L.cash[i]/top,90*i);}
+  setTimeout(function(){ys[SHAPE.years].firstChild.style.height="96%"},90*SHAPE.years+150);
+}
+function discountDcf(){
+  var ys=$("dcf").children;
+  for(var i=0;i<SHAPE.years;i++){
+    ys[i].querySelector(".pv").style.height=(100/Math.pow(1+SHAPE.r,i+1))+"%";}
+  ys[SHAPE.years].querySelector(".pv").style.height=(100/Math.pow(1+SHAPE.r,SHAPE.years))+"%";
+  setTimeout(function(){$("today").classList.add("lit")},700);
+}
+/* the grid: brighter toward a lower discount rate and a higher terminal
+   rate, which is the direction model.sensitivity really moves */
+function buildGrid(){
+  var g=$("sgrid");if(g.childNodes.length)return;
+  for(var r=0;r<5;r++)for(var t=0;t<5;t++){var i=document.createElement("i");i.setAttribute("data-w",(t+(4-r))/8);g.appendChild(i);}
+}
+function shadeGrid(){
+  var cells=$("sgrid").children;
+  for(var k=0;k<cells.length;k++){(function(c,d){setTimeout(function(){
+    var w=+c.getAttribute("data-w");c.style.background="rgba(240,168,60,"+(0.1+0.8*w).toFixed(2)+")";},d)})(cells[k],35*k);}
+}
+
+/* ---------- beats ---------- */
+function b0(){head("One backtest. Three people. One set of numbers.");
+  view("v-board");img("op-img","l2-op-pondering");img("bot-img","l2-bot-presenting");
+  say("b-op",q("My partners want Lesson 2's rule. Last time we passed screenshots around and nobody had the same number."));
+  later(function(){
+    say("b-bot",q("Pin it to the team board. Every seat reads the same card, from the same data."));
+    next("Pin it"+GO);
+  },1100);}
+function b1(){hideNext();clearSay();head("Pinned. Every seat sees the same card.");
+  if(!$("card-study"))$("col-notes").appendChild(studyCard());
+  light(["seat-1","seat-2","seat-3"],350);
+  img("bot-img","l2-bot-explaining");
+  say("b-bot",q("Three seats on one subscription. You invite by email, and once they accept, the seat opens the board on any plan."));
+  later(function(){
+    img("op-img","l3-op-curious");
+    if(D){var s=D.spx.stats;
+      say("b-op",q("It "+(s.timed_cagr>=s.bh_cagr?"grows faster than just holding":"grows slower than just holding")+
+        ", and it "+(s.timed_maxdd>=s.bh_maxdd?"falls less":"falls further")+". Both sides are on the card."));}
+    else say("b-op",q("And the card carries the backtest itself, so everyone runs the same thing."));
+    next("Add a note"+GO);
+  },1200);}
+function b2(){hideNext();clearSay();head("Notes. Files. A card that moves.");
+  if(!$("card-note"))$("col-notes").appendChild(noteCard());
+  later(function(){var c=$("card-study");if(c){c.style.animation="none";void c.offsetWidth;c.style.animation="";$("col-running").appendChild(c);}},900);
+  later(function(){$("files").classList.add("lit")},1500);
+  img("bot-img","l2-bot-building");
+  say("b-bot",q("NOTES, RUNNING, DATA VALIDATED. A card moves as an idea becomes a running backtest. DATA VALIDATED stays empty until a finding earns it."));
+  later(function(){
+    img("op-img","l2-op-determined");
+    say("b-op",q("Good. Now the company one of us actually wants to own."));
+    next("Model the company"+GO);
+  },1700);}
+function b3(){hideNext();clearSay();head("The model: what the price assumes.");
+  view("v-model");buildDcf();later(growDcf,80);
+  img("bot-img","l2-bot-presenting");
+  say("b-bot",q("Statements as they were filed. Free cash flow grows at your rate for five years, fades to the terminal rate by year ten, and a terminal value closes it."));
+  later(function(){
+    img("op-img","l3-op-curious");
+    say("b-op",q("And what is all of that worth today?"));
+    next("Discount it"+GO);
+  },1500);}
+function b4(){hideNext();clearSay();head("Every future dollar, pulled back to today.");
+  discountDcf();img("bot-img","l2-bot-explaining");
+  say("b-bot",q("The further out the cash lands, the less it is worth now. Add it up, take off net debt, divide by the shares."));
+  later(function(){
+    img("op-img","l2-op-overwhelmed");
+    say("b-op",q("So the answer is only as good as my growth guess."));
+    next("Run it backwards"+GO);
+  },1400);}
+function b5(){hideNext();clearSay();head("Run it backwards. Then argue with the grid.");
+  view("v-rev");buildGrid();later(shadeGrid,200);
+  img("bot-img","l3-bot-typing");
+  say("b-bot",q("Start from today's price and solve for the growth that justifies it. Then the grid: every discount rate against every terminal rate."));
+  later(function(){
+    img("op-img","l2-op-delighted");
+    say("b-op",q("My partners will want to poke every cell."));
+    next("Hand them the spreadsheet"+GO);
+  },1400);}
+function b6(){hideNext();clearSay();head("Live formulas. Change a cell, the model moves.");
+  view("v-xlsx");img("bot-img","l3-bot-revealing-v2");
+  say("b-bot",q("QuantGPT Pro ships the Excel model: an Inputs sheet, a DCF sheet of live formulas, the history and the grid."));
+  later(function(){
+    img("op-img","l3-op-mindblown");
+    say("b-op",q("Now they argue with the inputs, not with me."));
+    next("What am I now?"+GO);
+  },1300);}
+function b7(){hideNext();clearSay();head("You just ran a research team.");
+  img("bot-img","l2-bot-proud");
+  say("b-bot",q("One board, three seats, one model. Findings, not advice, and every figure traceable to our data."));
+  try{localStorage.setItem("qg_l7_done","1");}catch(e){}
+  $("final").style.display="flex";}
+
+var beats=[b0,b1,b2,b3,b4,b5,b6,b7];
+$("next").addEventListener("click",function(){state++;if(beats[state])beats[state]();});
+/* SKIP lands on the board in its final state: the one scene with real figures */
+$("skip").addEventListener("click",function(){state=7;view("v-board");
+  if(!$("card-study"))$("col-running").appendChild(studyCard());
+  else $("col-running").appendChild($("card-study"));
+  if(!$("card-note"))$("col-notes").appendChild(noteCard());
+  ["seat-1","seat-2","seat-3","files"].forEach(function(id){$(id).classList.add("lit")});
+  img("op-img","l2-op-delighted");b7();});
+hideNext();
+
+function foot(){
+  if(!D)return;var s=D.spx.stats;
+  $("foot").innerHTML="Pinned backtest: Lesson 2's rule, S&amp;P 500 "+s.first+" to "+s.last+", "+s.lever+
+    "x above the 200-day, T-bills below, gross, no trading costs &middot; "+
+    "The model scenes are schematic, no figures &middot; Not investment advice";
+}
+/* no data pack, no figures: the lesson still plays as concept only */
+fetch("/static/lesson2-data.json").then(function(r){return r.ok?r.json():null}).then(function(d){
+  if(d&&d.spx&&d.spx.stats)D=d;foot();
+  /* a SKIP pressed before the pack landed keeps its place; its cards fill in */
+  if(D&&$("card-study"))$("card-study").innerHTML=studyCard().innerHTML;
+  if(D&&$("card-note"))$("card-note").innerHTML=noteCard().innerHTML;
+  if(state===0)b0();
+}).catch(function(){if(state===0)b0();});
+})();
+</script>
+</body>
+</html>

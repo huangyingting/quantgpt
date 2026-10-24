@@ -1,0 +1,385 @@
+[
+  {
+    "id": "keim-january-1983",
+    "name": "January / Turn-of-Year Effect",
+    "type": "seasonality",
+    "kind": "paper",
+    "src": "Keim (1983), JFE; Rozeff & Kinney (1976)",
+    "year": 1983,
+    "thesis": "Small-cap stocks earned abnormally high returns in January, concentrated in the first trading days of the year. Tax-loss selling in December is the leading explanation but is not proven.",
+    "criteria": [
+      "Long the smallest stocks by market value from the last close of December through January",
+      "Most of the premium came in the first week of January, especially the first trading day"
+    ],
+    "result": "Keim: nearly half of the 1963-1979 NYSE/AMEX size effect came in January, over half of that in the first week. Rozeff and Kinney: January averaged about 3.5% vs about 0.5% in other months (1904-1974). Later evidence on decay is mixed.",
+    "testable": true,
+    "tags": [
+      "seasonal",
+      "January",
+      "small cap",
+      "tax-loss",
+      "decay"
+    ],
+    "star": true
+  },
+  {
+    "id": "turn-of-month",
+    "name": "Turn-of-Month Effect",
+    "type": "seasonality",
+    "kind": "paper",
+    "src": "Ariel (1987); Lakonishok & Smidt (1988); McConnell & Xu (2008)",
+    "year": 1987,
+    "thesis": "US stock index gains have been concentrated in a 4-day window around each month end: the last trading day through the third trading day of the next month. The cause is unresolved; month-end flows were tested and did not explain it.",
+    "criteria": [
+      "Long the index from the close of the second-to-last trading day of the month to the close of the third trading day of the next month",
+      "Cash (T-bills) on the other days"
+    ],
+    "result": "DJIA 1897-1986: the 4 days averaged 0.473% and held all of the index's gain. CRSP 1926-2005: 0.15% a day on those days vs about 0% on the other 16; seen in 31 of 35 countries. Post-2005 strength not verified here.",
+    "testable": true,
+    "tags": [
+      "seasonal",
+      "turn of month",
+      "calendar",
+      "flows"
+    ]
+  },
+  {
+    "id": "halloween-2002",
+    "name": "Sell in May (Halloween Indicator)",
+    "type": "seasonality",
+    "kind": "paper",
+    "src": "Bouman & Jacobsen (2002), American Economic Review",
+    "year": 2002,
+    "thesis": "Stock returns from November through April have been higher than from May through October in almost every market studied, and the gap has held up out of sample.",
+    "criteria": [
+      "Hold the equity index November through April",
+      "Hold T-bills (the risk-free rate) May through October"
+    ],
+    "result": "Winter beat summer in 36 of 37 markets, mostly 1970-1998, strongest in Europe; UK data back to 1694. Out of sample to 2012 the gap was about 10 points a year (Andrade et al. 2013). Summer returns are often positive, so it can trail buy-and-hold.",
+    "testable": true,
+    "tags": [
+      "seasonal",
+      "sell in may",
+      "calendar",
+      "allocation"
+    ],
+    "star": true,
+    "fidelity": "close",
+    "run_gap": "The US alone, on a price index; the paper's claim is the pattern across 37 markets, on total return.",
+    "curated": "checked",
+    "runnable": true
+  },
+  {
+    "id": "santa-rally",
+    "name": "Santa Claus Rally",
+    "type": "seasonality",
+    "kind": "practitioner",
+    "src": "Yale Hirsch, Stock Trader's Almanac (1972)",
+    "year": 1972,
+    "thesis": "The last five trading days of December plus the first two of January have usually been positive for US stocks. The Almanac also treats a failed window as a bearish warning; that part is lore, not tested.",
+    "criteria": [
+      "Long the index from the close of the sixth-to-last December trading day to the close of the second January trading day",
+      "Cash otherwise; log failed windows separately"
+    ],
+    "result": "Almanac tallies: S&P 500 up in about 78% of these windows since 1950, average gain about 1.3%. About 75 observations; the omen claim is not tested here.",
+    "testable": true,
+    "tags": [
+      "seasonal",
+      "santa rally",
+      "calendar",
+      "SANTA RALLY"
+    ],
+    "star": true,
+    "fidelity": "close",
+    "run_gap": "In the market about 3% of days, on a price index; the Almanac claims a positive average in the window, not a beat of buy and hold.",
+    "curated": "checked",
+    "runnable": true
+  },
+  {
+    "id": "lucca-moench-2015",
+    "name": "Pre-FOMC Announcement Drift",
+    "type": "seasonality",
+    "kind": "paper",
+    "src": "Lucca & Moench (2015), Journal of Finance",
+    "year": 2015,
+    "thesis": "US stocks rose on average in the 24 hours before scheduled Fed (FOMC) announcements from 1994 to 2011, a gain the authors could not explain with standard risk measures.",
+    "criteria": [
+      "Long the S&P 500 from 2 pm the day before a scheduled FOMC announcement to 2 pm on announcement day",
+      "Daily-close proxy: close the day before to close of announcement day (includes the announcement move)"
+    ],
+    "result": "Sept 1994 to Mar 2011: about 49 bp average gain per window, about 80% of annual US excess stock returns. Kurov, Wolfe and Gilbert (2021) find it essentially disappeared after 2015.",
+    "testable": true,
+    "tags": [
+      "seasonal",
+      "FOMC",
+      "macro calendar",
+      "FOMC DRIFT",
+      "drift"
+    ]
+  },
+  {
+    "id": "overnight-anomaly",
+    "name": "Overnight vs Intraday Return Split",
+    "type": "seasonality",
+    "kind": "paper",
+    "src": "Cooper, Cliff & Gulen (2008); Lou, Polk & Skouras (2019)",
+    "year": 2008,
+    "thesis": "From 1993 to 2006 the US stock market's gains came entirely overnight (close to open), while trading-hours returns were near zero or negative. The cause is unsettled.",
+    "criteria": [
+      "Split daily returns into close-to-open and open-to-close; use an ETF or futures, not index opening prints",
+      "Overnight-only exposure trades twice a day; costs must be modeled"
+    ],
+    "result": "Cooper, Cliff and Gulen (SSRN 2008): the 1993-2006 US equity premium was all overnight, in stocks, indices and futures. Lou, Polk and Skouras (2019): anomaly profits split cleanly into overnight or intraday legs. Net-of-cost profits not shown.",
+    "testable": true,
+    "tags": [
+      "overnight",
+      "intraday",
+      "calendar",
+      "microstructure"
+    ]
+  },
+  {
+    "id": "pre-holiday",
+    "name": "Pre-Holiday Effect",
+    "type": "seasonality",
+    "kind": "paper",
+    "src": "Ariel (1990), Journal of Finance",
+    "year": 1990,
+    "thesis": "The trading day before US market holidays carried unusually high returns in older samples, but out of sample the effect has faded in large stocks.",
+    "criteria": [
+      "Long the market at the close two days before a holiday, exit at the pre-holiday close",
+      "Test large caps and small caps separately"
+    ],
+    "result": "Ariel (1963-1982): pre-holiday days averaged 9 to 14 times other days and earned over a third of the market's return. Ko and Yang (2024): in 1983-2019 it is insignificant for large firms and survives mainly in small firms.",
+    "testable": true,
+    "tags": [
+      "seasonal",
+      "holiday",
+      "calendar"
+    ]
+  },
+  {
+    "id": "congress-effect",
+    "name": "Congress-in-Session Effect",
+    "type": "seasonality",
+    "kind": "paper",
+    "src": "Ferguson & Witte (2006), SSRN working paper",
+    "year": 2006,
+    "thesis": "US stock returns were lower and more volatile on days Congress was in session, and higher on days it was out, in a long Dow sample.",
+    "criteria": [
+      "Compare returns during sessions vs recesses",
+      "Novelty overlay, not a standalone system"
+    ],
+    "result": "DJIA 1897-2004: more than 90% of capital gains came on out-of-session days, about 13.8% annualized out of session vs about 2% in session. Unpublished working paper; no out-of-sample test cited.",
+    "testable": true,
+    "tags": [
+      "seasonal",
+      "political",
+      "novelty"
+    ]
+  },
+  {
+    "id": "presidential-cycle",
+    "name": "Presidential Election Cycle",
+    "type": "seasonality",
+    "kind": "practitioner",
+    "src": "Stock Trader's Almanac; Hirsch",
+    "year": 1968,
+    "thesis": "In Almanac tallies of US stocks, the third year of a presidential term (the pre-election year) has had the highest average return and the second (midterm) year among the lowest.",
+    "criteria": [
+      "Overweight equities in pre-election years",
+      "Caution in midterm years until the Q4 midterm rally"
+    ],
+    "result": "Almanac-based tallies for the Dow since 1896: about 10% average in pre-election years vs about 3% to 6% in the other years (figures vary by edition). About 30 cycles; the no-loss pre-election streak ended in 2015.",
+    "testable": true,
+    "tags": [
+      "seasonal",
+      "political cycle",
+      "calendar"
+    ]
+  },
+  {
+    "id": "french-weekend-effect-1980",
+    "name": "Weekend (Monday) Effect",
+    "type": "seasonality",
+    "kind": "paper",
+    "src": "French (1980), Journal of Financial Economics",
+    "year": 1980,
+    "thesis": "U.S. equity-index returns in the historical sample were unusually weak from Friday close to Monday close. The pattern is a day-of-week return regularity, not a claim that the intervening non-trading period itself causes the return.",
+    "criteria": [
+      "Use a broad U.S. equity index with close-to-close daily returns.",
+      "Label each observation by the weekday of its closing date.",
+      "Estimate Monday mean excess returns versus other weekdays over pre-specified rolling samples.",
+      "If trading it, compare a Friday-close-to-Monday-close position with a benchmark after financing, spreads, and shorting costs."
+    ],
+    "result": "French: S&P composite Monday returns (Friday close to Monday close) were significantly negative in each 5-year subperiod of 1953-1977, other weekdays positive. After the late 1980s the effect largely disappeared or reversed in large-cap US indices (Schwert 2003).",
+    "testable": true,
+    "tags": [
+      "calendar",
+      "day-of-week",
+      "weekend",
+      "us-equities"
+    ]
+  },
+  {
+    "id": "ariel-first-half-month-1987",
+    "name": "First-Half-of-the-Month Effect",
+    "type": "seasonality",
+    "kind": "paper",
+    "src": "Ariel (1987), Journal of Financial Economics",
+    "year": 1987,
+    "thesis": "Ariel found that broad U.S. stock returns were concentrated around the turn and first half of calendar months, while returns in the latter half were much weaker. This is distinct from a simple turn-of-the-month rule because it covers a wider first-half window.",
+    "criteria": [
+      "Use daily total returns for a broad US equity index",
+      "First half: last trading day of the prior month through about the eighth trading day",
+      "Hold the index in the first half, cash (T-bills) otherwise",
+      "Test with January excluded and in non-overlapping subperiods"
+    ],
+    "result": "Ariel (1963-1981): mean returns were positive only just before and during the first half of the month and near zero in the second half. Later US data (McConnell and Xu 2008) put the gains mainly in days -1 to +3, not the rest of the first half.",
+    "testable": true,
+    "tags": [
+      "calendar",
+      "month-of-year",
+      "timing",
+      "us-equities"
+    ]
+  },
+  {
+    "id": "lakonishok-pension-window-dressing-1991",
+    "name": "Quarter-End Pension-Fund Window Dressing",
+    "type": "seasonality",
+    "kind": "paper",
+    "src": "Lakonishok, Shleifer, Thaler & Vishny (1991), AER Papers and Proceedings",
+    "year": 1991,
+    "thesis": "Pension managers in the study tended to sell prior losers more aggressively when portfolios were likely to be inspected, especially in the fourth quarter. The documented signal is calendar-timed institutional trading pressure rather than a standalone return premium.",
+    "criteria": [
+      "At each quarter-end, rank eligible equities by return over a fixed pre-quarter lookback such as 6 or 12 months.",
+      "Identify the prior losers and measure their net institutional selling and relative liquidity in the final weeks of the quarter.",
+      "Separate fourth-quarter observations from other quarters.",
+      "If forming a trade, specify entry and exit dates around the reporting date and evaluate implementation costs and short-sale availability."
+    ],
+    "result": "In holdings of 769 pension funds ($129 billion, late 1980s), managers sold losers more heavily, especially in the fourth quarter. The paper measures trading, not a profitable public trading rule.",
+    "testable": "partial",
+    "tags": [
+      "quarter-end",
+      "institutional-trading",
+      "window-dressing",
+      "losers"
+    ]
+  },
+  {
+    "id": "kamstra-sad-cycle-2003",
+    "name": "Seasonal Affective Disorder Cycle",
+    "type": "seasonality",
+    "kind": "paper",
+    "src": "Kamstra, Kramer & Levi (2003), American Economic Review",
+    "year": 2003,
+    "thesis": "The study linked seasonal changes in daylight associated with seasonal affective disorder to time variation in stock returns across markets. It treats the length of day as a seasonal state variable rather than a fixed calendar month.",
+    "criteria": [
+      "For each exchange, compute a pre-specified daylight or SAD proxy from its latitude and calendar date.",
+      "Estimate index excess returns conditional on the proxy while controlling for standard calendar effects.",
+      "Use separate northern- and southern-hemisphere samples to test the predicted seasonal reversal.",
+      "Require an out-of-sample, cost-aware test before using the signal for allocation."
+    ],
+    "result": "In nine markets, returns were lower in autumn and higher in winter as daylight changed, stronger at higher latitudes and reversed in the Southern Hemisphere. Kelly and Meschke (2010) dispute the SAD link; not an established premium.",
+    "testable": true,
+    "tags": [
+      "daylight",
+      "sentiment",
+      "international",
+      "behavioral"
+    ]
+  },
+  {
+    "id": "kamstra-daylight-saving-2000",
+    "name": "Daylight-Saving Clock-Change Effect",
+    "type": "seasonality",
+    "kind": "paper",
+    "src": "Kamstra, Kramer & Levi (2000), American Economic Review",
+    "year": 2000,
+    "thesis": "The paper associated the sleep disruption around daylight-saving clock changes with unusually weak Monday equity returns. It is a narrowly dated event-window hypothesis, not a general weekend effect.",
+    "criteria": [
+      "Identify the spring and autumn daylight-saving transition weekends for each market and sample year.",
+      "Measure the next trading day's close-to-close or Friday-close-to-Monday-close index return.",
+      "Compare those observations with other Mondays using a pre-specified market model or matched-weekday benchmark.",
+      "Include only markets with a clearly defined local clock change and test the transitions separately."
+    ],
+    "result": "Kamstra, Kramer and Levi: losses on clock-change weekends were about 2 to 5 times the normal weekend effect (US, Canada, UK, Germany). Pinegar (2002): significant only for the fall change and driven by two outliers.",
+    "testable": true,
+    "tags": [
+      "daylight-saving",
+      "sleep",
+      "event-window",
+      "calendar"
+    ]
+  },
+  {
+    "id": "stivers-sun-option-expiration-2013",
+    "name": "Option-Expiration-Week Return Pattern",
+    "type": "seasonality",
+    "kind": "paper",
+    "src": "Stivers & Sun (2013), Journal of Banking & Finance",
+    "year": 2013,
+    "thesis": "Option-active S&P 100 stocks showed relatively strong returns during the week containing the monthly third-Friday option expiration in the authors' sample. The proposed mechanisms included option-market-maker hedging and changes in implied risk.",
+    "criteria": [
+      "Use S&P 100 constituents with listed option activity and identify each monthly third-Friday expiration week.",
+      "Measure Monday-to-Friday returns for expiration weeks and non-expiration weeks separately.",
+      "Condition or sort on an ex-ante option-activity measure rather than assuming all stocks are affected equally.",
+      "Evaluate a long expiration-week position against its own non-expiration-week returns after turnover and financing costs."
+    ],
+    "result": "Stivers and Sun reported relatively high expiration-week returns for option-active S&P 100 stocks and modest subsequent-week weakness; whether the pattern survives newer option-market structure is uncertain.",
+    "testable": true,
+    "tags": [
+      "options",
+      "expiration",
+      "third-friday",
+      "large-cap"
+    ]
+  },
+  {
+    "id": "lakonishok-smidt-september-1988",
+    "name": "September Weakness",
+    "type": "seasonality",
+    "kind": "paper",
+    "src": "Lakonishok & Smidt (1988), Review of Financial Studies",
+    "year": 1988,
+    "thesis": "September has been the weakest calendar month on average for US stocks in long samples. There is no settled explanation, and the pattern may be a product of searching many calendar splits.",
+    "criteria": [
+      "Use a long uninterrupted U.S. equity-index total-return history.",
+      "Aggregate returns by calendar month and estimate September's mean excess return against the other eleven months.",
+      "Pre-specify the sample split or rolling estimation window before comparing September with other months.",
+      "For a timing test, hold a benchmark outside September and reduce or hedge exposure only during September, including tax and trading costs."
+    ],
+    "result": "Lakonishok and Smidt's 1897-1986 Dow study is the cited source, but whether it singles out September is not verified. Treat September weakness as descriptive and prone to data mining.",
+    "testable": true,
+    "tags": [
+      "september",
+      "month-of-year",
+      "us-equities",
+      "calendar"
+    ]
+  },
+  {
+    "id": "yuan-zheng-zhu-lunar-phases-2006",
+    "name": "Lunar-Phase Return Effect",
+    "type": "seasonality",
+    "kind": "paper",
+    "src": "Yuan, Zheng & Zhu (2006), Journal of Empirical Finance",
+    "year": 2006,
+    "thesis": "The authors reported lower international equity-index returns around full moons than around new moons. The proposed mood channel is speculative, so the calendar classification should be treated as an empirical anomaly rather than a causal model.",
+    "criteria": [
+      "Obtain astronomical new-moon and full-moon timestamps in a single time standard before assigning trading dates.",
+      "Define equal, pre-specified windows around new and full moons for a broad country-index universe.",
+      "Compare index returns in the two windows while controlling for weekday, calendar-month, and holiday indicators.",
+      "Validate on a later independent sample and include the turnover from switching lunar windows."
+    ],
+    "result": "Across 48 countries, returns were lower around full moons than new moons by about 3% to 5% a year in pooled global portfolios. Not an established tradable premium; vulnerable to multiple testing.",
+    "testable": true,
+    "tags": [
+      "lunar",
+      "sentiment",
+      "international",
+      "calendar"
+    ]
+  }
+]

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script nonce="TlEV97LZCspzYEnFET3Lkw">try{var t=document.cookie.match(/(?:^|;\s*)qg_theme=(day|system)(?:;|$)/);if(t)document.documentElement.setAttribute("data-theme",t[1])}catch(e){}</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QuantGPT &middot; Lesson 2: Become a quant</title>
+<style>
+  /* theme modes: this page's own colours with no desk.css token. Night
+     keeps its values; Day and System-light turn them over. */
+  :root{--pg-on-up:#0A1A10;--pg-amber-edge:#3d2f14;--pg-muted:#8B96A8;--pg-faint:#5B6577;--pg-grid:#212A38;--pg-rule:#2E3A4D;--pg-legend:rgba(10,13,19,.72)}
+  :root[data-theme="day"]{--pg-on-up:#FFFFFF;--pg-amber-edge:#D2AE6E;--pg-muted:#4E5767;--pg-faint:#576070;--pg-grid:#CDC5B5;--pg-rule:#CDC5B5;--pg-legend:rgba(245,242,235,.9)}
+  @media (prefers-color-scheme: light){:root[data-theme="system"]{--pg-on-up:#FFFFFF;--pg-amber-edge:#D2AE6E;--pg-muted:#4E5767;--pg-faint:#576070;--pg-grid:#CDC5B5;--pg-rule:#CDC5B5;--pg-legend:rgba(245,242,235,.9)}}
+:root{--mono:Consolas,Cascadia Mono Web,Menlo,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:"Segoe UI",Selawik,system-ui,sans-serif;
+     overflow:hidden;user-select:none}
+#stage{position:relative;width:100%;height:100%;max-width:1240px;margin:0 auto;
+       display:flex;flex-direction:column;align-items:center;justify-content:center}
+.kicker{font-family:var(--sans);font-size:.78rem;letter-spacing:0;color:var(--faint);
+        position:absolute;top:24px;left:50%;transform:translateX(-50%);white-space:nowrap}
+.kicker b{color:var(--amber);font-weight:400}
+#skip{position:absolute;top:20px;right:24px;font-family:var(--sans);font-size:.85rem;min-height:44px;
+      letter-spacing:0;color:var(--faint);background:none;border:1px solid var(--line);
+      border-radius:6px;padding:.45rem .8rem;cursor:pointer;z-index:60}
+#skip:hover{color:var(--ink)}
+#headline{font-family:var(--cond);font-weight:700;
+          font-size:clamp(1.2rem,2.8vw,1.9rem);letter-spacing:-.01em;text-align:center;
+          min-height:1.4em;padding:0 1rem;transition:opacity .5s;z-index:5;margin-top:2.2rem}
+/* the strip under the banner: stat boxes left, the rule card right */
+#strip{width:min(96vw,1200px);display:flex;align-items:stretch;justify-content:center;gap:.6rem;
+       margin:.7rem 0 0;min-height:56px;flex-wrap:wrap}
+.stats{display:flex;gap:.45rem;align-items:stretch}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:.4rem .7rem;
+     min-width:104px;text-align:center}
+.box .k{display:block;font-family:var(--sans);font-size:.7rem;letter-spacing:0;color:var(--faint)}
+.box .v{display:block;font-family:var(--mono);font-weight:700;font-size:1.02rem;margin-top:.15rem;color:var(--ink)}
+.box.bh .v{color:var(--muted)}
+.box.rule{border-color:var(--pg-amber-edge)}
+.box.rule .v{color:var(--amber)}
+.box .who{display:block;font-family:var(--sans);font-size:.7rem;letter-spacing:0;margin-top:.1rem;color:var(--faint)}
+.box.rule .who{color:var(--amber)}
+#rulecard{background:var(--bg);border:1px solid var(--amber);border-radius:10px;padding:.45rem .8rem;
+          font-family:var(--sans);font-size:.78rem;letter-spacing:0;line-height:1.7;display:none;
+          align-self:center}
+#rulecard b{color:var(--amber)}
+#scene{position:relative;width:min(96vw,1200px);height:min(58vh,500px);margin:.6rem 0 0;
+       display:flex;align-items:stretch;justify-content:center;gap:.6rem}
+/* each rail holds its bubble ABOVE its character: nothing ever sits on the chart */
+.rail{position:relative;width:210px;flex:0 0 210px;height:100%;display:flex;
+      flex-direction:column;justify-content:flex-end;align-items:center}
+.rail img{height:min(34vh,290px);width:auto;display:block;transition:opacity .4s}
+.pop{animation:pop .45s ease}
+@keyframes pop{40%{transform:scale(1.08)}}
+#chartwrap{position:relative;flex:1;height:100%;background:var(--surface);
+           border:1px solid var(--line);border-radius:14px;overflow:hidden}
+#chart{width:100%;height:100%;display:block}
+#legend{position:absolute;left:14px;top:12px;font-family:var(--sans);font-size:.74rem;
+        letter-spacing:0;color:var(--muted);line-height:1.7;z-index:8;display:none;
+        background:var(--pg-legend);padding:.3rem .5rem;border-radius:6px}
+.bubble{position:absolute;top:0;left:0;right:0;background:var(--bg);border:1px solid var(--line);
+        border-radius:12px;padding:.6rem .75rem;font-size:.8rem;line-height:1.5;opacity:0;
+        transform:translateY(8px);transition:opacity .4s,transform .4s;z-index:20}
+.bubble.show{opacity:1;transform:none}
+#btn{margin-top:.7rem;transition:opacity .3s}
+#btn.hide{opacity:0;pointer-events:none}
+#final{display:none;gap:.8rem;margin-top:.7rem;flex-wrap:wrap;justify-content:center}
+#final a{font-family:var(--sans);font-size:.85rem;font-weight:600;letter-spacing:0;text-decoration:none;
+         display:inline-flex;align-items:center;min-height:44px;
+         padding:.8rem 1.3rem;border-radius:8px}
+#final a.pri{background:var(--up);color:var(--pg-on-up);font-weight:700}
+#final a.sec{color:var(--amber);border:1px solid var(--amber)}
+#foot{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);
+      font-family:var(--sans);font-size:.72rem;letter-spacing:0;color:var(--faint);
+      width:max-content;max-width:calc(100vw - 32px);text-align:center}
+/* phone pass 2026-09-18: the rails move under the chart as a row, bubbles above each character */
+@media (max-width:820px){
+  #scene{flex-wrap:wrap;height:auto;gap:.5rem}
+  #chartwrap,#bt{flex:0 0 100%;order:-1;height:min(44vh,380px);min-height:260px}
+  .rail{display:flex!important;flex:1 1 45%;width:auto;height:auto;justify-content:flex-end;min-height:0}
+  .rail img{height:min(22vh,150px)}
+  .bubble{position:static;margin-bottom:.35rem;font-size:.74rem;padding:.45rem .55rem}
+  .kicker{font-size:.7rem;letter-spacing:0;left:12px;transform:none;max-width:calc(100vw - 120px);overflow:hidden;text-overflow:ellipsis}
+  #headline{font-size:clamp(1rem,5vw,1.4rem);margin-top:4.4rem}
+  #strip{gap:.35rem}.box{min-width:88px;padding:.3rem .45rem}.box .v{font-size:.9rem}
+  #rulecard{font-size:.7rem}
+  #foot{white-space:normal;text-align:center;width:92%;font-size:.72rem;max-width:none;position:static;left:auto;transform:none;margin:.6rem auto 0}
+  #stage{justify-content:flex-start;padding-bottom:1rem;overflow-y:auto}
+  body{overflow:auto}
+}
+</style>
+<link rel="stylesheet" href="/static/desk.css?v=ux1">
+</head>
+<body>
+<div id="stage">
+  <div class="kicker"><b>QUANTGPT</b> &middot; Lesson 2: Become a quant</div>
+  <button id="skip">Skip</button>
+  <div id="headline"></div>
+  <div id="strip">
+    <div class="stats" id="stats"></div>
+    <div id="rulecard"><b>The rule</b> &middot; Own <b id="rc-lever"></b> when the close is above the 200-day &middot; T-bills when below</div>
+  </div>
+  <div id="scene">
+    <div class="rail">
+      <div id="b-op" class="bubble"></div>
+      <img id="op-img" src="/static/game-art/l2-op-pondering.webp" alt="You">
+    </div>
+    <div id="chartwrap">
+      <canvas id="chart"></canvas>
+      <div id="legend"></div>
+    </div>
+    <div class="rail">
+      <div id="b-bot" class="bubble"></div>
+      <img id="bot-img" src="/static/game-art/l2-bot-presenting.webp" alt="Your robot">
+    </div>
+  </div>
+  <button class="qg-btn" id="btn" aria-label="Continue the lesson"></button>
+  <div id="final">
+    <a class="pri" href="/static/backtest-lesson.html" id="unlock">Next: lesson 3, the backtester</a>
+    <a class="sec" href="/static/ramp-game.html">&#9666; Lesson 1</a>
+  </div>
+  <div id="foot">Real data since <span id="ft-first"></span> &middot; <span id="ft-lever"></span> above the 200-day, borrowed at the T-bill &middot; Cash earns the 3-month T-bill &middot; Gross, no trading costs &middot; Price indexes &middot; Not investment advice</div>
+</div>
+
+<script nonce="TlEV97LZCspzYEnFET3Lkw">
+// theme modes: the drawings read the theme's tokens (literal = Night fallback)
+var K=(function(){function t(n,f){var v="";try{v=getComputedStyle(document.documentElement).getPropertyValue(n).trim();}catch(e){}return v||f;}
+return {amber:t("--amber","#F0A83C"),up:t("--up","#43BD85"),down:t("--down","#DF605E"),cyan:t("--cyan","#5FB8D4"),ink:t("--ink","#E7ECF4"),surface:t("--surface","#10151E"),muted:t("--pg-muted","#8B96A8"),faint:t("--pg-faint","#5B6577"),grid:t("--pg-grid","#212A38"),rule:t("--pg-rule","#2E3A4D"),amberRgb:t("--amber-rgb","240, 168, 60")};})();
+(function(){
+"use strict";
+var $=function(id){return document.getElementById(id)};
+var cv=$("chart"),ctx=cv.getContext("2d");
+var DATA=null,DS=null,state=0,anim=null;
+/* every figure in the words below comes from the data pack: the span, the
+   leverage and the years the rule sat below its line */
+var MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
+function since(s){return MONTHS[+s.first.slice(5,7)-1]+" "+s.first.slice(0,4);}
+function years(s){return Math.floor((Date.parse(s.last)-Date.parse(s.first))/31557600000);}
+function lever(s){return s.lever+"x";}
+/* full years the line spent at least three quarters of its weeks below the average */
+function redYears(d){var n={},r={},out=[];
+  for(var i=0;i<d.dates.length;i++){if(d.above[i]==null)continue;var y=d.dates[i].slice(0,4);
+    n[y]=(n[y]||0)+1;if(d.above[i]===false)r[y]=(r[y]||0)+1;}
+  for(var y in n){if(n[y]>=40&&(r[y]||0)>=0.75*n[y])out.push(y);}
+  return out.sort();}
+var C={bg:K.surface,ink:K.ink,muted:K.muted,faint:K.faint,amber:K.amber,
+       up:K.up,down:K.down,cyan:K.cyan,line:K.grid};
+
+function size(){var r=cv.parentElement.getBoundingClientRect();
+  cv.width=r.width*devicePixelRatio;cv.height=r.height*devicePixelRatio;
+  ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);}
+window.addEventListener("resize",function(){size();draw(1)});
+
+function say(id,html){var b=$(id);b.innerHTML=html;b.classList.add("show");}
+function clearSay(){$("b-op").classList.remove("show");$("b-bot").classList.remove("show");}
+function head(t){$("headline").textContent=t;}
+function img(id,name){var el=$(id);el.src="/static/game-art/"+name+".webp";
+  el.classList.remove("pop");void el.offsetWidth;el.classList.add("pop");}
+function btn(t){$("btn").textContent=t;$("btn").classList.remove("hide");}
+function hideBtn(){$("btn").classList.add("hide");}
+
+/* the stat boxes under the banner: buy & hold alone until the rule exists,
+   then both side by side. Every number comes from the data pack. */
+function box(cls,who,k,v){return "<div class='box "+cls+"'><span class='k'>"+k+"</span><span class='v'>"+v+"</span><span class='who'>"+who+"</span></div>";}
+function stats(both){
+  var s=DS.stats,h="";
+  h+=box("bh","Buy and hold","Growth per year",s.bh_cagr+"%")+box("bh","Buy and hold","Sharpe",s.bh_sharpe.toFixed(2))+box("bh","Buy and hold","Worst fall",s.bh_maxdd+"%");
+  if(both)h+=box("rule","The rule","Growth per year",s.timed_cagr+"%")+box("rule","The rule","Sharpe",s.timed_sharpe.toFixed(2))+box("rule","The rule","Worst fall",s.timed_maxdd+"%");
+  $("stats").innerHTML=h;
+}
+
+/* ---------- chart renderer; phase controls what layers show ----------
+   phases: 1 price, 2 +ma, 3 line painted by regime, 4 +cross flags, 5 equity view */
+var PHASE=1;
+function yScale(vals,h,top,pad){var lo=Infinity,hi=-Infinity;
+  for(var i=0;i<vals.length;i++){var v=vals[i];if(v==null)continue;
+    v=Math.log(v);if(v<lo)lo=v;if(v>hi)hi=v;}
+  return function(v){return top+pad+(h-2*pad)*(1-(Math.log(v)-lo)/(hi-lo));};}
+function label(t,x,y,color){ctx.font="10px Consolas,Cascadia Mono Web,Menlo,monospace";ctx.textAlign="left";
+  ctx.fillStyle=color||C.faint;ctx.fillText(t,x,y);}
+function draw(frac){
+  if(!DS)return;
+  var w=cv.width/devicePixelRatio,h=cv.height/devicePixelRatio;
+  ctx.clearRect(0,0,w,h);
+  var n=DS.px.length,m=Math.max(2,Math.floor(n*frac));
+  var x=function(i){return 46+(w-60)*(i/(n-1));};
+  if(PHASE<5){
+    var sy=yScale(DS.px,h,0,26);
+    if(PHASE>=3){
+      /* only the line carries the regime: green above the 200-day, red below */
+      ctx.lineWidth=1.9;
+      for(var i=1;i<m;i++){
+        ctx.strokeStyle=DS.above[i]?C.up:C.down;
+        ctx.beginPath();ctx.moveTo(x(i-1),sy(DS.px[i-1]));ctx.lineTo(x(i),sy(DS.px[i]));ctx.stroke();
+      }
+    } else {
+      ctx.lineWidth=1.6;ctx.strokeStyle=C.cyan;ctx.beginPath();
+      for(var i=0;i<m;i++){var Y=sy(DS.px[i]);i?ctx.lineTo(x(i),Y):ctx.moveTo(x(i),Y);}
+      ctx.stroke();
+    }
+    if(PHASE>=2){ctx.lineWidth=1.4;ctx.strokeStyle=C.amber;ctx.beginPath();var st=false;
+      for(var i=0;i<m;i++){if(DS.ma[i]==null){st=false;continue}
+        var Y=sy(DS.ma[i]);st?ctx.lineTo(x(i),Y):ctx.moveTo(x(i),Y);st=true;}
+      ctx.stroke();}
+    if(PHASE>=4){ /* buy/sell triangle flags at every cross, twice the old size */
+      for(var i=1;i<m;i++){if(DS.above[i]==null||DS.above[i-1]==null)continue;
+        if(DS.above[i]!==DS.above[i-1]){
+          var X=x(i),Y=sy(DS.px[i]);
+          ctx.beginPath();
+          if(DS.above[i]){ ctx.fillStyle=C.up;   ctx.moveTo(X,Y+10);ctx.lineTo(X-9,Y+26);ctx.lineTo(X+9,Y+26); }
+          else {            ctx.fillStyle=C.down; ctx.moveTo(X,Y-10);ctx.lineTo(X-9,Y-26);ctx.lineTo(X+9,Y-26); }
+          ctx.closePath();ctx.fill();}}
+      $("legend").style.display="block";
+      $("legend").innerHTML="Trades so far: <b style='color:"+C.amber+"'>"+Math.round(DS.stats.crosses*Math.min(1,frac))+"</b><br>"+
+        "<span style='color:"+C.up+"'>\u25b2</span> Buy: the close crosses above the 200-day<br>"+
+        "<span style='color:"+C.down+"'>\u25bc</span> Sell: the close crosses back below";
+    } else { $("legend").style.display="none"; }
+  } else {
+    /* top panel: growth of $1 (the CAGR panel); bottom panel: drawdowns */
+    var eh=h*0.66, dtop=eh+10, dh=h-dtop-6;
+    var en=DS.bh.length,em=Math.max(2,Math.floor(en*frac));
+    var ex=function(i){return 46+(w-60)*(i/(en-1));};
+    var sy=yScale(DS.bh.concat(DS.timed),eh,0,24);
+    /* buy and hold is the benchmark: faint and dashed (docs/CHART_STANDARDS.md) */
+    ctx.lineWidth=1.4;ctx.strokeStyle=C.faint;ctx.setLineDash([5,4]);ctx.beginPath();
+    for(var i=0;i<em;i++){var Y=sy(DS.bh[i]);i?ctx.lineTo(ex(i),Y):ctx.moveTo(ex(i),Y);}
+    ctx.stroke();ctx.setLineDash([]);
+    ctx.lineWidth=2;ctx.strokeStyle=C.amber;ctx.beginPath();
+    for(var i=0;i<em;i++){var Y=sy(DS.timed[i]);i?ctx.lineTo(ex(i),Y):ctx.moveTo(ex(i),Y);}
+    ctx.stroke();
+    if(frac>=1){ /* end values, once the line has finished drawing */
+      var eb=DS.bh[em-1],et=DS.timed[em-1],yb=sy(eb),yt=sy(et);
+      if(Math.abs(yb-yt)<13){if(yb<yt){yb-=(13-Math.abs(yb-yt))/2;yt+=(13-Math.abs(yb-yt))/2;}else{yt-=(13-Math.abs(yb-yt))/2;yb+=(13-Math.abs(yb-yt))/2;}}
+      ctx.font="11px Consolas,Cascadia Mono Web,Menlo,monospace";ctx.textAlign="right";
+      ctx.fillStyle=C.faint;ctx.fillText("$"+eb.toFixed(eb>=10?0:2),w-4,yb-5);
+      ctx.fillStyle=C.amber;ctx.fillText("$"+et.toFixed(et>=10?0:2),w-4,yt-5);
+    }
+    label("Growth of $1",14,16,C.muted);
+    label("grey: buy and hold   amber: the rule",104,16,C.faint);
+    /* drawdown strip */
+    ctx.strokeStyle=C.line;ctx.beginPath();ctx.moveTo(0,eh+4);ctx.lineTo(w,eh+4);ctx.stroke();
+    var dmin=Math.min.apply(null,DS.dd_bh);
+    var dy=function(v){return dtop+8+(dh-10)*(v/dmin);};
+    ctx.lineWidth=1;ctx.strokeStyle=C.faint;ctx.beginPath();
+    for(var i=0;i<em;i++){var Y=dy(DS.dd_bh[i]);i?ctx.lineTo(ex(i),Y):ctx.moveTo(ex(i),Y);}
+    ctx.stroke();
+    ctx.lineWidth=1.4;ctx.strokeStyle=C.up;ctx.beginPath();
+    for(var i=0;i<em;i++){var Y=dy(DS.dd_timed[i]);i?ctx.lineTo(ex(i),Y):ctx.moveTo(ex(i),Y);}
+    ctx.stroke();
+    label("Falls from the peak",14,dtop+12,C.muted);
+    label("grey: buy and hold   green: the rule",136,dtop+12,C.faint);
+    $("legend").style.display="none";
+  }
+}
+function animate(ms,done){var t0=null;cancelAnimationFrame(anim);
+  function step(t){if(!t0)t0=t;var f=Math.min(1,(t-t0)/ms);draw(f);
+    if(f<1)anim=requestAnimationFrame(step);else if(done)done();}
+  anim=requestAnimationFrame(step);}
+
+/* ---------- beats ---------- */
+function act0(){head("Meet the S&P 500, since "+DATA.spx.stats.first.slice(0,4)+".");
+  img("bot-img","l2-bot-presenting");PHASE=1;stats(false);
+  say("b-bot","\u201cThe S&P 500 since "+since(DATA.spx.stats)+". Both generational crashes still in it.\u201d");
+  animate(2600,function(){say("b-op","\u201cOkay. It feels... pretty good? It goes up.\u201d");
+    img("op-img","l2-op-pondering");btn("But... \u25b8");});}
+function act1(){clearSay();hideBtn();head("The wish every investor has.");
+  say("b-op","\u201cBut I only want to own it when it is going up.\u201d");
+  setTimeout(function(){img("bot-img","l2-bot-explaining");
+    say("b-bot","\u201cEveryone wants that. There is an old trick. Watch.\u201d");
+    btn("Show me \u25b8");},1200);}
+function act2(){clearSay();hideBtn();head("The 200-day moving average.");
+  PHASE=2;animate(1800,function(){
+    say("b-bot","\u201cThe amber line. Above it: healthy regime. Below it: that is where the storms live.\u201d");
+    btn("Paint the regimes \u25b8");});}
+function act3(){clearSay();hideBtn();head("Green above. Red below.");
+  PHASE=3;animate(1400,function(){
+    var ry=redYears(DATA.spx);
+    say("b-op","\u201cWhoa. "+(ry.length?ry.join(", ")+"... the line sat in the red most of those years.":"The red stretches are the falls.")+"\u201d");
+    img("op-img","l2-op-delighted");btn("So I just trade the crosses? \u25b8");});}
+function act4(){clearSay();hideBtn();head("Here is the catch.");
+  PHASE=4;img("op-img","l2-op-overwhelmed");
+  animate(2600,function(){
+    say("b-op","\u201c"+DATA.spx.stats.crosses+" trades?! At the close?! For "+years(DATA.spx.stats)+" years?! I have a job.\u201d");
+    say("b-bot","\u201cYou don't trade them. I do.\u201d");img("bot-img","l2-bot-building");
+    btn("Build the system \u25b8");});}
+function act5(){clearSay();hideBtn();head("Rules. Tested. No emotions.");
+  $("rulecard").style.display="block";PHASE=5;stats(true);
+  animate(2600,function(){
+    var s=DATA.spx.stats;
+    var growth=s.timed_cagr>=s.bh_cagr?"More growth and less pain":"You give up a little growth. You skip most of the pain";
+    say("b-bot","\u201c"+growth+": worst fall "+s.timed_maxdd+"% instead of "+s.bh_maxdd+"%, Sharpe "+s.timed_sharpe.toFixed(2)+" against "+s.bh_sharpe.toFixed(2)+". No fear, no greed, no missed closes.\u201d");
+    say("b-op","\u201cIt sidesteps the craters...\u201d");img("op-img","l2-op-determined");img("bot-img","l2-bot-proud");
+    btn("Now do the Nasdaq \u25b8");});}
+function act6(){clearSay();hideBtn();head("Same rule. Nasdaq-100.");
+  DS=DATA.nasdaq;PHASE=5;stats(true);
+  animate(2200,function(){
+    var s=DATA.nasdaq.stats;
+    say("b-bot","\u201cFaster index, same rule: "+s.timed_cagr+"% a year against "+s.bh_cagr+"% for buy and hold, worst fall "+s.timed_maxdd+"% instead of "+s.bh_maxdd+"%.\u201d");
+    say("b-op","\u201cThat is it. That is what I want.\u201d");img("op-img","l2-op-delighted");
+    btn("What am I now? \u25b8");});}
+function act7(){clearSay();hideBtn();head("You just read your first quant system.");
+  img("bot-img","l2-bot-proud");
+  say("b-bot","\u201cRules. Tested on history. Executed without emotion. That is all a quant is. Want to build your own?\u201d");
+  try{localStorage.setItem("qg_l2_done","1");}catch(e){}
+  $("final").style.display="flex";}
+
+var acts=[act0,act1,act2,act3,act4,act5,act6,act7];
+$("btn").addEventListener("click",function(){state++;if(acts[state])acts[state]();});
+$("skip").addEventListener("click",function(){state=7;PHASE=5;DS=DATA?DATA.nasdaq:DS;
+  $("rulecard").style.display="block";stats(true);draw(1);act7();});
+
+fetch("/static/lesson2-data.json").then(function(r){return r.json()}).then(function(d){
+  DATA=d;DS=d.spx;size();hideBtn();
+  $("rc-lever").textContent=lever(d.spx.stats);
+  $("ft-first").textContent=since(d.spx.stats);$("ft-lever").textContent=lever(d.spx.stats);
+  act0();
+});
+})();
+</script>
+<script src="/static/uni-return.js?v=u1" defer></script>
+</body>
+</html>

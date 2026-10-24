@@ -1,0 +1,71 @@
+{
+  "base": {
+    "1": 0.0004926487188865458,
+    "5": 0.002988337956250753,
+    "21": 0.01049763721339425,
+    "63": 0.025720163902466675
+  },
+  "events": [
+    {
+      "anchor": "2026-09-25",
+      "date": "2026-09-27",
+      "h": {
+        "1": -0.007712392038996874,
+        "5": -0.002671941817462775,
+        "21": null,
+        "63": null
+      },
+      "title": "Citizens of Switzerland voters reject an initiative that proposed to enshrine a stricter form of Swiss neutrality, which would have prevented Switzerland from imposing economic sanctions and..."
+    }
+  ],
+  "h": {
+    "1": {
+      "best": -0.007712392038996874,
+      "hit": 0,
+      "median": -0.007712392038996874,
+      "n": 1,
+      "worst": -0.007712392038996874
+    },
+    "5": {
+      "best": -0.002671941817462775,
+      "hit": 0,
+      "median": -0.002671941817462775,
+      "n": 1,
+      "worst": -0.002671941817462775
+    },
+    "21": null,
+    "63": null
+  },
+  "kind": "politics",
+  "label": "Politics",
+  "n": 1,
+  "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+  "page": "/world/kind/politics",
+  "spacing": 21,
+  "test": {
+    "h": {
+      "1": {
+        "above": 0,
+        "base_median": 0.0004926487188865458,
+        "event_median": -0.007712392038996874,
+        "n": 1,
+        "p_value": 1,
+        "share_above": 0,
+        "spacing": 21
+      },
+      "5": {
+        "above": 0,
+        "base_median": 0.002988337956250753,
+        "event_median": -0.002671941817462775,
+        "n": 1,
+        "p_value": 1,
+        "share_above": 0,
+        "spacing": 21
+      },
+      "21": null,
+      "63": null
+    },
+    "read": "Not enough past politics events on the tape to test."
+  },
+  "warmed": "2026-10-24"
+}

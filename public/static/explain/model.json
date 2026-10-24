@@ -1,0 +1,60 @@
+{
+  "page": "model",
+  "path": "/model",
+  "items": {
+    "model-head": {
+      "title": "Valuation",
+      "body": "From the filed statements, free cash flow grows at your rate for five years, fades to the terminal rate by year ten, is discounted and closes with a Gordon terminal value. Arithmetic on your inputs, not a price target.",
+      "learn": "",
+      "tour": "model:0"
+    },
+    "growth-label": {
+      "title": "Growth, years 1 to 5",
+      "body": "How fast free cash flow grows each year for the first five years. Leave it blank to use the company's own history. After year five it fades to terminal growth by year ten. Type 0.12 for 12%.",
+      "learn": "",
+      "tour": "model:1"
+    },
+    "discount-label": {
+      "title": "Discount rate",
+      "body": "The yearly return you ask for holding this company, as a decimal: 0.09 is 9%. A higher rate means a lower value. It and terminal growth move the answer most; the sensitivity grid shows how far.",
+      "learn": "",
+      "tour": "model:2"
+    },
+    "terminal-label": {
+      "title": "Terminal growth",
+      "body": "The rate the model assumes cash grows forever after year ten, as a decimal: 0.025 is 2.5%. It must stay below the discount rate. Small changes here move the value a lot.",
+      "learn": "",
+      "tour": ""
+    },
+    "netdebt-label": {
+      "title": "Net debt",
+      "body": "Debt minus cash, taken off the business's value to leave what belongs to shareholders. Leave it blank for zero, or tick the box to use the latest SEC filing. The result shows the filing's figure either way.",
+      "learn": "",
+      "tour": ""
+    },
+    "scen-head": {
+      "title": "Three scenarios",
+      "body": "Value per share in a bear, base and bull case. Base growth is your rate, or the company's five year cash flow growth; bear and bull sit five points either side. Below: the growth today's price implies.",
+      "learn": "",
+      "tour": "model:3"
+    },
+    "sens-head": {
+      "title": "Sensitivity grid",
+      "body": "Value per share for each pair of discount rate (down the side) and terminal growth (across the top), at base growth. It shows how much the answer depends on those two guesses.",
+      "learn": "",
+      "tour": ""
+    },
+    "sched-head": {
+      "title": "The schedule",
+      "body": "The base case year by year: growth, free cash flow and what each year is worth today. Then the terminal value, the business value, and the value left for shareholders after net debt.",
+      "learn": "",
+      "tour": ""
+    },
+    "stmts-head": {
+      "title": "The statements",
+      "body": "The company's complete calendar years as filed with the SEC, the numbers the model starts from. Under the table: the net debt this model used, and links to the filings by quarter.",
+      "learn": "",
+      "tour": ""
+    }
+  }
+}

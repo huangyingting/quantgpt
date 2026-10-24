@@ -1,0 +1,66 @@
+{
+  "page": "journal",
+  "path": "/journal",
+  "items": {
+    "jtitle": {
+      "title": "Your findings journal",
+      "body": "Every backtest you finish is kept here with its verdict and the last date its data reached. This page shows what each one did after that date, on data it never saw.",
+      "learn": "S4",
+      "tour": ""
+    },
+    "grade": {
+      "title": "Graded when you open it",
+      "body": "Opening the journal runs each finding again on data that arrived after its last date, the one test a backtest cannot fake. Each is marked HOLDING or FADING, or TOO EARLY with fewer than three new periods.",
+      "learn": "S4",
+      "tour": "journal:2"
+    },
+    "tiles": {
+      "title": "Your record",
+      "body": "Findings saved; of those with an outcome, how many still read HOLDING; of those graded, how many beat their benchmark; and the best and worst gap to the benchmark, in points.",
+      "learn": "S4",
+      "tour": "journal:0"
+    },
+    "tbl": {
+      "title": "What happened next",
+      "body": "One row per finding, sortable by any column. Since then puts the finding's return after its last date next to the benchmark's over the same time, and sorts by the gap between them.",
+      "learn": "S4",
+      "tour": "journal:1"
+    },
+    "jh-since": {
+      "title": "Since then",
+      "body": "How far the finding's return beat or trailed the benchmark's over the periods after its last date, shown once three new periods are in.",
+      "learn": "",
+      "tour": ""
+    },
+    "jh-cagr": {
+      "title": "CAGR then",
+      "body": "The yearly growth rate the backtest compounded over its original test period, beside the benchmark's over the same years.",
+      "learn": "",
+      "tour": ""
+    },
+    "jh-sharpe": {
+      "title": "Sharpe",
+      "body": "Return for the risk taken over the original test period: the average yearly return divided by the yearly volatility of returns, with no cash rate subtracted.",
+      "learn": "",
+      "tour": ""
+    },
+    "jh-psr": {
+      "title": "PSR: probabilistic Sharpe ratio",
+      "body": "The probability, from 0 to 1, that the true Sharpe ratio is above zero, given how many periods the test ran and how lopsided and fat tailed its returns were.",
+      "learn": "",
+      "tour": ""
+    },
+    "jh-periods": {
+      "title": "New periods",
+      "body": "How many rebalance periods of data have arrived since the finding's last date; under three, the outcome reads TOO EARLY.",
+      "learn": "",
+      "tour": ""
+    },
+    "paper": {
+      "title": "Paper books",
+      "body": "Follow on paper on a backtest result lands here: your rules followed on paper and marked every night. No broker and no order. It shows what following the rules would have done, not what an account did.",
+      "learn": "",
+      "tour": "journal:3"
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "page": "terminal",
+  "path": "/",
+  "items": {
+    "study": {
+      "title": "Pick a backtest",
+      "body": "Start from a strategy in the library, or pick custom criteria and build your own rules under Settings and criteria.",
+      "learn": "S3",
+      "tour": "terminal:0"
+    },
+    "benchmark": {
+      "title": "The yardstick",
+      "body": "What your rules are measured against: the index you could have simply held instead. It is the second line on the chart.",
+      "learn": "S3",
+      "tour": "terminal:1"
+    },
+    "start_year": {
+      "title": "Start year",
+      "body": "The first year of the test. Tests start no earlier than 1990, an engine floor. Fundamentals are thin before about 1998, so the result names its first invested period. A longer test covers more crashes and losing years.",
+      "learn": "S3",
+      "tour": ""
+    },
+    "split_year": {
+      "title": "Tested on years it never saw",
+      "body": "Years before this one are where the rules get shaped. From this year on is data they never saw. A finding has to hold up there too, not only in the years it was fitted to.",
+      "learn": "S4",
+      "tour": "terminal:5"
+    },
+    "mode": {
+      "title": "Monthly or daily",
+      "body": "Monthly builds a basket of stocks from your criteria at each month end. Daily reads every bar of one ticker for one part of the trading day, so its runs take longer.",
+      "learn": "S3",
+      "tour": ""
+    },
+    "d_ticker": {
+      "title": "Ticker",
+      "body": "The one stock or fund the daily engine tests. Its own buy and hold is the benchmark.",
+      "learn": "S3",
+      "tour": ""
+    },
+    "d_rule": {
+      "title": "Session leg",
+      "body": "Which part of the day you hold: overnight (close to next open), intraday (open to close), or buy and hold. These legs trade every day, and the results leave out costs, which would weigh heavily.",
+      "learn": "S3",
+      "tour": ""
+    },
+    "rank_by": {
+      "title": "Rank by",
+      "body": "After your filters, the factor that puts the stocks that are left in order. The top of that list becomes the basket.",
+      "learn": "S3",
+      "tour": ""
+    },
+    "rank_dir": {
+      "title": "Direction",
+      "body": "Highest first holds the stocks at the top of the ranking. Lowest first holds the ones at the bottom.",
+      "learn": "S3",
+      "tour": ""
+    },
+    "top_n": {
+      "title": "Hold top",
+      "body": "How many stocks the basket holds each period, in equal weights. Fewer names means each one counts for more.",
+      "learn": "S3",
+      "tour": ""
+    },
+    "rebalance": {
+      "title": "Rebalance",
+      "body": "How often the basket is rebuilt. It forms at the close and is held to the next rebuild. Weekly runs from 1995 and daily from 2016. More often means more trading, and more costs.",
+      "learn": "S3",
+      "tour": ""
+    },
+    "btoggle": {
+      "title": "Settings and criteria",
+      "body": "The test settings (start year, the years it never saw, the engine) and your criteria: every factor in our data. Filter the stocks, rank what is left, hold the top names and rebuild the basket on your schedule.",
+      "learn": "S3",
+      "tour": "terminal:5"
+    },
+    "title": {
+      "title": "The backtest",
+      "body": "Your rules run on the database's history and the curve draws as it computes. Amber is your strategy, the other line is the benchmark, and the dashed line marks where the unseen years begin.",
+      "learn": "S3",
+      "tour": "terminal:4"
+    },
+    "v-word": {
+      "title": "What the verdict means",
+      "body": "DATA VALIDATED beat its benchmark on both growth and risk-adjusted return, and did not fall behind on the unseen years. TRADE-OFF beat it on one, or on both but then fell behind. NO EDGE beat it on neither.",
+      "learn": "S4",
+      "tour": "terminal:6"
+    },
+    "an-panel": {
+      "title": "Four more lenses",
+      "body": "Three tabs reread this run: Costs takes out trading costs at its real turnover, Monte Carlo reshuffles its real monthly returns, Factor lens shows which known factors explain it. The fourth, Optimizer, maps risk and return for your own tickers.",
+      "learn": "S4",
+      "tour": ""
+    },
+    "funnel-panel": {
+      "title": "The funnel",
+      "body": "How many stocks are left after each of your criteria in an average month, in real counts. It shows which rule does most of the cutting.",
+      "learn": "S3",
+      "tour": ""
+    },
+    "tape-drawer": {
+      "title": "Run log",
+      "body": "A line for each step of the run as it happens, and any error. When your account has an allowance, what is left shows under Run backtest.",
+      "learn": "",
+      "tour": ""
+    },
+    "tray-test": {
+      "title": "Pressure test it",
+      "body": "The skeptic pass runs eleven checks that try to break this finding, four of them running it again with one thing changed. It takes about five seconds.",
+      "learn": "S4",
+      "tour": ""
+    },
+    "tray-work": {
+      "title": "Put it to work",
+      "body": "Today's screen shows which stocks pass your rules today. Watch alerts you when that list changes. Follow on paper tracks your rules from today with $100,000 on paper, marked nightly. No broker, no order.",
+      "learn": "",
+      "tour": ""
+    },
+    "tray-keep": {
+      "title": "Keep it or share it",
+      "body": "Save keeps these rules on your shelf under a name; search for that name to open them again. Share makes a public link that recomputes the result for anyone who opens it.",
+      "learn": "",
+      "tour": ""
+    }
+  }
+}

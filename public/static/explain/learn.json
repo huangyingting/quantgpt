@@ -1,0 +1,36 @@
+{
+  "page": "learn",
+  "path": "/learn",
+  "items": {
+    "learn-head": {
+      "title": "Lessons",
+      "body": "Short lessons you play in the browser, on real market data, in three steps. Every number is computed and the losing years stay in. No sign in needed; signed in, University keeps your place and adds a check.",
+      "learn": "S1",
+      "tour": ""
+    },
+    "step-1": {
+      "title": "Step 1: backtest and arm",
+      "body": "Arm your AI with our data, read your first rule on the S&P 500 since 2000, then drive the backtester and read the scoreboard.",
+      "learn": "S1",
+      "tour": ""
+    },
+    "step-2": {
+      "title": "Step 2: connect and deploy",
+      "body": "Your own code at your own broker, with a 30-day paper window if you want it. University teaches it to members: QuantGPT in your own code, and QuantGPT Cloud on QuantGPT Pro.",
+      "learn": "G5",
+      "tour": ""
+    },
+    "step-3": {
+      "title": "Step 3: futuretest and simulate",
+      "body": "One war onset set against every one on record, then an event rule: its backtest from the next close, and the signal your AI can read.",
+      "learn": "S5",
+      "tour": ""
+    },
+    "step-bonus": {
+      "title": "Lesson 7: team and the model",
+      "body": "Pin a backtest where three seats read the same numbers, then see how filed statements become a discounted cash flow and a spreadsheet. The model is drawn as a schematic with no figures.",
+      "learn": "",
+      "tour": ""
+    }
+  }
+}

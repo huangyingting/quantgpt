@@ -1,0 +1,48 @@
+{
+  "page": "halal",
+  "path": "/halal",
+  "items": {
+    "halal-title": {
+      "title": "The halal screen",
+      "body": "Five tests from AAOIFI Shariah Standard 21, on the filings known at the time. The same numbers drive the halal filter in backtests. It approximates the standard; it is not a fatwa or a ruling.",
+      "learn": "",
+      "tour": ""
+    },
+    "asof": {
+      "title": "As of",
+      "body": "Leave it blank for the latest month, or type a past date to see the screen as it stood then, using only the filings made by that date.",
+      "learn": "",
+      "tour": ""
+    },
+    "t-verdict": {
+      "title": "Pass, fail or unknown",
+      "body": "Pass when every test that ran passes and the business, debt and cash tests all ran. Fail when any test fails. Unknown when one of those three could not run.",
+      "learn": "",
+      "tour": ""
+    },
+    "tests": {
+      "title": "The five tests",
+      "body": "Business: not conventional finance, insurance, alcohol, tobacco or gambling. Debt and cash each below 30% of market cap. Cash, short-term investments and receivables at most 70% of total assets. Interest income below 5% of revenue.",
+      "learn": "",
+      "tour": ""
+    },
+    "inputs": {
+      "title": "The inputs",
+      "body": "The numbers behind each test: debt, cash, receivables, total assets, interest income and revenue from the latest quarterly filing made by that month, and the market cap at the month end.",
+      "learn": "",
+      "tour": ""
+    },
+    "strip": {
+      "title": "Ten years, month by month",
+      "body": "One square per month for the last ten years: green passed, red failed, grey unknown. A company can move in and out as its debt, cash and market cap change.",
+      "learn": "",
+      "tour": ""
+    },
+    "method": {
+      "title": "What it cannot see",
+      "body": "Business is judged by today's industry class, not revenue share, so a hotel with bars can pass. Many companies do not report interest income, and that test then shows as not run, never as passed.",
+      "learn": "",
+      "tour": ""
+    }
+  }
+}

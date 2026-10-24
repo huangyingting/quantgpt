@@ -1,0 +1,214 @@
+[
+  {
+    "id": "crypto-momentum-2018",
+    "name": "Crypto 12-1 Month Momentum (Binance)",
+    "type": "alt-crypto",
+    "kind": "study",
+    "src": "QuantGPT test on Binance USDT pairs; related: Liu, Tsyvinski and Wu (2022), Journal of Finance (1-4 week momentum)",
+    "year": 2022,
+    "thesis": "Momentum is well documented in stocks, and Liu, Tsyvinski and Wu find it in coins at 1-4 week horizons. Does the slower 12-1 month version pay on Binance coins, judged against BTC?",
+    "criteria": [
+      "Universe: Binance USDT pairs incl. delisted, $100k+ 30d average daily volume, 90d+ listed; stablecoins (listed or caught by a USD peg test), fiat pairs, tokenized gold and tokenized stocks excluded",
+      "Rank by 365-30 day return, long top 10 equal-weight, monthly; under 5 qualifiers means cash",
+      "Gross of fees, monthly returns capped at +300%; benchmark BTC buy-and-hold"
+    ],
+    "result": "Run it: the terminal computes the finding live against BTC.",
+    "testable": true,
+    "tags": [
+      "crypto",
+      "momentum",
+      "alt-markets"
+    ],
+    "curated": "alt",
+    "runnable": true
+  },
+  {
+    "id": "crypto-lowvol-2018",
+    "name": "Crypto Low Volatility",
+    "type": "alt-crypto",
+    "kind": "study",
+    "src": "Low-risk anomaly (Ang, Hodrick, Xing and Zhang 2006; Baker, Bradley and Wurgler 2011), applied to Binance USDT pairs",
+    "year": 2018,
+    "thesis": "In stocks, the calmest names have earned about as much as the wildest with far less risk. Do the 10 calmest liquid coins, stablecoins excluded, beat just holding BTC?",
+    "criteria": [
+      "Universe: Binance USDT pairs incl. delisted, $100k+ 30d average daily volume, 90d+ listed",
+      "Exclude stablecoins (listed or caught by a USD peg test), fiat pairs, tokenized gold and tokenized stocks",
+      "Rank by 30d annualized volatility, long the LOWEST 10, monthly; benchmark BTC buy-and-hold"
+    ],
+    "result": "Run it: the terminal computes the finding live against BTC.",
+    "testable": true,
+    "tags": [
+      "crypto",
+      "low volatility",
+      "alt-markets"
+    ],
+    "curated": "alt",
+    "runnable": true
+  },
+  {
+    "id": "crypto-trend-2018",
+    "name": "Crypto Trend + Strength",
+    "type": "alt-crypto",
+    "kind": "study",
+    "src": "Trend following (Faber 2007; Moskowitz, Ooi and Pedersen 2012), applied to Binance USDT pairs",
+    "year": 2018,
+    "thesis": "Only hold coins above their own 200-day average, ranked by 6-month strength: the classic trend filter plus relative strength, in USDT terms, judged against BTC.",
+    "criteria": [
+      "Filter: price at or above its 200d SMA; under 5 qualifiers means cash",
+      "Rank by 180d return, long top 10 equal-weight, monthly rebalance",
+      "Gross of fees, monthly returns capped at +300%; benchmark BTC buy-and-hold"
+    ],
+    "result": "Run it: the terminal computes the finding live against BTC.",
+    "testable": true,
+    "tags": [
+      "crypto",
+      "trend",
+      "alt-markets"
+    ],
+    "curated": "alt",
+    "runnable": true
+  },
+  {
+    "id": "pm-longshot-bias",
+    "name": "Prediction Market Longshots (Polymarket only)",
+    "type": "alt-events",
+    "kind": "study",
+    "src": "Favorite-longshot bias (Griffith 1949; Snowberg and Wolfers 2010); resolved Polymarket markets, 2024-2026",
+    "year": 2020,
+    "thesis": "Racetracks overprice longshots. Do prediction-market YES contracts at 2-15 cents resolve often enough to pay, or is the bias alive here too?",
+    "criteria": [
+      "Buy YES (first listed outcome) at the last daily price on or before 7 days before resolution (the earlier of scheduled close and actual resolution), 2-15 cents only; markets already settled at 0 or 1 by then left out",
+      "Hold to resolution; 10% of bankroll per month split across that month's bets; no fees or spread",
+      "Benchmark: every resolved market priced 2-98 cents at entry, same timing and sizing"
+    ],
+    "result": "Run it: the terminal computes the finding live against the crowd. Polymarket only, about 200 bets: a small sample.",
+    "testable": true,
+    "tags": [
+      "prediction markets",
+      "longshot bias",
+      "alt-markets"
+    ],
+    "curated": "alt",
+    "runnable": true
+  },
+  {
+    "id": "pm-favorite-grind",
+    "name": "Prediction Market Favorites (Polymarket only)",
+    "type": "alt-events",
+    "kind": "study",
+    "src": "Favorite-longshot bias (Griffith 1949; Snowberg and Wolfers 2010); resolved Polymarket markets, 2024-2026",
+    "year": 2020,
+    "thesis": "The other side of the bias: at racetracks, favorites win slightly more often than their odds imply. Do prediction-market YES contracts at 60-98 cents do the same, by enough to survive fees?",
+    "criteria": [
+      "Buy YES (first listed outcome) at the last daily price on or before 7 days before resolution (the earlier of scheduled close and actual resolution), 60-98 cents only; markets already settled at 0 or 1 by then left out",
+      "Hold to resolution; 10% of bankroll per month split across that month's bets; no fees or spread",
+      "Benchmark: every resolved market priced 2-98 cents at entry, same timing and sizing"
+    ],
+    "result": "Run it: the terminal computes the finding live against the crowd. Polymarket only, under 200 bets: a small sample.",
+    "testable": true,
+    "tags": [
+      "prediction markets",
+      "favorites",
+      "alt-markets"
+    ],
+    "curated": "alt",
+    "runnable": true
+  },
+  {
+    "id": "meme-momentum-2026",
+    "name": "Memecoin 30d Momentum, Graveyard Included",
+    "type": "alt-memecoins",
+    "kind": "study",
+    "src": "QuantGPT DEX-pool graveyard (GeckoTerminal; dead pools kept from collection start)",
+    "year": 2026,
+    "thesis": "Does chasing last month's winners beat holding the whole pile of qualifying DEX tokens, once every death counts as a total loss?",
+    "criteria": [
+      "Universe: Solana, Base and Ethereum pools with 30+ days of prices and $50k+ 30d average daily volume, dead ones included; majors, stablecoins and large DeFi tokens left out by symbol",
+      "Rank by 30-day return, long top 10 equal-weight, monthly; death = -100%, returns capped at +300%, gross of fees",
+      "Benchmark: the equal-weight pile of every pool that passed the same filter"
+    ],
+    "result": "Run it: the terminal computes the finding live against the pile.",
+    "testable": true,
+    "tags": [
+      "memecoins",
+      "momentum",
+      "alt-markets"
+    ],
+    "curated": "alt",
+    "runnable": true
+  },
+  {
+    "id": "meme-survivors-2026",
+    "name": "Memecoin Survivors, 180 Days and Volume",
+    "type": "alt-memecoins",
+    "kind": "study",
+    "src": "QuantGPT DEX-pool graveyard (GeckoTerminal; dead pools kept from collection start)",
+    "year": 2026,
+    "thesis": "Many memecoins die within weeks. Does holding only the pools that lived six months, ranked by volume, beat the pile?",
+    "criteria": [
+      "Universe: pools with 180+ days of prices and $50k+ 30d average daily volume, dead ones included; majors, stablecoins and large DeFi tokens left out by symbol",
+      "Rank by 30-day average daily volume, long top 10 equal-weight, monthly; death = -100%, returns capped at +300%, gross",
+      "Benchmark: the equal-weight pile of every pool that passed the same filter"
+    ],
+    "result": "Run it: the terminal computes the finding live against the pile.",
+    "testable": true,
+    "tags": [
+      "memecoins",
+      "survival",
+      "alt-markets"
+    ],
+    "curated": "alt",
+    "runnable": true
+  },
+  {
+    "id": "tape-follow-2026",
+    "name": "Follow the 24/7 Tape: Buy What It Bid Up Overnight",
+    "type": "alt-tape",
+    "kind": "study",
+    "src": "QuantGPT 24/7 tape (Hyperliquid xyz stock perps, hourly, from November 2025)",
+    "year": 2026,
+    "thesis": "Hyperliquid's stock perps keep trading after NYSE closes. When the tape bids a stock up overnight or over the weekend, does the day keep going from the bell?",
+    "criteria": [
+      "Universe: every US stock, ETF and index perp on Hyperliquid's xyz market with hourly prices",
+      "Each session, hold 09:00 New York to the close every name whose perp rose 0.5% or more since the prior close, equal weight",
+      "Benchmark: every name in the tape held 09:00 to the close"
+    ],
+    "result": "Run it: the terminal computes the finding live against every name.",
+    "testable": true,
+    "tags": [
+      "24-7",
+      "overnight",
+      "weekend",
+      "hyperliquid",
+      "alt-markets"
+    ],
+    "curated": "alt",
+    "runnable": true
+  },
+  {
+    "id": "tape-fade-2026",
+    "name": "Fade the 24/7 Tape: Buy What It Sold Off Overnight",
+    "type": "alt-tape",
+    "kind": "study",
+    "src": "QuantGPT 24/7 tape (Hyperliquid xyz stock perps, hourly, from November 2025)",
+    "year": 2026,
+    "thesis": "If the overnight crowd overreacts, the names it sold off should recover once the real market opens. Do they?",
+    "criteria": [
+      "Universe: every US stock, ETF and index perp on Hyperliquid's xyz market with hourly prices",
+      "Each session, hold 09:00 New York to the close every name whose perp fell 0.5% or more since the prior close, equal weight",
+      "Benchmark: every name in the tape held 09:00 to the close"
+    ],
+    "result": "Run it: the terminal computes the finding live against every name.",
+    "testable": true,
+    "tags": [
+      "24-7",
+      "overnight",
+      "weekend",
+      "hyperliquid",
+      "reversal",
+      "alt-markets"
+    ],
+    "curated": "alt",
+    "runnable": true
+  }
+]

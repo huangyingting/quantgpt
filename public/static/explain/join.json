@@ -1,0 +1,24 @@
+{
+  "page": "join",
+  "path": "/join",
+  "items": {
+    "perks-quantgpt": {
+      "title": "What QuantGPT includes",
+      "body": "Backtests on our data, 200 a day, and Connect your AI: MCP, the open standard Claude and ChatGPT use to reach outside tools, 500 calls a day on 3 keys. Plus Ask AI, the library, your journal and the monitor.",
+      "learn": "S2",
+      "tour": ""
+    },
+    "perks-pro": {
+      "title": "What QuantGPT Pro adds",
+      "body": "Everything in QuantGPT, plus 1,500 AI calls a day on 5 keys, prediction markets, the QuantGPT Pro rooms on the forum, browsing the strategy exchange, the full portfolio review and the Excel model.",
+      "learn": "",
+      "tour": ""
+    },
+    "trial-line": {
+      "title": "The 3 day trial",
+      "body": "QuantGPT and QuantGPT Pro start with 3 days free, card up front, on the plan's full daily limits. Cancel within the 3 days and you pay nothing.",
+      "learn": "",
+      "tour": ""
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "page": "whats-new",
+  "path": "/whats-new",
+  "items": {
+    "wn-h1": {
+      "title": "What's new",
+      "body": "Every release we ship that your plan opens, newest first. A release you have not seen yet carries a New tag; opening this page marks it seen.",
+      "learn": "",
+      "tour": ""
+    },
+    "wn-rel-h": {
+      "title": "Every release",
+      "body": "Each release says what it does, where to try it and, when it has one, a prompt for your AI. A new one also shows once as a card the first time you open the terminal after it goes live.",
+      "learn": "",
+      "tour": ""
+    },
+    "wn-ai-h": {
+      "title": "Ask your AI what's new",
+      "body": "Your connected AI can call whats_new for the releases since it last asked, or since a date, and mention the ones that bear on what you are doing.",
+      "learn": "",
+      "tour": ""
+    }
+  }
+}

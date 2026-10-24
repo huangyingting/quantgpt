@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script nonce="hUkbnU1AguWGjNtlqvxV5Q">try{var t=document.cookie.match(/(?:^|;\s*)qg_theme=(day|system)(?:;|$)/);if(t)document.documentElement.setAttribute("data-theme",t[1])}catch(e){}</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QuantGPT &middot; Lesson 3: The backtester</title>
+<style>
+  /* theme modes: this page's own colours with no desk.css token. Night
+     keeps its values; Day and System-light turn them over. */
+  :root{--pg-on-up:#0A1A10;--pg-muted:#8B96A8;--pg-faint:#5B6577}
+  :root[data-theme="day"]{--pg-on-up:#FFFFFF;--pg-muted:#4E5767;--pg-faint:#576070}
+  @media (prefers-color-scheme: light){:root[data-theme="system"]{--pg-on-up:#FFFFFF;--pg-muted:#4E5767;--pg-faint:#576070}}
+:root{--mono:Consolas,Cascadia Mono Web,Menlo,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:"Segoe UI",Selawik,system-ui,sans-serif;
+     overflow:hidden;user-select:none}
+#stage{position:relative;width:100%;height:100%;max-width:1240px;margin:0 auto;
+       display:flex;flex-direction:column;align-items:center;justify-content:center}
+.kicker{font-family:var(--sans);font-size:.78rem;letter-spacing:0;color:var(--faint);
+        position:absolute;top:24px;left:50%;transform:translateX(-50%);white-space:nowrap}
+.kicker b{color:var(--amber);font-weight:400}
+#skip{position:absolute;top:20px;right:24px;font-family:var(--sans);font-size:.85rem;min-height:44px;
+      letter-spacing:0;color:var(--faint);background:none;border:1px solid var(--line);
+      border-radius:6px;padding:.45rem .8rem;cursor:pointer;z-index:60}
+#headline{font-family:var(--cond);font-weight:700;
+          font-size:clamp(1.2rem,2.8vw,1.9rem);letter-spacing:-.01em;text-align:center;
+          min-height:1.4em;padding:0 1rem;transition:opacity .5s;z-index:5;margin-top:2.2rem}
+#scene{position:relative;width:min(96vw,1200px);height:min(64vh,560px);margin:.8rem 0 0;
+       display:flex;align-items:stretch;justify-content:center;gap:.6rem}
+/* each rail holds its bubble ABOVE its character: nothing ever sits on the panel */
+.rail{position:relative;width:210px;flex:0 0 210px;height:100%;display:flex;
+      flex-direction:column;justify-content:flex-end;align-items:center}
+.rail img{height:min(34vh,290px);width:auto;display:block}
+.pop{animation:pop .45s ease}
+@keyframes pop{40%{transform:scale(1.08)}}
+#bt{flex:1;height:100%;background:var(--surface);border:1px solid var(--line);
+    border-radius:14px;padding:1rem 1.2rem;display:flex;flex-direction:column;gap:.7rem;
+    overflow:hidden;position:relative}
+#bt .bthead{font-family:var(--sans);font-size:.8rem;font-weight:600;letter-spacing:0;color:var(--amber)}
+.crit{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+.cfield{background:var(--bg);border:1px solid var(--line);border-radius:10px;
+        padding:.5rem .9rem;font-family:var(--mono);font-size:.7rem;min-width:130px;
+        transition:border-color .3s}
+.cfield.hot{border-color:var(--amber)}
+.cfield .lbl{font-family:var(--sans);font-size:.7rem;letter-spacing:0;color:var(--faint);display:block}
+.cfield b{font-size:1rem;color:var(--ink)}
+#runbtn{transition:opacity .3s;margin-left:auto}
+#runbtn:disabled{opacity:.25;cursor:default}
+#runbtn.mega{background:var(--up);border-color:var(--up);color:var(--pg-on-up)}
+/* the run board: every human run gets a numbered row, deltas against run 1,
+   and a bar strip so the tuning differences fill the window */
+#runs{display:none;flex:1;flex-direction:column;gap:.5rem;min-height:0}
+#runs table{border-collapse:collapse;font-family:var(--mono);font-size:.8rem;width:100%}
+#runs th{font-family:var(--sans);font-size:.7rem;letter-spacing:0;color:var(--faint);text-align:right;
+         padding:.35rem .6rem;border-bottom:1px solid var(--line)}
+#runs th:first-child,#runs td:first-child{text-align:left}
+#runs td{padding:.5rem .6rem;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+#runs td .n{display:inline-block;width:1.5rem;height:1.5rem;line-height:1.5rem;text-align:center;
+            border-radius:50%;background:var(--amber-fill);color:#171207;font-weight:700;margin-right:.5rem}
+#runs td .p{color:var(--muted);font-size:.7rem}
+#runs td .d{font-size:.62rem;margin-left:.3rem}
+#runs tr.latest td{color:var(--ink);background:rgba(var(--amber-rgb),.06)}
+#bars{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:.6rem 1.6rem;align-content:start;
+      padding-top:.4rem;font-family:var(--mono)}
+#bars .col{display:flex;flex-direction:column;gap:.45rem}
+.bar{display:grid;grid-template-columns:2.2rem 1fr 4.6rem;align-items:center;gap:.5rem;font-size:.7rem}
+.bar .t{color:var(--faint);font-family:var(--sans);font-size:.7rem;letter-spacing:0;grid-column:1/4;margin-top:.2rem}
+.bar .k{color:var(--muted)}
+.bar .f{height:11px;border-radius:3px;background:var(--line);overflow:hidden}
+.bar .f i{display:block;height:100%;background:var(--amber)}
+.bar .f i.dd{background:var(--down)}
+.bar .v{text-align:right;color:var(--ink)}
+#progress{display:none;font-family:var(--mono);font-size:.74rem;letter-spacing:0;color:var(--muted)}
+#progress b{color:var(--amber);font-size:1.3rem}
+#grid{display:none;grid-template-columns:repeat(30,1fr);gap:3px;flex:1;align-content:start}
+#grid i{display:block;aspect-ratio:1;background:var(--line);border-radius:2px}
+#grid i.g{background:var(--up)}#grid i.b{background:var(--down)}#grid i.win{background:var(--amber)}
+#board{display:none;flex:1;gap:1rem;min-height:0}
+#board table{border-collapse:collapse;font-family:var(--mono);font-size:.78rem;width:100%}
+#board th{font-family:var(--sans);font-size:.7rem;letter-spacing:0;color:var(--faint);text-align:right;
+          padding:.35rem .6rem;border-bottom:1px solid var(--line)}
+#board th:first-child{text-align:left}
+#board td{padding:.45rem .6rem;text-align:right;border-bottom:1px solid var(--line)}
+#board td:first-child{text-align:left;color:var(--muted)}
+#board tr.win td{color:var(--up);font-weight:700}
+#eq{width:100%;height:150px;display:block;margin-top:.4rem}
+.bubble{position:absolute;top:0;left:0;right:0;background:var(--bg);border:1px solid var(--line);
+        border-radius:12px;padding:.6rem .75rem;font-size:.8rem;line-height:1.5;opacity:0;
+        transform:translateY(8px);transition:opacity .4s,transform .4s;z-index:20}
+.bubble.show{opacity:1;transform:none}
+#next{margin-top:.7rem;transition:opacity .3s}
+#next.hide{opacity:0;pointer-events:none}
+#final{display:none;gap:.8rem;margin-top:.7rem;flex-wrap:wrap;justify-content:center}
+#final a{font-family:var(--sans);font-size:.85rem;font-weight:600;letter-spacing:0;text-decoration:none;
+         display:inline-flex;align-items:center;min-height:44px;
+         padding:.8rem 1.3rem;border-radius:8px}
+#final a.pri{background:var(--up);color:var(--pg-on-up);font-weight:700}
+#final a.sec{color:var(--amber);border:1px solid var(--amber)}
+#final a.dim{color:var(--faint);border:1px solid var(--line);pointer-events:none}
+#foot{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);
+      font-family:var(--sans);font-size:.72rem;letter-spacing:0;color:var(--faint);
+      width:max-content;max-width:calc(100vw - 32px);text-align:center}
+@media (max-width:820px){#grid{grid-template-columns:repeat(20,1fr)}#bars{grid-template-columns:1fr}}
+/* phone pass 2026-09-18: the rails move under the chart as a row, bubbles above each character */
+@media (max-width:820px){
+  #scene{flex-wrap:wrap;height:auto;gap:.5rem}
+  #chartwrap,#bt{flex:0 0 100%;order:-1;height:min(44vh,380px);min-height:260px}
+  .rail{display:flex!important;flex:1 1 45%;width:auto;height:auto;justify-content:flex-end;min-height:0}
+  .rail img{height:min(22vh,150px)}
+  .bubble{position:static;margin-bottom:.35rem;font-size:.74rem;padding:.45rem .55rem}
+  .kicker{font-size:.7rem;letter-spacing:0;left:12px;transform:none;max-width:calc(100vw - 120px);overflow:hidden;text-overflow:ellipsis}
+  #headline{font-size:clamp(1rem,5vw,1.4rem);margin-top:4.4rem}
+  #strip{gap:.35rem}.box{min-width:88px;padding:.3rem .45rem}.box .v{font-size:.9rem}
+  #rulecard{font-size:.7rem}
+  #foot{white-space:normal;text-align:center;width:92%;font-size:.72rem;max-width:none;position:static;left:auto;transform:none;margin:.6rem auto 0}
+  #stage{justify-content:flex-start;padding-bottom:1rem;overflow-y:auto}
+  body{overflow:auto}
+}
+</style>
+<link rel="stylesheet" href="/static/desk.css?v=ux1">
+</head>
+<body>
+<div id="stage">
+  <div class="kicker"><b>QUANTGPT</b> &middot; Lesson 3: The backtester</div>
+  <button id="skip">Skip</button>
+  <div id="headline"></div>
+  <div id="scene">
+    <div class="rail">
+      <div id="b-op" class="bubble"></div>
+      <img id="op-img" src="/static/game-art/l2-op-pondering.webp" alt="You">
+    </div>
+    <div id="bt">
+      <div class="bthead">The backtester: lesson 2's rule on the S&amp;P 500, <span id="bt-span"></span></div>
+      <div class="crit">
+        <div class="cfield" id="f-ma"><span class="lbl">Moving average</span><b id="v-ma">200 days</b></div>
+        <div class="cfield" id="f-buf"><span class="lbl">Buffer band</span><b id="v-buf">0%</b></div>
+        <div class="cfield" id="f-conf"><span class="lbl">Confirm</span><b id="v-conf">0 days</b></div>
+        <button class="qg-btn" id="runbtn">Run the backtest &#9656;</button>
+      </div>
+      <div id="runs">
+        <table>
+          <thead><tr><th>Run</th><th>Growth per year</th><th>Worst fall</th><th>Sharpe</th><th>Trades</th></tr></thead>
+          <tbody id="run-rows"></tbody>
+        </table>
+        <div id="bars"></div>
+      </div>
+      <div id="progress">Running <b id="p-n">0</b> / <span id="p-of"></span> &middot; Best so far: <span id="p-best">n/a</span></div>
+      <div id="grid"></div>
+      <div id="board">
+        <div style="flex:1">
+          <table>
+            <thead><tr><th>Strategy</th><th>Growth per year</th><th>Worst fall</th><th>Sharpe</th><th>Trades</th></tr></thead>
+            <tbody id="board-rows"></tbody>
+          </table>
+          <canvas id="eq"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="rail">
+      <div id="b-bot" class="bubble"></div>
+      <img id="bot-img" src="/static/game-art/l2-bot-presenting.webp" alt="Your robot">
+    </div>
+  </div>
+  <button class="qg-btn" id="next" aria-label="Continue the lesson"></button>
+  <div id="final">
+    <a class="pri" href="/#sweep" id="unlock">Next: the sweep</a>
+    <a class="sec" href="/learn">Then: every lesson &#9656;</a>
+    <a class="sec" href="/static/quant-lesson.html">&#9666; Lesson 2</a>
+  </div>
+  <div id="foot">Real sweep, real data &middot; Cash earns the 3-month T-bill &middot; Tuned on history and labeled as such &middot; Gross, no trading costs &middot; Not investment advice</div>
+</div>
+
+<script nonce="hUkbnU1AguWGjNtlqvxV5Q">
+// theme modes: the drawings read the theme's tokens (literal = Night fallback)
+var K=(function(){function t(n,f){var v="";try{v=getComputedStyle(document.documentElement).getPropertyValue(n).trim();}catch(e){}return v||f;}
+return {amber:t("--amber","#F0A83C"),up:t("--up","#43BD85"),down:t("--down","#DF605E"),cyan:t("--cyan","#5FB8D4"),ink:t("--ink","#E7ECF4"),surface:t("--surface","#10151E"),muted:t("--pg-muted","#8B96A8"),faint:t("--pg-faint","#5B6577"),grid:t("--pg-grid","#212A38"),rule:t("--pg-rule","#2E3A4D"),amberRgb:t("--amber-rgb","240, 168, 60")};})();
+(function(){
+"use strict";
+var $=function(id){return document.getElementById(id)};
+var D=null,state=0,RUNS=[];
+/* every count in the words comes from the pack: the sweep's size and the span */
+function NS(){return D.sweep.length;}
+function yrs(){return Math.floor((Date.parse(D.span[1])-Date.parse(D.span[0]))/31557600000);}
+var C={up:K.up,down:K.down,amber:K.amber,faint:K.faint,muted:K.muted};
+
+function say(id,html){var b=$(id);b.innerHTML=html;b.classList.add("show");}
+function clearSay(){$("b-op").classList.remove("show");$("b-bot").classList.remove("show");}
+function head(t){$("headline").textContent=t;}
+function img(id,name){var el=$(id);el.src="/static/game-art/"+name+".webp";
+  el.classList.remove("pop");void el.offsetWidth;el.classList.add("pop");}
+function next(t){$("next").textContent=t;$("next").classList.remove("hide");}
+function hideNext(){$("next").classList.add("hide");}
+function pct(buf){return (buf*100).toFixed(buf?1:0).replace(".0","")+"%";}
+function setCrit(ma,buf,conf,hot){
+  $("v-ma").textContent=ma+" days";
+  $("v-buf").textContent=pct(buf);
+  $("v-conf").textContent=conf+" days";
+  ["f-ma","f-buf","f-conf"].forEach(function(f){$(f).classList.remove("hot")});
+  if(hot)$(hot).classList.add("hot");
+}
+function fmt(v,s){return (v>0?"+":"")+v+(s||"")}
+
+/* the run board: RUNS[] holds every human run in order; row 1 is the yardstick */
+function addRun(label,r){
+  RUNS.push({label:label,r:r});
+  var base=RUNS[0].r,tb=$("run-rows");tb.innerHTML="";
+  RUNS.forEach(function(run,i){
+    var x=run.r,tr=document.createElement("tr");tr.className=i===RUNS.length-1?"latest":"";
+    function d(v,bv,goodUp){if(i===0)return "";var diff=+(v-bv).toFixed(1);
+      return "<span class='d' style='color:"+((goodUp?diff>0:diff<0)?C.up:C.down)+"'>"+fmt(diff)+"</span>";}
+    tr.innerHTML="<td><span class='n'>"+(i+1)+"</span>"+run.label+"</td>"+
+      "<td>"+fmt(x.cagr,"%")+d(x.cagr,base.cagr,true)+"</td>"+
+      "<td>"+x.dd+"%"+d(x.dd,base.dd,false)+"</td>"+
+      "<td>"+x.sharpe+d(x.sharpe,base.sharpe,true)+"</td>"+
+      "<td>"+x.trades+d(x.trades,base.trades,false)+"</td>";
+    tb.appendChild(tr);
+  });
+  /* bars: CAGR and worst drawdown per run, two columns, rows in run order */
+  var maxC=Math.max.apply(null,RUNS.map(function(u){return u.r.cagr})),maxD=Math.max.apply(null,RUNS.map(function(u){return -u.r.dd}));
+  var cs="<div class='bar'><span class='t'>Growth per year, by run</span></div>",ds="<div class='bar'><span class='t'>Worst fall, by run</span></div>";
+  RUNS.forEach(function(u,i){
+    cs+="<div class='bar'><span class='k'>#"+(i+1)+"</span><span class='f'><i style='width:"+(100*u.r.cagr/maxC)+"%'></i></span><span class='v'>"+fmt(u.r.cagr,"%")+"</span></div>";
+    ds+="<div class='bar'><span class='k'>#"+(i+1)+"</span><span class='f'><i class='dd' style='width:"+(100*-u.r.dd/maxD)+"%'></i></span><span class='v'>"+u.r.dd+"%</span></div>";
+  });
+  $("bars").innerHTML="<div class='col'>"+cs+"</div><div class='col'>"+ds+"</div>";
+  $("runs").style.display="flex";
+}
+
+/* ---------- beats ---------- */
+function b0(){head("This time, you drive.");
+  img("bot-img","l2-bot-presenting");
+  say("b-bot","\u201cLesson 2's rule is loaded: own the S&P above the 200-day, sit in T-bills below. This machine replays it against "+yrs()+" years of history. Press Run.\u201d");
+  $("runbtn").onclick=function(){
+    this.disabled=true;clearSay();
+    setTimeout(function(){
+      addRun(D.baseline.ma+"d \u00b7 no band",D.baseline);
+      img("op-img","l3-op-mindblown");
+      say("b-op","\u201cThat fast?! Growth "+D.baseline.cagr+"% a year, worst fall "+D.baseline.dd+"%... and "+D.baseline.trades+" trades.\u201d");
+      say("b-bot","\u201cNow tune it. Try a faster average.\u201d");
+      next("Try "+D.tweak1.ma+" days \u25b8");
+    },900);
+  };
+}
+function b1(){hideNext();clearSay();head("Tune it: a faster average.");
+  setCrit(160,0,0,"f-ma");img("op-img","l3-op-pressing");
+  $("runbtn").disabled=false;
+  $("runbtn").onclick=function(){
+    this.disabled=true;
+    setTimeout(function(){
+      addRun(D.tweak1.ma+"d \u00b7 no band",D.tweak1);
+      img("op-img","l2-op-overwhelmed");
+      say("b-op","\u201cWorse?! More trades, deeper hole. Faster is not better?\u201d");
+      img("bot-img","l2-bot-explaining");
+      say("b-bot","\u201cFaster means more whipsaw. Try a buffer instead: only switch when the cross is convincing.\u201d");
+      next("Try a "+pct(D.tweak2.buf)+" buffer \u25b8");
+    },900);
+  };
+}
+function b2(){hideNext();clearSay();head("Tune it: add a buffer.");
+  setCrit(200,0.01,0,"f-buf");
+  $("runbtn").disabled=false;
+  $("runbtn").onclick=function(){
+    this.disabled=true;
+    setTimeout(function(){
+      addRun(D.tweak2.ma+"d \u00b7 "+pct(D.tweak2.buf)+" band",D.tweak2);
+      img("op-img","l3-op-curious");
+      say("b-op","\u201cBetter! But wait... average length, buffer, confirm days... how many combinations are there?\u201d");
+      img("bot-img","l2-bot-explaining");
+      say("b-bot","\u201cMore than you would ever click. Shall we try "+NS()+"?\u201d");
+      next(NS()+"?! \u25b8");
+    },900);
+  };
+}
+function b3(){hideNext();clearSay();head("The handoff.");
+  img("op-img","l3-op-refusing");
+  say("b-op","\u201cI do not have time for that.\u201d");
+  setTimeout(function(){
+    img("bot-img","l3-bot-typing");
+    say("b-bot","\u201cI do.\u201d");
+    $("runs").style.display="none";
+    $("runbtn").textContent="Let the robot run "+NS()+" \u25b8";
+    $("runbtn").classList.add("mega");$("runbtn").disabled=false;
+    $("runbtn").onclick=b4;
+  },1100);
+}
+function b4(){
+  $("runbtn").disabled=true;clearSay();head(NS()+" backtests, one robot.");
+  img("bot-img","l3-bot-multitask");
+  var g=$("grid");g.style.display="grid";g.innerHTML="";
+  var cells=[];
+  for(var i=0;i<NS();i++){var c=document.createElement("i");g.appendChild(c);cells.push(c);}
+  $("progress").style.display="block";
+  var order=D.sweep.map(function(_,i){return i});
+  var i=0,best=-1,bestIdx=-1;
+  var iv=setInterval(function(){
+    for(var k=0;k<6&&i<NS();k++,i++){
+      var s=D.sweep[order[i]];
+      cells[i].className=s[6]>D.baseline.mar?"g":"b";
+      if(s[6]>best){best=s[6];bestIdx=order[i];
+        $("p-best").textContent=s[0]+"d / "+pct(s[1])+" band \u00b7 "+s[3]+"% a year, "+s[4]+"% worst fall";}
+      $("p-n").textContent=i+1;
+    }
+    if(i>=NS()){clearInterval(iv);
+      var w=D.sweep.findIndex(function(s){return s[0]===D.winner_params.ma&&s[1]===D.winner_params.buf&&s[2]===D.winner_params.conf});
+      if(w>=0)cells[w].className="win";
+      setCrit(D.winner_params.ma,D.winner_params.buf,D.winner_params.conf,null);
+      setTimeout(b5,900);
+    }
+  },50);
+}
+function b5(){clearSay();head("The scoreboard.");
+  $("grid").style.display="none";$("progress").style.display="none";
+  $("runbtn").style.display="none";
+  var rows=[
+    ["Buy and hold",D.bh||{cagr:"?",dd:"?",sharpe:"?",trades:0},""],
+    ["Your run 1 (200d)",D.baseline,""],
+    ["Your run 2 (160d)",D.tweak1,""],
+    ["Your run 3 (200d, 1% band)",D.tweak2,""],
+    ["The machine's tune ("+D.winner_params.ma+"d, "+pct(D.winner_params.buf)+" band)",D.winner,"win"]
+  ];
+  var tb=$("board-rows");tb.innerHTML="";
+  rows.forEach(function(r){
+    var tr=document.createElement("tr");tr.className=r[2];
+    tr.innerHTML="<td>"+r[0]+"</td><td>"+r[1].cagr+"%</td><td>"+r[1].dd+"%</td><td>"+
+      r[1].sharpe+"</td><td>"+r[1].trades+"</td>";
+    tb.appendChild(tr);
+  });
+  $("board").style.display="flex";
+  drawEq();
+  img("bot-img","l3-bot-revealing-v2");img("op-img","l3-op-mindblown");
+  var W=D.winner,B=D.baseline;
+  say("b-bot","\u201c"+W.cagr+"% a year against your "+B.cagr+"%, worst fall "+W.dd+"% instead of "+B.dd+"%, "+W.trades+" trades in "+yrs()+" years. One footnote: tuned on the past, and the past is generous to tuners. In the real terminal we test it on years it never saw.\u201d");
+  say("b-op","\u201cI steered. It ground. I want this.\u201d");
+  try{localStorage.setItem("qg_l3_done","1");}catch(e){}
+  next("What am I now? \u25b8");
+}
+function b6(){hideNext();clearSay();head("You just ran your first sweep.");
+  say("b-bot","\u201cYou tune the question. The machine grinds the answers. Next: the rest of the lessons, and what each plan opens.\u201d");
+  $("final").style.display="flex";
+}
+var beats=[b0,b1,b2,b3,null,null,b6];
+$("next").addEventListener("click",function(){
+  state++;
+  if(beats[state])beats[state]();
+});
+$("skip").addEventListener("click",function(){state=5;
+  $("runbtn").style.display="none";$("grid").style.display="none";
+  $("progress").style.display="none";$("runs").style.display="none";b5();});
+$("next").classList.add("hide");
+
+function drawEq(){
+  var cv=$("eq"),ctx=cv.getContext("2d");
+  var r=cv.getBoundingClientRect();
+  cv.width=r.width*devicePixelRatio;cv.height=150*devicePixelRatio;
+  ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+  var w=r.width,h=150;
+  /* buy and hold is the benchmark: faint and dashed; every line ends with
+     its value printed (docs/CHART_STANDARDS.md) */
+  var series=[[D.eq_bh,C.faint,1,true],[D.eq_baseline,C.muted,1.2],[D.eq_winner,C.up,2]];
+  var lo=1e9,hi=-1e9,pw=w-52,ends=[];
+  series.forEach(function(s){s[0].forEach(function(v){
+    var lv=Math.log(v);if(lv<lo)lo=lv;if(lv>hi)hi=lv;});});
+  series.forEach(function(s){
+    var d=s[0];ctx.strokeStyle=s[1];ctx.lineWidth=s[2];ctx.setLineDash(s[3]?[5,4]:[]);ctx.beginPath();
+    var X=0,Y=0;
+    for(var i=0;i<d.length;i++){
+      X=pw*i/(d.length-1);Y=8+(h-16)*(1-(Math.log(d[i])-lo)/(hi-lo));
+      i?ctx.lineTo(X,Y):ctx.moveTo(X,Y);
+    }
+    ctx.stroke();ctx.setLineDash([]);
+    var v=d[d.length-1];ends.push({y:Y,c:s[1],t:"$"+(v>=10?v.toFixed(0):v.toFixed(1))});
+  });
+  ends.sort(function(a,b){return a.y-b.y;});
+  for(var k=1;k<ends.length;k++){if(ends[k].y-ends[k-1].y<12)ends[k].y=ends[k-1].y+12;}
+  ctx.font="10px Consolas,Cascadia Mono Web";ctx.textAlign="left";
+  ends.forEach(function(e){ctx.fillStyle=e.c;ctx.fillText(e.t,pw+5,Math.min(h-3,e.y+3.5));});
+  ctx.font="10px Consolas,Cascadia Mono Web";ctx.fillStyle=C.up;ctx.fillText("machine's tune",8,14);
+  ctx.fillStyle=C.muted;ctx.fillText("your run 1",8,28);
+  ctx.fillStyle=C.faint;ctx.fillText("buy & hold",8,42);
+}
+
+fetch("/static/lesson3-data.json").then(function(r){return r.json()}).then(function(d){
+  D=d;
+  $("bt-span").textContent=d.span[0].slice(0,4)+" to "+d.span[1].slice(0,4);
+  $("p-of").textContent=NS();
+  b0();
+});
+})();
+</script>
+<script src="/static/uni-return.js?v=u1" defer></script>
+</body>
+</html>

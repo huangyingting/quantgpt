@@ -1,0 +1,42 @@
+{
+  "page": "monitor",
+  "path": "/monitor",
+  "items": {
+    "ws-title": {
+      "title": "Your board",
+      "body": "Panels on a free canvas: quotes, charts, sector heat, news and more. Drag a title to move a panel and a corner to resize it. Your connected AI can queue a board for you to open.",
+      "learn": "S2",
+      "tour": "monitor:0"
+    },
+    "ws-sel": {
+      "title": "Your boards",
+      "body": "Load a board: your own, a ready made one such as the run room or the sports slate, or one you saved. Save keeps this layout, Save as keeps a copy under a new name.",
+      "learn": "",
+      "tour": "monitor:2"
+    },
+    "ws-add": {
+      "title": "Add or remove panels",
+      "body": "Under Edit layout. Opens the panel list: add a panel, jump to one, or close one. On a phone the board is one column, and you add, reorder or remove panels here.",
+      "learn": "",
+      "tour": "monitor:1"
+    },
+    "ws-share": {
+      "title": "Share a board",
+      "body": "Under Edit layout. Publishes a saved board and copies its link for anyone signed in. Everything on it goes too: panels, symbols, watchlists and notes, so clear anything private.",
+      "learn": "",
+      "tour": "monitor:1"
+    },
+    "ws-gallery": {
+      "title": "The gallery",
+      "body": "Boards other members have shared. Open one to look around, or save a copy and make it your own.",
+      "learn": "",
+      "tour": "monitor:1"
+    },
+    "tune-title": {
+      "title": "Chart settings",
+      "body": "One set of settings for every chart on the board: the chart type, indicators such as moving averages, and display options such as extended hours or a log price scale. Kept in this browser.",
+      "learn": "",
+      "tour": ""
+    }
+  }
+}

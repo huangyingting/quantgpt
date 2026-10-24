@@ -1,0 +1,36 @@
+{
+  "page": "portfolio",
+  "path": "/portfolio",
+  "items": {
+    "eq-head": {
+      "title": "Your account against SPY",
+      "body": "Your Alpaca account over the past year, time weighted so deposits and withdrawals do not count as gains, beside SPY over the same days. Read from Alpaca, read only.",
+      "learn": "",
+      "tour": ""
+    },
+    "act-head": {
+      "title": "Every account event",
+      "body": "Everything that happened on the account, newest first: trades, cash moves, dividends and interest. The buttons above the table filter by type. Read from Alpaca's own records.",
+      "learn": "",
+      "tour": ""
+    },
+    "gl-head": {
+      "title": "Realized gain or loss",
+      "body": "Closed positions matched first in, first out, by trade date and before fees: the total, this year, lots closed, lots that gained and the average. For taxes, your broker's 1099 is the record.",
+      "learn": "",
+      "tour": ""
+    },
+    "alloc-head": {
+      "title": "Allocation",
+      "body": "What the account holds now, by asset class and then name by name: shares, average entry, market value, gain or loss not yet taken, and each one's weight.",
+      "learn": "",
+      "tour": ""
+    },
+    "stmt-head": {
+      "title": "Monthly statements",
+      "body": "One month on the account, its activity and holdings, read from your broker. Pick the month, then print it or save it as a PDF. It is a summary, not an official brokerage statement.",
+      "learn": "",
+      "tour": ""
+    }
+  }
+}

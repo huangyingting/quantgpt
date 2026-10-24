@@ -1,0 +1,126 @@
+{
+  "page": "events",
+  "path": "/events",
+  "items": {
+    "h-events": {
+      "title": "World events",
+      "body": "Events from around the world on one map, each set against what the S&P 500 did after it and after every past event of its kind. A reading of the record, not a forecast.",
+      "learn": "S5",
+      "tour": "events:0"
+    },
+    "deskmode": {
+      "title": "Simple or everything",
+      "body": "Simple shows the map, the feed and your pins. Everything shows every part at once. Or open one part at a time: futuretest, event rules, theaters, views and replay, or chains.",
+      "learn": "",
+      "tour": ""
+    },
+    "maphint": {
+      "title": "The map",
+      "body": "Each event is a dot where it happened, colored by its lens: world, politics, markets, nature, science or sports. Click a dot for its record, or click a country to filter the feed.",
+      "learn": "S5",
+      "tour": "events:0"
+    },
+    "viewpill": {
+      "title": "Three views",
+      "body": "Map for reading the whole world, Globe for watching it turn, Continent for one theater or continent. The same events, the same layers, the same records.",
+      "learn": "",
+      "tour": "events:3"
+    },
+    "globelegend": {
+      "title": "Layers are filters",
+      "body": "Tap a color to keep only that lens; tap a layer to hide it; shift and a click, or a long press, keeps only that layer. The feed follows the lens. Density counts events per country, never a score.",
+      "learn": "",
+      "tour": ""
+    },
+    "timebar": {
+      "title": "Live and the last day",
+      "body": "Live asks for new events each minute. Drag the bar to see the day as it landed, or play it. Feeds with a date but no time land at the start of their day. Nothing here is a forecast.",
+      "learn": "",
+      "tour": ""
+    },
+    "globelist": {
+      "title": "The globe as a list",
+      "body": "Everything the view shows, one row per country, the most severe first, for a screen reader or a keyboard. The arrow keys turn the globe and the brackets step through its events.",
+      "learn": "",
+      "tour": ""
+    },
+    "chokeasof": {
+      "title": "Chokepoints",
+      "body": "Seven shipping chokepoints from IMF PortWatch, each with its latest day of ship transits against its 90 day median. PortWatch publishes a few days behind.",
+      "learn": "",
+      "tour": ""
+    },
+    "tensionwin": {
+      "title": "Tension",
+      "body": "Organized violence as the Uppsala Conflict Data Program records it: events and deaths per country over the window you picked.",
+      "learn": "",
+      "tour": ""
+    },
+    "viewby": {
+      "title": "View by",
+      "body": "Group the map by country, region, continent, bloc, sector, industry or market cap, and color it by the events or by how markets moved. Play the window day by day to watch events arrive.",
+      "learn": "",
+      "tour": ""
+    },
+    "tapename": {
+      "title": "The S&P 500 in the window",
+      "body": "The S&P 500 across the window you picked, with a colored mark under it for each event. When it shows, the dashed line is the Geopolitical Risk index of Caldara and Iacoviello.",
+      "learn": "",
+      "tour": ""
+    },
+    "feed": {
+      "title": "The feed",
+      "body": "The window's events. Market since: how the S&P 500, or the event's own stock, moved from the last close before it. My pins: how your pinned names moved. Click a row for its record.",
+      "learn": "S5",
+      "tour": "events:1"
+    },
+    "addtoggle": {
+      "title": "Add an event",
+      "body": "Add an event of your own: a title, a date, a kind and a country. Only you see it, and it gets the same record as the feed's events. Your plan sets how many you can add.",
+      "learn": "",
+      "tour": ""
+    },
+    "dtitle": {
+      "title": "The evidence",
+      "body": "What you opened, in full. For an event: the S&P 500 1, 5, 21 and 63 sessions later, beside the median after past events of its kind and an ordinary session, plus the ripple, your pins and related odds.",
+      "learn": "S5",
+      "tour": "events:1"
+    },
+    "h-theaters": {
+      "title": "Theaters",
+      "body": "Standing situations, such as Russia and Ukraine or the Taiwan Strait, followed day by day: each one's events in the window and how the funds that track it moved.",
+      "learn": "",
+      "tour": ""
+    },
+    "h-pins": {
+      "title": "Your pins",
+      "body": "Pin a stock and the country it depends on, with a quantity if you like. Pins light their country on the map, ride along every event, and alert you when something lands on them.",
+      "learn": "S5",
+      "tour": "events:4"
+    },
+    "h-calls": {
+      "title": "Your calls",
+      "body": "Record your own prediction from an event's record: a ticker, up or down, over 1, 5, 21 or 63 sessions. Once those sessions pass, it is graded right or wrong on the closes.",
+      "learn": "",
+      "tour": ""
+    },
+    "h-chains": {
+      "title": "Your chains",
+      "body": "String related events together from an event's record, then see what the market did between each one.",
+      "learn": "",
+      "tour": ""
+    },
+    "h-futuretest": {
+      "title": "Futuretest",
+      "body": "Runs your book through every past episode of a kind of event, such as a war over Taiwan, and draws the spread of outcomes as a cone. Keep it and it is scored as the real future arrives.",
+      "learn": "",
+      "tour": ""
+    },
+    "h-rules": {
+      "title": "Event rules",
+      "body": "When an event or the odds match your rule: tell me, track paper positions you chose, or raise a signal for your own code. Its backtest starts at the first close after each event. Nothing places an order.",
+      "learn": "G2",
+      "tour": "events:6"
+    }
+  }
+}

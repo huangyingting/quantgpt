@@ -1,0 +1,143 @@
+{
+  "base": {
+    "1": 0.0004926487188865458,
+    "5": 0.002988337956250753,
+    "21": 0.01049763721339425,
+    "63": 0.025720163902466675
+  },
+  "events": [
+    {
+      "anchor": "2026-10-08",
+      "date": "2026-10-09",
+      "h": {
+        "1": 0.0059469460004828445,
+        "5": -0.0027429256418902703,
+        "21": null,
+        "63": null
+      },
+      "title": "Eight more children in Bangladesh are reported to be killed from measles, bringing the death toll past 1,155."
+    },
+    {
+      "anchor": "2020-03-10",
+      "date": "2020-03-11",
+      "h": {
+        "1": -0.048868445131273974,
+        "5": -0.12248850419808743,
+        "21": -0.045884610491245925,
+        "63": 0.11274254774042247
+      },
+      "title": "WHO declares COVID-19 a pandemic"
+    },
+    {
+      "anchor": "2020-01-22",
+      "date": "2020-01-23",
+      "h": {
+        "1": 0.0011409766124783616,
+        "5": -0.014555610041770195,
+        "21": 0.004816738165123846,
+        "63": -0.15727852529728303
+      },
+      "title": "China locks down Wuhan"
+    },
+    {
+      "anchor": "2009-06-10",
+      "date": "2009-06-11",
+      "h": {
+        "1": 0.006111899148334876,
+        "5": -0.03028270425606394,
+        "21": -0.06390887288609359,
+        "63": 0.10032472794951897
+      },
+      "title": "WHO declares the H1N1 pandemic"
+    },
+    {
+      "anchor": "2003-03-11",
+      "date": "2003-03-12",
+      "h": {
+        "1": 0.0043210845816348264,
+        "5": 0.08207514810399452,
+        "21": 0.08150064485835973,
+        "63": 0.22992775452086867
+      },
+      "title": "WHO issues a global alert on SARS"
+    }
+  ],
+  "h": {
+    "1": {
+      "best": 0.006111899148334876,
+      "hit": 0.8,
+      "median": 0.0043210845816348264,
+      "n": 5,
+      "worst": -0.048868445131273974
+    },
+    "5": {
+      "best": 0.08207514810399452,
+      "hit": 0.2,
+      "median": -0.014555610041770195,
+      "n": 5,
+      "worst": -0.12248850419808743
+    },
+    "21": {
+      "best": 0.08150064485835973,
+      "hit": 0.5,
+      "median": -0.02053393616306104,
+      "n": 4,
+      "worst": -0.06390887288609359
+    },
+    "63": {
+      "best": 0.22992775452086867,
+      "hit": 0.75,
+      "median": 0.10653363784497072,
+      "n": 4,
+      "worst": -0.15727852529728303
+    }
+  },
+  "kind": "health",
+  "label": "Health",
+  "n": 5,
+  "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+  "page": "/world/kind/health",
+  "spacing": 21,
+  "test": {
+    "h": {
+      "1": {
+        "above": 4,
+        "base_median": 0.0004926487188865458,
+        "event_median": 0.0043210845816348264,
+        "n": 5,
+        "p_value": 0.375,
+        "share_above": 0.8,
+        "spacing": 21
+      },
+      "5": {
+        "above": 1,
+        "base_median": 0.002988337956250753,
+        "event_median": -0.014555610041770195,
+        "n": 5,
+        "p_value": 0.375,
+        "share_above": 0.2,
+        "spacing": 21
+      },
+      "21": {
+        "above": 1,
+        "base_median": 0.01049763721339425,
+        "event_median": -0.02053393616306104,
+        "n": 4,
+        "p_value": 0.625,
+        "share_above": 0.25,
+        "spacing": 21
+      },
+      "63": {
+        "above": 2,
+        "base_median": 0.025720163902466675,
+        "event_median": 0.10032472794951897,
+        "n": 3,
+        "p_value": 1,
+        "share_above": 0.6666666666666666,
+        "spacing": 63
+      }
+    },
+    "read": "After 4 health events at least 21 sessions apart, the S&P 500 beat its median 21-session move 1 times (25%); on ordinary days that happens half the time, and a split this lopsided or more has a 62% chance by luck alone."
+  },
+  "warmed": "2026-10-24"
+}

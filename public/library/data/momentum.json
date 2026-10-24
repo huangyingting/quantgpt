@@ -1,0 +1,472 @@
+[
+  {
+    "id": "jegadeesh-titman-1993",
+    "name": "Inspired by Jegadeesh and Titman: Cross-Sectional Momentum",
+    "type": "momentum",
+    "kind": "paper",
+    "src": "Jegadeesh & Titman (1993), Journal of Finance",
+    "year": 1993,
+    "thesis": "Stocks that outperformed over the past 3-12 months keep outperforming over the next 3-12 months.",
+    "criteria": [
+      "Rank NYSE and AMEX stocks on their past 3, 6, 9 or 12-month return (no gap, or a one-week gap)",
+      "Buy the top decile, sell the bottom decile, equal-weighted",
+      "Form monthly and hold 3 to 12 months in overlapping cohorts"
+    ],
+    "result": "In 1965 to 1989 the 6-month/6-month decile strategy earned 12.01% per year compounded (about 0.95% per month); the best variant (12-month formation, 3-month hold, one-week gap) earned about 1.5% per month. Part of the gain reversed in years 2 and 3 and the strategy lost money in Januaries. Profits continued in 1990 to 1998 (Jegadeesh and Titman 2001), with severe crashes in rebounds such as 1932 and 2009 (Daniel and Moskowitz 2016).",
+    "testable": true,
+    "tags": [
+      "momentum",
+      "relative strength",
+      "anomaly",
+      "factor"
+    ],
+    "fidelity": "loose",
+    "run_gap": "Drops stocks up more than 150%, a cap the paper does not have, and holds 20 names for one month, not deciles for 3 to 12 months.",
+    "curated": "checked",
+    "runnable": true
+  },
+  {
+    "id": "carhart-1997",
+    "name": "Inspired by Carhart: Momentum as a Fourth Factor",
+    "type": "momentum",
+    "kind": "paper",
+    "src": "Carhart (1997), Journal of Finance",
+    "year": 1997,
+    "thesis": "Adding a one-year momentum factor to the Fama-French three factors, together with fund expenses and trading costs, almost completely explains persistence in mutual fund returns.",
+    "criteria": [
+      "Build PR1YR monthly: equal-weight top 30 percent minus bottom 30 percent of stocks by 11-month return lagged one month",
+      "Universe: NYSE, AMEX and Nasdaq stocks, re-formed monthly",
+      "Regress fund returns on market, SMB, HML and PR1YR to measure alpha and persistence"
+    ],
+    "result": "Over 1962 to 1993, the hot-hands persistence of top-performing funds was largely momentum exposure plus expenses, not skill; the only significant persistence left was among the worst funds. The paper builds a factor, not a stock strategy; the later value-weighted UMD (Ken French library) is the common momentum benchmark.",
+    "testable": true,
+    "tags": [
+      "momentum",
+      "factor model",
+      "UMD"
+    ],
+    "fidelity": "loose",
+    "run_gap": "Carhart's momentum is a regression factor in a mutual fund study; this is a long-only top 20 book, not his test.",
+    "runnable": true
+  },
+  {
+    "id": "george-hwang-2004",
+    "name": "Inspired by George and Hwang: 52-Week High Momentum",
+    "type": "momentum",
+    "kind": "paper",
+    "src": "George & Hwang (2004), Journal of Finance",
+    "year": 2004,
+    "thesis": "Nearness to the 52-week high forecasts returns better than past returns, and its gains do not reverse later; the authors attribute this to investors anchoring on the 52-week high when judging news.",
+    "criteria": [
+      "Rank stocks by current price divided by the highest price of the past 12 months",
+      "Buy the top 30 percent (nearest the high), sell the bottom 30 percent, equal-weighted",
+      "Hold 6 months in overlapping monthly cohorts"
+    ],
+    "result": "In US stocks 1963 to 2001 the strategy earned about 0.45% per month, about 1.23% excluding January, and dominated individual and industry momentum in head-to-head tests. Unlike past-return momentum, its profits did not reverse in later years.",
+    "testable": true,
+    "tags": [
+      "momentum",
+      "52-week high",
+      "anchoring",
+      "behavioral"
+    ],
+    "fidelity": "loose",
+    "run_gap": "Many names tie at a new 52-week high, so the 20 held are partly picked in ticker order; the paper holds the top 30% long-short.",
+    "runnable": true
+  },
+  {
+    "id": "moskowitz-grinblatt-1999",
+    "name": "Industry Momentum",
+    "type": "momentum",
+    "kind": "paper",
+    "src": "Moskowitz & Grinblatt (1999), Journal of Finance",
+    "year": 1999,
+    "thesis": "Industry portfolios show strong momentum that accounts for much of individual stock momentum; after removing industry effects, stock-level momentum is much weaker.",
+    "criteria": [
+      "Group stocks into 20 industries by 2-digit SIC; value-weight within each industry",
+      "Rank industries by past 6-month return",
+      "Buy the top 3 industries, sell the bottom 3, hold 6 months"
+    ],
+    "result": "Over July 1963 to July 1995 industry momentum survived controls for size, book-to-market, stock momentum and microstructure, and was strongest in the first month after formation, where stock momentum instead reverses. How much stock momentum it explains is disputed in later work.",
+    "testable": true,
+    "tags": [
+      "momentum",
+      "industry",
+      "sector rotation"
+    ]
+  },
+  {
+    "id": "tsmom-2012",
+    "name": "Time-Series Momentum (Trend)",
+    "type": "momentum",
+    "kind": "paper",
+    "src": "Moskowitz, Ooi & Pedersen (2012), JFE",
+    "year": 2012,
+    "thesis": "An asset's own past 12-month excess return predicts its return over the next 1 to 12 months in equity index, bond, currency and commodity futures, with partial reversal after about a year.",
+    "criteria": [
+      "For each of 58 futures and forwards: long if the past 12-month excess return is positive, short if negative",
+      "Scale each position to the same ex-ante volatility (inverse of recent volatility)",
+      "Hold one month, rebalance monthly, equal risk across instruments"
+    ],
+    "result": "All 58 instruments showed positive time-series momentum over data from as early as 1965 to 2009. The diversified portfolio did best in extreme markets, including 2008, and explains much of managed-futures returns. Returns partially reverse beyond 12 months.",
+    "testable": true,
+    "tags": [
+      "trend",
+      "time-series momentum",
+      "managed futures",
+      "CTA"
+    ],
+    "fidelity": "wrong",
+    "not_runnable": "The paper trades futures on stock indexes, bonds, currencies and commodities, long and short, and our runs hold US stocks long only, so this cannot be run as published."
+  },
+  {
+    "id": "daniel-moskowitz-2016",
+    "name": "Momentum Crashes",
+    "type": "momentum",
+    "kind": "paper",
+    "src": "Daniel & Moskowitz (2016), JFE",
+    "year": 2016,
+    "thesis": "Momentum's worst losses come in rebounds after market panics, when beaten-down losers surge; these crashes are partly forecastable from bear-market and volatility conditions.",
+    "criteria": [
+      "Build a decile winner-minus-loser portfolio on months t-12 to t-2 returns",
+      "Flag a bear market when the past 24-month market return is negative; forecast momentum variance from recent daily returns",
+      "Scale exposure by forecast mean divided by forecast variance, cutting or reversing it in panic states"
+    ],
+    "result": "In US stocks from 1927, the worst momentum losses came in rebounds: in July-August 1932 losers returned 232% vs 32% for winners, and in March-May 2009 losers rose 163% vs 8%. The dynamic strategy approximately doubled the alpha and Sharpe ratio of static momentum in sample, and the pattern appears in other markets.",
+    "testable": true,
+    "tags": [
+      "momentum",
+      "crash risk",
+      "regime",
+      "risk management"
+    ]
+  },
+  {
+    "id": "blitz-residual-2011",
+    "name": "Residual (Idiosyncratic) Momentum",
+    "type": "momentum",
+    "kind": "paper",
+    "src": "Blitz, Huij & Martens (2011), J. Empirical Finance",
+    "year": 2011,
+    "thesis": "Ranking stocks on residual returns after a Fama-French three-factor regression strips out momentum's time-varying factor bets and roughly doubles its risk-adjusted profit.",
+    "criteria": [
+      "Regress each stock's monthly returns on market, SMB and HML over the prior 36 months",
+      "Rank on residual return over months t-12 to t-2, scaled by residual volatility",
+      "Long top decile, short bottom decile, re-form monthly"
+    ],
+    "result": "Residual momentum earned risk-adjusted profits about twice those of total-return momentum, was more consistent over time, and was less concentrated in the extreme stocks of the cross-section in the long US sample.",
+    "testable": true,
+    "tags": [
+      "momentum",
+      "residual",
+      "risk-adjusted"
+    ]
+  },
+  {
+    "id": "antonacci-dual-2014",
+    "name": "Dual Momentum (GEM)",
+    "type": "momentum",
+    "kind": "book",
+    "src": "Gary Antonacci, 'Dual Momentum Investing' (2014), McGraw-Hill",
+    "year": 2014,
+    "thesis": "Combine relative momentum (best asset) with absolute momentum (only if trending up) to switch between equities and bonds.",
+    "criteria": [
+      "Monthly: if the S&P 500's 12-month return beats T-bills, hold the better of the S&P 500 and MSCI ACWI ex-US over 12 months",
+      "If the S&P 500's 12-month return is below T-bills, hold US aggregate bonds"
+    ],
+    "result": "The book's 1974 to 2013 backtest shows 17.43% per year with a 22.72% maximum drawdown, far shallower than the equity indexes' 2008 losses. It is an in-sample result; post-publication performance has been weaker, with whipsaw losses.",
+    "testable": true,
+    "tags": [
+      "momentum",
+      "tactical",
+      "asset allocation",
+      "retail"
+    ]
+  },
+  {
+    "id": "gap-continuation",
+    "name": "Gap-and-Go Continuation",
+    "type": "momentum",
+    "kind": "practitioner",
+    "src": "Day-trading rule of thumb (no single source)",
+    "year": 2000,
+    "thesis": "Traders claim that large opening gaps on heavy volume in strong stocks tend to keep going rather than fill; this is a hypothesis, not a documented result.",
+    "criteria": [
+      "Gap up >4% on >2x average volume",
+      "Prior uptrend or catalyst (earnings, news)",
+      "Enter on opening range breakout; stop below open"
+    ],
+    "result": "No tested source is cited, and the thresholds are rules of thumb. Academic work on attention-driven overnight moves finds opening gains in high-attention stocks tend to reverse intraday, so continuation is unproven; test before relying on it.",
+    "testable": true,
+    "tags": [
+      "gaps",
+      "intraday",
+      "continuation",
+      "retail"
+    ],
+    "star": true
+  },
+  {
+    "id": "lo-mackinlay-1990",
+    "name": "Inspired by Jegadeesh and Lehmann: Short-Horizon Reversal",
+    "type": "momentum",
+    "kind": "paper",
+    "src": "Jegadeesh (1990); Lehmann (1990)",
+    "year": 1990,
+    "thesis": "At the 1-week to 1-month horizon, returns reverse: last period's losers beat last period's winners. Later work links the effect to liquidity provision.",
+    "criteria": [
+      "Jegadeesh: rank on predicted monthly return (dominated by a negative one-month lag), long top decile, short bottom",
+      "Lehmann: weekly, weights proportional to minus each stock's prior-week return relative to the market",
+      "Hold one month (Jegadeesh) or one week (Lehmann); costs decide implementability"
+    ],
+    "result": "Jegadeesh found a 2.49% per month abnormal return difference between extreme deciles over 1934 to 1987; Lehmann found weekly reversal profits that survived his bid-ask and cost corrections. Later studies find the profits concentrate in small, illiquid stocks and shrink sharply after realistic trading costs.",
+    "testable": true,
+    "tags": [
+      "reversal",
+      "mean reversion",
+      "short horizon",
+      "liquidity"
+    ],
+    "fidelity": "loose",
+    "run_gap": "Buys the 20 worst one-month losers, long only; the papers test reversal as a long-short spread, Lehmann's weekly.",
+    "runnable": true
+  },
+  {
+    "id": "de-bondt-thaler-long-term-reversal",
+    "name": "Long-Term Loser Reversal",
+    "type": "momentum",
+    "kind": "paper",
+    "src": "Werner F. M. De Bondt & Richard Thaler (1985), Does the Stock Market Overreact?, The Journal of Finance",
+    "year": 1985,
+    "thesis": "Extreme multi-year stock moves can reflect overreaction rather than a permanent change in value. Prior losers are bought and prior winners sold in expectation of a long-horizon reversal.",
+    "criteria": [
+      "Rank NYSE stocks on cumulative market-adjusted return over the prior 36 months",
+      "Form equal-weighted portfolios of the 35 biggest losers and 35 biggest winners",
+      "Buy losers, sell winners, hold 36 months; repeat in non-overlapping 3-year periods"
+    ],
+    "result": "Over the 36 months after formation, losers beat the market by 19.6% and winners lagged by 5.0%, a 24.6% spread (t = 2.20). The effect was mostly on the loser side and much of it came in Januaries; later work ties part of it to size, low-priced stocks and changing risk.",
+    "testable": true,
+    "tags": [
+      "reversal",
+      "contrarian",
+      "long-horizon",
+      "equities",
+      "behavioral"
+    ]
+  },
+  {
+    "id": "lehmann-weekly-contrarian",
+    "name": "Weekly Winner-Loser Reversal",
+    "type": "momentum",
+    "kind": "paper",
+    "src": "Bruce N. Lehmann (1990), Fads, Martingales, and Market Efficiency, The Quarterly Journal of Economics",
+    "year": 1990,
+    "thesis": "Very recent cross-sectional winners and losers can reverse over the following week. The strategy takes the opposite side of an extreme one-week move.",
+    "criteria": [
+      "Each week, compute every stock's prior-week return minus the equal-weighted market return",
+      "Weight each stock in proportion to minus that relative return: buy losers, sell winners",
+      "Scale long and short sides to equal dollars, hold one week, re-form weekly"
+    ],
+    "result": "In NYSE and AMEX stocks, 1962 to 1986, prior-week winners and losers reversed sharply the next week, and Lehmann's profits survived his bid-ask and cost corrections. Later studies find the effect concentrated in small, illiquid stocks; implementability depends on trading costs.",
+    "testable": true,
+    "tags": [
+      "reversal",
+      "contrarian",
+      "weekly",
+      "equities",
+      "liquidity"
+    ]
+  },
+  {
+    "id": "chan-jegadeesh-lakonishok-earnings-momentum",
+    "name": "Earnings-Surprise Momentum",
+    "type": "momentum",
+    "kind": "paper",
+    "src": "Louis K. C. Chan, Narasimhan Jegadeesh & Josef Lakonishok (1996), Momentum Strategies, The Journal of Finance",
+    "year": 1996,
+    "thesis": "Both prior price performance and prior earnings news predict subsequent returns. Sorting on earnings surprises provides a momentum signal distinct from price-only momentum.",
+    "criteria": [
+      "Measure earnings news three ways: SUE, announcement abnormal return, analyst forecast revisions",
+      "Sort stocks into equal-weighted deciles on each measure and on prior 6-month return",
+      "Long top decile, short bottom; track returns over the next 6 and 12 months"
+    ],
+    "result": "Over 1977 to 1993, past returns and past earnings surprises each predicted sizeable later drifts after controlling for the other, with no sign of later reversal; market risk, size and book-to-market did not explain them.",
+    "testable": true,
+    "tags": [
+      "momentum",
+      "earnings",
+      "post-earnings-drift",
+      "equities",
+      "cross-sectional"
+    ],
+    "fidelity": "close",
+    "run_gap": "The earnings-surprise (SUE) leg only, 20 names held one month; the paper also sorts on past returns and holds 6 to 12 months.",
+    "runnable": true
+  },
+  {
+    "id": "novy-marx-intermediate-momentum",
+    "name": "Intermediate-Horizon Momentum Echo",
+    "type": "momentum",
+    "kind": "paper",
+    "src": "Robert Novy-Marx (2012), Is Momentum Really Momentum?, Journal of Financial Economics",
+    "year": 2012,
+    "thesis": "The most informative part of a conventional momentum lookback is intermediate rather than recent performance. Rank stocks on returns from roughly twelve to seven months before formation.",
+    "criteria": [
+      "Rank stocks each month on return from month t-12 to t-7",
+      "Long the top decile, short the bottom decile",
+      "Rebalance monthly; the most recent six months are excluded from the signal"
+    ],
+    "result": "Novy-Marx found momentum is driven mainly by returns 12 to 7 months back, and that recent-return (6 to 2 months) strategies earn less, especially in large, liquid stocks, with similar results in index, commodity and currency markets. Later international tests found the pattern weaker outside the US.",
+    "testable": true,
+    "tags": [
+      "momentum",
+      "intermediate-horizon",
+      "equities",
+      "cross-sectional",
+      "echo"
+    ]
+  },
+  {
+    "id": "grinblatt-moskowitz-consistency-tax-loss",
+    "name": "Return Consistency and Tax-Loss Momentum",
+    "type": "momentum",
+    "kind": "paper",
+    "src": "Mark Grinblatt & Tobias J. Moskowitz (2004), Predicting Stock Price Movements from Past Returns: The Role of Consistency and Tax-Loss Selling, Journal of Financial Economics",
+    "year": 2004,
+    "thesis": "The path of prior returns and year-end tax-loss selling add information beyond cumulative past return. A return forecast combines return direction, consistency, and the calendar-sensitive loss signal.",
+    "criteria": [
+      "Model returns on past returns at several horizons: last month, 3 to 12 months, 3 to 5 years",
+      "Add a consistency dummy: positive returns in at least 8 of 12 months with a positive 12-month return",
+      "Add tax-loss-selling terms around December and January",
+      "Buy the highest predicted-return stocks, sell the lowest"
+    ],
+    "result": "Grinblatt and Moskowitz found consistent winners outperform other winners and tax-loss selling shapes the December-January pattern; their parsimonious hedged rule earned large returns in sample after controls for other premia and data snooping.",
+    "testable": true,
+    "tags": [
+      "momentum",
+      "tax-loss-selling",
+      "seasonality",
+      "equities",
+      "return-path"
+    ]
+  },
+  {
+    "id": "heston-sadka-calendar-month-seasonality",
+    "name": "Same-Calendar-Month Seasonal Momentum",
+    "type": "seasonality",
+    "kind": "paper",
+    "src": "Steven L. Heston & Ronnie Sadka (2008), Seasonality in the Cross-Section of Stock Returns, Journal of Financial Economics",
+    "year": 2008,
+    "thesis": "A stock's relative return in a calendar month tends to recur in that same calendar month in later years. The signal uses its own same-month history instead of an adjacent-month momentum window.",
+    "criteria": [
+      "For the coming calendar month, take each stock's return in that same month in prior years",
+      "Rank on the average of those same-month returns (up to 20 annual lags)",
+      "Buy the top decile, sell the bottom decile, refresh every month"
+    ],
+    "result": "Heston and Sadka found stocks with high returns in a given calendar month tend to outperform in that same month in later years, with the pattern lasting up to 20 annual lags on top of ordinary momentum and reversal effects.",
+    "testable": true,
+    "tags": [
+      "seasonality",
+      "momentum",
+      "calendar",
+      "equities",
+      "cross-sectional"
+    ]
+  },
+  {
+    "id": "da-gurun-warachka-frog-in-the-pan",
+    "name": "Frog-in-the-Pan Continuous-Information Momentum",
+    "type": "momentum",
+    "kind": "paper",
+    "src": "Zhi Da, Umit G. Gurun & Mitch Warachka (2014), Frog in the Pan: Continuous Information and Momentum, The Review of Financial Studies",
+    "year": 2014,
+    "thesis": "A smooth sequence of small daily moves may receive less investor attention than a comparable abrupt move. Momentum is therefore conditioned on the continuity, or low discreteness, of the formation-period return path.",
+    "criteria": [
+      "Compute each stock's return over months t-12 to t-2 (PRET)",
+      "Information discreteness: ID = sign(PRET) x (share of negative days - share of positive days) in that window",
+      "Within momentum groups, sort on ID; low ID means continuous information",
+      "Buy low-ID winners, short low-ID losers"
+    ],
+    "result": "For stocks with similar formation returns, momentum fell steadily from 5.94% for the most continuous-information stocks to -2.07% for the most discrete, and continuous-information momentum showed no long-run reversal.",
+    "testable": true,
+    "tags": [
+      "momentum",
+      "information-discreteness",
+      "behavioral",
+      "daily-returns",
+      "equities"
+    ]
+  },
+  {
+    "id": "barroso-santa-clara-volatility-managed-momentum",
+    "name": "Volatility-Managed Momentum",
+    "type": "momentum",
+    "kind": "paper",
+    "src": "Pedro Barroso & Pedro Santa-Clara (2015), Momentum Has Its Moments, Journal of Financial Economics",
+    "year": 2015,
+    "thesis": "Momentum risk varies substantially over time, including crash-prone periods. Scale a conventional momentum portfolio down when its recent realized volatility is high.",
+    "criteria": [
+      "Form a monthly winner-minus-loser momentum portfolio (12-2 returns)",
+      "Estimate its realized volatility from the prior six months of daily returns",
+      "Scale next month's exposure to target volatility over that estimate (a constant volatility target)",
+      "Re-estimate and rebalance monthly"
+    ],
+    "result": "Over 1927 to 2011, scaling momentum by its recent realized volatility raised the Sharpe ratio from 0.53 to 0.97 and largely removed its crashes. The scaled strategy uses time-varying leverage and is shown before trading and financing costs.",
+    "testable": true,
+    "tags": [
+      "momentum",
+      "volatility-targeting",
+      "risk-management",
+      "equities",
+      "crash-risk"
+    ]
+  },
+  {
+    "id": "ehsani-linnainmaa-factor-momentum",
+    "name": "Factor Momentum",
+    "type": "momentum",
+    "kind": "paper",
+    "src": "Sina Ehsani & Juhani T. Linnainmaa (2022), Factor Momentum and the Momentum Factor, The Journal of Finance",
+    "year": 2022,
+    "thesis": "Factor returns are positively autocorrelated: factors that did well over the past year tend to keep doing well. Individual stock momentum largely reflects this factor momentum.",
+    "criteria": [
+      "Use a fixed set of published long-short factor return series",
+      "Each month, compute each factor's return over the prior 12 months",
+      "Time-series version: long factors with positive prior-year returns, short those with negative",
+      "Rebalance monthly; cross-sectional version (winners minus losers among factors) is weaker"
+    ],
+    "result": "The average factor earned 1 basis point a month after a losing year and 53 basis points after a positive year. The authors conclude factor momentum explains individual stock momentum, which crashes when factor autocorrelations break down.",
+    "testable": true,
+    "tags": [
+      "momentum",
+      "factors",
+      "cross-asset",
+      "portfolio",
+      "factor-timing"
+    ]
+  },
+  {
+    "id": "da-liu-schaumburg-residual-reversal",
+    "name": "Fundamental-News-Adjusted Short-Term Reversal",
+    "type": "momentum",
+    "kind": "paper",
+    "src": "Zhi Da, Qianqiu Liu & Ernst Schaumburg (2014), A Closer Look at the Short-Term Return Reversal, Management Science",
+    "year": 2014,
+    "thesis": "Short-term reversal is stronger for price moves not explained by fundamental news. Use earnings-forecast revisions to separate a prior-month return into fundamental and residual components before taking the contrarian trade.",
+    "criteria": [
+      "Within each industry, sort stocks by their prior-month return and separately by their prior-month analyst earnings-forecast revision.",
+      "Identify past losers with upward forecast revisions and past winners with downward forecast revisions.",
+      "Buy the loser/upward-revision cell and short the winner/downward-revision cell in equal dollar amounts.",
+      "Hold the long-short position for one month and repeat the double sort monthly."
+    ],
+    "result": "Returns not explained by cash-flow news reversed more strongly than news-driven returns, and the enhanced reversal strategy earned a risk-adjusted return about four times that of standard short-term reversal in sample. The authors tie the long side to liquidity shocks and the short side to sentiment and short-sale limits.",
+    "testable": true,
+    "tags": [
+      "reversal",
+      "earnings-forecasts",
+      "residual-returns",
+      "equities",
+      "short-horizon"
+    ]
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "page": "runner",
+  "path": "/runner",
+  "items": {
+    "rn-bots": {
+      "title": "Your bots",
+      "body": "On QuantGPT Pro: each bot is your own code, compiled from a backtest in your journal or started blank. QuantGPT Cloud runs what you save, on your schedule, at your own Alpaca account.",
+      "learn": "G3",
+      "tour": ""
+    },
+    "rn-code": {
+      "title": "Your code",
+      "body": "The file QuantGPT Cloud runs on QuantGPT Pro, exactly as saved here and nothing else. Each save gets a version code, so you can tell which version ran.",
+      "learn": "G3",
+      "tour": ""
+    },
+    "rn-sched": {
+      "title": "The schedule",
+      "body": "Five fields of New York time: minute, hour, day of the month, month, weekday. The panel reads it back in words with the next five wake times.",
+      "learn": "",
+      "tour": ""
+    },
+    "rn-keys": {
+      "title": "Alpaca keys",
+      "body": "QuantGPT Cloud supports Alpaca today (paper and live accounts). Your Alpaca dashboard makes a Key ID and a Secret Key, and shows the secret once. Each account has its own keys, and a bot runs only on matching keys.",
+      "learn": "G3",
+      "tour": ""
+    },
+    "rn-acct": {
+      "title": "Your Alpaca account",
+      "body": "Your own Alpaca keys, paper or live, sealed in this browser before they leave the page, so our web server never sees the secret. You can revoke them at Alpaca any time.",
+      "learn": "",
+      "tour": ""
+    },
+    "rn-runs": {
+      "title": "Runs",
+      "body": "Each run: when it started, what started it, paper or live, its exit code, how many seconds it took and how many screens it read. Click one for its output.",
+      "learn": "",
+      "tour": ""
+    }
+  }
+}

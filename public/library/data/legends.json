@@ -1,0 +1,290 @@
+[
+  {
+    "id": "buffett-owner-earnings",
+    "name": "Inspired by Buffett: Moats and Owner Earnings",
+    "type": "fundamental",
+    "kind": "letters",
+    "src": "Berkshire Hathaway shareholder letters (1977-); esp. 1986 appendix",
+    "year": 1986,
+    "thesis": "Buy businesses with durable competitive advantages at sensible prices, valued on owner earnings (true distributable cash), and hold.",
+    "criteria": [
+      "Owner earnings = net income + D&A and other non-cash charges - maintenance capex (an estimate) and any extra working capital",
+      "Understandable business with durable advantages, good ROE with little or no debt, able management of integrity",
+      "Buy well below conservative intrinsic value; concentrate; rarely sell"
+    ],
+    "result": "Berkshire market value per share compounded 19.9%/yr 1965-2024 vs 10.4% for the S&P 500 with dividends (2024 letter). The margin has been much smaller in recent decades, and Buffett says it will not be repeated.",
+    "testable": "partial",
+    "tags": [
+      "Buffett",
+      "moat",
+      "quality",
+      "letters",
+      "legend"
+    ],
+    "star": true,
+    "fidelity": "loose",
+    "run_gap": "Buffett published no screen: free cash flow stands in for owner earnings, with no moat, debt or management test.",
+    "curated": "checked",
+    "runnable": true
+  },
+  {
+    "id": "buffett-partnership-1957",
+    "name": "Buffett Partnership Playbook",
+    "type": "special-situations",
+    "kind": "letters",
+    "src": "Buffett Partnership letters (1957-1970)",
+    "year": 1957,
+    "thesis": "Three buckets ran the early record: undervalued 'generals', 'workouts' whose payoff depended on corporate events, and control positions, with large sizing when the odds were extreme.",
+    "criteria": [
+      "Generals: undervalued stocks with no timetable; later split into private-owner and relatively undervalued",
+      "Workouts: mergers, liquidations, spin-offs; return tied to the deal, not the market",
+      "Up to 40% of net worth in one idea when the facts are near-certain (January 1966 letter)"
+    ],
+    "result": "1957-1969: 29.5%/yr for the partnership before Buffett's share, 23.8%/yr to limited partners, vs 7.4% for the Dow with dividends; no losing year. Small capital made it possible.",
+    "testable": "partial",
+    "tags": [
+      "Buffett",
+      "workouts",
+      "special situations",
+      "letters",
+      "legend"
+    ]
+  },
+  {
+    "id": "lynch-garp-1989",
+    "name": "Lynch: GARP & Category Playbook",
+    "type": "growth",
+    "kind": "book",
+    "src": "Peter Lynch, 'One Up on Wall Street' (1989)",
+    "year": 1989,
+    "thesis": "Buy what you can understand, classify it (slow grower, stalwart, fast grower, cyclical, turnaround, asset play), and pay a P/E no higher than the growth rate.",
+    "criteria": [
+      "PEG = P/E / growth rate: 1 is fair, 0.5 very attractive; or (growth + yield) / P/E of 2 or more",
+      "Prefer dull, overlooked names with insider buying and little institutional ownership",
+      "Set expectations by category; fast growers ideally 20-25% a year"
+    ],
+    "result": "Magellan returned about 29%/yr from 1977 to 1990 (Fidelity cites 29.2%), a discretionary fund record, not a PEG backtest. Lynch popularized the PEG; he did not invent it.",
+    "testable": true,
+    "tags": [
+      "Lynch",
+      "GARP",
+      "PEG",
+      "growth",
+      "retail",
+      "legend"
+    ],
+    "star": true,
+    "fidelity": "wrong",
+    "not_runnable": "Lynch buys growth at a P/E no higher than the growth rate (PEG), and our runs cannot rank on PEG yet, so this cannot be run as published."
+  },
+  {
+    "id": "fisher-15-points-1958",
+    "name": "Fisher's Fifteen Points (Scuttlebutt)",
+    "type": "growth",
+    "kind": "book",
+    "src": "Philip Fisher, 'Common Stocks and Uncommon Profits' (1958)",
+    "year": 1958,
+    "thesis": "Superb growth companies pass fifteen qualitative tests on product runway, R&D, sales organization, margins, and management integrity - found via scuttlebutt research.",
+    "criteria": [
+      "Products with market room for years of sales growth, and new products coming",
+      "Effective R&D and sales force; worthwhile, defended margins; no dilutive equity raises",
+      "Deep, candid management of unquestioned integrity; sell almost never"
+    ],
+    "result": "No documented record exists for Fisher. Buffett said in 1969 he was '85% Graham, 15% Fisher' and later moved toward Fisher; the points underpin quality-growth research.",
+    "testable": "partial",
+    "tags": [
+      "Fisher",
+      "growth",
+      "qualitative",
+      "scuttlebutt",
+      "legend"
+    ]
+  },
+  {
+    "id": "zweig-model-1986",
+    "name": "Zweig's Monetary + Momentum Model",
+    "type": "macro",
+    "kind": "book",
+    "src": "Martin Zweig, 'Winning on Wall Street' (1986)",
+    "year": 1986,
+    "thesis": "'Don't fight the Fed, don't fight the tape': combine monetary conditions (rates, credit) with tape momentum into one dial.",
+    "criteria": [
+      "Monetary model: prime rate, Fed discount-rate and reserve-requirement moves, installment debt",
+      "Momentum model: 4% weekly index moves, advance/decline and up-volume, breadth thrust",
+      "Exposure scaled up when monetary and momentum readings are both bullish"
+    ],
+    "result": "The book reports hypothetical indicator results, not an audited record. Zweig warned of a crash days before October 19, 1987; the model's live record is not public.",
+    "testable": true,
+    "tags": [
+      "Zweig",
+      "macro",
+      "monetary",
+      "breadth",
+      "timing",
+      "legend"
+    ]
+  },
+  {
+    "id": "neff-lowpe-1999",
+    "name": "Neff's Low-P/E + Yield Discipline",
+    "type": "value",
+    "kind": "book",
+    "src": "John Neff, 'John Neff on Investing' (1999)",
+    "year": 1999,
+    "thesis": "Buy solid growers at low P/Es with dividends; the 'total return / P/E' ratio finds them.",
+    "criteria": [
+      "Low P/E, well below the market's; (EPS growth + dividend yield) / P/E well above the market's",
+      "Earnings growth above 7%, wary of rates above about 20%",
+      "Solid companies; sell when fundamentals fade or price reaches value"
+    ],
+    "result": "Windsor under Neff, 1964-1995: 13.7%/yr vs 10.6% for the S&P 500 with dividends; beat the index in 22 of 31 years. The ratios are mechanical; the cyclical and industry judgment is not.",
+    "testable": true,
+    "tags": [
+      "Neff",
+      "low P/E",
+      "yield",
+      "value",
+      "legend"
+    ],
+    "fidelity": "close",
+    "run_gap": "An absolute P/E cap with an E/P rank; Neff's total return ratio (growth plus yield over P/E) is not used.",
+    "runnable": true
+  },
+  {
+    "id": "klarman-margin-1991",
+    "name": "Klarman's Margin of Safety",
+    "type": "value",
+    "kind": "book",
+    "src": "Seth Klarman, 'Margin of Safety' (1991)",
+    "year": 1991,
+    "thesis": "Risk is permanent loss, not volatility; buy only at large discounts to conservative value, prefer catalysts, hold cash without opportunity.",
+    "criteria": [
+      "Value conservatively: cash-flow NPV, liquidation value, or comparable market value",
+      "Prefer catalysts: liquidations, spinoffs, bankruptcies, arbitrage",
+      "Hold cash when nothing is cheap enough; avoid leverage"
+    ],
+    "result": "Baupost (founded 1982) is private and its record is not public; press reports cite high-teens yearly returns, unverified. The book is out of print and resells at collector prices.",
+    "testable": "partial",
+    "tags": [
+      "Klarman",
+      "margin of safety",
+      "distressed",
+      "value",
+      "legend"
+    ]
+  },
+  {
+    "id": "marks-cycles-2011",
+    "name": "Marks: Second-Level Thinking & Cycles",
+    "type": "macro",
+    "kind": "book",
+    "src": "Howard Marks, 'The Most Important Thing' (2011); 'Mastering the Market Cycle' (2018); memos (1990-)",
+    "year": 2011,
+    "thesis": "Returns come from what you pay versus sentiment's position in the cycle; be aggressive when others are terrified, careful when they're euphoric.",
+    "criteria": [
+      "'Take the temperature' of the cycle: credit terms, IPO froth, spreads",
+      "Increase risk after busts, reduce into euphoria",
+      "Never confuse quality of asset with quality of purchase price"
+    ],
+    "result": "A framework, not a rule: Marks gives no mechanical signal or backtest, and Oaktree's fund records are only partly public. Known for adding distressed-debt risk in busts such as 2008.",
+    "testable": "partial",
+    "tags": [
+      "Marks",
+      "cycles",
+      "sentiment",
+      "credit",
+      "legend"
+    ]
+  },
+  {
+    "id": "soros-reflexivity-1987",
+    "name": "Soros: Reflexivity & Asymmetric Bets",
+    "type": "macro",
+    "kind": "book",
+    "src": "George Soros, 'The Alchemy of Finance' (1987)",
+    "year": 1987,
+    "thesis": "Prices change fundamentals (reflexivity), so trends overshoot; find the flaw in the consensus and bet enormous when the setup is asymmetric.",
+    "criteria": [
+      "Identify self-reinforcing boom/bust processes and the flaw in the prevailing view",
+      "Ride the trend while the feedback runs; reverse when the flaw is exposed",
+      "Size up hard on rare asymmetric setups (Druckenmiller's account in The New Market Wizards)"
+    ],
+    "result": "Quantum is widely reported at about 30%/yr from 1969 to 2000, with losing years. The 1992 sterling short, led by Druckenmiller, made about $1 billion. The theory is not a testable rule.",
+    "testable": "partial",
+    "tags": [
+      "Soros",
+      "macro",
+      "reflexivity",
+      "sizing",
+      "legend"
+    ]
+  },
+  {
+    "id": "druckenmiller-concentration",
+    "name": "Druckenmiller: Concentrated Macro Momentum",
+    "type": "macro",
+    "kind": "practitioner",
+    "src": "'The New Market Wizards' (1992); later interviews and speeches",
+    "year": 1992,
+    "thesis": "Invest for where the economy will be in 18-24 months, not today; follow central-bank liquidity, express it through the strongest asset, and bet big when conviction and the tape agree.",
+    "criteria": [
+      "Earnings don't move markets; liquidity does - track Fed direction",
+      "Concentrate: few positions, sized to matter",
+      "If wrong, exit instantly; preserve the ability to bet big again"
+    ],
+    "result": "Duquesne reportedly averaged about 30%/yr with no losing year until he returned outside money in 2010; the records are private. He also lost heavily on tech in 2000 at Soros.",
+    "testable": "partial",
+    "tags": [
+      "Druckenmiller",
+      "macro",
+      "liquidity",
+      "concentration",
+      "legend"
+    ]
+  },
+  {
+    "id": "templeton-pessimism",
+    "name": "Templeton: Point of Maximum Pessimism",
+    "type": "value",
+    "kind": "practitioner",
+    "src": "Lauren C. Templeton and Scott Phillips, 'Investing the Templeton Way' (2008)",
+    "year": 2008,
+    "thesis": "Buy where the outlook is bleakest, across countries as well as stocks; his 1939 purchase of about 100 US stocks priced at $1 or less is the archetype.",
+    "criteria": [
+      "Search worldwide for stocks and markets cheapest against future earnings",
+      "Buy at maximum pessimism; diversify across the hated basket",
+      "Sell when a much better bargain turns up"
+    ],
+    "result": "The 1939 basket of about 104 sub-$1 stocks roughly quadrupled in four years. Templeton Growth Fund is widely cited at about 14.5%/yr from 1954 to 1992.",
+    "testable": true,
+    "tags": [
+      "Templeton",
+      "global value",
+      "contrarian",
+      "crisis",
+      "legend"
+    ]
+  },
+  {
+    "id": "dalio-allweather-1996",
+    "name": "Dalio: All Weather / Risk Parity",
+    "type": "allocation",
+    "kind": "practitioner",
+    "src": "Bridgewater, 'The All Weather Story' (2012); Dalio, 'Principles' (2017)",
+    "year": 1996,
+    "thesis": "Balance risk (not dollars) across assets that win in different growth/inflation regimes; leverage the safe mix to equity-like returns.",
+    "criteria": [
+      "Four environments: growth rising or falling, inflation rising or falling",
+      "Equal risk to each environment via stocks, nominal bonds, inflation-linked bonds, commodities",
+      "Lever the low-risk assets so each carries similar risk; rebalance mechanically"
+    ],
+    "result": "The best-known risk-parity portfolio. Bridgewater's own backtests show equity-like returns with less volatility; it had its worst year in 2022 when stocks and bonds fell together.",
+    "testable": true,
+    "tags": [
+      "Dalio",
+      "risk parity",
+      "allocation",
+      "all weather"
+    ]
+  }
+]

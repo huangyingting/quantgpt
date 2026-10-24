@@ -1,0 +1,415 @@
+[
+  {
+    "id": "low-vol-anomaly",
+    "name": "Low-Volatility Anomaly",
+    "type": "volatility",
+    "kind": "paper",
+    "src": "Haugen & Baker (1991); Baker, Bradley & Wurgler (2011)",
+    "year": 1991,
+    "thesis": "Low-volatility and low-beta US stocks have earned similar or higher returns than high-volatility stocks with much less risk, the opposite of what the CAPM predicts.",
+    "criteria": [
+      "Rank large US stocks by trailing volatility (BBW: 5 years of monthly returns) or by beta",
+      "Hold the lowest-volatility quintile; the highest quintile is the comparison leg",
+      "Haugen and Baker instead optimize a long-only minimum-variance portfolio",
+      "Sector neutralization is our option, not part of either source"
+    ],
+    "result": "BBW, 1968 to 2008: $1 in the lowest-volatility quintile grew to $59.55 ($10.12 real) while $1 in the highest fell to $0.58. They blame benchmarked managers plus demand for lottery-like stocks. Low-vol lags in strong bull markets.",
+    "testable": true,
+    "tags": [
+      "low volatility",
+      "defensive",
+      "anomaly",
+      "factor"
+    ],
+    "fidelity": "close",
+    "run_gap": "20 names, equal weight, on one year of daily volatility; the papers sort quintiles on up to five years of monthly returns.",
+    "runnable": true
+  },
+  {
+    "id": "bab-2014",
+    "name": "Betting Against Beta (BAB)",
+    "type": "volatility",
+    "kind": "paper",
+    "src": "Frazzini & Pedersen (2014), JFE",
+    "year": 2014,
+    "thesis": "Investors who cannot or will not use leverage bid up high-beta assets, so low-beta assets earn higher risk-adjusted returns. BAB levers low-beta assets and shorts high-beta ones to capture the gap while staying beta-neutral.",
+    "criteria": [
+      "Estimate beta from 1-year volatility and 5-year correlation, shrunk toward 1",
+      "Split at the median beta and rank-weight each side",
+      "Lever the low-beta leg and delever the high-beta leg to beta 1 each; long low, short high",
+      "Rebalance monthly"
+    ],
+    "result": "US equity BAB, 1926 to 2012: Sharpe ratio 0.78. The authors report positive, significant BAB returns in international stocks, Treasuries, credit and futures. Novy-Marx and Velikov (2022) find much of the US result comes from tiny stocks and the nonstandard beta estimate.",
+    "testable": true,
+    "tags": [
+      "beta",
+      "leverage",
+      "factor",
+      "AQR"
+    ],
+    "fidelity": "wrong",
+    "not_runnable": "Betting Against Beta is levered and long-short, and our runs are long only without leverage, so this cannot be run as published."
+  },
+  {
+    "id": "variance-premium",
+    "name": "Volatility Risk Premium (Selling Insurance)",
+    "type": "volatility",
+    "kind": "paper",
+    "src": "Bakshi & Kapadia (2003), RFS; Carr & Wu (2009), RFS; Cboe PUT index",
+    "year": 2003,
+    "thesis": "Index option buyers pay for protection: delta-hedged S&P 500 option positions lose money on average, so systematic, collateralized option sellers earn a volatility risk premium, paid for with large losses in crashes.",
+    "criteria": [
+      "Sell one-month S&P 500 puts (or strangles) monthly, fully collateralized in T-bills",
+      "Gauge the premium as implied volatility (VIX) minus later realized volatility",
+      "Size for the crash months when realized volatility runs far above implied"
+    ],
+    "result": "Bakshi and Kapadia find negative delta-hedged gains on S&P 500 options, a negative volatility risk premium. Put-writing indexes show the premium but take large losses in crashes such as 2008 and March 2020. The Feb 2018 blowup hit short-VIX notes, a different trade.",
+    "testable": "partial",
+    "tags": [
+      "options",
+      "VRP",
+      "insurance",
+      "tail risk"
+    ]
+  },
+  {
+    "id": "vix-term-structure",
+    "name": "VIX Term Structure Roll",
+    "type": "volatility",
+    "kind": "paper",
+    "src": "Simon & Campasano (2014), Journal of Derivatives; XIV termination (Feb 2018)",
+    "year": 2014,
+    "thesis": "VIX futures usually trade above spot VIX (contango) and drift down toward it as they expire, so short VIX futures earn carry most of the time and lose heavily when volatility spikes.",
+    "criteria": [
+      "Measure the basis: front VIX futures vs spot VIX (or front vs second month)",
+      "Short VIX futures in contango, long in backwardation; hedge equity exposure",
+      "Hard size limits: one volatility spike can erase years of carry"
+    ],
+    "result": "Simon and Campasano report that the basis predicts VIX futures returns, not spot VIX changes. On Feb 5 2018 the short-VIX note XIV lost about 96% of its indicative value in one session and was terminated.",
+    "testable": "partial",
+    "tags": [
+      "VIX",
+      "carry",
+      "term structure",
+      "tail risk"
+    ]
+  },
+  {
+    "id": "yield-curve-recession",
+    "name": "Yield Curve Inversion Signal",
+    "type": "macro",
+    "kind": "paper",
+    "src": "Estrella & Mishkin (1996), FRBNY Current Issues in Economics and Finance",
+    "year": 1996,
+    "thesis": "The 10-year minus 3-month Treasury spread has been one of the better single predictors of US recessions two to six quarters ahead; the more inverted the curve, the higher the estimated odds.",
+    "criteria": [
+      "Track the 10-year minus 3-month Treasury spread",
+      "Estrella-Mishkin probit: about 50% recession odds four quarters ahead at a -0.82 pt spread",
+      "A full quarter of inversion as the warning is a practitioner convention, not from the paper"
+    ],
+    "result": "The spread inverted before each US recession from 1969 to 2020, but the 2022 to 2024 inversion (low of -1.89 pt) had no recession through Aug 2026. Our test, S&P 500 TR only when the spread is positive, 1989 to 2026: 9.9% a year vs 11.4% buy and hold.",
+    "testable": true,
+    "tags": [
+      "yield curve",
+      "recession",
+      "macro",
+      "FRED"
+    ]
+  },
+  {
+    "id": "fed-model-caveat",
+    "name": "Fed Model (and Why It Fails)",
+    "type": "macro",
+    "kind": "paper",
+    "src": "Yardeni (1997), Prudential Securities; Asness (2003), Journal of Portfolio Management",
+    "year": 1997,
+    "thesis": "Comparing earnings yield to bond yields feels sensible but confuses real and nominal - included as a cautionary entry.",
+    "criteria": [
+      "E/P vs 10-year Treasury yield comparison (the model)",
+      "Asness: it describes how investors price stocks, it does not forecast returns; do not use it for valuation"
+    ],
+    "result": "Asness finds the Fed model explains how investors priced stocks against bonds since the 1960s but does not forecast 10-year real stock returns; starting P/E alone does better. Kept as the canonical plausible-but-wrong signal.",
+    "testable": true,
+    "tags": [
+      "fed model",
+      "valuation",
+      "caution",
+      "macro"
+    ]
+  },
+  {
+    "id": "gold-real-rates",
+    "name": "Gold vs Real Rates",
+    "type": "macro",
+    "kind": "practitioner",
+    "src": "Macro practitioner canon; Erb & Harvey (2013) golden dilemma",
+    "year": 2013,
+    "thesis": "Gold pays no coupon, so higher real yields raise the cost of holding it. From about 2006 to 2021 gold moved closely against 10-year TIPS yields; it is a regime, not a law.",
+    "criteria": [
+      "Track the 10-year TIPS real yield (FRED DFII10, 2003+)",
+      "Long gold while real yields are falling, light while rising",
+      "Erb-Harvey caveat: gold is a poor short-run inflation hedge and its real price mean reverts slowly"
+    ],
+    "result": "Our data: log gold vs the 10-year TIPS yield correlated -0.92 monthly over 2006 to 2021 but +0.53 over 2022 to Sep 2026, as gold rose from about $1,640 to $5,250 with real yields near 2%. Monthly moves still ran inverse (-0.37). Central-bank buying is a common, unproven explanation.",
+    "testable": true,
+    "tags": [
+      "gold",
+      "real rates",
+      "macro",
+      "TIPS"
+    ]
+  },
+  {
+    "id": "sahm-rule",
+    "name": "Sahm Rule Recession Trigger",
+    "type": "macro",
+    "kind": "paper",
+    "src": "Claudia Sahm (2019), Hamilton Project / Equitable Growth, Recession Ready",
+    "year": 2019,
+    "thesis": "A recession has usually already begun when the 3-month average unemployment rate is 0.50 pt or more above its lowest 3-month average of the prior 12 months. Sahm built it as a trigger for automatic stimulus, not as a market timer.",
+    "criteria": [
+      "3-month average U3 minus the lowest 3-month average of the prior 12 months",
+      "Trigger at +0.50 pt; the reading is known with the next jobs report",
+      "Coincident, not leading: pair with the yield curve for de-risking"
+    ],
+    "result": "FRED real-time data: fired 2 to 4 months after the cycle peak in 8 of 9 recessions since 1960 (1969: 2 months before). Readings of exactly 0.50 in 1976 and 2003 had no recession. Fired July 2024 (0.53) with no recession through Aug 2026.",
+    "testable": true,
+    "tags": [
+      "Sahm rule",
+      "unemployment",
+      "recession",
+      "macro",
+      "FRED"
+    ]
+  },
+  {
+    "id": "currency-carry-lrv",
+    "name": "Currency Carry Factor (HML FX)",
+    "type": "macro",
+    "kind": "paper",
+    "src": "Lustig, Roussanov & Verdelhan (2011), Review of Financial Studies",
+    "year": 2011,
+    "thesis": "Currencies with high short-term interest rates have earned higher average excess returns than low-rate currencies. Lustig, Roussanov and Verdelhan show one carry factor explains these returns, and it loses when global equity volatility jumps.",
+    "criteria": [
+      "Monthly, sort developed and emerging currencies into six portfolios by one-month forward discount vs USD",
+      "Long the highest-rate portfolio, short the lowest (HML FX); equal weight within portfolios",
+      "Returns = spot change plus forward discount, net of bid-ask spreads"
+    ],
+    "result": "HML FX and a dollar factor explain most of the spread across carry portfolios in 1983 to the late 2000s. Carry is exposed to global volatility shocks and lost heavily in 2008.",
+    "testable": true,
+    "tags": [
+      "fx",
+      "carry",
+      "rates",
+      "cross-sectional",
+      "crash-risk"
+    ]
+  },
+  {
+    "id": "fx-momentum-menkhoff-2012",
+    "name": "Currency Momentum",
+    "type": "momentum",
+    "kind": "paper",
+    "src": "Menkhoff, Sarno, Schmeling & Schrimpf (2012), Journal of Financial Economics",
+    "year": 2012,
+    "thesis": "Recent relative currency performance has forecasted subsequent currency returns in a broad set of developed and emerging currencies. The signal is distinct from the forward-discount carry signal in the authors' analysis.",
+    "criteria": [
+      "Each month, rank currencies by past excess return (spot change plus forward discount) over 1 to 12 months",
+      "Long the top portfolio, short the bottom, equal weight; hold 1 to 12 months",
+      "Include bid-ask costs: minor currencies drive most of the profit"
+    ],
+    "result": "Winner-minus-loser spreads of up to about 10% a year (1976 to 2010, before costs), weakly related to carry. Profits sit mainly in minor, high-risk currencies where trading costs and limits to arbitrage eat much of them.",
+    "testable": true,
+    "tags": [
+      "fx",
+      "momentum",
+      "forwards",
+      "cross-sectional",
+      "global"
+    ]
+  },
+  {
+    "id": "commodity-backwardation-roll-yield",
+    "name": "Commodity Backwardation and Roll Yield",
+    "type": "macro",
+    "kind": "paper",
+    "src": "Gorton & Rouwenhorst (2006), FAJ; Gorton, Hayashi & Rouwenhorst (2013), Review of Finance",
+    "year": 2006,
+    "thesis": "Commodity futures curves convey a roll-yield component: rolling a nearby futures position in backwardation differs materially from rolling one in contango. Sorting or tilting a diversified futures book toward more-backwardated markets makes this term-structure effect explicit.",
+    "criteria": [
+      "Use liquid commodity futures with observable nearby and deferred contract prices.",
+      "Compute an annualized roll yield from the nearby-versus-next-deferred price spread, consistently oriented by maturity.",
+      "Go long the most-backwardated contracts and, where shorting is feasible, short the most-contangoed contracts; roll before delivery."
+    ],
+    "result": "Gorton and Rouwenhorst (1959 to 2004) find an equal-weight, collateralized futures index earned an equity-like premium. The basis sort comes from later work: Gorton, Hayashi and Rouwenhorst link backwardation to low inventories and find backwardated contracts earned more. Not a guarantee for any single commodity or period.",
+    "testable": true,
+    "tags": [
+      "commodities",
+      "futures",
+      "roll-yield",
+      "backwardation",
+      "term-structure"
+    ]
+  },
+  {
+    "id": "commodity-futures-collateralized-return",
+    "name": "Collateralized Commodity Futures Allocation",
+    "type": "allocation",
+    "kind": "paper",
+    "src": "Erb & Harvey (2006), Financial Analysts Journal",
+    "year": 2006,
+    "thesis": "A commodity futures return is spot change plus roll return plus the T-bill yield on collateral, not the spot price move. Erb and Harvey find single futures averaged about zero excess return; index gains came from roll, collateral and rebalancing a diversified basket.",
+    "criteria": [
+      "Form an equal-weight or pre-specified diversified basket of liquid commodity futures.",
+      "Hold collateral in a stated short-term Treasury-bill proxy and include its return in total performance.",
+      "Roll each futures position on a fixed schedule and rebalance the basket to target weights."
+    ],
+    "result": "Erb and Harvey find single futures averaged near-zero excess returns; roll return explained most differences across commodities, and rebalancing added a diversification return. An equity-like strategic premium is unproven.",
+    "testable": true,
+    "tags": [
+      "commodities",
+      "futures",
+      "collateral",
+      "diversification",
+      "allocation"
+    ]
+  },
+  {
+    "id": "value-and-momentum-everywhere",
+    "name": "Value and Momentum Everywhere",
+    "type": "macro",
+    "kind": "paper",
+    "src": "Asness, Moskowitz & Pedersen (2013), Journal of Finance",
+    "year": 2013,
+    "thesis": "Value and momentum premia show up in individual stocks (US, UK, Europe, Japan), country equity indexes, government bonds, currencies and commodity futures. The two styles are negatively correlated, so combining them across asset classes is more stable than either alone.",
+    "criteria": [
+      "Within each asset class, rank instruments on an asset-appropriate value measure and separately on trailing momentum.",
+      "Construct market-neutral long-high/short-low portfolios for each signal within each asset class.",
+      "Volatility-scale the sleeves and combine value and momentum with diversified asset-class weights."
+    ],
+    "result": "Premia found in all eight markets (1972 to 2011), with value and momentum negatively correlated within and across asset classes and linked to funding liquidity risk. Realized premia vary a lot over time.",
+    "testable": true,
+    "tags": [
+      "cross-asset",
+      "value",
+      "momentum",
+      "futures",
+      "diversification"
+    ]
+  },
+  {
+    "id": "inflation-regime-asset-allocation",
+    "name": "Inflation-Regime Asset Allocation",
+    "type": "allocation",
+    "kind": "paper",
+    "src": "Neville, Draaisma, Funnell, Harvey & Van Hemert (2021), 'The Best Strategies for Inflationary Times', SSRN",
+    "year": 2021,
+    "thesis": "US inflation surges since 1926 were bad for stocks and nominal bonds in real terms, while commodities and trend-following did best. A mix built only for average inflation is fragile in those regimes.",
+    "criteria": [
+      "Define an inflation surge from year-on-year CPI using only data published at the time",
+      "Compare real returns of stocks, bonds, TIPS, gold, commodities, trend and factor sleeves inside surges",
+      "Fix weights in advance and rebalance on a schedule (our design, not the paper's)"
+    ],
+    "result": "Across eight US inflation regimes since 1926, stocks and nominal Treasuries lost in real terms on average while commodities and trend-following gained. With only eight regimes, the estimates are noisy.",
+    "testable": true,
+    "tags": [
+      "inflation",
+      "allocation",
+      "regimes",
+      "real-assets",
+      "diversification"
+    ]
+  },
+  {
+    "id": "global-cape-country-value",
+    "name": "Global CAPE Country Value",
+    "type": "value",
+    "kind": "paper",
+    "src": "Faber (2012), 'Global Value: Building Trading Models with the 10 Year CAPE', Cambria / SSRN (venue unverified)",
+    "year": 2012,
+    "thesis": "Long-run cyclically adjusted earnings yields can be used to compare the valuation of national equity markets. A country rotation portfolio buys markets with lower CAPE ratios rather than treating all country index weights as fixed.",
+    "criteria": [
+      "For each eligible country index, compute CAPE as price divided by inflation-adjusted average earnings over the prior 10 years.",
+      "At annual rebalance, rank countries by CAPE and select the lowest-CAPE group.",
+      "Equal-weight selected country indexes and include realistic fund, foreign-exchange, and turnover costs in testing."
+    ],
+    "result": "Faber reports favorable historical results for allocating to lower-CAPE country markets, but country valuation can remain extreme and the signal can underperform for extended intervals.",
+    "testable": true,
+    "tags": [
+      "global-equities",
+      "cape",
+      "country-selection",
+      "value",
+      "allocation"
+    ]
+  },
+  {
+    "id": "bond-risk-premia-forward-factor",
+    "name": "Forward-Rate Bond Risk Premium",
+    "type": "macro",
+    "kind": "paper",
+    "src": "Cochrane & Piazzesi (2005), American Economic Review",
+    "year": 2005,
+    "thesis": "A particular combination of Treasury forward rates forecasts excess returns on government bonds across maturities. The strategy uses that estimated forward-rate factor to vary aggregate duration exposure rather than relying only on the level or slope of the yield curve.",
+    "criteria": [
+      "From end-of-month zero-coupon Treasury yields, compute the 1-year rate and 1-year forwards for years 2 to 5",
+      "The paper fits the tent-shaped factor in-sample; a live version must re-estimate it using only past data",
+      "Lengthen duration when the fitted premium is high, shorten when low (our adaptation, not tested in the paper)"
+    ],
+    "result": "In 1964 to 2003 data one factor explains up to about 44% of the variation in one-year excess returns on 2 to 5 year bonds, far more than yield-spread models. Out-of-sample results in later studies are weaker and sensitive to estimation choices.",
+    "testable": true,
+    "tags": [
+      "bonds",
+      "term-premium",
+      "yield-curve",
+      "duration",
+      "macro"
+    ]
+  },
+  {
+    "id": "dollar-smile-framework",
+    "name": "Dollar Smile Framework",
+    "type": "macro",
+    "kind": "practitioner",
+    "src": "Jen (2001), Morgan Stanley research",
+    "year": 2001,
+    "thesis": "The dollar-smile framework proposes that the U.S. dollar tends to be supported in two different macro states: unusually strong U.S.-led growth and broad global stress, while it can weaken in a middle state of synchronized expansion and capital moving abroad. It is a conditional macro framework, not a standalone factor model.",
+    "criteria": [
+      "Jen gave no mechanical rule; the rules below are ours",
+      "Define US-versus-world growth and global-stress indicators before trading",
+      "USD long when US growth leads or stress is high, USD short only in the middle regime; report results by regime"
+    ],
+    "result": "The framework became influential among FX practitioners as a regime description, but its simple rules should be treated as partial and validated out of sample rather than assumed stable.",
+    "testable": "partial",
+    "tags": [
+      "fx",
+      "usd",
+      "macro-regimes",
+      "risk-sentiment",
+      "practitioner"
+    ]
+  },
+  {
+    "id": "harry-browne-permanent-portfolio",
+    "name": "Permanent Portfolio",
+    "type": "allocation",
+    "kind": "book",
+    "src": "Harry Browne, Fail-Safe Investing (1999)",
+    "year": 1999,
+    "thesis": "The Permanent Portfolio is a simple all-weather allocation intended to spread exposure across prosperity, inflation, deflation, and recession. Its classic version gives equal capital weights to stocks, long government bonds, cash, and gold.",
+    "criteria": [
+      "25% each: US stock index, long-term (about 30-year) Treasuries, T-bills or money market, gold bullion",
+      "Use investable proxies; no leverage",
+      "Browne's rule: rebalance when any sleeve falls below 15% or rises above 35%"
+    ],
+    "result": "Browne presented the allocation as a robustness-oriented investment plan rather than a peer-reviewed return anomaly; results depend on the historical behavior of its four sleeves and may differ materially going forward.",
+    "testable": true,
+    "tags": [
+      "allocation",
+      "gold",
+      "treasuries",
+      "stocks",
+      "all-weather"
+    ]
+  }
+]

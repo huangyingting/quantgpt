@@ -1,0 +1,543 @@
+[
+  {
+    "id": "oneil-canslim-1988",
+    "name": "Inspired by O'Neil: CANSLIM",
+    "type": "technical",
+    "kind": "book",
+    "src": "William O'Neil, 'How to Make Money in Stocks' (1988); IBD methodology",
+    "year": 1988,
+    "thesis": "Growth leaders share seven traits before big runs: current and annual earnings acceleration, new highs/products, tight supply, leadership, institutional sponsorship, and a confirmed market.",
+    "criteria": [
+      "C: quarterly EPS up 25%+ vs the same quarter a year earlier (minimum varies by edition)",
+      "A: annual EPS up 25%+ in each of the last 3 years; ROE 17%+",
+      "N: new product, management or industry change; price breaking to new highs from a sound base",
+      "S: supply and demand: heavy volume on the breakout",
+      "L: leader: RS Rating 80+",
+      "I: rising institutional sponsorship, including top-performing funds",
+      "M: general market in a confirmed uptrend (follow-through day)",
+      "Sell: cut any loss at 7-8% below cost"
+    ],
+    "result": "Built from O'Neil's studies of the biggest US stock winners since 1953 (period and count vary by edition). It is a winners-only study with no control group, and the book gives no audited record for the rules. (CANSLIM and IBD are trademarks of Investor's Business Daily, referenced descriptively.)",
+    "testable": true,
+    "tags": [
+      "IBD",
+      "CANSLIM",
+      "growth",
+      "momentum",
+      "O'Neil",
+      "screen"
+    ],
+    "star": true,
+    "fidelity": "loose",
+    "run_gap": "No market-direction (M) rule, no base or pivot and no 7 to 8% loss cut; each book is held one month.",
+    "curated": "checked",
+    "runnable": true
+  },
+  {
+    "id": "oneil-cup-handle",
+    "name": "Inspired by O'Neil: Cup-with-Handle Breakout",
+    "type": "technical",
+    "kind": "book",
+    "src": "William O'Neil, 'How to Make Money in Stocks' (1988), base patterns",
+    "year": 1988,
+    "thesis": "Winners consolidate in a rounded 'cup' with a shallow 'handle', then break out on volume - the entry point of the CANSLIM system.",
+    "criteria": [
+      "Prior uptrend of 30%+; cup of 7-65 weeks, rounded, typically 12-33% deep",
+      "Handle of 1-2+ weeks drifting down on light volume in the upper half of the base",
+      "Buy as price clears the handle high (pivot) on volume 40-50%+ above average, not more than 5% past it",
+      "Cut the loss at 7-8% below cost"
+    ],
+    "result": "O'Neil describes the cup with handle as one of the most common bases among past big winners; that comes from winners-only chart studies with no failure rate, so breakout results must be tested.",
+    "testable": true,
+    "tags": [
+      "IBD",
+      "pattern",
+      "breakout",
+      "volume",
+      "entry"
+    ],
+    "fidelity": "loose",
+    "run_gap": "No cup or handle is found: a 20-day high on heavy volume stands in for the pattern.",
+    "runnable": true
+  },
+  {
+    "id": "ibd-followthrough",
+    "name": "Follow-Through Day (Market Timing)",
+    "type": "technical",
+    "kind": "book",
+    "src": "O'Neil / IBD market-direction methodology",
+    "year": 1988,
+    "thesis": "New uptrends are confirmed by a big up day on rising volume 4-7+ days into a rally attempt; distribution-day clusters warn of tops.",
+    "criteria": [
+      "Rally attempt: first up close after the index sets a new correction low",
+      "Follow-through: day 4 or later, index closes up strongly on higher volume than the prior day (required gain changed over time, about 1% early, higher later)",
+      "Distribution day: index down on higher volume; a cluster of about 5 in 4-5 weeks warns of a top",
+      "Only buy breakouts while the market is in a confirmed uptrend"
+    ],
+    "result": "O'Neil states that no major bull market began without a follow-through day, but many follow-throughs fail. This is his hindsight count, not an independent test; the false-positive rate needs measuring.",
+    "testable": true,
+    "tags": [
+      "IBD",
+      "market timing",
+      "regime",
+      "distribution days"
+    ]
+  },
+  {
+    "id": "minervini-sepa-2013",
+    "name": "Minervini Trend Template (SEPA)",
+    "type": "technical",
+    "kind": "book",
+    "src": "Mark Minervini, 'Trade Like a Stock Market Wizard' (2013)",
+    "year": 2013,
+    "thesis": "Superperformance stocks are in confirmed stage-2 uptrends before their biggest gains; an eight-point template filters for them.",
+    "criteria": [
+      "Price above the 150d and 200d MA; 150d above 200d",
+      "200d MA rising for at least 1 month (preferably 4-5)",
+      "50d above 150d and 200d; price above 50d",
+      "Price 30%+ above 52-week low and within 25% of 52-week high",
+      "RS ranking 70+ (prefer 80-90+)"
+    ],
+    "result": "Minervini won the US Investing Championship in 1997 (155%) and 2021 (334.8%, $1 million division) with his full discretionary SEPA trading; those results are not a test of this screen. The template itself is mechanical and testable.",
+    "testable": true,
+    "tags": [
+      "trend template",
+      "stage 2",
+      "momentum",
+      "Minervini",
+      "screen"
+    ],
+    "fidelity": "close",
+    "run_gap": "The trend template only; SEPA's earnings and sales tests, the base, the pivot entry and the stop are left out.",
+    "runnable": true
+  },
+  {
+    "id": "darvas-box-1960",
+    "name": "Inspired by Darvas: The Darvas Box",
+    "type": "technical",
+    "kind": "book",
+    "src": "Nicolas Darvas, 'How I Made $2,000,000 in the Stock Market' (1960)",
+    "year": 1960,
+    "thesis": "Stocks move in stacked 'boxes'; buy the break of the box ceiling at new highs with a stop just below it.",
+    "criteria": [
+      "Stocks at new highs on unusual volume, in growth industries with rising earnings",
+      "Box top: a high not exceeded for about 3 days; floor: a low that then holds for about 3 days",
+      "Buy stop just above the box top as price enters a new box",
+      "Stop just below the latest box floor, raised as boxes stack"
+    ],
+    "result": "By Darvas's own unaudited account, about $36,000 became about $2.25 million in roughly 18 months in the late-1950s bull market, from a handful of stocks. One trader's record, not a tested system.",
+    "testable": true,
+    "tags": [
+      "breakout",
+      "boxes",
+      "trailing stop",
+      "retail",
+      "legend"
+    ],
+    "fidelity": "loose",
+    "run_gap": "No box is drawn: a 20-day volume breakout near the 52-week high stands in, with no earnings test or stop.",
+    "runnable": true
+  },
+  {
+    "id": "livermore-pivotal-1940",
+    "name": "Inspired by Livermore: Pivotal Points",
+    "type": "technical",
+    "kind": "book",
+    "src": "Jesse Livermore, 'How to Trade in Stocks' (1940); see Edwin Lefevre, 'Reminiscences of a Stock Operator' (1923), a fictionalized account",
+    "year": 1940,
+    "thesis": "Wait for the pivotal point - the price where the line of least resistance breaks - and pyramid only into profit.",
+    "criteria": [
+      "Act only when price breaks through a pivotal point, never in anticipation",
+      "Confirm with a second stock in the same group",
+      "Add only to profitable positions; never average losers",
+      "Exit fast when a trade does not act right; long or short"
+    ],
+    "result": "Livermore's own rules, written late in his career; they are partly discretionary (Market Key records, timing) and come with no performance record. He made and lost several fortunes and went bankrupt more than once.",
+    "testable": "partial",
+    "tags": [
+      "breakout",
+      "pyramiding",
+      "legend",
+      "trend"
+    ],
+    "fidelity": "loose",
+    "run_gap": "A 20-day high stands in for Livermore's judgment-based pivotal points; no pyramiding or loss limit.",
+    "runnable": true
+  },
+  {
+    "id": "weinstein-stages-1988",
+    "name": "Inspired by Weinstein: Stage Analysis",
+    "type": "technical",
+    "kind": "book",
+    "src": "Stan Weinstein, 'Secrets for Profiting in Bull and Bear Markets' (1988)",
+    "year": 1988,
+    "thesis": "Every stock cycles through four stages; buy Stage 2 breakouts above a rising 30-week MA, sell in Stage 3 and short Stage 4 breakdowns.",
+    "criteria": [
+      "Weekly chart: breakout above Stage 1 resistance, price above a flat-to-rising 30-week MA",
+      "Breakout volume well above (about 2x) the recent weekly average",
+      "Relative strength vs the market improving; market and sector favorable",
+      "Stop under the base low, raised over time; sell on a break of the 30-week MA"
+    ],
+    "result": "A widely used practitioner framework for stage and trend investing. The book teaches from chart examples, not a systematic test; a 30-week MA is roughly a 150-day average.",
+    "testable": true,
+    "tags": [
+      "stages",
+      "30-week MA",
+      "trend",
+      "retail"
+    ],
+    "fidelity": "loose",
+    "run_gap": "The 200-day average stands in for the 30-week, and there is no sell on a break of it, the method's exit rule.",
+    "runnable": true
+  },
+  {
+    "id": "faber-gtaa-2007",
+    "name": "10-Month MA Timing (GTAA)",
+    "type": "technical",
+    "kind": "paper",
+    "src": "Meb Faber, 'A Quantitative Approach to Tactical Asset Allocation' (2007)",
+    "year": 2007,
+    "thesis": "Hold each asset class only when above its 10-month moving average - a simple filter that sidesteps deep bear markets.",
+    "criteria": [
+      "Month-end close vs 10-month SMA for each asset",
+      "Above: hold the asset; below: hold 90-day T-bills in that sleeve",
+      "Five asset classes, 20% each: US stocks, foreign stocks, US 10-year bonds, commodities, REITs"
+    ],
+    "result": "In the original test (allocation 1973-2005) the timing portfolio earned equity-like returns with bond-like volatility and drawdowns, and cut risk in every asset class. It lags in fast rebounds and whipsaws in sideways markets; one of SSRN's most downloaded papers.",
+    "testable": true,
+    "tags": [
+      "timing",
+      "moving average",
+      "tactical",
+      "drawdown control"
+    ],
+    "fidelity": "close",
+    "run_gap": "The single-asset S&P 500 rule only, on a price index; the five-asset GTAA portfolio is not tested.",
+    "runnable": true
+  },
+  {
+    "id": "turtle-donchian-1983",
+    "name": "Inspired by Dennis and Eckhardt: Turtle Breakout",
+    "type": "technical",
+    "kind": "practitioner",
+    "src": "Richard Dennis & William Eckhardt's Turtle program (1983); Curtis Faith, 'Way of the Turtle' (2007)",
+    "year": 1983,
+    "thesis": "Trend following is teachable: buy 20/55-day channel breakouts with volatility-sized positions and hard exit rules.",
+    "criteria": [
+      "Futures, long and short: enter on a 20-day (S1) or 55-day (S2) breakout; S1 skips a signal after a winning one",
+      "Unit size so 1N (20-day ATR) = 1% of equity; add every 1/2 N, max 4 units per market",
+      "Stop 2N from entry; exit on a 10-day (S1) or 20-day (S2) opposite breakout"
+    ],
+    "result": "Faith and Covel report the Turtles averaged about 80% a year compounded over roughly four years; the figure is secondhand, unaudited and varied widely by trader. The rules are mechanical and testable on futures.",
+    "testable": true,
+    "tags": [
+      "trend",
+      "breakout",
+      "ATR sizing",
+      "turtles",
+      "futures"
+    ],
+    "fidelity": "loose",
+    "run_gap": "Long-only US stocks, not futures: a 55-day breakout in the last 20 sessions, weekly; no N sizing, adds, 2N stop or 20-day low exit.",
+    "runnable": true
+  },
+  {
+    "id": "connors-rsi2-2008",
+    "name": "Inspired by Connors and Alvarez: RSI(2) Mean Reversion",
+    "type": "technical",
+    "kind": "book",
+    "src": "Larry Connors & Cesar Alvarez, 'Short Term Trading Strategies That Work' (2008)",
+    "year": 2008,
+    "thesis": "In uptrending markets, deep short-term oversold readings (2-period RSI) mark high-probability bounce entries.",
+    "criteria": [
+      "Instrument above its 200-day MA",
+      "Buy at the close when RSI(2) is below 5 (thresholds up to 10 also shown)",
+      "Exit at the close when price closes above its 5-day MA; no stop",
+      "Mirror short rule below the 200-day MA (RSI(2) above 95)"
+    ],
+    "result": "The authors report high win rates and small average gains per trade on US index and stock data. With no stop and short holds, costs, gaps and slippage decide the net result.",
+    "testable": true,
+    "tags": [
+      "mean reversion",
+      "RSI",
+      "short-term",
+      "retail"
+    ],
+    "fidelity": "loose",
+    "run_gap": "Exits at the next close unless still oversold, not on the first close above the 5-day average; long only, daily from 2016.",
+    "runnable": true
+  },
+  {
+    "id": "golden-cross",
+    "name": "Golden Cross / Death Cross",
+    "type": "technical",
+    "kind": "practitioner",
+    "src": "Technical analysis folklore (no single source; origin undated)",
+    "year": 1970,
+    "thesis": "The 50-day crossing the 200-day MA defines regime: golden cross bullish, death cross bearish.",
+    "criteria": [
+      "Long on 50d > 200d cross",
+      "Exit/short on 50d < 200d cross"
+    ],
+    "result": "No canonical study. As a long/flat index filter it can sidestep part of long bear markets but lags at V-shaped bottoms and whipsaws in sideways markets; test it against buy-and-hold with cash yield and costs.",
+    "testable": true,
+    "tags": [
+      "moving average",
+      "regime",
+      "timing",
+      "retail"
+    ],
+    "star": true,
+    "fidelity": "close",
+    "run_gap": "Long or flat only, on the S&P 500 price index; the death-cross short side is not run.",
+    "runnable": true
+  },
+  {
+    "id": "brock-lakonishok-lebaron-technical-rules",
+    "name": "Inspired by Brock, Lakonishok and LeBaron: Moving-Average Rules",
+    "type": "technical",
+    "kind": "paper",
+    "src": "William Brock, Josef Lakonishok & Blake LeBaron (1992), Simple Technical Trading Rules and the Stochastic Properties of Stock Returns, The Journal of Finance",
+    "year": 1992,
+    "thesis": "Mechanical moving-average and trading-range signals can be specified before looking at a trade's outcome. The study evaluates whether these simple signals carried predictive content for the Dow Jones Industrial Average.",
+    "criteria": [
+      "DJIA daily, 1897-1986",
+      "MA rules: buy when a 1-, 2- or 5-day MA is above a 50-, 150- or 200-day MA, sell when below; 0% or 1% band",
+      "Trading-range break: buy above the prior 50-, 150- or 200-day high, sell below the low; hold 10 days",
+      "Compare returns after buy vs sell signals and bootstrap against random walk, AR(1), GARCH-M and EGARCH; costs not netted"
+    ],
+    "result": "Buy signals were followed by higher, less volatile returns than sell signals (about 12% vs about -7% a year, before costs), which the null models could not explain. Sullivan, Timmermann and White (1999) found the best rules did not hold up after 1986.",
+    "testable": true,
+    "tags": [
+      "moving-average",
+      "breakout",
+      "dow-jones",
+      "rule-testing",
+      "trend"
+    ],
+    "fidelity": "loose",
+    "run_gap": "Runs the 50/200-day cross, which is not one of the paper's rules, on the S&P 500 rather than the Dow from 1897.",
+    "runnable": true
+  },
+  {
+    "id": "crabel-opening-range-breakout",
+    "name": "Opening Range Breakout",
+    "type": "technical",
+    "kind": "book",
+    "src": "Toby Crabel (1990), Day Trading with Short Term Price Patterns and Opening Range Breakout",
+    "year": 1990,
+    "thesis": "The initial range after a market opens can define an intraday decision point. A break beyond that range is treated as evidence of directional order flow and a trade trigger.",
+    "criteria": [
+      "Place a buy stop a set amount (the 'stretch') above the opening range and a sell stop the same amount below",
+      "Favor days after contraction setups the book tests, such as NR4, NR7 and inside days",
+      "Protective stop on the other side of the range or at a fixed risk",
+      "Exit by the close or at the stop"
+    ],
+    "result": "Crabel documented the opening-range breakout as a short-term futures trading framework; its returns are highly sensitive to market, opening-window definition, execution, and intraday costs.",
+    "testable": true,
+    "tags": [
+      "intraday",
+      "breakout",
+      "futures",
+      "opening-range",
+      "price-action"
+    ]
+  },
+  {
+    "id": "elder-triple-screen",
+    "name": "Triple Screen Trading System",
+    "type": "technical",
+    "kind": "book",
+    "src": "Alexander Elder (1993), Trading for a Living",
+    "year": 1993,
+    "thesis": "Trade direction is filtered through a longer time-frame trend, while entries are taken from a shorter time-frame reversal or breakout. The multiple screens aim to avoid trading against the larger trend.",
+    "criteria": [
+      "Use a weekly trend indicator, such as the MACD histogram, to classify the primary trend as rising or falling.",
+      "On the daily chart, look for an oscillator pullback in the direction opposite the weekly trend.",
+      "In an uptrend, place a buy stop above the prior day's high after the pullback; in a downtrend, place a sell stop below the prior day's low.",
+      "Place a protective stop beyond the short-term swing associated with the entry."
+    ],
+    "result": "Elder presented Triple Screen as a discretionary but rule-specifiable multi-time-frame method, rather than as a peer-reviewed claim of universal outperformance.",
+    "testable": "partial",
+    "tags": [
+      "multi-timeframe",
+      "macd",
+      "oscillator",
+      "trend-filter",
+      "swing-trading"
+    ]
+  },
+  {
+    "id": "bollinger-band-squeeze-breakout",
+    "name": "Inspired by Bollinger: Band Squeeze and Breakout",
+    "type": "technical",
+    "kind": "book",
+    "src": "John Bollinger (2001), Bollinger on Bollinger Bands",
+    "year": 2001,
+    "thesis": "Bands placed around a moving average scale price dispersion by recent volatility. A contraction in band width can flag a low-volatility regime before a directional move, but the bands alone do not determine direction.",
+    "criteria": [
+      "20-period SMA of closes with bands 2 standard deviations above and below",
+      "Squeeze: BandWidth ((upper - lower) / middle) at its lowest in about 6 months",
+      "Enter on a close outside a band after the squeeze, confirmed by a volume indicator; beware a first false move",
+      "Exit on a trailing stop such as Parabolic SAR or a tag of the opposite band"
+    ],
+    "result": "Bollinger documented bands as an adaptive volatility framework and warned against treating a band touch as an automatic reversal signal; performance of squeeze breakouts requires market-specific testing.",
+    "testable": true,
+    "tags": [
+      "bollinger-bands",
+      "volatility",
+      "squeeze",
+      "breakout",
+      "moving-average"
+    ],
+    "fidelity": "loose",
+    "run_gap": "ATR contraction stands in for a BandWidth low and a 20-day high for the upper band; in cash two months in three.",
+    "runnable": true
+  },
+  {
+    "id": "wyckoff-accumulation-distribution",
+    "name": "Wyckoff Accumulation and Distribution",
+    "type": "technical",
+    "kind": "book",
+    "src": "Richard D. Wyckoff, 'Studies in Tape Reading' (as Rollo Tape, 1910) and his later stock market course (about 1931)",
+    "year": 1910,
+    "thesis": "Price action and volume are interpreted together to distinguish accumulation from distribution within a trading range. A breakout is favored when it confirms the inferred balance of supply and demand.",
+    "criteria": [
+      "Mark a trading range after a prior decline (accumulation) or advance (distribution)",
+      "Judge effort vs result: volume and bar spread on rallies and declines inside the range",
+      "Go long on a successful test after a spring or on a backup after a breakout; inverse for distribution",
+      "Risk point below the spring or back inside the range"
+    ],
+    "result": "Wyckoff's tape-reading framework is a foundational practitioner method, but its pattern judgments are partly discretionary and need explicit operational definitions for robust backtesting.",
+    "testable": "partial",
+    "tags": [
+      "wyckoff",
+      "volume",
+      "price-action",
+      "accumulation",
+      "distribution"
+    ],
+    "fidelity": "wrong",
+    "not_runnable": "Our runs cannot yet find a Wyckoff trading range, spring or test, so this cannot be run as published."
+  },
+  {
+    "id": "shannon-anchored-vwap",
+    "name": "Anchored VWAP",
+    "type": "technical",
+    "kind": "book",
+    "src": "Brian Shannon (2023), Maximum Trading Gains with Anchored VWAP",
+    "year": 2023,
+    "thesis": "Volume-weighted average price can be restarted at a meaningful event such as an earnings gap, major high, low, or entry date. The resulting reference price is used to judge whether holders since that event are, on average, in profit or loss.",
+    "criteria": [
+      "Choose and document an anchor date tied to a material price or company event before evaluating the subsequent trade.",
+      "From the anchor forward, calculate cumulative sum(price times volume) divided by cumulative volume.",
+      "Favor long trades while price holds above an upward-sloping anchored VWAP, or short trades while it holds below a downward-sloping one.",
+      "Define entry, exit, and invalidation rules around closes or retests of the anchored VWAP."
+    ],
+    "result": "Shannon presented anchored VWAP as a structured support, resistance, and trend reference; selecting anchors after the fact can create substantial discretion and backtest bias.",
+    "testable": "partial",
+    "tags": [
+      "vwap",
+      "anchored-vwap",
+      "volume",
+      "support-resistance",
+      "trend"
+    ]
+  },
+  {
+    "id": "kaufman-adaptive-moving-average",
+    "name": "Kaufman Adaptive Moving Average",
+    "type": "technical",
+    "kind": "book",
+    "src": "Perry J. Kaufman (1995), Smarter Trading: Improving Performance in Changing Markets",
+    "year": 1995,
+    "thesis": "A moving average can react more quickly when price moves efficiently in one direction and slow down in noisy markets. Kaufman's adaptive average uses an efficiency ratio to vary its smoothing constant.",
+    "criteria": [
+      "Efficiency ratio over n periods (10 in the book): absolute net change / sum of absolute one-period changes",
+      "Smoothing constant = [ER x (fast - slow) + slow] squared, fast = 2/3, slow = 2/31",
+      "AMA = prior AMA + smoothing constant x (price - prior AMA)",
+      "Signal on the AMA's direction: buy when it rises more than a filter (a fraction of the std dev of AMA changes), sell on the reverse"
+    ],
+    "result": "Kaufman documented the adaptive-average construction to address changing noise levels; any trading advantage versus fixed averages depends on parameter choices and trading costs.",
+    "testable": true,
+    "tags": [
+      "adaptive",
+      "moving-average",
+      "efficiency-ratio",
+      "trend",
+      "smoothing"
+    ]
+  },
+  {
+    "id": "appel-macd-crossover",
+    "name": "MACD Signal-Line Crossover",
+    "type": "technical",
+    "kind": "book",
+    "src": "Gerald Appel (1979), The Moving Average Convergence-Divergence Trading Method",
+    "year": 1979,
+    "thesis": "The gap between a fast and slow exponential moving average summarizes changes in trend momentum. Crossing that MACD line with its signal average produces a repeatable trend-following trigger.",
+    "criteria": [
+      "Calculate a fast and a slow exponential moving average of price, conventionally 12 and 26 periods.",
+      "Define MACD as the fast average minus the slow average and calculate its 9-period exponential signal line.",
+      "Enter or hold long when MACD crosses above its signal line and enter or hold short or flat when it crosses below.",
+      "Fix the bar frequency, execution delay, and risk exit before testing."
+    ],
+    "result": "Appel documented MACD as a momentum and trend indicator; crossovers can lag sharp reversals, so performance varies materially by instrument, horizon, and cost assumptions.",
+    "testable": true,
+    "tags": [
+      "macd",
+      "ema",
+      "crossover",
+      "momentum",
+      "trend"
+    ]
+  },
+  {
+    "id": "wilder-directional-movement-adx",
+    "name": "Wilder Directional Movement and ADX",
+    "type": "technical",
+    "kind": "book",
+    "src": "J. Welles Wilder Jr. (1978), New Concepts in Technical Trading Systems",
+    "year": 1978,
+    "thesis": "Directional Movement compares successive highs and lows to identify which side is exerting greater directional pressure. The ADX summarizes the strength of that directional movement, rather than its sign.",
+    "criteria": [
+      "+DM and -DM from changes in successive highs and lows; keep only the larger qualifying one each bar",
+      "Smooth +DM, -DM and true range over 14 bars to get +DI and -DI; ADX is the smoothed DX",
+      "Long when +DI crosses above -DI, short on the reverse, with the crossover bar's extreme as the stop",
+      "Wilder applied it to markets with high ADXR; ADX thresholds are later conventions"
+    ],
+    "result": "Wilder introduced the Directional Movement System and ADX as a systematic trend-strength framework; thresholds and smoothing periods are parameters to be tested rather than guaranteed sources of return.",
+    "testable": true,
+    "tags": [
+      "adx",
+      "directional-movement",
+      "trend-strength",
+      "true-range",
+      "wilder"
+    ]
+  },
+  {
+    "id": "wilder-parabolic-sar",
+    "name": "Parabolic Time/Price System",
+    "type": "technical",
+    "kind": "book",
+    "src": "J. Welles Wilder Jr. (1978), New Concepts in Technical Trading Systems",
+    "year": 1978,
+    "thesis": "Parabolic SAR trails a stop toward price at an accelerating rate as a trend extends. A stop-and-reverse is triggered when price reaches the calculated SAR level.",
+    "criteria": [
+      "Start long or short and track the extreme price (EP) of the current trade",
+      "Each bar move the SAR toward the EP by an acceleration factor (AF); never inside the prior two bars' range",
+      "AF starts at 0.02 and rises 0.02 with each new EP, up to 0.20",
+      "Reverse when price touches the SAR, resetting EP and AF"
+    ],
+    "result": "Wilder presented Parabolic as a stop-and-reverse trend system intended to protect open profits; it is prone to whipsaw during range-bound markets.",
+    "testable": true,
+    "tags": [
+      "parabolic-sar",
+      "stop-and-reverse",
+      "trend",
+      "trailing-stop",
+      "wilder"
+    ]
+  }
+]

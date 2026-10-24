@@ -1,0 +1,24 @@
+{
+  "page": "board",
+  "path": "/board",
+  "items": {
+    "board-head": {
+      "title": "Leaderboard",
+      "body": "Members ranked by the work they do on the desk inside the window, never by returns. A return never enters the score. Everyone sees the top three; QuantGPT Pro opens the whole board.",
+      "learn": "",
+      "tour": ""
+    },
+    "board-period": {
+      "title": "Daily, weekly, monthly",
+      "body": "Daily looks back 1 day, weekly 7 and monthly 30 for forum posts and journal findings.",
+      "learn": "",
+      "tour": ""
+    },
+    "disc": {
+      "title": "How the score works",
+      "body": "Each counted item adds to the score as the formula under the table says. No return, worst fall or profit is part of it.",
+      "learn": "",
+      "tour": ""
+    }
+  }
+}

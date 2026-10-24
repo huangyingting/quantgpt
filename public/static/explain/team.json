@@ -1,0 +1,30 @@
+{
+  "page": "team",
+  "path": "/team",
+  "items": {
+    "team-name": {
+      "title": "Team",
+      "body": "A board your team shares, three seats. Notes move from an idea, to a running backtest, to a data-validated finding. Everyone seated sees the same notes and files, never each other's keys or accounts.",
+      "learn": "",
+      "tour": ""
+    },
+    "no-board-head": {
+      "title": "Open your board",
+      "body": "Name the board and open it, then offer up to two more seats from the seats panel. Team boards come with Business, or with a seat a Business owner gives you.",
+      "learn": "",
+      "tour": ""
+    },
+    "data-head": {
+      "title": "Shared files",
+      "body": "Files your team shares: CSV, TSV, text, Markdown or JSON, up to 5 MB each. Everyone seated can download them, stored exactly as uploaded.",
+      "learn": "",
+      "tour": ""
+    },
+    "seats-head": {
+      "title": "Seats",
+      "body": "Offer a seat to an existing QuantGPT account by its email; it joins once that account accepts. Three seats in all, yours included. Seated members share this board's notes and files, nothing else.",
+      "learn": "",
+      "tour": ""
+    }
+  }
+}

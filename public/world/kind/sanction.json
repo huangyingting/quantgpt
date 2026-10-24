@@ -1,0 +1,165 @@
+{
+  "base": {
+    "1": 0.0004926487188865458,
+    "5": 0.002988337956250753,
+    "21": 0.01049763721339425,
+    "63": 0.025720163902466675
+  },
+  "events": [
+    {
+      "anchor": "2026-10-09",
+      "date": "2026-10-12",
+      "h": {
+        "1": -0.0005504426356388592,
+        "5": -0.019471205024317317,
+        "21": null,
+        "63": null
+      },
+      "title": "The Council of the European Union approves the 22th package of sanctions against Russia, targeting 1,569 individuals and entities of the country's military and industrial complex."
+    },
+    {
+      "anchor": "2025-04-01",
+      "date": "2025-04-02",
+      "h": {
+        "1": 0.006728194715792668,
+        "5": -0.11544323521281574,
+        "21": -0.005135687716069093,
+        "63": 0.10551086995245629
+      },
+      "title": "US announces reciprocal tariffs on its trading partners"
+    },
+    {
+      "anchor": "2025-01-31",
+      "date": "2025-02-01",
+      "h": {
+        "1": -0.007608597684666707,
+        "5": -0.002406999269663257,
+        "21": -0.04343656800720719,
+        "63": -0.05858093178363444
+      },
+      "title": "US orders tariffs on Canada, Mexico and China"
+    },
+    {
+      "anchor": "2019-07-31",
+      "date": "2019-08-01",
+      "h": {
+        "1": -0.00899879386967306,
+        "5": -0.032344837280534944,
+        "21": -0.018722379992326066,
+        "63": 0.018960673467000477
+      },
+      "title": "US announces 10% tariffs on a further $300B of Chinese goods"
+    },
+    {
+      "anchor": "2019-05-03",
+      "date": "2019-05-05",
+      "h": {
+        "1": -0.004470988428756373,
+        "5": -0.021808500895250327,
+        "21": -0.048332409336793725,
+        "63": -0.004613545526811036
+      },
+      "title": "US says tariffs on Chinese goods rise to 25%"
+    },
+    {
+      "anchor": "2018-07-05",
+      "date": "2018-07-06",
+      "h": {
+        "1": 0.008481281595267509,
+        "5": 0.022538808679155586,
+        "21": 0.0379082098516792,
+        "63": 0.06902696947272124
+      },
+      "title": "First US tariffs on Chinese goods take effect"
+    },
+    {
+      "anchor": "2018-02-28",
+      "date": "2018-03-01",
+      "h": {
+        "1": -0.013324399541987275,
+        "5": 0.004779212526115906,
+        "21": -0.02688449860055664,
+        "63": 0.003751130817909676
+      },
+      "title": "US announces steel and aluminum tariffs"
+    }
+  ],
+  "h": {
+    "1": {
+      "best": 0.008481281595267509,
+      "hit": 0.2857142857142857,
+      "median": -0.004470988428756373,
+      "n": 7,
+      "worst": -0.013324399541987275
+    },
+    "5": {
+      "best": 0.022538808679155586,
+      "hit": 0.2857142857142857,
+      "median": -0.019471205024317317,
+      "n": 7,
+      "worst": -0.11544323521281574
+    },
+    "21": {
+      "best": 0.0379082098516792,
+      "hit": 0.16666666666666666,
+      "median": -0.022803439296441352,
+      "n": 6,
+      "worst": -0.048332409336793725
+    },
+    "63": {
+      "best": 0.10551086995245629,
+      "hit": 0.6666666666666666,
+      "median": 0.011355902142455077,
+      "n": 6,
+      "worst": -0.05858093178363444
+    }
+  },
+  "kind": "sanction",
+  "label": "Sanction",
+  "n": 7,
+  "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+  "page": "/world/kind/sanction",
+  "spacing": 21,
+  "test": {
+    "h": {
+      "1": {
+        "above": 2,
+        "base_median": 0.0004926487188865458,
+        "event_median": -0.004470988428756373,
+        "n": 7,
+        "p_value": 0.453125,
+        "share_above": 0.2857142857142857,
+        "spacing": 21
+      },
+      "5": {
+        "above": 2,
+        "base_median": 0.002988337956250753,
+        "event_median": -0.019471205024317317,
+        "n": 7,
+        "p_value": 0.453125,
+        "share_above": 0.2857142857142857,
+        "spacing": 21
+      },
+      "21": {
+        "above": 1,
+        "base_median": 0.01049763721339425,
+        "event_median": -0.022803439296441352,
+        "n": 6,
+        "p_value": 0.21875,
+        "share_above": 0.16666666666666666,
+        "spacing": 21
+      },
+      "63": {
+        "above": 1,
+        "base_median": 0.025720163902466675,
+        "event_median": -0.00043120735445068004,
+        "n": 4,
+        "p_value": 0.625,
+        "share_above": 0.25,
+        "spacing": 63
+      }
+    },
+    "read": "After 6 sanction events at least 21 sessions apart, the S&P 500 beat its median 21-session move 1 times (17%); on ordinary days that happens half the time, and a split this lopsided or more has a 22% chance by luck alone."
+  },
+  "warmed": "2026-10-24"
+}

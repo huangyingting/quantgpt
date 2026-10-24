@@ -1,0 +1,154 @@
+{
+  "base": {
+    "1": 0.0004926487188865458,
+    "5": 0.002988337956250753,
+    "21": 0.01049763721339425,
+    "63": 0.025720163902466675
+  },
+  "events": [
+    {
+      "anchor": "2026-10-21",
+      "date": "2026-10-22",
+      "h": {
+        "1": -0.012084271330631391,
+        "5": null,
+        "21": null,
+        "63": null
+      },
+      "title": "Russia: Energy Secretary"
+    },
+    {
+      "anchor": "2026-09-22",
+      "date": "2026-09-23",
+      "h": {
+        "1": -0.007548366766584991,
+        "5": -0.012080443049146794,
+        "21": -0.0009620812699900894,
+        "63": null
+      },
+      "title": "An Indian wiper is killed during an attack on the bulk carrier MV Cape Dao near the Strait of Hormuz, with Oman's navy confirming that 27 crew members have been evacuated."
+    },
+    {
+      "anchor": "2025-10-21",
+      "date": "2025-10-22",
+      "h": {
+        "1": -0.005337539220865439,
+        "5": 0.023093088971963605,
+        "21": -0.013835946172817026,
+        "63": 0.026427727945714352
+      },
+      "title": "Bandar Abbas: Iran"
+    },
+    {
+      "anchor": "2023-12-14",
+      "date": "2023-12-15",
+      "h": {
+        "1": -0.0000762494933082003,
+        "5": 0.00576330295010008,
+        "21": 0.004165684665616398,
+        "63": 0.0910828648869324
+      },
+      "title": "Major shipping lines pause Red Sea transits"
+    },
+    {
+      "anchor": "2019-09-13",
+      "date": "2019-09-14",
+      "h": {
+        "1": -0.0031355866640028207,
+        "5": -0.005094059887797542,
+        "21": -0.01371288449700192,
+        "63": 0.05359470555481449
+      },
+      "title": "Drone and missile attack on Saudi Abqaiq and Khurais"
+    },
+    {
+      "anchor": "1973-10-16",
+      "date": "1973-10-17",
+      "h": {
+        "1": -0.001996562445128469,
+        "5": -0.003993124890256938,
+        "21": -0.07024235703488457,
+        "63": -0.13177242899311103
+      },
+      "title": "Arab oil producers announce the oil embargo"
+    }
+  ],
+  "h": {
+    "1": {
+      "best": -0.0000762494933082003,
+      "hit": 0,
+      "median": -0.00423656294243413,
+      "n": 6,
+      "worst": -0.012084271330631391
+    },
+    "5": {
+      "best": 0.023093088971963605,
+      "hit": 0.4,
+      "median": -0.003993124890256938,
+      "n": 5,
+      "worst": -0.012080443049146794
+    },
+    "21": {
+      "best": 0.004165684665616398,
+      "hit": 0.2,
+      "median": -0.01371288449700192,
+      "n": 5,
+      "worst": -0.07024235703488457
+    },
+    "63": {
+      "best": 0.0910828648869324,
+      "hit": 0.75,
+      "median": 0.04001121675026442,
+      "n": 4,
+      "worst": -0.13177242899311103
+    }
+  },
+  "kind": "chokepoint",
+  "label": "Chokepoint restriction",
+  "n": 6,
+  "note": "The S&P 500 price index from the last close strictly before each event, gross of everything. The record, not a recommendation.",
+  "page": "/world/kind/chokepoint",
+  "spacing": 21,
+  "test": {
+    "h": {
+      "1": {
+        "above": 0,
+        "base_median": 0.0004926487188865458,
+        "event_median": -0.00423656294243413,
+        "n": 6,
+        "p_value": 0.03125,
+        "share_above": 0,
+        "spacing": 21
+      },
+      "5": {
+        "above": 2,
+        "base_median": 0.002988337956250753,
+        "event_median": -0.003993124890256938,
+        "n": 5,
+        "p_value": 1,
+        "share_above": 0.4,
+        "spacing": 21
+      },
+      "21": {
+        "above": 0,
+        "base_median": 0.01049763721339425,
+        "event_median": -0.01371288449700192,
+        "n": 5,
+        "p_value": 0.0625,
+        "share_above": 0,
+        "spacing": 21
+      },
+      "63": {
+        "above": 3,
+        "base_median": 0.025720163902466675,
+        "event_median": 0.04001121675026442,
+        "n": 4,
+        "p_value": 0.625,
+        "share_above": 0.75,
+        "spacing": 63
+      }
+    },
+    "read": "After 5 chokepoint restriction events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 6% chance by luck alone."
+  },
+  "warmed": "2026-10-24"
+}
