@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useSession, signOut } from 'next-auth/react';
-import React, { useEffect, useState } from 'react';
-import { EXPLAIN_MAP } from '@/lib/quant/warehouse';
+import React, { useEffect, useMemo, useState } from 'react';
+import { EXPLAIN_MAP, PAGE_TOURS, STRATEGIES, STUDIES } from '@/lib/quant/warehouse';
 
 type NavItem = {
   href: string;
@@ -113,7 +113,24 @@ export function TerminalShell({
   ]);
   const [agentLoading, setAgentLoading] = useState(false);
   const [explainOpen, setExplainOpen] = useState(false);
+  const [activeExplainItem, setActiveExplainItem] = useState<string | null>(null);
+  const [tourOpen, setTourOpen] = useState(false);
+  const [tourIdx, setTourIdx] = useState(0);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
+  const resolvedExplainKey = useMemo(() => {
+    if (explainPageKey && EXPLAIN_MAP[explainPageKey]) return explainPageKey;
+    const p = (pathname || '').replace(/^\//, '');
+    if (p.startsWith('events/simulator')) return 'simulator';
+    if (p.startsWith('world/kind')) return 'events';
+    const seg = p.split('/')[0] || 'terminal';
+    if (EXPLAIN_MAP[seg]) return seg;
+    return 'terminal';
+  }, [explainPageKey, pathname]);
+
+  const pageTourSteps = useMemo(() => {
+    return PAGE_TOURS[resolvedExplainKey] || PAGE_TOURS.terminal;
+  }, [resolvedExplainKey]);
 
   useEffect(() => {
     const savedMode = window.localStorage.getItem('qg_ui_mode');
@@ -124,14 +141,33 @@ export function TerminalShell({
       document.documentElement.setAttribute('data-theme', savedTheme);
     }
 
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('tour') === '1') {
+      setTourIdx(0);
+      setTourOpen(true);
+    }
+    const exp = params.get('explain');
+    if (exp) {
+      setActiveExplainItem(exp);
+      setExplainOpen(true);
+    }
+
     const onKey = (e: KeyboardEvent) => {
+      const tag = (e.target as HTMLElement | null)?.tagName;
+      const inField = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         setPaletteOpen((v) => !v);
-      }
-      if (e.key === 'Escape') {
+      } else if (!inField && e.key === '/') {
+        e.preventDefault();
+        setPaletteOpen(true);
+      } else if (!inField && e.key === '?') {
+        e.preventDefault();
+        setExplainOpen((v) => !v);
+      } else if (e.key === 'Escape') {
         setPaletteOpen(false);
         setExplainOpen(false);
+        setTourOpen(false);
       }
     };
     window.addEventListener('keydown', onKey);
@@ -176,14 +212,39 @@ export function TerminalShell({
   };
 
   const allNavItems = NAV_GROUPS.flatMap((g) => g.items);
+  const qLower = paletteQuery.trim().toLowerCase();
   const filteredPalette = allNavItems.filter(
-    (i) =>
-      !paletteQuery.trim() ||
-      i.label.toLowerCase().includes(paletteQuery.toLowerCase()) ||
-      i.href.toLowerCase().includes(paletteQuery.toLowerCase())
+    (i) => !qLower || i.label.toLowerCase().includes(qLower) || i.href.toLowerCase().includes(qLower)
   );
+  const filteredStrategies = useMemo(() => {
+    if (!qLower) return STRATEGIES.slice(0, 6);
+    return STRATEGIES.filter(
+      (s) =>
+        s.name.toLowerCase().includes(qLower) ||
+        s.id.toLowerCase().includes(qLower) ||
+        s.cat.toLowerCase().includes(qLower)
+    ).slice(0, 8);
+  }, [qLower]);
+  const filteredStudies = useMemo(() => {
+    if (!qLower) return STUDIES.slice(0, 5);
+    return STUDIES.filter(
+      (st) => st.title.toLowerCase().includes(qLower) || st.slug.toLowerCase().includes(qLower)
+    ).slice(0, 6);
+  }, [qLower]);
+  const filteredExplainers = useMemo(() => {
+    const out: Array<{ page: string; key: string; title: string; body: string }> = [];
+    for (const [pg, items] of Object.entries(EXPLAIN_MAP)) {
+      for (const [k, v] of Object.entries(items)) {
+        if (!qLower || v.title.toLowerCase().includes(qLower) || v.body.toLowerCase().includes(qLower)) {
+          out.push({ page: pg, key: k, title: v.title, body: v.body });
+          if (out.length >= (qLower ? 10 : 5)) return out;
+        }
+      }
+    }
+    return out;
+  }, [qLower]);
 
-  const pageExplainEntries = explainPageKey && EXPLAIN_MAP[explainPageKey] ? Object.entries(EXPLAIN_MAP[explainPageKey]) : [];
+  const pageExplainEntries = EXPLAIN_MAP[resolvedExplainKey] ? Object.entries(EXPLAIN_MAP[resolvedExplainKey]) : [];
 
   return (
     <div className="flex min-h-screen flex-col bg-[var(--bg)] text-[var(--ink)]">
@@ -424,7 +485,7 @@ export function TerminalShell({
           {/* Page Header Bar */}
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[var(--line)] bg-[var(--surface)]/70 px-5 py-3.5">
             <div>
-              <div className="flex items-center gap-2.5">
+              <div className="flex flex-wrap items-center gap-2.5">
                 <h1 className="font-cond text-xl font-bold uppercase tracking-wide text-[var(--ink)] sm:text-2xl">
                   {title}
                 </h1>
@@ -432,10 +493,23 @@ export function TerminalShell({
                   <button
                     type="button"
                     onClick={() => setExplainOpen(true)}
-                    title="Explain every panel & metric on this page"
+                    title="Explain every panel & metric on this page (?)"
                     className="border border-[var(--line2)] bg-[var(--surface2)] px-2 py-0.5 font-mono-num text-[11px] text-[var(--amber)] hover:border-[var(--amber)]"
                   >
                     ? EXPLAIN ({pageExplainEntries.length})
+                  </button>
+                )}
+                {pageTourSteps.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setTourIdx(0);
+                      setTourOpen(true);
+                    }}
+                    title="Take interactive step-by-step page walkthrough"
+                    className="border border-[var(--line2)] bg-[var(--bg)] px-2 py-0.5 font-mono-num text-[11px] text-[var(--ink)] hover:border-[var(--amber)] hover:text-[var(--amber)]"
+                  >
+                    ▶ WALKTHROUGH ({pageTourSteps.length} STEPS)
                   </button>
                 )}
               </div>
@@ -503,19 +577,19 @@ export function TerminalShell({
 
       {/* Command Palette #qg-pal */}
       {paletteOpen && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/75 pt-20 p-4">
+        <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/75 pt-16 p-4">
           <div
             id="qg-pal"
-            className="w-full max-w-xl border border-[var(--line2)] bg-[var(--surface)] shadow-2xl"
+            className="w-full max-w-2xl border border-[var(--line2)] bg-[var(--surface)] shadow-2xl"
           >
             <div className="flex items-center border-b border-[var(--line)] px-3.5 py-2.5">
-              <span className="mr-2 font-mono-num text-xs text-[var(--amber)]">⌘K</span>
+              <span className="mr-2 font-mono-num text-xs text-[var(--amber)]">THE INDEX · ⌘K</span>
               <input
                 type="text"
                 autoFocus
                 value={paletteQuery}
                 onChange={(e) => setPaletteQuery(e.target.value)}
-                placeholder="Jump to any desk, course, ticker (NVDA, MU, AAPL), or tool..."
+                placeholder="Search 30+ pages, 175 strategies, 39 studies, or 180+ explainers..."
                 className="w-full bg-transparent font-mono-num text-xs text-[var(--ink)] outline-none"
               />
               <button
@@ -526,7 +600,10 @@ export function TerminalShell({
                 ESC
               </button>
             </div>
-            <div className="max-h-80 overflow-y-auto divide-y divide-[var(--line)]">
+            <div className="max-h-[420px] overflow-y-auto divide-y divide-[var(--line)]">
+              <div className="bg-[var(--bg)] px-3.5 py-1 font-mono-num text-[10px] uppercase tracking-wider text-[var(--amber)]">
+                // PAGES ({filteredPalette.length})
+              </div>
               {filteredPalette.map((item) => (
                 <button
                   key={item.href}
@@ -535,12 +612,141 @@ export function TerminalShell({
                     setPaletteOpen(false);
                     router.push(item.href);
                   }}
-                  className="flex w-full items-center justify-between px-4 py-2.5 text-left text-xs hover:bg-[var(--surface2)]"
+                  className="flex w-full items-center justify-between px-4 py-2 text-left text-xs hover:bg-[var(--surface2)]"
                 >
                   <span className="font-medium text-[var(--ink)]">{item.label}</span>
                   <span className="font-mono-num text-[11px] text-[var(--muted)]">{item.href}</span>
                 </button>
               ))}
+
+              <div className="bg-[var(--bg)] px-3.5 py-1 font-mono-num text-[10px] uppercase tracking-wider text-[var(--amber)]">
+                // STRATEGY LIBRARY ({filteredStrategies.length} OF 175)
+              </div>
+              {filteredStrategies.map((st) => (
+                <button
+                  key={st.id}
+                  type="button"
+                  onClick={() => {
+                    setPaletteOpen(false);
+                    router.push(`/terminal?preset=${encodeURIComponent(st.id)}`);
+                  }}
+                  className="flex w-full items-center justify-between px-4 py-2 text-left text-xs hover:bg-[var(--surface2)]"
+                >
+                  <div>
+                    <span className="font-medium text-[var(--ink)]">{st.name}</span>
+                    <span className="ml-2 font-mono-num text-[10px] text-[var(--muted)]">({st.src})</span>
+                  </div>
+                  <span className="font-mono-num text-[11px] text-[var(--up)]">{st.cagr}% CAGR · {st.verdict}</span>
+                </button>
+              ))}
+
+              <div className="bg-[var(--bg)] px-3.5 py-1 font-mono-num text-[10px] uppercase tracking-wider text-[var(--amber)]">
+                // PRE-COMPUTED STUDIES ({filteredStudies.length} OF 39)
+              </div>
+              {filteredStudies.map((study) => (
+                <button
+                  key={study.slug}
+                  type="button"
+                  onClick={() => {
+                    setPaletteOpen(false);
+                    router.push(`/study/${study.slug}`);
+                  }}
+                  className="flex w-full items-center justify-between px-4 py-2 text-left text-xs hover:bg-[var(--surface2)]"
+                >
+                  <span className="font-medium text-[var(--ink)]">{study.title}</span>
+                  <span className="font-mono-num text-[11px] text-[var(--amber)]">/study/{study.slug}</span>
+                </button>
+              ))}
+
+              <div className="bg-[var(--bg)] px-3.5 py-1 font-mono-num text-[10px] uppercase tracking-wider text-[var(--amber)]">
+                // PAGE FEATURES & EXPLAINERS ({filteredExplainers.length})
+              </div>
+              {filteredExplainers.map((ex) => (
+                <button
+                  key={`${ex.page}:${ex.key}`}
+                  type="button"
+                  onClick={() => {
+                    setPaletteOpen(false);
+                    const targetPath = ex.page === 'simulator' ? '/events/simulator' : `/${ex.page}`;
+                    router.push(`${targetPath}?explain=${encodeURIComponent(ex.key)}`);
+                  }}
+                  className="flex w-full items-center justify-between px-4 py-2 text-left text-xs hover:bg-[var(--surface2)]"
+                >
+                  <span className="font-medium text-[var(--ink)]">{ex.title}</span>
+                  <span className="font-mono-num text-[10px] text-[var(--muted)]">/{ex.page}?explain={ex.key}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Interactive Page Walkthrough Tour Modal #qg-tour */}
+      {tourOpen && pageTourSteps[tourIdx] && (
+        <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 p-4 sm:items-center">
+          <div
+            id="qg-tour"
+            className="w-full max-w-lg border-2 border-[var(--amber)] bg-[var(--surface)] p-5 shadow-2xl"
+          >
+            <div className="flex items-center justify-between border-b border-[var(--line)] pb-2.5">
+              <span className="font-mono-num text-[11px] font-bold uppercase text-[var(--amber)]">
+                WALKTHROUGH · STEP {tourIdx + 1} OF {pageTourSteps.length}
+              </span>
+              {pageTourSteps[tourIdx].target && (
+                <span className="border border-[var(--line2)] bg-[var(--bg)] px-1.5 py-0.5 font-mono-num text-[10px] text-[var(--muted)]">
+                  {pageTourSteps[tourIdx].target}
+                </span>
+              )}
+            </div>
+            <h3 className="mt-3 font-cond text-lg font-bold uppercase text-[var(--ink)]">
+              {pageTourSteps[tourIdx].title}
+            </h3>
+            <p className="mt-2 text-xs leading-relaxed text-[var(--body)]">
+              {pageTourSteps[tourIdx].body}
+            </p>
+            <div className="mt-5 flex items-center justify-between border-t border-[var(--line)] pt-3">
+              <button
+                type="button"
+                onClick={() => setTourOpen(false)}
+                className="font-mono-num text-xs text-[var(--muted)] hover:text-[var(--ink)]"
+              >
+                Skip the tour
+              </button>
+              <div className="flex items-center gap-2">
+                {tourIdx > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => setTourIdx((i) => Math.max(0, i - 1))}
+                    className="border border-[var(--line2)] bg-[var(--bg)] px-3 py-1.5 font-mono-num text-xs text-[var(--ink)]"
+                  >
+                    ← Back
+                  </button>
+                )}
+                {tourIdx < pageTourSteps.length - 1 ? (
+                  <button
+                    type="button"
+                    onClick={() => setTourIdx((i) => Math.min(pageTourSteps.length - 1, i + 1))}
+                    className="bg-[var(--amber)] px-4 py-1.5 font-mono-num text-xs font-bold uppercase text-[#0A0D13]"
+                  >
+                    Next →
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setTourOpen(false);
+                      fetch('/api/tour/seen', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ page: resolvedExplainKey }),
+                      }).catch(() => {});
+                    }}
+                    className="bg-[var(--up)] px-4 py-1.5 font-mono-num text-xs font-bold uppercase text-[#0A0D13]"
+                  >
+                    Done ✓
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -660,27 +866,60 @@ export function TerminalShell({
             </div>
             <div className="flex-1 overflow-y-auto p-4 space-y-3">
               {pageExplainEntries.length > 0 ? (
-                pageExplainEntries.map(([selector, info]) => (
-                  <div key={selector} className="border border-[var(--line)] bg-[var(--bg)] p-3">
-                    <div className="flex items-center justify-between">
-                      <span className="font-cond text-sm font-bold uppercase text-[var(--ink)]">
-                        {info.title}
-                      </span>
-                      <span className="border border-[var(--line2)] px-1.5 py-0.5 font-mono-num text-[10px] uppercase text-[var(--amber)]">
-                        {info.cat}
-                      </span>
+                pageExplainEntries.map(([key, info]) => {
+                  const isHighlighted = activeExplainItem === key;
+                  return (
+                    <div
+                      key={key}
+                      className={`border p-3 ${
+                        isHighlighted ? 'border-[var(--amber)] bg-[var(--amber)]/10' : 'border-[var(--line)] bg-[var(--bg)]'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="font-cond text-sm font-bold uppercase text-[var(--ink)]">
+                          {info.title}
+                        </span>
+                        <span className="border border-[var(--line2)] px-1.5 py-0.5 font-mono-num text-[10px] uppercase text-[var(--amber)]">
+                          {info.selector || key}
+                        </span>
+                      </div>
+                      <p className="mt-1.5 text-xs leading-relaxed text-[var(--body)]">{info.body}</p>
+                      <div className="mt-2.5 flex flex-wrap items-center gap-3">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setExplainOpen(false);
+                            if (info.selector) {
+                              const el = document.querySelector(info.selector);
+                              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
+                            setTourIdx(0);
+                            setTourOpen(true);
+                          }}
+                          className="border border-[var(--line2)] bg-[var(--surface)] px-2 py-0.5 font-mono-num text-[10px] uppercase text-[var(--ink)] hover:border-[var(--amber)] hover:text-[var(--amber)]"
+                        >
+                          ▶ Show me
+                        </button>
+                        {info.learn?.href && (
+                          <Link
+                            href={info.learn.href}
+                            className="font-mono-num text-[11px] text-[var(--amber)] hover:underline"
+                          >
+                            Learn more: {info.learn.label || info.learn.href} →
+                          </Link>
+                        )}
+                        {!info.learn && info.uni && (
+                          <Link
+                            href={`/university/${info.uni}`}
+                            className="font-mono-num text-[11px] text-[var(--amber)] hover:underline"
+                          >
+                            Read in University: Chapter {info.uni} →
+                          </Link>
+                        )}
+                      </div>
                     </div>
-                    <p className="mt-1.5 text-xs leading-relaxed text-[var(--body)]">{info.body}</p>
-                    {info.uni && (
-                      <Link
-                        href={`/university/${info.uni}`}
-                        className="mt-2 inline-block font-mono-num text-[11px] text-[var(--amber)] hover:underline"
-                      >
-                        Read in University: Chapter {info.uni} →
-                      </Link>
-                    )}
-                  </div>
-                ))
+                  );
+                })
               ) : (
                 <div className="border border-[var(--line)] bg-[var(--bg)] p-4 text-xs text-[var(--body)]">
                   Use the interactive controls on this desk or open QuantGPT University for guided lessons and mastery quizzes.

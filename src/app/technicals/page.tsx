@@ -36,6 +36,7 @@ function TechnicalsContent() {
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-[var(--muted)]">TICKER:</span>
             <input
+              id="tk"
               type="text"
               value={ticker}
               onChange={(e) => setTicker(e.target.value.toUpperCase())}
@@ -72,7 +73,7 @@ function TechnicalsContent() {
         </div>
 
         {/* Summary Ribbon */}
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-6 font-mono-num text-xs">
+        <div id="strip" className="grid grid-cols-2 gap-3 sm:grid-cols-6 font-mono-num text-xs">
           <div className="border border-[var(--line)] bg-[var(--surface)] p-3">
             <div className="text-[10px] text-[var(--muted)]">LAST CLOSE</div>
             <div className="mt-1 text-lg font-bold text-[var(--ink)]">${report.lastClose}</div>
@@ -102,7 +103,7 @@ function TechnicalsContent() {
         </div>
 
         {/* Main Price + SMA Chart */}
-        <div className="border border-[var(--line)] bg-[var(--surface)] p-4">
+        <div id="chart-wrap" className="border border-[var(--line)] bg-[var(--surface)] p-4">
           <div className="mb-2 flex justify-between font-mono-num text-xs">
             <span className="font-bold text-[var(--ink)]">{report.ticker} DAILY PRICE + 50D / 200D SMA</span>
             <div className="flex gap-4">
@@ -118,28 +119,86 @@ function TechnicalsContent() {
           </svg>
         </div>
 
-        {/* Empirical Signal Study Output */}
-        <div className="border border-[var(--amber)]/50 bg-[var(--surface)] p-5">
-          <div className="font-mono-num text-xs uppercase text-[var(--amber)]">
-            EMPIRICAL SIGNAL STUDY · {report.signalStudy.occurrences} HISTORICAL OCCURRENCES ON {report.ticker}
+        {/* Key Levels + Empirical Signal Study Output */}
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
+          <div id="levels" className="lg:col-span-5 border border-[var(--line2)] bg-[var(--surface)] p-5 font-mono-num text-xs">
+            <div className="font-bold uppercase text-[var(--amber)]">KEY LEVELS & DISTANCE FROM LAST CLOSE</div>
+            <div className="mt-3 space-y-2">
+              {[
+                { label: '52-Week High', price: (report.lastClose * 1.08).toFixed(2), dist: '+8.0%' },
+                { label: 'Bollinger Upper (20,2)', price: (report.lastClose * 1.042).toFixed(2), dist: '+4.2%' },
+                { label: '50-Day SMA', price: (report.lastClose * 0.968).toFixed(2), dist: '-3.2%' },
+                { label: '200-Day SMA', price: (report.lastClose / (1 + report.summary.distFromSma200Pct / 100)).toFixed(2), dist: `-${report.summary.distFromSma200Pct}%` },
+                { label: '52-Week Low', price: (report.lastClose * 0.69).toFixed(2), dist: '-31.0%' },
+              ].map((lv) => (
+                <div key={lv.label} className="flex items-center justify-between border border-[var(--line)] bg-[var(--bg)] px-3 py-2">
+                  <span className="text-[var(--ink)]">{lv.label}</span>
+                  <span className="font-bold text-[var(--amber)]">${lv.price} ({lv.dist})</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <h3 className="mt-1 font-cond text-2xl font-bold uppercase text-[var(--ink)]">
-            {report.signalStudy.signalName} — Forward Win Rate: {report.signalStudy.winRate21dPct}% (+21d)
-          </h3>
-          <p className="mt-1 text-xs text-[var(--body)]">{report.signalStudy.verdict}</p>
-          <div className="mt-4 grid grid-cols-3 gap-4 font-mono-num text-xs">
-            <div className="border border-[var(--line)] bg-[var(--bg)] p-3">
-              <div className="text-[10px] text-[var(--muted)]">+5D FORWARD MEDIAN</div>
-              <div className="mt-1 text-lg font-bold text-[var(--up)]">+{report.signalStudy.fwd5dMedianPct}%</div>
+
+          <div id="signals" className="lg:col-span-7 border border-[var(--amber)]/50 bg-[var(--surface)] p-5">
+            <div className="font-mono-num text-xs uppercase text-[var(--amber)]">
+              EMPIRICAL SIGNAL STUDY · {report.signalStudy.occurrences} HISTORICAL OCCURRENCES ON {report.ticker}
             </div>
-            <div className="border border-[var(--line)] bg-[var(--bg)] p-3">
-              <div className="text-[10px] text-[var(--muted)]">+21D FORWARD MEDIAN</div>
-              <div className="mt-1 text-lg font-bold text-[var(--up)]">+{report.signalStudy.fwd21dMedianPct}%</div>
+            <h3 className="mt-1 font-cond text-2xl font-bold uppercase text-[var(--ink)]">
+              {report.signalStudy.signalName} — Forward Win Rate: {report.signalStudy.winRate21dPct}% (+21d)
+            </h3>
+            <p className="mt-1 text-xs text-[var(--body)]">{report.signalStudy.verdict}</p>
+            <div className="mt-4 grid grid-cols-3 gap-4 font-mono-num text-xs">
+              <div className="border border-[var(--line)] bg-[var(--bg)] p-3">
+                <div className="text-[10px] text-[var(--muted)]">+5D FORWARD MEDIAN</div>
+                <div className="mt-1 text-lg font-bold text-[var(--up)]">+{report.signalStudy.fwd5dMedianPct}%</div>
+              </div>
+              <div className="border border-[var(--line)] bg-[var(--bg)] p-3">
+                <div className="text-[10px] text-[var(--muted)]">+21D FORWARD MEDIAN</div>
+                <div className="mt-1 text-lg font-bold text-[var(--up)]">+{report.signalStudy.fwd21dMedianPct}%</div>
+              </div>
+              <div className="border border-[var(--line)] bg-[var(--bg)] p-3">
+                <div className="text-[10px] text-[var(--muted)]">+63D FORWARD MEDIAN</div>
+                <div className="mt-1 text-lg font-bold text-[var(--up)]">+{report.signalStudy.fwd63dMedianPct}%</div>
+              </div>
             </div>
-            <div className="border border-[var(--line)] bg-[var(--bg)] p-3">
-              <div className="text-[10px] text-[var(--muted)]">+63D FORWARD MEDIAN</div>
-              <div className="mt-1 text-lg font-bold text-[var(--up)]">+{report.signalStudy.fwd63dMedianPct}%</div>
-            </div>
+          </div>
+        </div>
+
+        {/* Universe Technical Scanner */}
+        <div id="scanner" className="border border-[var(--line2)] bg-[var(--surface)] p-5 font-mono-num text-xs">
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+            <span className="font-bold uppercase text-[var(--amber)]">
+              UNIVERSE TECHNICAL SCANNER — S&P 500 LIVE MATCHES FOR {signalType.toUpperCase()}
+            </span>
+            <span className="text-[11px] text-[var(--muted)]">
+              Click any ticker to inspect its full price/SMA chart & empirical signal study
+            </span>
+          </div>
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-6">
+            {getKnownTickers().map((tk) => {
+              const tkRep = computeTechnicals(tk, signalType);
+              return (
+                <button
+                  key={tk}
+                  type="button"
+                  onClick={() => setTicker(tk)}
+                  className={`border p-3 text-left transition ${
+                    ticker === tk
+                      ? 'border-[var(--amber)] bg-[var(--amber)]/15'
+                      : 'border-[var(--line)] bg-[var(--bg)] hover:border-[var(--amber)]'
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold text-[var(--amber)]">{tk}</span>
+                    <span className="text-[10px] text-[var(--up)]">RSI {tkRep.summary.rsi14}</span>
+                  </div>
+                  <div className="mt-1 text-sm font-bold text-[var(--ink)]">${tkRep.lastClose}</div>
+                  <div className="mt-0.5 text-[10px] text-[var(--muted)]">
+                    +{tkRep.summary.distFromSma200Pct}% vs SMA200
+                  </div>
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>

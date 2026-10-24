@@ -56,6 +56,7 @@ export default function StockGraderPage() {
             <div className="flex flex-wrap items-center gap-2 font-mono-num text-xs">
               <span className="text-[var(--muted)]">TICKER:</span>
               <input
+                id="tk"
                 type="text"
                 value={ticker}
                 onChange={(e) => setTicker(e.target.value.toUpperCase())}
@@ -82,6 +83,12 @@ export default function StockGraderPage() {
             </div>
 
             <div className="flex gap-2 font-mono-num text-xs">
+              <Link
+                href={`/halal?ticker=${report.ticker}`}
+                className="border border-[var(--line2)] bg-[var(--bg)] px-3 py-1.5 text-[var(--ink)] hover:border-[var(--amber)]"
+              >
+                AAOIFI Halal →
+              </Link>
               <Link
                 href={`/technicals?ticker=${report.ticker}`}
                 className="border border-[var(--line2)] bg-[var(--bg)] px-3 py-1.5 text-[var(--ink)] hover:border-[var(--amber)]"
@@ -114,9 +121,10 @@ export default function StockGraderPage() {
                       ${report.price.toFixed(2)} · MCap ${report.marketCapB}B
                     </div>
                   </div>
-                  <div className="border-2 border-[var(--up)] bg-[var(--up)]/15 px-4 py-2 text-center font-mono-num">
+                  <div id="badge" className="border-2 border-[var(--up)] bg-[var(--up)]/15 px-4 py-2 text-center font-mono-num">
                     <div className="text-[10px] text-[var(--muted)]">COMPOSITE</div>
                     <div className="text-3xl font-bold text-[var(--up)]">{report.compositeGrade}</div>
+                    <div className="text-[9px] text-[var(--muted)]">5-PILLAR EQUAL</div>
                   </div>
                 </div>
               </div>
@@ -144,11 +152,16 @@ export default function StockGraderPage() {
             </div>
 
             {/* 6 Dimensions Grid */}
-            <div className="lg:col-span-8 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 font-mono-num">
+            <div id="pillars" className="lg:col-span-8 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 font-mono-num">
               {Object.values(report.dimensions).map((dim) => (
                 <div key={dim.name} className="border border-[var(--line)] bg-[var(--surface)] p-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold uppercase text-[var(--ink)]">{dim.name}</span>
+                    <div>
+                      <span className="text-xs font-bold uppercase text-[var(--ink)]">{dim.name}</span>
+                      <div className="text-[9px] uppercase text-[var(--faint)]">
+                        {dim.inComposite ? '20% OF COMPOSITE' : 'SHOWN ALONGSIDE (0% WEIGHT)'}
+                      </div>
+                    </div>
                     <span
                       className={`border px-2 py-0.5 text-sm font-bold ${
                         dim.grade.startsWith('A') || dim.grade.startsWith('B')
@@ -167,6 +180,70 @@ export default function StockGraderPage() {
                   <div className="mt-2 font-sans text-xs text-[var(--muted)]">{dim.headlineMetric}</div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Peer Benchmarks (Sub-Industry, Industry Group, Sector) */}
+          <div id="peers-h" className="border border-[var(--line2)] bg-[var(--surface)] p-5">
+            <div className="mb-3 flex flex-wrap items-center justify-between gap-2 font-mono-num text-xs">
+              <span className="font-bold uppercase text-[var(--amber)]">
+                GICS PEER BENCHMARKS — {report.ticker} PERCENTILE ACROSS PEER COHORTS
+              </span>
+              <span className="text-[11px] text-[var(--muted)]">
+                Evaluated against live SEC XBRL Point-in-Time Cohorts
+              </span>
+            </div>
+            <div className="grid grid-cols-1 gap-3 md:grid-cols-3 font-mono-num text-xs">
+              {report.peerBenchmarks.map((pb) => (
+                <div key={pb.group} className="border border-[var(--line)] bg-[var(--bg)] p-3.5">
+                  <div className="text-[10px] uppercase text-[var(--muted)]">{pb.group}</div>
+                  <div className="mt-1 font-bold text-[var(--ink)]">{pb.groupName}</div>
+                  <div className="mt-2 flex items-center justify-between border-t border-[var(--line)] pt-2">
+                    <span className="text-[var(--muted)]">{pb.peerCount} Peers · Grade {pb.compositeGrade}</span>
+                    <span className="font-bold text-[var(--up)]">Rank {pb.stockRank}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* All 16 Input Drivers Table */}
+          <div id="drivers-h" className="border border-[var(--line2)] bg-[var(--surface)] p-5">
+            <div className="mb-3 flex flex-wrap items-center justify-between gap-2 font-mono-num text-xs">
+              <span className="font-bold uppercase text-[var(--amber)]">
+                ALL {report.drivers.length} QUANTITATIVE INPUT DRIVERS (RAW VALUE VS SECTOR MEDIAN)
+              </span>
+              <span className="text-[11px] text-[var(--muted)]">
+                5 Composite Pillars + Flows Diagnostic
+              </span>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left font-mono-num text-xs">
+                <thead>
+                  <tr className="border-b border-[var(--line)] bg-[var(--bg)] text-[10px] uppercase text-[var(--muted)]">
+                    <th className="p-2.5">Pillar</th>
+                    <th className="p-2.5">Factor Metric</th>
+                    <th className="p-2.5">{report.ticker} Raw Value</th>
+                    <th className="p-2.5">Sector Median</th>
+                    <th className="p-2.5">Sector Percentile</th>
+                    <th className="p-2.5">Grade</th>
+                    <th className="p-2.5">Composite Weight</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[var(--line)]">
+                  {report.drivers.map((drv) => (
+                    <tr key={`${drv.dimension}-${drv.metric}`} className="hover:bg-[var(--bg)]">
+                      <td className="p-2.5 font-bold text-[var(--amber)]">{drv.dimension}</td>
+                      <td className="p-2.5 text-[var(--ink)]">{drv.metric}</td>
+                      <td className="p-2.5 font-bold text-[var(--ink)]">{drv.rawValue}</td>
+                      <td className="p-2.5 text-[var(--muted)]">{drv.sectorMedian}</td>
+                      <td className="p-2.5 text-[var(--up)]">{drv.percentile}th</td>
+                      <td className="p-2.5 font-bold">{drv.grade}</td>
+                      <td className="p-2.5 text-[var(--muted)]">{drv.weightInComposite}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
 

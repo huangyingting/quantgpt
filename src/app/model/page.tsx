@@ -61,6 +61,7 @@ function DcfModelContent() {
       subtitle="SEC EDGAR baseline cash flows, Bear/Base/Bull presets, market-implied growth rate, and 5×5 WACC × Terminal Growth grid"
       actions={
         <button
+          id="xlsx-btn"
           type="button"
           onClick={handleDownloadCsv}
           className="bg-[var(--amber)] px-3 py-1 font-mono-num text-xs font-bold uppercase text-[#0A0D13]"
@@ -75,6 +76,7 @@ function DcfModelContent() {
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-[var(--muted)]">TICKER:</span>
             <input
+              id="tk"
               type="text"
               value={ticker}
               onChange={(e) => setTicker(e.target.value.toUpperCase())}
@@ -96,7 +98,7 @@ function DcfModelContent() {
             ))}
           </div>
 
-          <div className="flex gap-1.5">
+          <div id="scen-row" className="flex gap-1.5">
             {(['BEAR', 'BASE', 'BULL'] as const).map((sc) => (
               <button
                 key={sc}
@@ -116,7 +118,7 @@ function DcfModelContent() {
 
         {/* Sliders + Valuation Summary */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
-          <div className="lg:col-span-5 space-y-4 border border-[var(--line)] bg-[var(--surface)] p-5 font-mono-num text-xs">
+          <div id="sliders" className="lg:col-span-5 space-y-4 border border-[var(--line)] bg-[var(--surface)] p-5 font-mono-num text-xs">
             <div className="font-bold uppercase text-[var(--amber)]">ASSUMPTION SLIDERS</div>
             <div>
               <div className="flex justify-between">
@@ -184,9 +186,9 @@ function DcfModelContent() {
             <div className="border border-[var(--line)] bg-[var(--surface)] p-4">
               <div className="text-[10px] text-[var(--muted)]">CURRENT SHARE PRICE</div>
               <div className="mt-1 text-2xl font-bold text-[var(--ink)]">${model.currentPrice}</div>
-              <div className="text-[10px] text-[var(--faint)]">{model.name}</div>
+              <div className="text-[10px] text-[var(--faint)]">{model.name} (CIK {model.cik})</div>
             </div>
-            <div className="border border-[var(--up)]/60 bg-[var(--surface)] p-4">
+            <div id="hero-fv" className="border border-[var(--up)]/60 bg-[var(--surface)] p-4">
               <div className="text-[10px] text-[var(--up)]">DCF INTRINSIC VALUE</div>
               <div className="mt-1 text-2xl font-bold text-[var(--up)]">${model.valuation.fairValuePerShare}</div>
               <div className="text-[10px] text-[var(--faint)]">EV ${model.valuation.enterpriseValueB}B</div>
@@ -203,7 +205,7 @@ function DcfModelContent() {
               </div>
               <div className="text-[10px] text-[var(--faint)]">{model.scenario} Case</div>
             </div>
-            <div className="sm:col-span-3 border border-[var(--amber)]/50 bg-[var(--surface)] p-4">
+            <div id="implied" className="sm:col-span-3 border border-[var(--amber)]/50 bg-[var(--surface)] p-4">
               <div className="text-[10px] uppercase text-[var(--amber)]">
                 REVERSE-DCF MARKET-IMPLIED 5-YEAR GROWTH RATE SOLVER
               </div>
@@ -216,7 +218,7 @@ function DcfModelContent() {
         </div>
 
         {/* 10-Year Cash Flow Schedule */}
-        <div className="overflow-x-auto border border-[var(--line)] bg-[var(--surface)] p-4">
+        <div id="fcf-head" className="overflow-x-auto border border-[var(--line)] bg-[var(--surface)] p-4">
           <div className="mb-3 font-mono-num text-xs font-bold uppercase text-[var(--amber)]">
             10-YEAR FREE CASH FLOW PROJECTION ($ BILLIONS)
           </div>
@@ -249,7 +251,7 @@ function DcfModelContent() {
         </div>
 
         {/* 5x5 Sensitivity Grid */}
-        <div className="border border-[var(--line)] bg-[var(--surface)] p-4">
+        <div id="sens-head" className="border border-[var(--line)] bg-[var(--surface)] p-4">
           <div className="mb-3 font-mono-num text-xs font-bold uppercase text-[var(--amber)]">
             5×5 SENSITIVITY MATRIX: WACC (ROWS) × TERMINAL GROWTH (COLUMNS)
           </div>
@@ -284,6 +286,50 @@ function DcfModelContent() {
               </tbody>
             </table>
           </div>
+        </div>
+
+        {/* SEC Filed Statements (5-Year 10-K / TTM 10-Q Baseline) */}
+        <div id="stmts-head" className="overflow-x-auto border border-[var(--line2)] bg-[var(--surface)] p-4">
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-2 font-mono-num text-xs">
+            <span className="font-bold uppercase text-[var(--amber)]">
+              SEC FILED STATEMENTS — 5-YEAR 10-K & TTM 10-Q BASELINE (CIK {model.cik})
+            </span>
+            <span className="text-[11px] text-[var(--muted)]">
+              Every historical figure traced directly to SEC EDGAR XBRL filings
+            </span>
+          </div>
+          <table className="w-full text-left font-mono-num text-xs">
+            <thead>
+              <tr className="border-b border-[var(--line)] bg-[var(--bg)] text-[10px] uppercase text-[var(--muted)]">
+                <th className="p-2">Fiscal Year</th>
+                <th className="p-2">Filing</th>
+                <th className="p-2">Revenue ($B)</th>
+                <th className="p-2">Operating Income ($B)</th>
+                <th className="p-2">Net Income ($B)</th>
+                <th className="p-2">Operating Cash Flow ($B)</th>
+                <th className="p-2">CapEx ($B)</th>
+                <th className="p-2">Free Cash Flow ($B)</th>
+                <th className="p-2">Cash ($B)</th>
+                <th className="p-2">Total Debt ($B)</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[var(--line)]">
+              {model.secFiledStatements.map((st) => (
+                <tr key={st.fiscalYear} className="hover:bg-[var(--bg)]">
+                  <td className="p-2 font-bold text-[var(--amber)]">{st.fiscalYear}</td>
+                  <td className="p-2 text-[var(--muted)]">{st.form}</td>
+                  <td className="p-2 font-bold">${st.revenueB}B</td>
+                  <td className="p-2">${st.operatingIncomeB}B</td>
+                  <td className="p-2">${st.netIncomeB}B</td>
+                  <td className="p-2">${st.operatingCashFlowB}B</td>
+                  <td className="p-2 text-[var(--down)]">-${st.capexB}B</td>
+                  <td className="p-2 font-bold text-[var(--up)]">${st.fcfB}B</td>
+                  <td className="p-2">${st.cashB}B</td>
+                  <td className="p-2">${st.totalDebtB}B</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </TerminalShell>

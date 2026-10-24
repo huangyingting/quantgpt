@@ -228,7 +228,22 @@
       },
       "read": "After 12 escalation or strike events at least 21 sessions apart, the S&P 500 beat its median 21-session move 5 times (42%); on ordinary days that happens half the time, and a split this lopsided or more has a 77% chance by luck alone."
     },
-    "warmed": "2026-10-24"
+    "warmed": "2026-10-24",
+    "name": "Escalation or strike",
+    "title": "Escalation or strike",
+    "category": "world",
+    "description": "",
+    "count": 13,
+    "stats": {
+      "d1_median": 0,
+      "d5_median": 0,
+      "d21_median": 0,
+      "d63_median": 0,
+      "d21_hit_rate": 50,
+      "d63_hit_rate": 50,
+      "p_value_21d": 0.7744140625,
+      "read": "After 12 escalation or strike events at least 21 sessions apart, the S&P 500 beat its median 21-session move 5 times (42%); on ordinary days that happens half the time, and a split this lopsided or more has a 77% chance by luck alone."
+    }
   },
   "nuclear": {
     "base": {
@@ -349,7 +364,22 @@
       },
       "read": "After 2 nuclear or missile events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 50% chance by luck alone."
     },
-    "warmed": "2026-10-24"
+    "warmed": "2026-10-24",
+    "name": "Nuclear or missile",
+    "title": "Nuclear or missile",
+    "category": "world",
+    "description": "",
+    "count": 3,
+    "stats": {
+      "d1_median": 0,
+      "d5_median": 0,
+      "d21_median": 0,
+      "d63_median": 0,
+      "d21_hit_rate": 50,
+      "d63_hit_rate": 50,
+      "p_value_21d": 0.5,
+      "read": "After 2 nuclear or missile events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 50% chance by luck alone."
+    }
   },
   "disaster": {
     "base": {
@@ -503,7 +533,22 @@
       },
       "read": "After 5 natural disaster events at least 21 sessions apart, the S&P 500 beat its median 21-session move 4 times (80%); on ordinary days that happens half the time, and a split this lopsided or more has a 38% chance by luck alone."
     },
-    "warmed": "2026-10-24"
+    "warmed": "2026-10-24",
+    "name": "Natural disaster",
+    "title": "Natural disaster",
+    "category": "world",
+    "description": "",
+    "count": 6,
+    "stats": {
+      "d1_median": 0,
+      "d5_median": 0,
+      "d21_median": 0,
+      "d63_median": 0,
+      "d21_hit_rate": 50,
+      "d63_hit_rate": 50,
+      "p_value_21d": 0.375,
+      "read": "After 5 natural disaster events at least 21 sessions apart, the S&P 500 beat its median 21-session move 4 times (80%); on ordinary days that happens half the time, and a split this lopsided or more has a 38% chance by luck alone."
+    }
   },
   "law": {
     "base": {
@@ -588,7 +633,22 @@
       },
       "read": "After 1 law and courts events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 100% chance by luck alone."
     },
-    "warmed": "2026-10-24"
+    "warmed": "2026-10-24",
+    "name": "Law and courts",
+    "title": "Law and courts",
+    "category": "world",
+    "description": "",
+    "count": 1,
+    "stats": {
+      "d1_median": 0,
+      "d5_median": 0,
+      "d21_median": 0,
+      "d63_median": 0,
+      "d21_hit_rate": 50,
+      "d63_hit_rate": 50,
+      "p_value_21d": 1,
+      "read": "After 1 law and courts events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 100% chance by luck alone."
+    }
   },
   "chokepoint": {
     "base": {
@@ -742,7 +802,22 @@
       },
       "read": "After 5 chokepoint restriction events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 6% chance by luck alone."
     },
-    "warmed": "2026-10-24"
+    "warmed": "2026-10-24",
+    "name": "Chokepoint restriction",
+    "title": "Chokepoint restriction",
+    "category": "world",
+    "description": "",
+    "count": 6,
+    "stats": {
+      "d1_median": 0,
+      "d5_median": 0,
+      "d21_median": 0,
+      "d63_median": 0,
+      "d21_hit_rate": 50,
+      "d63_hit_rate": 50,
+      "p_value_21d": 0.0625,
+      "read": "After 5 chokepoint restriction events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 6% chance by luck alone."
+    }
   },
   "ceasefire": {
     "base": {
@@ -852,7 +927,22 @@
       },
       "read": "After 1 ceasefire or talks events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 100% chance by luck alone."
     },
-    "warmed": "2026-10-24"
+    "warmed": "2026-10-24",
+    "name": "Ceasefire or talks",
+    "title": "Ceasefire or talks",
+    "category": "world",
+    "description": "",
+    "count": 2,
+    "stats": {
+      "d1_median": 0,
+      "d5_median": 0,
+      "d21_median": 0,
+      "d63_median": 0,
+      "d21_hit_rate": 50,
+      "d63_hit_rate": 50,
+      "p_value_21d": 1,
+      "read": "After 1 ceasefire or talks events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 100% chance by luck alone."
+    }
   },
   "sanction": {
     "base": {
@@ -1017,7 +1107,22 @@
       },
       "read": "After 6 sanction events at least 21 sessions apart, the S&P 500 beat its median 21-session move 1 times (17%); on ordinary days that happens half the time, and a split this lopsided or more has a 22% chance by luck alone."
     },
-    "warmed": "2026-10-24"
+    "warmed": "2026-10-24",
+    "name": "Sanction",
+    "title": "Sanction",
+    "category": "world",
+    "description": "",
+    "count": 7,
+    "stats": {
+      "d1_median": 0,
+      "d5_median": 0,
+      "d21_median": 0,
+      "d63_median": 0,
+      "d21_hit_rate": 50,
+      "d63_hit_rate": 50,
+      "p_value_21d": 0.21875,
+      "read": "After 6 sanction events at least 21 sessions apart, the S&P 500 beat its median 21-session move 1 times (17%); on ordinary days that happens half the time, and a split this lopsided or more has a 22% chance by luck alone."
+    }
   },
   "politics": {
     "base": {
@@ -1088,7 +1193,22 @@
       },
       "read": "Not enough past politics events on the tape to test."
     },
-    "warmed": "2026-10-24"
+    "warmed": "2026-10-24",
+    "name": "Politics",
+    "title": "Politics",
+    "category": "world",
+    "description": "",
+    "count": 1,
+    "stats": {
+      "d1_median": 0,
+      "d5_median": 0,
+      "d21_median": 0,
+      "d63_median": 0,
+      "d21_hit_rate": 50,
+      "d63_hit_rate": 50,
+      "p_value_21d": 0.5,
+      "read": "Not enough past politics events on the tape to test."
+    }
   },
   "diplomacy": {
     "base": {
@@ -1159,7 +1279,22 @@
       },
       "read": "Not enough past diplomacy events on the tape to test."
     },
-    "warmed": "2026-10-24"
+    "warmed": "2026-10-24",
+    "name": "Diplomacy",
+    "title": "Diplomacy",
+    "category": "world",
+    "description": "",
+    "count": 1,
+    "stats": {
+      "d1_median": 0,
+      "d5_median": 0,
+      "d21_median": 0,
+      "d63_median": 0,
+      "d21_hit_rate": 50,
+      "d63_hit_rate": 50,
+      "p_value_21d": 0.5,
+      "read": "Not enough past diplomacy events on the tape to test."
+    }
   },
   "sports": {
     "base": {
@@ -1255,7 +1390,22 @@
       },
       "read": "After 1 sports events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 100% chance by luck alone."
     },
-    "warmed": "2026-10-24"
+    "warmed": "2026-10-24",
+    "name": "Sports",
+    "title": "Sports",
+    "category": "world",
+    "description": "",
+    "count": 2,
+    "stats": {
+      "d1_median": 0,
+      "d5_median": 0,
+      "d21_median": 0,
+      "d63_median": 0,
+      "d21_hit_rate": 50,
+      "d63_hit_rate": 50,
+      "p_value_21d": 1,
+      "read": "After 1 sports events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 100% chance by luck alone."
+    }
   },
   "central_bank": {
     "base": {
@@ -1860,7 +2010,22 @@
       },
       "read": "After 46 central bank events at least 21 sessions apart, the S&P 500 beat its median 21-session move 27 times (59%); on ordinary days that happens half the time, and a split this lopsided or more has a 30% chance by luck alone."
     },
-    "warmed": "2026-10-24"
+    "warmed": "2026-10-24",
+    "name": "Central bank",
+    "title": "Central bank",
+    "category": "world",
+    "description": "",
+    "count": 47,
+    "stats": {
+      "d1_median": 0,
+      "d5_median": 0,
+      "d21_median": 0,
+      "d63_median": 0,
+      "d21_hit_rate": 50,
+      "d63_hit_rate": 50,
+      "p_value_21d": 0.3019956131896606,
+      "read": "After 46 central bank events at least 21 sessions apart, the S&P 500 beat its median 21-session move 27 times (59%); on ordinary days that happens half the time, and a split this lopsided or more has a 30% chance by luck alone."
+    }
   },
   "election": {
     "base": {
@@ -1931,7 +2096,22 @@
       },
       "read": "Not enough past election events on the tape to test."
     },
-    "warmed": "2026-10-24"
+    "warmed": "2026-10-24",
+    "name": "Election",
+    "title": "Election",
+    "category": "world",
+    "description": "",
+    "count": 1,
+    "stats": {
+      "d1_median": 0,
+      "d5_median": 0,
+      "d21_median": 0,
+      "d63_median": 0,
+      "d21_hit_rate": 50,
+      "d63_hit_rate": 50,
+      "p_value_21d": 0.5,
+      "read": "Not enough past election events on the tape to test."
+    }
   },
   "health": {
     "base": {
@@ -2074,7 +2254,22 @@
       },
       "read": "After 4 health events at least 21 sessions apart, the S&P 500 beat its median 21-session move 1 times (25%); on ordinary days that happens half the time, and a split this lopsided or more has a 62% chance by luck alone."
     },
-    "warmed": "2026-10-24"
+    "warmed": "2026-10-24",
+    "name": "Health",
+    "title": "Health",
+    "category": "world",
+    "description": "",
+    "count": 5,
+    "stats": {
+      "d1_median": 0,
+      "d5_median": 0,
+      "d21_median": 0,
+      "d63_median": 0,
+      "d21_hit_rate": 50,
+      "d63_hit_rate": 50,
+      "p_value_21d": 0.625,
+      "read": "After 4 health events at least 21 sessions apart, the S&P 500 beat its median 21-session move 1 times (25%); on ordinary days that happens half the time, and a split this lopsided or more has a 62% chance by luck alone."
+    }
   },
   "science": {
     "base": {
@@ -2170,7 +2365,22 @@
       },
       "read": "After 1 science and tech events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 100% chance by luck alone."
     },
-    "warmed": "2026-10-24"
+    "warmed": "2026-10-24",
+    "name": "Science and tech",
+    "title": "Science and tech",
+    "category": "world",
+    "description": "",
+    "count": 2,
+    "stats": {
+      "d1_median": 0,
+      "d5_median": 0,
+      "d21_median": 0,
+      "d63_median": 0,
+      "d21_hit_rate": 50,
+      "d63_hit_rate": 50,
+      "p_value_21d": 1,
+      "read": "After 1 science and tech events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 100% chance by luck alone."
+    }
   },
   "business": {
     "base": {
@@ -2255,7 +2465,22 @@
       },
       "read": "After 1 business events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 100% chance by luck alone."
     },
-    "warmed": "2026-10-24"
+    "warmed": "2026-10-24",
+    "name": "Business",
+    "title": "Business",
+    "category": "world",
+    "description": "",
+    "count": 1,
+    "stats": {
+      "d1_median": 0,
+      "d5_median": 0,
+      "d21_median": 0,
+      "d63_median": 0,
+      "d21_hit_rate": 50,
+      "d63_hit_rate": 50,
+      "p_value_21d": 1,
+      "read": "After 1 business events at least 21 sessions apart, the S&P 500 beat its median 21-session move 0 times (0%); on ordinary days that happens half the time, and a split this lopsided or more has a 100% chance by luck alone."
+    }
   },
   "war_onset": {
     "base": {
@@ -2739,7 +2964,22 @@
       },
       "read": "After 36 war onset events at least 21 sessions apart, the S&P 500 beat its median 21-session move 20 times (56%); on ordinary days that happens half the time, and a split this lopsided or more has a 62% chance by luck alone."
     },
-    "warmed": "2026-10-24"
+    "warmed": "2026-10-24",
+    "name": "War onset",
+    "title": "War onset",
+    "category": "world",
+    "description": "",
+    "count": 36,
+    "stats": {
+      "d1_median": 0,
+      "d5_median": 0,
+      "d21_median": 0,
+      "d63_median": 0,
+      "d21_hit_rate": 50,
+      "d63_hit_rate": 50,
+      "p_value_21d": 0.617719317029696,
+      "read": "After 36 war onset events at least 21 sessions apart, the S&P 500 beat its median 21-session move 20 times (56%); on ordinary days that happens half the time, and a split this lopsided or more has a 62% chance by luck alone."
+    }
   },
   "other": {
     "base": {
@@ -2810,7 +3050,22 @@
       },
       "read": "Not enough past other events on the tape to test."
     },
-    "warmed": "2026-10-24"
+    "warmed": "2026-10-24",
+    "name": "Other",
+    "title": "Other",
+    "category": "world",
+    "description": "",
+    "count": 1,
+    "stats": {
+      "d1_median": 0,
+      "d5_median": 0,
+      "d21_median": 0,
+      "d63_median": 0,
+      "d21_hit_rate": 50,
+      "d63_hit_rate": 50,
+      "p_value_21d": 0.5,
+      "read": "Not enough past other events on the tape to test."
+    }
   },
   "data_release": {
     "base": {
@@ -2997,7 +3252,22 @@
       },
       "read": "After 8 data release events at least 21 sessions apart, the S&P 500 beat its median 21-session move 5 times (62%); on ordinary days that happens half the time, and a split this lopsided or more has a 73% chance by luck alone."
     },
-    "warmed": "2026-10-24"
+    "warmed": "2026-10-24",
+    "name": "Data release",
+    "title": "Data release",
+    "category": "world",
+    "description": "",
+    "count": 9,
+    "stats": {
+      "d1_median": 0,
+      "d5_median": 0,
+      "d21_median": 0,
+      "d63_median": 0,
+      "d21_hit_rate": 50,
+      "d63_hit_rate": 50,
+      "p_value_21d": 0.7265625,
+      "read": "After 8 data release events at least 21 sessions apart, the S&P 500 beat its median 21-session move 5 times (62%); on ordinary days that happens half the time, and a split this lopsided or more has a 73% chance by luck alone."
+    }
   },
   "earnings": {
     "base": {
@@ -3068,6 +3338,21 @@
       },
       "read": "Not enough past earnings events on the tape to test."
     },
-    "warmed": "2026-10-24"
+    "warmed": "2026-10-24",
+    "name": "Earnings",
+    "title": "Earnings",
+    "category": "world",
+    "description": "",
+    "count": 1,
+    "stats": {
+      "d1_median": 0,
+      "d5_median": 0,
+      "d21_median": 0,
+      "d63_median": 0,
+      "d21_hit_rate": 50,
+      "d63_hit_rate": 50,
+      "p_value_21d": 0.5,
+      "read": "Not enough past earnings events on the tape to test."
+    }
   }
 }

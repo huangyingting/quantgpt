@@ -12,6 +12,10 @@ import {
   STUDIES,
   RESOURCES,
   OIL_SHOCKS,
+  EXPLAIN_MAP,
+  FORUM_BADGES,
+  FORUM_CATEGORIES,
+  PAGE_TOURS,
   verifyWarehouseBar,
   getStrategyCounts,
 } from '@/lib/quant/warehouse';
@@ -23,15 +27,24 @@ import { analyzeHeadlineCheck, SAMPLE_HEADLINE_TRACKS } from '@/lib/quant/headli
 import { UNIVERSITY_CHAPTERS, getUniversityChapter } from '@/lib/quant/university';
 
 describe('QuantGPT Warehouse Datasets & Verification', () => {
-  it('loads 175 strategies, 19 world event kinds, 39 studies, 91 resources, and 49 oil shocks', () => {
+  it('loads 175 strategies, 19 world event kinds, 39 studies, 91 resources, 49 oil shocks, 24 explain specs, and 9 forum badges/categories', () => {
     expect(STRATEGIES.length).toBe(175);
     const counts = getStrategyCounts();
     expect(counts.total).toBe(175);
     expect(counts.validated + counts.tradeOff + counts.noEdge).toBe(175);
     expect(Object.keys(WORLD_KINDS).length).toBe(19);
-    expect(STUDIES.length).toBeGreaterThanOrEqual(39);
+    expect(WORLD_KINDS.war_onset.events?.length).toBeGreaterThan(0);
+    expect(WORLD_KINDS.war_onset.test?.read).toBeTruthy();
+    expect(STUDIES.length).toBe(39);
+    expect(STUDIES[0].cells?.length).toBeGreaterThan(0);
+    expect(STUDIES[0].decades?.length).toBeGreaterThan(0);
+    expect(STUDIES[0].years?.length).toBeGreaterThan(0);
     expect(RESOURCES.length).toBe(91);
     expect(OIL_SHOCKS.length).toBe(49);
+    expect(Object.keys(EXPLAIN_MAP).length).toBe(24);
+    expect(FORUM_BADGES.length).toBe(9);
+    expect(FORUM_CATEGORIES.length).toBe(9);
+    expect(Object.keys(PAGE_TOURS).length).toBeGreaterThanOrEqual(7);
   });
 
   it('produces deterministic SHA-256 point-in-time bar verification proofs', () => {
@@ -44,8 +57,8 @@ describe('QuantGPT Warehouse Datasets & Verification', () => {
   });
 });
 
-describe('QuantGPT Backtester, Walk-Forward Split & 11-Check Skeptic', () => {
-  it('runs cross-sectional factor backtest with 2015 split and 11 skeptic checks', () => {
+describe('QuantGPT Backtester (All 4 Engines), Walk-Forward Split, Funnel, Four Lenses & 11-Check Skeptic', () => {
+  it('runs cross-sectional factor backtest with 2015 split, funnel, four lenses, run log, and 11 skeptic checks', () => {
     const bt = runBacktest({
       engine: 'equity',
       presetId: 'mom_01',
@@ -53,26 +66,60 @@ describe('QuantGPT Backtester, Walk-Forward Split & 11-Check Skeptic', () => {
       rebalance: 'M',
       costBps: 10,
       splitYear: 2015,
+      rankBy: 'ret_12m_1m',
+      rankDir: 'desc',
+      minMcapB: 1.0,
+      halalOnly: true,
     });
     expect(bt.equityCurve.length).toBeGreaterThanOrEqual(29);
     expect(bt.splitYear).toBe(2015);
     expect(bt.skeptic.totalCount).toBe(11);
     expect(bt.skeptic.checks).toHaveLength(11);
+    expect(bt.funnel).toHaveLength(4);
+    expect(bt.fourLenses.costs).toHaveLength(5);
+    expect(bt.fourLenses.factorLens).toHaveLength(6);
+    expect(bt.fourLenses.optimizer).toHaveLength(4);
+    expect(bt.runLog).toHaveLength(5);
     expect(bt.currentHoldings.length).toBeGreaterThan(0);
     expect(['DATA VALIDATED', 'TRADE-OFF', 'NO EDGE']).toContain(bt.verdict);
   });
 
-  it('runs market timing regime backtest and parameter sweep', () => {
+  it('runs market timing, daily session leg (overnight/intraday), and seasonal backtest engines', () => {
     const timing = runBacktest({
       engine: 'timing',
       smaWindow: 200,
-      entryBandPct: 1,
-      exitBandPct: 3,
-      cashSource: 'tbill',
+      hysteresisPct: 1,
+      cashVehicle: 'TBILL3M',
       splitYear: 2015,
     });
     expect(timing.engine).toBe('timing');
     expect(timing.metrics.maxDrawdownPct).toBeGreaterThan(-40);
+
+    const overnight = runBacktest({
+      engine: 'daily',
+      dailyTicker: 'SPY',
+      dailyRule: 'overnight',
+      costBps: 5,
+      splitYear: 2015,
+    });
+    const intraday = runBacktest({
+      engine: 'daily',
+      dailyTicker: 'SPY',
+      dailyRule: 'intraday',
+      costBps: 5,
+      splitYear: 2015,
+    });
+    expect(overnight.engine).toBe('daily');
+    expect(overnight.metrics.cagrPct).toBeGreaterThan(intraday.metrics.cagrPct);
+
+    const seasonal = runBacktest({
+      engine: 'seasonal',
+      seasonalRule: 'nov_apr',
+      cashVehicle: 'TBILL3M',
+      splitYear: 2015,
+    });
+    expect(seasonal.engine).toBe('seasonal');
+    expect(seasonal.metrics.cagrPct).toBeGreaterThan(7);
 
     const sweep = runParameterSweep('mom_01');
     expect(sweep.cells).toHaveLength(12);
@@ -80,13 +127,19 @@ describe('QuantGPT Backtester, Walk-Forward Split & 11-Check Skeptic', () => {
   });
 });
 
-describe('Stock Grader, AAOIFI Halal Screen, Technicals, DCF & University', () => {
-  it('grades stocks across 6 dimensions, accounting scores, and 5 AAOIFI Halal tests', () => {
-    const nvda = gradeStock('NVDA');
+describe('Stock Grader, AAOIFI Halal Screen (with 120-month strip & SEC inputs), Technicals, DCF & University', () => {
+  it('grades stocks across 6 dimensions, 16 drivers, GICS peers, and 5 AAOIFI Halal tests with 120-month strip', () => {
+    const nvda = gradeStock('NVDA', '2026-04');
     expect(nvda.ticker).toBe('NVDA');
+    expect(nvda.halal.asOf).toBe('2026-04');
     expect(nvda.accountingScores.piotroskiF).toBeGreaterThanOrEqual(0);
     expect(nvda.accountingScores.piotroskiF).toBeLessThanOrEqual(9);
+    expect(nvda.dimensions.revisions.inComposite).toBe(false);
+    expect(nvda.drivers.length).toBe(16);
+    expect(nvda.peerBenchmarks.length).toBe(3);
     expect(nvda.halal.tests).toHaveLength(5);
+    expect(nvda.halal.inputs).toHaveLength(6);
+    expect(nvda.halal.history10Y.length).toBeGreaterThanOrEqual(118);
     expect(nvda.halal.status).toBe('HALAL');
 
     const jpm = gradeStock('JPM');
@@ -96,7 +149,7 @@ describe('Stock Grader, AAOIFI Halal Screen, Technicals, DCF & University', () =
     expect(batch).toHaveLength(3);
   });
 
-  it('computes 10-year DCF valuation, reverse-DCF implied growth, and 5x5 sensitivity grid', () => {
+  it('computes 10-year DCF valuation, reverse-DCF implied growth, 5x5 sensitivity grid, and 5-year SEC statements', () => {
     const dcf = runDcfModel({
       ticker: 'MU',
       growthY1_5Pct: 18,
@@ -106,7 +159,8 @@ describe('Stock Grader, AAOIFI Halal Screen, Technicals, DCF & University', () =
     });
     expect(dcf.projections).toHaveLength(10);
     expect(dcf.sensitivityGrid).toHaveLength(5);
-    expect(dcf.sensitivityGrid[0].values).toHaveLength(5);
+    expect(dcf.sensitivityGrid[0].cells).toHaveLength(5);
+    expect(dcf.secFiledStatements).toHaveLength(5);
     expect(typeof dcf.valuation.impliedMarketGrowthPct).toBe('number');
     const csv = exportDcfToCsv(dcf);
     expect(csv).toContain('Year,CalendarYear,RevGrowthPct');

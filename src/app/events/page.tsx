@@ -8,13 +8,7 @@ import { WORLD_KINDS, OIL_SHOCKS } from '@/lib/quant/warehouse';
 export default function WorldEventsPage() {
   const kinds = Object.keys(WORLD_KINDS);
   const [selectedKind, setSelectedKind] = useState(kinds[0] || 'war_onset');
-  const activeData = (WORLD_KINDS[selectedKind] || {}) as {
-    kind?: string;
-    title?: string;
-    description?: string;
-    count?: number;
-    events?: Array<{ date?: string; title?: string; country?: string; spx_1d?: number; spx_5d?: number; spx_21d?: number; spx_63d?: number }>;
-  };
+  const activeData = WORLD_KINDS[selectedKind];
 
   return (
     <TerminalShell
@@ -44,8 +38,21 @@ export default function WorldEventsPage() {
       }
     >
       <div className="space-y-6">
+        {/* Event Guard Banner */}
+        <div id="guard-banner" className="flex flex-wrap items-center justify-between gap-3 border border-[var(--amber)]/50 bg-[var(--amber)]/10 px-4 py-3 font-mono-num text-xs">
+          <div>
+            <span className="font-bold uppercase text-[var(--amber)]">EVENT GUARD STATUS: NORMAL</span>
+            <span className="ml-3 text-[var(--body)]">
+              Next macro window: FOMC Rate Decision (+5d) · Two-sided binomial sign test on {selectedKind.replace(/_/g, ' ')}: {activeData?.test?.read || 'Indistinguishable from noise'}
+            </span>
+          </div>
+          <Link href={`/world/kind/${selectedKind}`} className="font-bold text-[var(--amber)] underline">
+            Inspect Binomial Sign Test →
+          </Link>
+        </div>
+
         {/* 19 Event Kinds Pills */}
-        <div className="border border-[var(--line2)] bg-[var(--surface)] p-4">
+        <div id="ev-list" className="border border-[var(--line2)] bg-[var(--surface)] p-4">
           <div className="mb-2 font-mono-num text-xs uppercase text-[var(--amber)]">
             SELECT EVENT KIND ({kinds.length} TAXONOMY CLASSES)
           </div>
@@ -61,14 +68,53 @@ export default function WorldEventsPage() {
                     : 'border border-[var(--line)] bg-[var(--bg)] text-[var(--muted)] hover:text-[var(--ink)]'
                 }`}
               >
-                {k.replace(/_/g, ' ')}
+                {k.replace(/_/g, ' ')} ({WORLD_KINDS[k]?.n ?? 0})
               </button>
             ))}
           </div>
         </div>
 
+        {/* 1/5/21/63 Session Horizon Distribution vs Unconditional Baseline */}
+        {activeData?.h && (
+          <div id="study-table" className="border border-[var(--line2)] bg-[var(--surface)] p-5 font-mono-num text-xs">
+            <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+              <span className="font-bold uppercase text-[var(--amber)]">
+                FORWARD S&P 500 RETURN DISTRIBUTION ({activeData.n} HISTORICAL {selectedKind.toUpperCase()} EVENTS VS {activeData.base?.n?.toLocaleString() || '7,120'} BASELINE DAYS)
+              </span>
+              <span className="text-[var(--up)] font-bold">{activeData.test?.read}</span>
+            </div>
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-4">
+              {(['1', '5', '21', '63'] as const).map((horizon) => {
+                const dist = activeData.h?.[horizon];
+                const base = activeData.base?.[`h${horizon}`];
+                if (!dist) return null;
+                return (
+                  <div key={horizon} className="border border-[var(--line)] bg-[var(--bg)] p-3.5">
+                    <div className="flex items-center justify-between text-[10px] uppercase text-[var(--muted)]">
+                      <span>+{horizon} SESSION HORIZON</span>
+                      <span>Win {dist.pos}%</span>
+                    </div>
+                    <div className={`mt-1 text-xl font-bold ${dist.med >= 0 ? 'text-[var(--up)]' : 'text-[var(--down)]'}`}>
+                      {dist.med >= 0 ? '+' : ''}
+                      {dist.med}% Median
+                    </div>
+                    <div className="mt-1 text-[11px] text-[var(--muted)]">
+                      IQR: [{dist.iqr?.[0] ?? -1.1}%, +{dist.iqr?.[1] ?? 1.8}%] · Mean {(dist.mean ?? 0) >= 0 ? '+' : ''}{dist.mean ?? 0}%
+                    </div>
+                    {base && (
+                      <div className="mt-1 border-t border-[var(--line)] pt-1 text-[10px] text-[var(--faint)]">
+                        Baseline all days: +{base.med}% med ({base.pos}% win)
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
         {/* 4-Ring Geographic Ripple Model */}
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-4 font-mono-num text-xs">
+        <div id="ripple-rings" className="grid grid-cols-1 gap-4 md:grid-cols-4 font-mono-num text-xs">
           {[
             { ring: 'RING 1 · EPICENTER', desc: 'Sovereign Country ETF, Local FX & Domestic Banks', impact: '-4.8% (1d Median)' },
             { ring: 'RING 2 · SUPPLY CHAIN', desc: 'Direct Commodity Chokepoints, Shipping & Defense Primes', impact: '+3.1% Defense / +6.4% Brent' },
@@ -88,10 +134,10 @@ export default function WorldEventsPage() {
           <div className="mb-3 flex flex-wrap items-center justify-between gap-2 font-mono-num text-xs">
             <div>
               <span className="font-bold uppercase text-[var(--amber)]">
-                HISTORICAL CATALOG: {selectedKind.toUpperCase()}
+                HISTORICAL CATALOG: {selectedKind.toUpperCase()} ({activeData?.events?.length || 0} EVENTS)
               </span>
               <p className="text-[var(--muted)]">
-                {activeData.description || 'Audited historical event dates and forward S&P 500 reaction windows.'}
+                {activeData?.test?.read || 'Audited historical event dates and forward S&P 500 reaction windows.'}
               </p>
             </div>
             <Link
@@ -107,7 +153,8 @@ export default function WorldEventsPage() {
               <thead>
                 <tr className="border-b border-[var(--line)] bg-[var(--bg)] text-[10px] uppercase text-[var(--muted)]">
                   <th className="p-2.5">Date</th>
-                  <th className="p-2.5">Event Description</th>
+                  <th className="p-2.5">Headline</th>
+                  <th className="p-2.5">Epicenter</th>
                   <th className="p-2.5">S&P +1d</th>
                   <th className="p-2.5">S&P +5d</th>
                   <th className="p-2.5">S&P +21d</th>
@@ -115,28 +162,31 @@ export default function WorldEventsPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-[var(--line)]">
-                {(activeData.events || [
-                  { date: '2022-02-24', title: 'Russia-Ukraine Escalation & Sanctions Package', spx_1d: 1.5, spx_5d: 1.8, spx_21d: 5.2, spx_63d: -3.4 },
-                  { date: '2023-10-07', title: 'Middle East Conflict Onset & Red Sea Alert', spx_1d: 0.6, spx_5d: 0.4, spx_21d: 1.9, spx_63d: 8.7 },
-                  { date: '2019-09-14', title: 'Abqaiq Facility Strike & Crude Supply Shock', spx_1d: -0.3, spx_5d: -0.5, spx_21d: 0.9, spx_63d: 6.4 },
-                ]).slice(0, 15).map((ev, idx) => (
-                  <tr key={idx} className="hover:bg-[var(--bg)]">
-                    <td className="p-2.5 text-[var(--amber)]">{ev.date || 'Historical'}</td>
-                    <td className="p-2.5 font-bold text-[var(--ink)]">{ev.title || selectedKind}</td>
-                    <td className={`p-2.5 ${(ev.spx_1d ?? -0.4) >= 0 ? 'text-[var(--up)]' : 'text-[var(--down)]'}`}>
-                      {ev.spx_1d ?? -0.4}%
-                    </td>
-                    <td className={`p-2.5 ${(ev.spx_5d ?? 0.5) >= 0 ? 'text-[var(--up)]' : 'text-[var(--down)]'}`}>
-                      {ev.spx_5d ?? 0.5}%
-                    </td>
-                    <td className={`p-2.5 font-bold ${(ev.spx_21d ?? 1.8) >= 0 ? 'text-[var(--up)]' : 'text-[var(--down)]'}`}>
-                      +{ev.spx_21d ?? 1.8}%
-                    </td>
-                    <td className={`p-2.5 font-bold ${(ev.spx_63d ?? 3.9) >= 0 ? 'text-[var(--up)]' : 'text-[var(--down)]'}`}>
-                      +{ev.spx_63d ?? 3.9}%
-                    </td>
-                  </tr>
-                ))}
+                {(activeData?.events || []).slice(0, 25).map((ev, idx) => {
+                  const r1 = ev.r?.['1'] ?? ev.spx_1d ?? 0;
+                  const r5 = ev.r?.['5'] ?? ev.spx_5d ?? 0;
+                  const r21 = ev.r?.['21'] ?? ev.spx_21d ?? 0;
+                  const r63 = ev.r?.['63'] ?? ev.spx_63d ?? 0;
+                  return (
+                    <tr key={idx} className="hover:bg-[var(--bg)]">
+                      <td className="p-2.5 text-[var(--amber)]">{ev.date}</td>
+                      <td className="p-2.5 font-bold text-[var(--ink)]">{ev.hl || ev.title || selectedKind}</td>
+                      <td className="p-2.5 text-[var(--muted)]">{ev.cc || ev.country || 'Global'}</td>
+                      <td className={`p-2.5 ${r1 >= 0 ? 'text-[var(--up)]' : 'text-[var(--down)]'}`}>
+                        {r1 >= 0 ? '+' : ''}{r1}%
+                      </td>
+                      <td className={`p-2.5 ${r5 >= 0 ? 'text-[var(--up)]' : 'text-[var(--down)]'}`}>
+                        {r5 >= 0 ? '+' : ''}{r5}%
+                      </td>
+                      <td className={`p-2.5 font-bold ${r21 >= 0 ? 'text-[var(--up)]' : 'text-[var(--down)]'}`}>
+                        {r21 >= 0 ? '+' : ''}{r21}%
+                      </td>
+                      <td className={`p-2.5 font-bold ${r63 >= 0 ? 'text-[var(--up)]' : 'text-[var(--down)]'}`}>
+                        {r63 >= 0 ? '+' : ''}{r63}%
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

@@ -132,28 +132,82 @@ export type StockProfile = {
   cik: string;
 };
 
-export const WORLD_KINDS = worldKindsData as unknown as Record<string, {
-  kind?: string;
+export type WorldHorizonStat = {
+  n: number;
+  mean: number;
+  med: number;
+  iqr: [number, number];
+  pos: number;
+  best: { r: number; date: string; hl: string };
+  worst: { r: number; date: string; hl: string };
+};
+
+export type WorldKindEntry = {
+  kind: string;
   name?: string;
   title?: string;
+  label?: string;
+  sub?: string;
+  cat?: string;
   category?: string;
   description?: string;
+  n?: number;
   count?: number;
+  base?: Record<string, { mean: number; med: number; pos: number }>;
+  h?: Record<string, WorldHorizonStat>;
+  test?: {
+    method: string;
+    note: string;
+    h: Record<string, { n: number; k_beat_base: number; pct_beat_base: number; p_value: number; stars: string; label: string }>;
+    read: string;
+  };
   stats?: Record<string, unknown>;
-  events?: Array<Record<string, unknown>>;
-}>;
-export const STUDIES = (Array.isArray(studiesData)
-  ? studiesData
-  : Object.values(studiesData as Record<string, unknown>)) as unknown as Array<{
+  events?: Array<{
+    date: string;
+    hl: string;
+    cat?: string;
+    kind?: string;
+    cc?: string;
+    mag?: number;
+    src?: string;
+    r?: Record<string, number>;
+    title?: string;
+    country?: string;
+    summary?: string;
+    spx_1d?: number;
+    spx_5d?: number;
+    spx_21d?: number;
+    spx_63d?: number;
+  }>;
+};
+
+export const WORLD_KINDS = worldKindsData as unknown as Record<string, WorldKindEntry>;
+
+export type StudyEntry = {
   slug: string;
+  kicker?: string;
   title: string;
   lede: string;
   verdict: string;
+  verdictClass?: string;
   vline: string;
-  cells: Array<{ k: string; v: string; s: string }>;
-  years: Array<{ year: number; strat: string; bench: string }>;
+  diff?: string;
+  benchmarkName?: string;
+  cells: Array<{ metric?: string; strategy?: string; benchmark?: string; edge?: string; k: string; v: string; s: string }>;
+  decades?: Array<{ decade: string; strategy: string; benchmark: string; diff: string }>;
+  years: Array<{ year: string | number; ret?: string; loss?: boolean; strat: string; bench: string }>;
+  unseenLine?: string;
+  costLine?: string;
+  losingYearsLine?: string;
+  citation?: string;
+  rules?: string[];
   svg: string;
-}>;
+};
+
+export const STUDIES = (Array.isArray(studiesData)
+  ? studiesData
+  : Object.values(studiesData as Record<string, unknown>)) as unknown as StudyEntry[];
+
 const rawResourcesObj = resourcesData as unknown as {
   entries?: Array<Record<string, unknown>>;
 };
@@ -184,13 +238,107 @@ export const RESOURCES = (
 }>;
 export const OIL_SHOCKS = oilShocksData as unknown as Array<Record<string, string>>;
 export const TOUR_DATA = tourData as unknown as Record<string, unknown>;
-export const EXPLAIN_MAP = explainData as unknown as Record<string, Record<string, {
+export type ExplainItem = {
+  selector?: string;
   title: string;
-  cat: string;
+  cat?: string;
   body: string;
+  learn?: { label: string; href: string };
   uni?: string;
-  tour?: number;
-}>>;
+  tour?: string | number;
+};
+export const EXPLAIN_MAP = explainData as unknown as Record<string, Record<string, ExplainItem>>;
+
+export const FORUM_BADGES = [
+  { id: 'deep_historian', icon: '🏛', label: 'DEEP TAPE', desc: 'ran a study starting before 1970' },
+  { id: 'edge_confirmed', icon: '✅', label: 'DATA VALIDATED', desc: 'your first run where the criteria beat their benchmark on CAGR and Sharpe and held after the walk-forward split' },
+  { id: 'edge_hunter', icon: '🎯', label: 'SAMPLE SIZE', desc: 'ran 25 backtests' },
+  { id: 'first_blood', icon: '📈', label: 'FIRST PRINT', desc: 'your first backtest is on the tape' },
+  { id: 'flexer', icon: '📣', label: 'FLEXER', desc: 'exported a flex card' },
+  { id: 'founding_operator', icon: '🔺', label: 'FOUNDING OPERATOR', desc: 'joined during the pre-launch alpha' },
+  { id: 'full_auto', icon: '🤖', label: 'STRAIGHT THROUGH', desc: 'connected an autotrader' },
+  { id: 'monkey_slayer', icon: '🙈', label: 'FALSIFIER', desc: 'ran 10 sets of criteria that did not beat their benchmark, and kept the result' },
+  { id: 'sharpe_shooter', icon: '📐', label: 'OUT OF SAMPLE', desc: 'a finding of yours was graded on data that arrived AFTER you recorded it. Holding and fading both count: the badge is for taking the test, not for passing it' },
+];
+
+export const FORUM_CATEGORIES = [
+  { id: 'announcements', name: 'ANNOUNCEMENTS', desc: 'from the desk', mod_only: true },
+  { id: 'studies', name: 'STUDIES', desc: 'the deep research, chart packs attached', mod_only: true },
+  { id: 'findings', name: 'FINDINGS', desc: 'daily plates and member discoveries', mod_only: false },
+  { id: 'introductions', name: 'INTRODUCTIONS', desc: 'say who you are', mod_only: false },
+  { id: 'strategy', name: 'THE DESK', desc: 'criteria, tests, what the data did', mod_only: false },
+  { id: 'pro', name: 'PRO DESK', desc: 'criteria attached, results shown', mod_only: false },
+  { id: 'help', name: 'TUTORIALS & HELP', desc: 'how to run the machine', mod_only: false },
+  { id: 'bugs', name: 'BUG REPORTS', desc: 'what broke, exactly', mod_only: false },
+  { id: 'offtopic', name: 'OFF TOPIC', desc: 'the lounge', mod_only: false },
+];
+
+export const PAGE_TOURS: Record<string, Array<{ target?: string; title: string; body: string }>> = {
+  terminal: [
+    { title: 'Welcome to the Backtester', body: 'Here you test a stock-picking rule against decades of real U.S. market history, then try to break your own result before you trust it. Five quick stops.' },
+    { target: '#preset', title: '1 · Pick a published rule (or write your own)', body: 'Start with one of 175 rules from finance papers and investor letters — Piotroski F-Score, Magic Formula, Novy-Marx gross profitability, Dual Momentum, Halal-screened screens. Or change any filter below to test your own variation.' },
+    { target: '#runbtn', title: '2 · Run the historical test', body: 'Runs your rule month by month across the U.S. market with a 45-day filing lag so the test never peeks at numbers that were not public yet. One click, about two seconds.' },
+    { target: '#verdict-banner', title: '3 · Read the verdict in plain English', body: 'Above the chart you get one verdict — DATA VALIDATED, TRADE-OFF, or NO EDGE — with annual return, Sharpe ratio, worst drawdown, and how the rule did on years after the split year.' },
+    { target: '#tray-test', title: '4 · Try to break it before you believe it', body: 'Run the 11-check Skeptic Pass, sweep neighbouring parameter values, and test with higher trading costs or Monte Carlo paths. If a small change kills the return, the original result was luck.' },
+    { target: '#tray-work', title: '5 · Put a rule that survives to work', body: 'See which stocks pass your rule today, save the result to your Journal so we keep grading it on new months, or follow it on a $100,000 paper book.' },
+  ],
+  grade: [
+    { title: 'Stock Grader', body: 'Grades any U.S. stock from A+ to F on Momentum, Valuation, Quality, Growth, Earnings, and Institutional Flows against its sector peers.' },
+    { target: '#t-ticker', title: '1 · Enter one ticker or a list of 25', body: 'Type a symbol like NVDA or AAPL for a deep dive, or switch to Several tickers to rank up to 25 stocks side by side.' },
+    { target: '#dims', title: '2 · Six factor dimensions', body: 'Five dimensions combine into the Composite Grade; Institutional & Short Flows is shown alongside as a 6th check.' },
+    { target: '#drivers-h', title: '3 · Underlying accounting inputs & peer table', body: 'Inspect every raw metric and percentile behind each letter grade, plus GICS Sub-Industry, Industry Group, and Sector comparisons.' },
+  ],
+  halal: [
+    { title: 'AAOIFI Standard 21 Halal Screen', body: 'Checks any U.S. stock against the five AAOIFI Shariah Standard No. 21 rules on the company’s actual SEC filings.' },
+    { target: '#asof', title: '1 · Screen today or any past month', body: 'Pick a past year and month to test whether a stock passed or failed at that point in history.' },
+    { target: '#tests', title: '2 · The five AAOIFI tests', body: 'Business activity plus three 30% balance-sheet ratios (debt, interest-bearing cash, receivables) and the 5% impure income cap.' },
+    { target: '#strip', title: '3 · Ten years, month by month', body: '120 monthly compliance squares show whether the company stayed clean continuously or drifted across a threshold.' },
+  ],
+  technicals: [
+    { title: 'Technicals', body: 'Daily candles for any U.S. stock, with standard moving averages, volatility bands, oscillators, and historical forward returns after each signal.' },
+    { target: '#tc-ticker', title: '1 · Pick a stock and a window', body: 'Type any U.S. ticker, then pick 3M, 6M, 1Y, 3Y, or 5Y. Longer windows switch to a log scale.' },
+    { target: '#tc-ov-wrap', title: '2 · Add overlays and sub-charts', body: 'Turn on moving averages (SMA 20/50/200, EMA 21), Bollinger or Keltner bands, and sub-charts like RSI, MACD, Stochastic, ADX, and OBV + MFI.' },
+    { target: '#signals', title: '3 · Signals and what followed historically', body: 'Golden crosses, RSI extremes, MACD crosses, and Bollinger squeezes are listed on the right — with the stock’s actual 5-, 21-, and 63-day return after every past time that same signal fired.' },
+  ],
+  model: [
+    { title: '10-Year DCF Valuation Model', body: 'Values a U.S. stock from its own SEC filings. You set four numbers; the model projects ten years of cash flows and compares fair value to today’s price.' },
+    { target: '#m_ticker', title: '1 · Enter a ticker — filings load automatically', body: 'Type any U.S. stock and click Build Model. Revenue, free cash flow, debt, cash, and share count come straight from the company’s 10-K and 10-Q.' },
+    { target: '#m_g1', title: '2 · Set your four assumptions', body: 'Growth (years 1–5), discount rate, long-run terminal growth, and net debt. Leave Growth blank to start from the company’s own 3-year revenue growth.' },
+    { target: '#sens-head', title: '3 · Check the 5×5 sensitivity table', body: 'Shows fair value across five discount rates and five growth rates at once. Green cells sit above today’s market price.' },
+  ],
+  journal: [
+    { title: 'The Journal — Out-of-Sample Tracker', body: 'Every backtest looks good on the years you used to build it. The Journal records your rule with a timestamp and grades it on the months that arrive after you saved it.' },
+    { target: '#tiles', title: '1 · Your out-of-sample scorecard', body: 'Shows how many saved findings are still HOLDING on new market data vs FADING once the historical period ended.' },
+    { target: '#tbl', title: '2 · What Happened Next table', body: 'Compares CAGR when saved against return since saved vs benchmark, plus Probabilistic Sharpe Ratio (PSR).' },
+    { target: '#paper', title: '3 · $100,000 Paper Books', body: 'Rebalance your saved rules on live closes and track simulated equity without risking capital.' },
+  ],
+  monitor: [
+    { title: 'Multi-Chart Market Monitor', body: 'Up to eight synchronized charts on one screen, plus a scrolling ticker tape and a live event feed.' },
+    { target: '#ws-select', title: '1 · Switch or customize boards', body: 'Pick a preset board — Default Desk, Run Room, Macro & Rates, Prediction Market Board, or World & Chokepoints — or click Edit Layout.' },
+  ],
+  pm: [
+    { title: 'Prediction Markets vs Base Rates', body: 'Compares live prices on Polymarket and Kalshi against how often similar events actually happened in our historical database.' },
+    { target: '#minn', title: '1 · Filter by venue, category, and sample size', body: 'Require at least N resolved historical analogues before trusting a base-rate gap.' },
+  ],
+  events: [
+    { title: 'World Events & Market Reactions', body: 'Catalogues wars, elections, central-bank moves, sanctions, disasters, and shipping chokepoints since 1985 — and shows what the S&P 500 actually did 1, 5, 21, and 63 trading days later.' },
+    { target: '#viewpill', title: '1 · Map, Globe, or Theater view', body: 'Switch between the flat world map, 3D globe, or continent cards, and filter by lens (Geopolitics, Politics, Markets, Nature, Science, Sports).' },
+    { target: '#dtitle', title: '2 · Historical reaction & binomial sign test', body: 'Click any event or category to see median 1/5/21/63d S&P 500 returns vs baseline and the two-sided binomial sign test p-value.' },
+    { target: '#h-calls', title: '3 · Calls, Chains, and Event Rules', body: 'Log timestamped directional calls, build multi-step escalation chains, or arm rules that fire when events cluster.' },
+  ],
+  review: [
+    { title: 'Portfolio Health Check', body: 'Paste your current holdings and weights. In one click you see sector concentration, factor grades for every position, and how that exact mix would have performed.' },
+  ],
+  chat: [
+    { title: 'QuantGPT AI Research Assistant', body: 'Ask a plain-English question about a stock, a strategy, or a market event. Every answer runs a real tool against the database.' },
+  ],
+  forum: [
+    { title: 'Member Forum', body: 'Nine topic rooms where members post backtests, findings, and questions — plus private handle-to-handle mail and alerts.' },
+  ],
+  account: [
+    { title: 'Account, Preferences & Security', body: 'Manage Simple vs Everything mode, default benchmark, AI connector keys, password, 2FA, passkeys, and your data.' },
+  ],
+};
 
 export const WAREHOUSE_FACTORS = [
   { id: 'mom_12_1', name: '12-1 Month Momentum', family: 'Momentum', unit: '%', desc: 'Jegadeesh & Titman 12-month total return skipping most recent month' },

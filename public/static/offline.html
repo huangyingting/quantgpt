@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script nonce="RkcHr7mCPaKj_pQiAYFPUg">try{var t=document.cookie.match(/(?:^|;\s*)qg_theme=(day|system)(?:;|$)/);if(t)document.documentElement.setAttribute("data-theme",t[1])}catch(e){}</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>QuantGPT &middot; Offline</title>
+<style>
+  body{background:#0A0D13;color:#E7ECF4;font-family:"Segoe UI",Selawik,system-ui,sans-serif;
+    display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;
+    padding:env(safe-area-inset-top) 16px env(safe-area-inset-bottom)}
+  .card{text-align:center;max-width:320px}
+  .mark{font-family:var(--cond);font-weight:700;
+    letter-spacing:.18em;font-size:1.2rem}
+  .mark::before{content:"\25B2 ";color:#F0A83C}
+  p{font-family:var(--sans,system-ui,sans-serif);font-size:.95rem;letter-spacing:0;color:#9AA5B6;
+    line-height:1.6;margin:1rem 0 1.4rem}
+</style>
+<link rel="stylesheet" href="/static/desk.css?v=ux1">
+</head>
+<body>
+<div class="card">
+  <div class="mark">QUANTGPT</div>
+  <p>No connection. Your data is safe; reconnect to carry on.</p>
+  <button class="qg-btn" id="qg-reload">Reconnect</button>
+</div>
+<script src="/static/glossary.js?v=dl2" defer></script>
+<script nonce="RkcHr7mCPaKj_pQiAYFPUg">
+// was onclick="location.reload()"; inline handlers are blocked under the
+// content security policy and a nonce does not cover them (2026-09-20)
+document.getElementById("qg-reload").addEventListener("click", function () {
+  location.reload();
+});
+</script>
+</body>
+</html>

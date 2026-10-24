@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="780" viewBox="0 0 920 780" font-family="Segoe UI, system-ui, sans-serif">
+  <defs>
+    <linearGradient id="tri" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFCD78"/><stop offset="1" stop-color="#D88C28"/>
+    </linearGradient>
+  </defs>
+
+  <!-- page -->
+  <rect width="920" height="780" fill="#0A0D13"/>
+
+  <!-- header -->
+  <polygon points="40,26 52,46 28,46" fill="url(#tri)"/>
+  <text x="62" y="43" fill="#E7ECF4" font-size="19" font-weight="800" letter-spacing="3" font-family="Bahnschrift, Arial Narrow, sans-serif">QUANTGPT</text>
+  <text x="40" y="74" fill="#F0A83C" font-size="12" letter-spacing="2.5" font-family="Cascadia Mono, Consolas, monospace">// CONNECTOR DIALOG CHEAT SHEET &#183; CLAUDE AND CHATGPT ASK THE SAME QUESTIONS</text>
+
+  <!-- the dialog card -->
+  <rect x="40" y="96" width="560" height="596" rx="10" fill="#10151E" stroke="#2E3A4D"/>
+  <text x="64" y="132" fill="#E7ECF4" font-size="17" font-weight="700">Add custom connector</text>
+
+  <!-- url row -->
+  <text x="64" y="164" fill="#8B96A8" font-size="12">Server URL</text>
+  <rect x="64" y="174" width="512" height="34" rx="6" fill="#0C1017" stroke="#2E3A4D"/>
+  <text x="76" y="196" fill="#E7ECF4" font-size="13" font-family="Cascadia Mono, Consolas, monospace">https://terminal.quantgpt.co/mcp</text>
+
+  <!-- auth section -->
+  <text x="64" y="244" fill="#E7ECF4" font-size="14" font-weight="700">Authentication</text>
+
+  <!-- radio 1: always required -->
+  <circle cx="76" cy="276" r="7" fill="none" stroke="#5B6577" stroke-width="1.6"/>
+  <text x="94" y="281" fill="#8B96A8" font-size="13">Always required</text>
+  <rect x="200" y="266" width="64" height="18" rx="4" fill="#1A2230"/>
+  <text x="232" y="279" fill="#8B96A8" font-size="10" text-anchor="middle">Detected</text>
+  <line x1="270" y1="275" x2="330" y2="275" stroke="#DF605E" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <text x="338" y="271" fill="#DF605E" font-size="11.5" font-weight="700">a guess, and it is wrong:</text>
+  <text x="338" y="286" fill="#DF605E" font-size="11.5">we are not an OAuth server</text>
+
+  <!-- radio 2 -->
+  <circle cx="76" cy="312" r="7" fill="none" stroke="#5B6577" stroke-width="1.6"/>
+  <text x="94" y="317" fill="#5B6577" font-size="13">Required when the server asks</text>
+
+  <!-- radio 3: none, selected -->
+  <circle cx="76" cy="348" r="7" fill="none" stroke="#43BD85" stroke-width="2.2"/>
+  <circle cx="76" cy="348" r="3.4" fill="#43BD85"/>
+  <text x="94" y="353" fill="#E7ECF4" font-size="13" font-weight="700">None</text>
+  <text x="140" y="353" fill="#8B96A8" font-size="12">(for servers that use an API key)</text>
+  <line x1="352" y1="348" x2="410" y2="348" stroke="#43BD85" stroke-width="1.8"/>
+  <polygon points="352,348 360,344 360,352" fill="#43BD85"/>
+  <text x="418" y="345" fill="#43BD85" font-size="11.5" font-weight="700">PICK THIS ONE</text>
+  <text x="418" y="360" fill="#43BD85" font-size="11.5">QuantGPT is an API-key server</text>
+
+  <!-- oauth section, skipped -->
+  <rect x="64" y="376" width="512" height="54" rx="6" fill="#0C1017" stroke="#212A38"/>
+  <text x="76" y="398" fill="#5B6577" font-size="12">OAuth client &#183; Client ID &#183; Client Secret</text>
+  <text x="76" y="416" fill="#5B6577" font-size="11" font-style="italic">skip this entire section</text>
+  <line x1="64" y1="403" x2="576" y2="403" stroke="#5B6577" stroke-width="1" opacity="0.5"/>
+
+  <!-- headers section -->
+  <text x="64" y="464" fill="#E7ECF4" font-size="14" font-weight="700">Request headers</text>
+  <text x="64" y="482" fill="#8B96A8" font-size="11.5">sent on every request, stored securely</text>
+
+  <rect x="64" y="494" width="150" height="34" rx="6" fill="#0C1017" stroke="#43BD85" stroke-width="1.5"/>
+  <text x="76" y="516" fill="#E7ECF4" font-size="12.5" font-family="Cascadia Mono, Consolas, monospace">authorization</text>
+  <rect x="222" y="494" width="266" height="34" rx="6" fill="#0C1017" stroke="#43BD85" stroke-width="1.5"/>
+  <text x="234" y="516" fill="#E7ECF4" font-size="12.5" font-family="Cascadia Mono, Consolas, monospace">Bearer qg_sk_your_key</text>
+  <rect x="496" y="494" width="80" height="34" rx="6" fill="#151C27" stroke="#2E3A4D"/>
+  <text x="536" y="516" fill="#8B96A8" font-size="11.5" text-anchor="middle">Required &#10003;</text>
+
+  <text x="64" y="552" fill="#F0A83C" font-size="11.5" font-weight="700">the word Bearer, one space, then your key &#183; exactly one header</text>
+
+  <!-- footer fallback -->
+  <rect x="64" y="576" width="512" height="88" rx="6" fill="#0D121A" stroke="#212A38"/>
+  <text x="80" y="600" fill="#F0A83C" font-size="11" letter-spacing="1.5" font-family="Cascadia Mono, Consolas, monospace">// IF THE DIALOG REFUSES AN AUTHORIZATION HEADER</text>
+  <text x="80" y="622" fill="#8B96A8" font-size="12.5">use header name <tspan fill="#E7ECF4" font-family="Cascadia Mono, Consolas, monospace">X-API-Key</tspan> with just the raw key, no Bearer.</text>
+  <text x="80" y="642" fill="#8B96A8" font-size="12.5">Both are accepted. The green AI light in the nav means you are armed.</text>
+
+  <!-- right rail: the three steps -->
+  <rect x="628" y="96" width="252" height="596" rx="10" fill="#0D121A" stroke="#212A38"/>
+  <text x="648" y="130" fill="#F0A83C" font-size="12" letter-spacing="2" font-family="Cascadia Mono, Consolas, monospace">// THE WHOLE SETUP</text>
+
+  <text x="648" y="170" fill="#43BD85" font-size="24" font-weight="800" font-family="Bahnschrift, Arial Narrow, sans-serif">1</text>
+  <text x="676" y="164" fill="#E7ECF4" font-size="13" font-weight="700">Get your key</text>
+  <text x="676" y="182" fill="#8B96A8" font-size="12">ACCOUNT page &#8594; issue key &#8594;</text>
+  <text x="676" y="198" fill="#8B96A8" font-size="12">COPY AS HEADER</text>
+
+  <text x="648" y="248" fill="#43BD85" font-size="24" font-weight="800" font-family="Bahnschrift, Arial Narrow, sans-serif">2</text>
+  <text x="676" y="242" fill="#E7ECF4" font-size="13" font-weight="700">Auth: None</text>
+  <text x="676" y="260" fill="#8B96A8" font-size="12">ignore "Detected", skip OAuth,</text>
+  <text x="676" y="276" fill="#8B96A8" font-size="12">paste the header</text>
+
+  <text x="648" y="326" fill="#43BD85" font-size="24" font-weight="800" font-family="Bahnschrift, Arial Narrow, sans-serif">3</text>
+  <text x="676" y="320" fill="#E7ECF4" font-size="13" font-weight="700">Ask for something big</text>
+  <text x="676" y="338" fill="#8B96A8" font-size="12">"call describe_capabilities"</text>
+  <text x="676" y="354" fill="#8B96A8" font-size="12">then sweep a strategy</text>
+
+  <line x1="648" y1="384" x2="860" y2="384" stroke="#212A38"/>
+
+  <text x="648" y="414" fill="#F0A83C" font-size="11" letter-spacing="1.5" font-family="Cascadia Mono, Consolas, monospace">// CHATGPT DIFFERENCES</text>
+  <text x="648" y="438" fill="#8B96A8" font-size="12">Settings &#8594; Plugins &#8594; MCPs tab</text>
+  <text x="648" y="456" fill="#8B96A8" font-size="12">&#8594; Add &#8594; Add MCP server</text>
+  <text x="648" y="480" fill="#8B96A8" font-size="12">Type: <tspan fill="#E7ECF4" font-weight="700">Streamable HTTP</tspan></text>
+  <text x="648" y="498" fill="#8B96A8" font-size="12">(not STDIO)</text>
+  <text x="648" y="522" fill="#8B96A8" font-size="12">Leave Command and</text>
+  <text x="648" y="540" fill="#8B96A8" font-size="12">Arguments empty</text>
+
+  <line x1="648" y1="568" x2="860" y2="568" stroke="#212A38"/>
+
+  <text x="648" y="598" fill="#F0A83C" font-size="11" letter-spacing="1.5" font-family="Cascadia Mono, Consolas, monospace">// CLAUDE CODE</text>
+  <text x="648" y="622" fill="#8B96A8" font-size="12">one line, one COPY button</text>
+  <text x="648" y="640" fill="#8B96A8" font-size="12">on your account page after</text>
+  <text x="648" y="658" fill="#8B96A8" font-size="12">issuing a key</text>
+
+  <!-- footer -->
+  <polygon points="46,742 54,756 38,756" fill="#F0A83C"/>
+  <text x="62" y="754" fill="#F0A83C" font-size="11" font-weight="700" letter-spacing="1.5" font-family="Cascadia Mono, Consolas, monospace">POWERED BY QUANTGPT</text>
+  <text x="880" y="754" fill="#5B6577" font-size="10" text-anchor="end" font-family="Cascadia Mono, Consolas, monospace">terminal.quantgpt.co/connect &#183; not investment advice</text>
+</svg>

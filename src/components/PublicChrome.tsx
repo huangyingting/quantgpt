@@ -155,9 +155,10 @@ export function PublicFooter() {
               <li><Link href="/mcp" className="hover:text-[var(--amber)]">MCP Connector</Link></li>
               <li><Link href="/data-warehouse" className="hover:text-[var(--amber)]">Data Warehouse</Link></li>
               <li><Link href="/execution" className="hover:text-[var(--amber)]">Execution & Alpaca</Link></li>
+              <li><Link href="/transmissions" className="hover:text-[var(--amber)]">Transmissions</Link></li>
               <li><Link href="/events/oil-shocks" className="hover:text-[var(--amber)]">Oil Shocks Study</Link></li>
               <li><Link href="/compare/best-backtesting-platforms-2026" className="hover:text-[var(--amber)]">2026 Platform Compare</Link></li>
-              <li><Link href="/is-quantgpt-legit" className="hover:text-[var(--amber)]">Is QuantGPT Legit?</Link></li>
+              <li><Link href="/whats-new" className="hover:text-[var(--amber)]">What&apos;s New</Link></li>
             </ul>
           </div>
 
@@ -168,13 +169,27 @@ export function PublicFooter() {
               <li><Link href="/status" className="hover:text-[var(--amber)]">System Status</Link></li>
               <li><Link href="/admin" className="hover:text-[var(--amber)]">Admin Invite Console</Link></li>
               <li><Link href="/security" className="hover:text-[var(--amber)]">Security</Link></li>
+              <li><Link href="/is-quantgpt-legit" className="hover:text-[var(--amber)]">Is QuantGPT Legit?</Link></li>
               <li><Link href="/terms" className="hover:text-[var(--amber)]">Terms of Service</Link></li>
               <li><Link href="/privacy" className="hover:text-[var(--amber)]">Privacy Policy</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-8 border-t border-[var(--line)] pt-6 text-[11px] leading-relaxed text-[var(--faint)]">
+        <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-[var(--line)] pt-5 font-mono-num text-[11px] text-[var(--muted)]">
+          <Link href="/terms" className="hover:text-[var(--amber)]">Terms</Link>
+          <Link href="/privacy" className="hover:text-[var(--amber)]">Privacy</Link>
+          <Link href="/cookies" className="hover:text-[var(--amber)]">Cookies</Link>
+          <Link href="/disclosures" className="hover:text-[var(--amber)]">Disclosures</Link>
+          <Link href="/business-terms" className="hover:text-[var(--amber)]">Business terms</Link>
+          <Link href="/dmca" className="hover:text-[var(--amber)]">Copyright</Link>
+          <Link href="/eula" className="hover:text-[var(--amber)]">EULA</Link>
+          <Link href="/security" className="hover:text-[var(--amber)]">Security</Link>
+          <Link href="/is-quantgpt-legit" className="hover:text-[var(--amber)]">Is QuantGPT legit?</Link>
+          <Link href="/cookies#ad-choices" className="hover:text-[var(--amber)]">Do Not Sell or Share My Personal Information</Link>
+        </div>
+
+        <div className="mt-4 text-[11px] leading-relaxed text-[var(--faint)]">
           QuantGPT is a quantitative financial research and historical backtesting platform. Nothing on QuantGPT constitutes personalized investment advice, a solicitation, or brokerage custody. Past performance (in-sample or out-of-sample) does not guarantee future results.
         </div>
       </div>
